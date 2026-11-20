@@ -1,4 +1,4 @@
-"""Load careers, exams, schemes and rules from shared/ into Supabase.
+"""Load careers, programs, resources, exams, schemes and rules from shared/ into Supabase.
 
 Safe to run again: rows are upserted by slug, and a scheme's rule gets a new version
 only when its JSON actually changed (the old version stays for the audit trail).
@@ -49,13 +49,19 @@ def main() -> None:
             "min_education": c["min_education"], "earning_speed": c["earning_speed"], "cost_band": c["cost_band"],
             "interest_tags": c["interest_tags"], "subject_tags": c["subject_tags"], "path": c["path"],
             "rural_demand": c["rural_demand"], "needs_city": c["needs_city"],
-            "scheme_slugs": c["scheme_slugs"], "exam_slugs": c["exam_slugs"],
+            "scheme_slugs": c["scheme_slugs"], "exam_slugs": c["exam_slugs"], "program_slugs": c["program_slugs"],
         })
     db.table("careers").upsert(career_rows, on_conflict="slug").execute()
     career_ids = {r["slug"]: r["id"] for r in db.table("careers").select("id, slug").execute().data}
     links = [{"career_id": career_ids[c["slug"]], "exam_id": exam_ids[e]} for c in careers_doc["careers"] for e in c["exam_slugs"]]
     if links:
         db.table("career_exams").upsert(links, on_conflict="career_id,exam_id").execute()
+
+    # Programs (education steps) and free resources
+    programs = load("catalogue/programs.json")["programs"]
+    db.table("programs").upsert([{**p, "updated_at": "now()"} for p in programs], on_conflict="slug").execute()
+    resources = load("catalogue/resources.json")["resources"]
+    db.table("resources").upsert([{**r, "updated_at": "now()"} for r in resources], on_conflict="slug").execute()
 
     # Schemes, their documents, sources and rules
     new_versions = 0
@@ -90,7 +96,7 @@ def main() -> None:
         }).execute()
         new_versions += 1
 
-    print(f"careers={len(career_rows)} exams={len(exam_ids)} schemes={len(rules_doc['schemes'])} new_rule_versions={new_versions}")
+    print(f"careers={len(career_rows)} programs={len(programs)} resources={len(resources)} exams={len(exam_ids)} schemes={len(rules_doc['schemes'])} new_rule_versions={new_versions}")
 
 
 if __name__ == "__main__":

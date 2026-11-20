@@ -26,8 +26,21 @@ export const LANGUAGES = [
 
 export type LanguageCode = (typeof LANGUAGES)[number]['code']
 
+/**
+ * Feature areas keep their strings in i18n/parts/<area>.<lang>.json; they are merged
+ * into the main translation so keys read as t('<area>.key').
+ */
+const parts = import.meta.glob<{ default: Record<string, unknown> }>('./parts/*.json', { eager: true })
+const base: Record<string, Record<string, unknown>> = { en: { ...en }, hi: { ...hi }, mr: { ...mr } }
+for (const [path, mod] of Object.entries(parts)) {
+  const m = path.match(/\/([\w-]+)\.(\w+)\.json$/)
+  if (!m) continue
+  const [, area, lang] = m
+  base[lang] = { ...(base[lang] ?? {}), [area]: mod.default }
+}
+
 void i18n.use(initReactI18next).init({
-  resources: { en: { translation: en }, hi: { translation: hi }, mr: { translation: mr } },
+  resources: Object.fromEntries(Object.entries(base).map(([l, t]) => [l, { translation: t }])),
   lng: 'en',
   fallbackLng: 'en',
   interpolation: { escapeValue: false },

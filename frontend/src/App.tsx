@@ -16,6 +16,24 @@ import { Welcome } from '@/pages/auth/Welcome'
 import { Careers } from '@/pages/student/Careers'
 import { Money } from '@/pages/student/Money'
 import { Start } from '@/pages/student/Start'
+import { Saathi } from '@/pages/student/Saathi'
+import { CareerPage } from '@/pages/explore/CareerPage'
+import { CoursePage } from '@/pages/explore/CoursePage'
+import { ExamPage } from '@/pages/explore/ExamPage'
+import { Colleges } from '@/pages/explore/Colleges'
+import { CollegePage } from '@/pages/explore/CollegePage'
+import { Learn } from '@/pages/explore/Learn'
+import { Plans } from '@/pages/explore/Plans'
+import { PlanPage } from '@/pages/explore/PlanPage'
+import { Community } from '@/pages/community/Community'
+import { PostPage } from '@/pages/community/PostPage'
+import { Opportunities } from '@/pages/community/Opportunities'
+import { Organisation } from '@/pages/partner/Organisation'
+import { Postings } from '@/pages/partner/Postings'
+import { Applicants } from '@/pages/partner/Applicants'
+import { Partners } from '@/pages/admin/Partners'
+import { Moderation } from '@/pages/admin/Moderation'
+
 import { useFacts, useOnlineSync } from '@/data/facts'
 
 const queryClient = new QueryClient({
@@ -48,10 +66,13 @@ function StudentData({ children }: { children: ReactNode }) {
   return children
 }
 
-function StudentOnly({ children }: { children: ReactNode }) {
-  const { role } = useAuth()
-  return role === 'student' ? children : <Navigate to="/app" replace />
+function Only({ roles, children }: { roles: string[]; children: ReactNode }) {
+  const { roles: mine } = useAuth()
+  return mine.some((r) => roles.includes(r)) ? children : <Navigate to="/app" replace />
 }
+const StudentOnly = ({ children }: { children: ReactNode }) => <Only roles={['student']}>{children}</Only>
+const PartnerOnly = ({ children }: { children: ReactNode }) => <Only roles={['partner', 'admin']}>{children}</Only>
+const AdminOnly = ({ children }: { children: ReactNode }) => <Only roles={['admin', 'facilitator']}>{children}</Only>
 
 function PublicOnly({ children }: { children: ReactNode }) {
   const { ready, session } = useAuth()
@@ -78,6 +99,23 @@ const router = createBrowserRouter([
       { path: 'start', element: <StudentOnly><Start /></StudentOnly> },
       { path: 'careers', element: <StudentOnly><Careers /></StudentOnly> },
       { path: 'money', element: <StudentOnly><Money /></StudentOnly> },
+      { path: 'saathi', element: <StudentOnly><Saathi /></StudentOnly> },
+      { path: 'careers/:slug', element: <StudentOnly><CareerPage /></StudentOnly> },
+      { path: 'courses/:slug', element: <StudentOnly><CoursePage /></StudentOnly> },
+      { path: 'exams/:slug', element: <StudentOnly><ExamPage /></StudentOnly> },
+      { path: 'colleges', element: <Colleges /> },
+      { path: 'colleges/:code', element: <CollegePage /> },
+      { path: 'learn', element: <StudentOnly><Learn /></StudentOnly> },
+      { path: 'plan', element: <StudentOnly><Plans /></StudentOnly> },
+      { path: 'plan/:id', element: <StudentOnly><PlanPage /></StudentOnly> },
+      { path: 'community', element: <Community /> },
+      { path: 'community/:id', element: <PostPage /> },
+      { path: 'opportunities', element: <StudentOnly><Opportunities /></StudentOnly> },
+      { path: 'organisation', element: <PartnerOnly><Organisation /></PartnerOnly> },
+      { path: 'postings', element: <PartnerOnly><Postings /></PartnerOnly> },
+      { path: 'applicants', element: <PartnerOnly><Applicants /></PartnerOnly> },
+      { path: 'partners', element: <AdminOnly><Partners /></AdminOnly> },
+      { path: 'moderation', element: <AdminOnly><Moderation /></AdminOnly> },
       { path: ':section', element: <Section /> },
     ],
   },

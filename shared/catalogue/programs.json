@@ -1,0 +1,1052 @@
+{
+  "_doc": "Education and training steps between a student and a career. Each links to exams, schemes and the kind of institution that offers it.",
+  "checked_on": "2026-11-20",
+  "programs": [
+    {
+      "slug": "iti-electrician",
+      "name": "ITI Electrician",
+      "name_i18n": {
+        "hi": "आईटीआई इलेक्ट्रीशियन",
+        "mr": "आयटीआय विजतंत्री"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "Government or private ITI (NCVT/SCVT)",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-fitter",
+      "name": "ITI Fitter",
+      "name_i18n": {
+        "hi": "आईटीआई फ़िटर",
+        "mr": "आयटीआय फिटर"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-mmv",
+      "name": "ITI Mechanic Motor Vehicle",
+      "name_i18n": {
+        "hi": "आईटीआई मैकेनिक मोटर व्हीकल",
+        "mr": "आयटीआय मेकॅनिक मोटर व्हेईकल"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-ev-mechanic",
+      "name": "ITI Mechanic Electric Vehicle",
+      "name_i18n": {
+        "hi": "आईटीआई इलेक्ट्रिक व्हीकल मैकेनिक",
+        "mr": "आयटीआय इलेक्ट्रिक व्हेईकल मेकॅनिक"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "ITIs that run the EV trade",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Not every ITI runs this newer trade; check your district list."
+      ]
+    },
+    {
+      "slug": "iti-solar",
+      "name": "ITI Solar Technician (Electrical)",
+      "name_i18n": {
+        "hi": "आईटीआई सोलर टेक्नीशियन",
+        "mr": "आयटीआय सोलर तंत्रज्ञ"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_10",
+      "where": "ITIs that run the solar trade",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-welder",
+      "name": "ITI Welder",
+      "name_i18n": {
+        "hi": "आईटीआई वेल्डर",
+        "mr": "आयटीआय वेल्डर"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_8",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-plumber",
+      "name": "ITI Plumber",
+      "name_i18n": {
+        "hi": "आईटीआई प्लंबर",
+        "mr": "आयटीआय प्लंबर"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_8",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-carpenter",
+      "name": "ITI Carpenter",
+      "name_i18n": {
+        "hi": "आईटीआई कारपेंटर",
+        "mr": "आयटीआय सुतार"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_8",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-electronics",
+      "name": "ITI Electronics Mechanic",
+      "name_i18n": {
+        "hi": "आईटीआई इलेक्ट्रॉनिक्स मैकेनिक",
+        "mr": "आयटीआय इलेक्ट्रॉनिक्स मेकॅनिक"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-copa",
+      "name": "ITI Computer Operator (COPA)",
+      "name_i18n": {
+        "hi": "आईटीआई कंप्यूटर ऑपरेटर (COPA)",
+        "mr": "आयटीआय संगणक चालक (COPA)"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-sewing",
+      "name": "ITI Sewing Technology",
+      "name_i18n": {
+        "hi": "आईटीआई सिलाई तकनीक",
+        "mr": "आयटीआय शिवणकाम तंत्र"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_8",
+      "where": "Government or private ITI (many women's ITIs)",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-cosmetology",
+      "name": "ITI Cosmetology",
+      "name_i18n": {
+        "hi": "आईटीआई कॉस्मेटोलॉजी",
+        "mr": "आयटीआय सौंदर्यशास्त्र"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-food-production",
+      "name": "ITI Food Production (General)",
+      "name_i18n": {
+        "hi": "आईटीआई फ़ूड प्रोडक्शन",
+        "mr": "आयटीआय अन्न उत्पादन"
+      },
+      "level": "iti",
+      "duration_months": 12,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "iti-draughtsman-civil",
+      "name": "ITI Draughtsman (Civil)",
+      "name_i18n": {
+        "hi": "आईटीआई ड्राफ़्ट्समैन (सिविल)",
+        "mr": "आयटीआय आरेखक (स्थापत्य)"
+      },
+      "level": "iti",
+      "duration_months": 24,
+      "entry": "class_10",
+      "where": "Government or private ITI",
+      "college_kind": "iti",
+      "official_url": "https://dgt.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "naps",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "pmkvy-short",
+      "name": "Short skill course (PMKVY / Skill India)",
+      "name_i18n": {
+        "hi": "छोटा कौशल कोर्स (पीएमकेवीवाई)",
+        "mr": "लघु कौशल अभ्यासक्रम (पीएमकेव्हीवाय)"
+      },
+      "level": "certificate",
+      "duration_months": 4,
+      "entry": "class_8",
+      "where": "PMKVY training centres listed on Skill India Digital Hub",
+      "college_kind": "skill_centre",
+      "official_url": "https://www.skillindiadigital.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pmkvy-4"
+      ],
+      "verify": [
+        "Course length varies by job role, usually 2 to 6 months."
+      ]
+    },
+    {
+      "slug": "apprenticeship",
+      "name": "Apprenticeship (paid, on the job)",
+      "name_i18n": {
+        "hi": "अप्रेंटिसशिप (वेतन के साथ)",
+        "mr": "शिकाऊ उमेदवारी (मानधनासह)"
+      },
+      "level": "apprenticeship",
+      "duration_months": 12,
+      "entry": "class_8",
+      "where": "Companies listed on the apprenticeship portal",
+      "college_kind": "employer",
+      "official_url": "https://www.apprenticeshipindia.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "naps"
+      ],
+      "verify": [
+        "Length depends on the trade: 6 months to 3 years."
+      ]
+    },
+    {
+      "slug": "diploma-engineering",
+      "name": "Polytechnic Diploma in Engineering",
+      "name_i18n": {
+        "hi": "पॉलिटेक्निक इंजीनियरिंग डिप्लोमा",
+        "mr": "पॉलिटेक्निक अभियांत्रिकी पदविका"
+      },
+      "level": "diploma",
+      "duration_months": 36,
+      "entry": "class_10",
+      "where": "Government or private polytechnic",
+      "college_kind": "polytechnic",
+      "official_url": "https://www.aicte-india.org",
+      "exam_slugs": [
+        "polytechnic-cet"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "aicte-saksham",
+        "aicte-swanath",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "btech",
+      "name": "B.Tech / B.E. (Engineering degree)",
+      "name_i18n": {
+        "hi": "बी.टेक / बी.ई.",
+        "mr": "बी.टेक / बी.ई."
+      },
+      "level": "ug",
+      "duration_months": 48,
+      "entry": "class_12",
+      "where": "Engineering college",
+      "college_kind": "engineering",
+      "official_url": "https://www.aicte-india.org",
+      "exam_slugs": [
+        "jee-main",
+        "mht-cet"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "aicte-saksham",
+        "aicte-swanath",
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Maharashtra admissions also use MHT-CET; diploma holders can join in the second year."
+      ]
+    },
+    {
+      "slug": "bca",
+      "name": "BCA (Computer Applications)",
+      "name_i18n": {
+        "hi": "बीसीए",
+        "mr": "बीसीए"
+      },
+      "level": "ug",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Arts, science and commerce college",
+      "college_kind": "general",
+      "official_url": "https://www.ugc.gov.in",
+      "exam_slugs": [
+        "cuet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "anm",
+      "name": "ANM (Auxiliary Nurse Midwife)",
+      "name_i18n": {
+        "hi": "एएनएम",
+        "mr": "एएनएम"
+      },
+      "level": "diploma",
+      "duration_months": 24,
+      "entry": "class_12",
+      "where": "Nursing school recognised by the Indian Nursing Council",
+      "college_kind": "nursing",
+      "official_url": "https://www.indiannursingcouncil.org",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "gnm",
+      "name": "GNM (General Nursing and Midwifery)",
+      "name_i18n": {
+        "hi": "जीएनएम",
+        "mr": "जीएनएम"
+      },
+      "level": "diploma",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Nursing school recognised by the Indian Nursing Council",
+      "college_kind": "nursing",
+      "official_url": "https://www.indiannursingcouncil.org",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "The Indian Nursing Council plans to phase GNM out in favour of B.Sc Nursing; check the current year's admissions."
+      ]
+    },
+    {
+      "slug": "bsc-nursing",
+      "name": "B.Sc Nursing",
+      "name_i18n": {
+        "hi": "बी.एससी नर्सिंग",
+        "mr": "बी.एससी परिचर्या"
+      },
+      "level": "ug",
+      "duration_months": 48,
+      "entry": "class_12",
+      "where": "Nursing college recognised by the Indian Nursing Council",
+      "college_kind": "nursing",
+      "official_url": "https://www.indiannursingcouncil.org",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Entrance differs by state (state CET; some institutes use NEET)."
+      ]
+    },
+    {
+      "slug": "dmlt",
+      "name": "DMLT (Medical Lab Technology diploma)",
+      "name_i18n": {
+        "hi": "डीएमएलटी",
+        "mr": "डीएमएलटी"
+      },
+      "level": "diploma",
+      "duration_months": 24,
+      "entry": "class_12",
+      "where": "Paramedical institute approved by the state board",
+      "college_kind": "paramedical",
+      "official_url": "https://www.mohfw.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Course length and board differ by state."
+      ]
+    },
+    {
+      "slug": "dpharm",
+      "name": "D.Pharm (Diploma in Pharmacy)",
+      "name_i18n": {
+        "hi": "डी.फ़ार्म",
+        "mr": "डी.फार्म"
+      },
+      "level": "diploma",
+      "duration_months": 24,
+      "entry": "class_12",
+      "where": "Pharmacy college approved by the Pharmacy Council of India",
+      "college_kind": "pharmacy",
+      "official_url": "https://pci.gov.in",
+      "exam_slugs": [
+        "mht-cet"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "bpt",
+      "name": "BPT (Physiotherapy degree)",
+      "name_i18n": {
+        "hi": "बीपीटी (फ़िज़ियोथेरेपी)",
+        "mr": "बीपीटी (फिजिओथेरपी)"
+      },
+      "level": "ug",
+      "duration_months": 54,
+      "entry": "class_12",
+      "where": "Physiotherapy college",
+      "college_kind": "paramedical",
+      "official_url": "https://ncahp.abdm.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Includes a 6-month internship; admission is by state CET or merit."
+      ]
+    },
+    {
+      "slug": "mbbs",
+      "name": "MBBS",
+      "name_i18n": {
+        "hi": "एमबीबीएस",
+        "mr": "एमबीबीएस"
+      },
+      "level": "ug",
+      "duration_months": 66,
+      "entry": "class_12",
+      "where": "Medical college",
+      "college_kind": "medical",
+      "official_url": "https://www.nmc.org.in",
+      "exam_slugs": [
+        "neet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "bvsc",
+      "name": "B.V.Sc & A.H. (Veterinary degree)",
+      "name_i18n": {
+        "hi": "बी.वी.एससी (पशु चिकित्सा)",
+        "mr": "बी.व्ही.एससी (पशुवैद्यक)"
+      },
+      "level": "ug",
+      "duration_months": 66,
+      "entry": "class_12",
+      "where": "Veterinary college",
+      "college_kind": "veterinary",
+      "official_url": "https://vci.dahd.gov.in",
+      "exam_slugs": [
+        "neet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "livestock-diploma",
+      "name": "Diploma in Animal Husbandry / livestock assistant",
+      "name_i18n": {
+        "hi": "पशुपालन डिप्लोमा",
+        "mr": "पशुसंवर्धन पदविका"
+      },
+      "level": "diploma",
+      "duration_months": 24,
+      "entry": "class_12",
+      "where": "State veterinary university or its schools",
+      "college_kind": "veterinary",
+      "official_url": "https://dahd.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Name, length and entry rules differ by state."
+      ]
+    },
+    {
+      "slug": "bsc-agriculture",
+      "name": "B.Sc Agriculture",
+      "name_i18n": {
+        "hi": "बी.एससी कृषि",
+        "mr": "बी.एससी कृषी"
+      },
+      "level": "ug",
+      "duration_months": 48,
+      "entry": "class_12",
+      "where": "Agriculture college",
+      "college_kind": "agriculture",
+      "official_url": "https://icar.org.in",
+      "exam_slugs": [
+        "cuet-ug",
+        "icar-aieea",
+        "mht-cet"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "ICAR's own UG seats now go through CUET-UG; state agriculture universities use state CETs."
+      ]
+    },
+    {
+      "slug": "deled",
+      "name": "D.El.Ed (Diploma in Elementary Education)",
+      "name_i18n": {
+        "hi": "डी.एल.एड",
+        "mr": "डी.एल.एड"
+      },
+      "level": "diploma",
+      "duration_months": 24,
+      "entry": "class_12",
+      "where": "Teacher training institute (DIET or NCTE-approved)",
+      "college_kind": "teacher_training",
+      "official_url": "https://ncte.gov.in",
+      "exam_slugs": [
+        "ctet"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "ba-bsc-bcom",
+      "name": "BA / B.Sc / B.Com degree",
+      "name_i18n": {
+        "hi": "बीए / बीएससी / बीकॉम",
+        "mr": "बीए / बीएससी / बीकॉम"
+      },
+      "level": "ug",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Arts, science and commerce college",
+      "college_kind": "general",
+      "official_url": "https://www.ugc.gov.in",
+      "exam_slugs": [
+        "cuet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Under NEP many universities offer a 4-year honours option."
+      ]
+    },
+    {
+      "slug": "bsw",
+      "name": "BSW (Social Work)",
+      "name_i18n": {
+        "hi": "बीएसडब्ल्यू (समाज कार्य)",
+        "mr": "बीएसडब्ल्यू (समाजकार्य)"
+      },
+      "level": "ug",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Arts college or school of social work",
+      "college_kind": "general",
+      "official_url": "https://www.ugc.gov.in",
+      "exam_slugs": [
+        "cuet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "bjmc",
+      "name": "BA in Journalism and Mass Communication",
+      "name_i18n": {
+        "hi": "पत्रकारिता में बीए",
+        "mr": "पत्रकारितेत बीए"
+      },
+      "level": "ug",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Arts college or university department",
+      "college_kind": "general",
+      "official_url": "https://www.ugc.gov.in",
+      "exam_slugs": [
+        "cuet-ug"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "llb-integrated",
+      "name": "5-year integrated LLB (BA LLB)",
+      "name_i18n": {
+        "hi": "5 वर्षीय बीए एलएलबी",
+        "mr": "5 वर्षांचा बीए एलएलबी"
+      },
+      "level": "ug",
+      "duration_months": 60,
+      "entry": "class_12",
+      "where": "Law college (Bar Council approved)",
+      "college_kind": "law",
+      "official_url": "https://www.barcouncilofindia.org",
+      "exam_slugs": [
+        "clat"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": []
+    },
+    {
+      "slug": "hotel-management",
+      "name": "Hotel management (diploma or degree)",
+      "name_i18n": {
+        "hi": "होटल मैनेजमेंट",
+        "mr": "हॉटेल व्यवस्थापन"
+      },
+      "level": "diploma",
+      "duration_months": 36,
+      "entry": "class_12",
+      "where": "Institute of Hotel Management or private college",
+      "college_kind": "hotel",
+      "official_url": "https://nchm.gov.in",
+      "exam_slugs": [
+        "nchm-jee"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "up-dashmottar"
+      ],
+      "verify": [
+        "Government IHMs admit through NCHM JEE; 1.5-year craft courses take Class 10 students."
+      ]
+    },
+    {
+      "slug": "design-diploma",
+      "name": "Design / multimedia course",
+      "name_i18n": {
+        "hi": "डिज़ाइन / मल्टीमीडिया कोर्स",
+        "mr": "डिझाइन / मल्टिमिडिया अभ्यासक्रम"
+      },
+      "level": "certificate",
+      "duration_months": 12,
+      "entry": "class_12",
+      "where": "Private institutes and some polytechnics",
+      "college_kind": "general",
+      "official_url": "https://www.skillindiadigital.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pmkvy-4"
+      ],
+      "verify": [
+        "Quality varies a lot; prefer recognised institutes and free online courses first."
+      ]
+    },
+    {
+      "slug": "drone-pilot",
+      "name": "Remote pilot certificate (drone)",
+      "name_i18n": {
+        "hi": "ड्रोन पायलट प्रमाणपत्र",
+        "mr": "ड्रोन पायलट प्रमाणपत्र"
+      },
+      "level": "certificate",
+      "duration_months": 1,
+      "entry": "class_10",
+      "where": "DGCA-authorised remote pilot training organisation",
+      "college_kind": "skill_centre",
+      "official_url": "https://digitalsky.dgca.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [],
+      "verify": [
+        "Minimum age 18; course is a few days long; fees vary."
+      ]
+    },
+    {
+      "slug": "bank-exam-prep",
+      "name": "Bank exam preparation",
+      "name_i18n": {
+        "hi": "बैंक परीक्षा तैयारी",
+        "mr": "बँक परीक्षा तयारी"
+      },
+      "level": "self_study",
+      "duration_months": 12,
+      "entry": "ug_degree",
+      "where": "Self-study with free mock tests",
+      "college_kind": "none",
+      "official_url": "https://www.ibps.in",
+      "exam_slugs": [
+        "ibps-clerk"
+      ],
+      "scheme_slugs": [],
+      "verify": []
+    },
+    {
+      "slug": "police-recruitment",
+      "name": "Police recruitment (written + physical test)",
+      "name_i18n": {
+        "hi": "पुलिस भर्ती",
+        "mr": "पोलीस भरती"
+      },
+      "level": "recruitment",
+      "duration_months": 6,
+      "entry": "class_12",
+      "where": "State police recruitment",
+      "college_kind": "none",
+      "official_url": "https://www.mahapolice.gov.in",
+      "exam_slugs": [
+        "state-police",
+        "ssc-gd"
+      ],
+      "scheme_slugs": [],
+      "verify": [
+        "Rules, age limits and dates are set by each state."
+      ]
+    },
+    {
+      "slug": "agniveer-recruitment",
+      "name": "Agniveer recruitment (Army)",
+      "name_i18n": {
+        "hi": "अग्निवीर भर्ती",
+        "mr": "अग्निवीर भरती"
+      },
+      "level": "recruitment",
+      "duration_months": 6,
+      "entry": "class_10",
+      "where": "Army recruitment rally after online exam",
+      "college_kind": "none",
+      "official_url": "https://joinindianarmy.nic.in",
+      "exam_slugs": [
+        "agniveer"
+      ],
+      "scheme_slugs": [],
+      "verify": []
+    },
+    {
+      "slug": "railway-recruitment",
+      "name": "Railway recruitment (RRB)",
+      "name_i18n": {
+        "hi": "रेलवे भर्ती (आरआरबी)",
+        "mr": "रेल्वे भरती (आरआरबी)"
+      },
+      "level": "recruitment",
+      "duration_months": 6,
+      "entry": "class_10",
+      "where": "RRB online exams",
+      "college_kind": "none",
+      "official_url": "https://indianrailways.gov.in",
+      "exam_slugs": [
+        "rrb-group-d"
+      ],
+      "scheme_slugs": [],
+      "verify": [
+        "Many technical posts want ITI or a diploma as well as Class 10."
+      ]
+    },
+    {
+      "slug": "bank-mitra-training",
+      "name": "Bank Mitra / BC agent training (IIBF)",
+      "name_i18n": {
+        "hi": "बैंक मित्र प्रशिक्षण",
+        "mr": "बँक मित्र प्रशिक्षण"
+      },
+      "level": "certificate",
+      "duration_months": 1,
+      "entry": "class_10",
+      "where": "Through a bank or its BC company; IIBF certificate",
+      "college_kind": "employer",
+      "official_url": "https://www.iibf.org.in",
+      "exam_slugs": [],
+      "scheme_slugs": [],
+      "verify": [
+        "The bank or BC company tells you the current certificate rule."
+      ]
+    },
+    {
+      "slug": "csc-vle",
+      "name": "CSC Village Level Entrepreneur registration",
+      "name_i18n": {
+        "hi": "सीएससी वीएलई पंजीकरण",
+        "mr": "सीएससी व्हीएलई नोंदणी"
+      },
+      "level": "certificate",
+      "duration_months": 1,
+      "entry": "class_10",
+      "where": "Register on the CSC portal",
+      "college_kind": "none",
+      "official_url": "https://register.csc.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [],
+      "verify": []
+    },
+    {
+      "slug": "entrepreneur-training",
+      "name": "Starting a small business (EDP + loan)",
+      "name_i18n": {
+        "hi": "छोटा व्यवसाय शुरू करना",
+        "mr": "लहान व्यवसाय सुरू करणे"
+      },
+      "level": "certificate",
+      "duration_months": 2,
+      "entry": "none",
+      "where": "District Industries Centre / KVIC / RSETI",
+      "college_kind": "skill_centre",
+      "official_url": "https://msme.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "verify": [
+        "RSETIs run free residential courses for rural youth through banks."
+      ]
+    },
+    {
+      "slug": "anganwadi-recruitment",
+      "name": "Anganwadi worker recruitment",
+      "name_i18n": {
+        "hi": "आंगनवाड़ी कार्यकर्ता भर्ती",
+        "mr": "अंगणवाडी सेविका भरती"
+      },
+      "level": "recruitment",
+      "duration_months": 3,
+      "entry": "class_10",
+      "where": "District women and child development office",
+      "college_kind": "none",
+      "official_url": "https://wcd.gov.in",
+      "exam_slugs": [],
+      "scheme_slugs": [],
+      "verify": [
+        "Each state sets education and local-residence rules; many now ask for Class 12."
+      ]
+    }
+  ]
+}

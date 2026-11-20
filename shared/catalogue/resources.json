@@ -1,0 +1,388 @@
+{
+  "_doc": "Free learning resources, tagged to careers, programs, exams, categories and stages.",
+  "resources": [
+    {
+      "slug": "ncert-textbooks",
+      "title": "NCERT textbooks (Class 1–12, free PDFs)",
+      "provider": "NCERT",
+      "url": "https://ncert.nic.in/textbook.php",
+      "kind": "book",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "exams": [
+          "neet-ug",
+          "jee-main",
+          "cuet-ug",
+          "polytechnic-cet",
+          "mht-cet"
+        ],
+        "categories": [
+          "stem",
+          "healthcare"
+        ],
+        "stages": [
+          "school"
+        ]
+      }
+    },
+    {
+      "slug": "diksha",
+      "title": "DIKSHA – lessons for your state board textbooks",
+      "provider": "Ministry of Education",
+      "url": "https://diksha.gov.in",
+      "kind": "video",
+      "languages": [
+        "en",
+        "hi",
+        "mr"
+      ],
+      "tags": {
+        "stages": [
+          "school"
+        ]
+      }
+    },
+    {
+      "slug": "epathshala",
+      "title": "ePathshala – NCERT books, audio and video",
+      "provider": "NCERT",
+      "url": "https://epathshala.nic.in",
+      "kind": "video",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "stages": [
+          "school"
+        ]
+      }
+    },
+    {
+      "slug": "swayam",
+      "title": "SWAYAM – free online courses from IITs and universities",
+      "provider": "Ministry of Education",
+      "url": "https://swayam.gov.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "stages": [
+          "college"
+        ],
+        "categories": [
+          "stem",
+          "non_stem",
+          "agriculture",
+          "healthcare"
+        ]
+      }
+    },
+    {
+      "slug": "nptel",
+      "title": "NPTEL – engineering and science video courses",
+      "provider": "IITs and IISc",
+      "url": "https://nptel.ac.in",
+      "kind": "course",
+      "languages": [
+        "en"
+      ],
+      "tags": {
+        "programs": [
+          "btech",
+          "diploma-engineering",
+          "bca"
+        ],
+        "categories": [
+          "stem"
+        ]
+      }
+    },
+    {
+      "slug": "swayam-prabha",
+      "title": "SWAYAM Prabha – free education TV channels",
+      "provider": "Ministry of Education",
+      "url": "https://swayamprabha.gov.in",
+      "kind": "video",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "stages": [
+          "school",
+          "college"
+        ],
+        "exams": [
+          "jee-main",
+          "neet-ug"
+        ]
+      }
+    },
+    {
+      "slug": "skill-india-digital",
+      "title": "Skill India Digital Hub – free skill courses with certificates",
+      "provider": "Ministry of Skill Development",
+      "url": "https://www.skillindiadigital.gov.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "categories": [
+          "skilled_trade",
+          "services",
+          "emerging",
+          "entrepreneurship",
+          "creative"
+        ],
+        "programs": [
+          "pmkvy-short"
+        ]
+      }
+    },
+    {
+      "slug": "bharatskills",
+      "title": "Bharatskills – ITI trade lessons, question banks and videos",
+      "provider": "DGT",
+      "url": "https://bharatskills.gov.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "categories": [
+          "skilled_trade",
+          "emerging"
+        ],
+        "level": [
+          "iti"
+        ]
+      }
+    },
+    {
+      "slug": "nios",
+      "title": "NIOS – finish Class 10 or 12 through open schooling",
+      "provider": "NIOS",
+      "url": "https://www.nios.ac.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi",
+        "mr"
+      ],
+      "tags": {
+        "stages": [
+          "school",
+          "none"
+        ]
+      }
+    },
+    {
+      "slug": "ncs",
+      "title": "National Career Service – jobs, job fairs and counselling",
+      "provider": "Ministry of Labour",
+      "url": "https://www.ncs.gov.in",
+      "kind": "portal",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "categories": [
+          "services",
+          "skilled_trade",
+          "government",
+          "non_stem"
+        ]
+      }
+    },
+    {
+      "slug": "egyankosh",
+      "title": "eGyanKosh – IGNOU study material",
+      "provider": "IGNOU",
+      "url": "https://egyankosh.ac.in",
+      "kind": "book",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "categories": [
+          "non_stem",
+          "government"
+        ],
+        "programs": [
+          "ba-bsc-bcom",
+          "bsw",
+          "bjmc"
+        ]
+      }
+    },
+    {
+      "slug": "icar-ecourses",
+      "title": "ICAR e-courses for agriculture and veterinary degrees",
+      "provider": "ICAR",
+      "url": "https://ecoursesonline.iasri.res.in",
+      "kind": "course",
+      "languages": [
+        "en"
+      ],
+      "tags": {
+        "categories": [
+          "agriculture"
+        ],
+        "programs": [
+          "bsc-agriculture",
+          "bvsc",
+          "livestock-diploma"
+        ]
+      }
+    },
+    {
+      "slug": "futureskills",
+      "title": "FutureSkills Prime – digital skills (data, AI, cloud)",
+      "provider": "NASSCOM & MeitY",
+      "url": "https://futureskillsprime.in",
+      "kind": "course",
+      "languages": [
+        "en"
+      ],
+      "tags": {
+        "categories": [
+          "emerging",
+          "stem"
+        ],
+        "careers": [
+          "software-developer",
+          "web-designer",
+          "ai-data-annotator",
+          "digital-marketer",
+          "data-entry"
+        ]
+      }
+    },
+    {
+      "slug": "pmgdisha",
+      "title": "PMGDISHA – basic digital literacy",
+      "provider": "MeitY",
+      "url": "https://www.pmgdisha.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi",
+        "mr"
+      ],
+      "tags": {
+        "careers": [
+          "csc-operator",
+          "bank-mitra",
+          "data-entry"
+        ]
+      }
+    },
+    {
+      "slug": "ncfe",
+      "title": "NCFE – money and banking basics",
+      "provider": "NCFE",
+      "url": "https://ncfe.org.in",
+      "kind": "course",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "careers": [
+          "bank-mitra",
+          "bank-clerk",
+          "accountant",
+          "small-business",
+          "dairy-entrepreneur"
+        ]
+      }
+    },
+    {
+      "slug": "khan-academy",
+      "title": "Khan Academy – maths and science practice",
+      "provider": "Khan Academy",
+      "url": "https://www.khanacademy.org",
+      "kind": "practice",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "exams": [
+          "jee-main",
+          "neet-ug",
+          "polytechnic-cet",
+          "mht-cet"
+        ],
+        "stages": [
+          "school"
+        ]
+      }
+    },
+    {
+      "slug": "freecodecamp",
+      "title": "freeCodeCamp – learn to code for free",
+      "provider": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org",
+      "kind": "course",
+      "languages": [
+        "en"
+      ],
+      "tags": {
+        "careers": [
+          "software-developer",
+          "web-designer"
+        ]
+      }
+    },
+    {
+      "slug": "learnenglish",
+      "title": "LearnEnglish – free English practice",
+      "provider": "British Council",
+      "url": "https://learnenglish.britishcouncil.org",
+      "kind": "practice",
+      "languages": [
+        "en"
+      ],
+      "tags": {
+        "careers": [
+          "hotel-front-office",
+          "tour-guide",
+          "bank-clerk",
+          "journalist",
+          "digital-marketer"
+        ]
+      }
+    },
+    {
+      "slug": "nta-abhyas",
+      "title": "NTA mock tests (JEE, NEET, CUET)",
+      "provider": "National Testing Agency",
+      "url": "https://nta.ac.in",
+      "kind": "practice",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "tags": {
+        "exams": [
+          "jee-main",
+          "neet-ug",
+          "cuet-ug",
+          "nchm-jee"
+        ]
+      }
+    }
+  ]
+}

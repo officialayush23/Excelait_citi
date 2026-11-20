@@ -24,7 +24,9 @@
     "outcomes": "Outcomes",
     "partners": "Partners",
     "schemes": "Schemes",
-    "moderation": "Moderation"
+    "moderation": "Moderation",
+    "plan": "My plan",
+    "colleges": "Colleges"
   },
   "roles": {
     "student": {

@@ -75,7 +75,12 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-electrician",
+        "apprenticeship",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "solar-technician",
@@ -114,7 +119,12 @@
         "naps",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-solar",
+        "iti-electrician",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "plumber",
@@ -149,7 +159,12 @@
         "naps",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-plumber",
+        "pmkvy-short",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "welder",
@@ -185,7 +200,11 @@
         "naps",
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-welder",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "motor-mechanic",
@@ -223,7 +242,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-mmv",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "ev-technician",
@@ -262,7 +285,12 @@
         "naps",
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-ev-mechanic",
+        "iti-electrician",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "mobile-repair",
@@ -299,7 +327,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-electronics",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "cnc-operator",
@@ -336,7 +368,11 @@
         "naps",
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-fitter",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "carpenter",
@@ -372,7 +408,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-carpenter",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "mason",
@@ -407,7 +447,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "tailor",
@@ -444,7 +488,12 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-sewing",
+        "pmkvy-short",
+        "entrepreneur-training"
+      ]
     },
     {
       "slug": "beautician",
@@ -479,7 +528,12 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-cosmetology",
+        "pmkvy-short",
+        "entrepreneur-training"
+      ]
     },
     {
       "slug": "cook-chef",
@@ -515,7 +569,11 @@
         "pmegp",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-food-production",
+        "hotel-management"
+      ]
     },
     {
       "slug": "hotel-front-office",
@@ -552,7 +610,11 @@
         "pmkvy-4",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "hotel-management",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "tour-guide",
@@ -590,7 +652,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "ba-bsc-bcom"
+      ]
     },
     {
       "slug": "driver",
@@ -624,7 +690,10 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "delivery-logistics",
@@ -658,7 +727,10 @@
         "pmkvy-4",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "data-entry",
@@ -695,7 +767,11 @@
         "pmkvy-4",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-copa",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "csc-operator",
@@ -731,7 +807,11 @@
       "scheme_slugs": [
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "csc-vle",
+        "iti-copa"
+      ]
     },
     {
       "slug": "software-developer",
@@ -773,6 +853,11 @@
       "exam_slugs": [
         "jee-main",
         "cuet-ug"
+      ],
+      "program_slugs": [
+        "btech",
+        "bca",
+        "diploma-engineering"
       ]
     },
     {
@@ -811,7 +896,12 @@
         "pmkvy-4",
         "pm-internship"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-copa",
+        "bca",
+        "design-diploma"
+      ]
     },
     {
       "slug": "graphic-designer",
@@ -848,7 +938,11 @@
         "pmkvy-4",
         "pm-internship"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "design-diploma",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "photographer",
@@ -885,7 +979,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "design-diploma"
+      ]
     },
     {
       "slug": "content-creator",
@@ -919,7 +1017,11 @@
         "Brand work and freelancing"
       ],
       "scheme_slugs": [],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "bjmc"
+      ]
     },
     {
       "slug": "primary-teacher",
@@ -960,6 +1062,10 @@
       ],
       "exam_slugs": [
         "ctet"
+      ],
+      "program_slugs": [
+        "deled",
+        "ba-bsc-bcom"
       ]
     },
     {
@@ -998,7 +1104,10 @@
         "pms-st",
         "up-dashmottar"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "anm"
+      ]
     },
     {
       "slug": "staff-nurse",
@@ -1038,6 +1147,10 @@
       ],
       "exam_slugs": [
         "neet-ug"
+      ],
+      "program_slugs": [
+        "gnm",
+        "bsc-nursing"
       ]
     },
     {
@@ -1076,7 +1189,10 @@
         "pms-st",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "dmlt"
+      ]
     },
     {
       "slug": "pharmacist",
@@ -1115,7 +1231,10 @@
         "pmegp",
         "aicte-pragati"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "dpharm"
+      ]
     },
     {
       "slug": "physio-assistant",
@@ -1151,7 +1270,10 @@
       "scheme_slugs": [
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "bpt"
+      ]
     },
     {
       "slug": "doctor",
@@ -1192,6 +1314,9 @@
       ],
       "exam_slugs": [
         "neet-ug"
+      ],
+      "program_slugs": [
+        "mbbs"
       ]
     },
     {
@@ -1229,7 +1354,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "livestock-diploma",
+        "bvsc"
+      ]
     },
     {
       "slug": "dairy-entrepreneur",
@@ -1263,7 +1392,11 @@
       "scheme_slugs": [
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "entrepreneur-training",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "organic-farmer",
@@ -1299,7 +1432,11 @@
       "scheme_slugs": [
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "entrepreneur-training",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "agri-drone-pilot",
@@ -1337,7 +1474,10 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "drone-pilot"
+      ]
     },
     {
       "slug": "food-processing",
@@ -1375,7 +1515,11 @@
         "pmegp",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-food-production",
+        "entrepreneur-training"
+      ]
     },
     {
       "slug": "agri-graduate",
@@ -1416,6 +1560,9 @@
       ],
       "exam_slugs": [
         "icar-aieea"
+      ],
+      "program_slugs": [
+        "bsc-agriculture"
       ]
     },
     {
@@ -1456,6 +1603,9 @@
       ],
       "exam_slugs": [
         "cuet-ug"
+      ],
+      "program_slugs": [
+        "ba-bsc-bcom"
       ]
     },
     {
@@ -1494,6 +1644,10 @@
       ],
       "exam_slugs": [
         "ibps-clerk"
+      ],
+      "program_slugs": [
+        "ba-bsc-bcom",
+        "bank-exam-prep"
       ]
     },
     {
@@ -1530,7 +1684,10 @@
       "scheme_slugs": [
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "bank-mitra-training"
+      ]
     },
     {
       "slug": "police-constable",
@@ -1566,6 +1723,9 @@
       "scheme_slugs": [],
       "exam_slugs": [
         "state-police"
+      ],
+      "program_slugs": [
+        "police-recruitment"
       ]
     },
     {
@@ -1602,6 +1762,9 @@
       "scheme_slugs": [],
       "exam_slugs": [
         "agniveer"
+      ],
+      "program_slugs": [
+        "agniveer-recruitment"
       ]
     },
     {
@@ -1641,6 +1804,11 @@
       ],
       "exam_slugs": [
         "rrb-group-d"
+      ],
+      "program_slugs": [
+        "iti-fitter",
+        "iti-electrician",
+        "railway-recruitment"
       ]
     },
     {
@@ -1675,7 +1843,10 @@
         "Supervisor later"
       ],
       "scheme_slugs": [],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "anganwadi-recruitment"
+      ]
     },
     {
       "slug": "social-worker",
@@ -1716,6 +1887,9 @@
       ],
       "exam_slugs": [
         "cuet-ug"
+      ],
+      "program_slugs": [
+        "bsw"
       ]
     },
     {
@@ -1756,6 +1930,9 @@
       ],
       "exam_slugs": [
         "cuet-ug"
+      ],
+      "program_slugs": [
+        "bjmc"
       ]
     },
     {
@@ -1797,6 +1974,9 @@
       ],
       "exam_slugs": [
         "clat"
+      ],
+      "program_slugs": [
+        "llb-integrated"
       ]
     },
     {
@@ -1840,6 +2020,10 @@
       "exam_slugs": [
         "polytechnic-cet",
         "jee-main"
+      ],
+      "program_slugs": [
+        "diploma-engineering",
+        "btech"
       ]
     },
     {
@@ -1882,6 +2066,10 @@
       "exam_slugs": [
         "polytechnic-cet",
         "jee-main"
+      ],
+      "program_slugs": [
+        "diploma-engineering",
+        "btech"
       ]
     },
     {
@@ -1920,7 +2108,10 @@
         "naps",
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-draughtsman-civil"
+      ]
     },
     {
       "slug": "ai-data-annotator",
@@ -1956,7 +2147,11 @@
       "scheme_slugs": [
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "iti-copa",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "digital-marketer",
@@ -1995,7 +2190,11 @@
         "pmkvy-4",
         "pm-internship"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "ba-bsc-bcom"
+      ]
     },
     {
       "slug": "retail-sales",
@@ -2029,7 +2228,11 @@
         "pmkvy-4",
         "naps"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short",
+        "apprenticeship"
+      ]
     },
     {
       "slug": "small-business",
@@ -2066,7 +2269,10 @@
       "scheme_slugs": [
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "entrepreneur-training"
+      ]
     },
     {
       "slug": "handicraft-artisan",
@@ -2103,7 +2309,11 @@
         "pmkvy-4",
         "pmegp"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "entrepreneur-training",
+        "pmkvy-short"
+      ]
     },
     {
       "slug": "fitness-trainer",
@@ -2137,7 +2347,10 @@
       "scheme_slugs": [
         "pmkvy-4"
       ],
-      "exam_slugs": []
+      "exam_slugs": [],
+      "program_slugs": [
+        "pmkvy-short"
+      ]
     }
   ]
 }

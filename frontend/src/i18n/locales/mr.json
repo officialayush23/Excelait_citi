@@ -24,7 +24,9 @@
     "outcomes": "परिणाम",
     "partners": "भागीदार",
     "schemes": "योजना",
-    "moderation": "देखरेख"
+    "moderation": "देखरेख",
+    "plan": "माझी योजना",
+    "colleges": "महाविद्यालये"
   },
   "roles": {
     "student": {

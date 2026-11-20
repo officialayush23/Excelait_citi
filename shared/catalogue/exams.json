@@ -102,6 +102,38 @@
         6
       ],
       "official_url": "https://jeecup.admissions.nic.in"
+    },
+    {
+      "slug": "mht-cet",
+      "name": "MHT-CET (Maharashtra)",
+      "conducting_body": "State CET Cell, Maharashtra",
+      "eligibility": "Class 12 with PCM or PCB, for engineering, pharmacy and agriculture admissions in Maharashtra",
+      "typical_months": [
+        4,
+        5
+      ],
+      "official_url": "https://cetcell.mahacet.org"
+    },
+    {
+      "slug": "nchm-jee",
+      "name": "NCHM JEE (Hotel Management)",
+      "conducting_body": "National Testing Agency",
+      "eligibility": "Class 12 pass (any stream) for B.Sc Hospitality at Institutes of Hotel Management",
+      "typical_months": [
+        4
+      ],
+      "official_url": "https://nchm.gov.in"
+    },
+    {
+      "slug": "ssc-gd",
+      "name": "SSC GD Constable",
+      "conducting_body": "Staff Selection Commission",
+      "eligibility": "Class 10 pass, usually age 18 to 23, for central armed police forces",
+      "typical_months": [
+        1,
+        2
+      ],
+      "official_url": "https://ssc.gov.in"
     }
   ]
 }

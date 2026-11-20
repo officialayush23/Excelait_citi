@@ -35,7 +35,7 @@ def schemes_with_rules(active_only: bool = True) -> list[dict]:
 def careers() -> list[dict]:
     return get_db().table("careers").select(
         "slug, name, name_i18n, category, nco_code, nsqf_level, pay_min, pay_max, min_education, earning_speed, "
-        "cost_band, interest_tags, subject_tags, rural_demand, needs_city, path, scheme_slugs, exam_slugs"
+        "cost_band, interest_tags, subject_tags, rural_demand, needs_city, path, scheme_slugs, exam_slugs, program_slugs"
     ).eq("is_active", True).execute().data
 
 
@@ -45,3 +45,11 @@ def document_types() -> dict:
 
 def exams() -> list[dict]:
     return get_db().table("exams").select("slug, name, conducting_body, eligibility, typical_months, official_url").execute().data
+
+
+def programs() -> list[dict]:
+    return get_db().table("programs").select("*").execute().data
+
+
+def resources() -> list[dict]:
+    return get_db().table("resources").select("slug, title, provider, url, kind, languages, tags, org_id").execute().data
