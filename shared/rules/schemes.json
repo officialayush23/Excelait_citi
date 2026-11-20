@@ -1,0 +1,1051 @@
+{
+  "_doc": "Every scheme: official link, sources checked, date checked, and one rule. 'verify' lists facts where sources disagree; the app shows 'check on the official portal' for those. Amounts are per year in INR unless benefit_text says otherwise.",
+  "checked_on": "2026-11-20",
+  "schemes": [
+    {
+      "slug": "nmmss",
+      "name": "National Means-cum-Merit Scholarship (NMMSS)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Education (Department of School Education & Literacy)",
+      "benefit_amount": 12000,
+      "benefit_text": "Rs 12,000 a year from Class 9 to 12. You apply and sit the selection test (MAT + SAT) in Class 8.",
+      "official_url": "https://dsel.education.gov.in/scheme/nmmss",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "income_certificate",
+        "caste_certificate",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://dsel.education.gov.in/scheme/nmmss",
+        "https://dsel.education.gov.in/sites/default/files/NMMSS_Guidelines_22.pdf",
+        "https://myscheme.gov.in/schemes/nmmss"
+      ],
+      "verify": [
+        "Minimum marks are for Class 7 in the 2022 guidelines; some notices say Class 8."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "class8",
+            "field": "class_level",
+            "op": "eq",
+            "value": 8,
+            "label": "Apply while studying in Class 8"
+          },
+          {
+            "id": "school",
+            "field": "school_type",
+            "op": "in",
+            "value": [
+              "government",
+              "aided",
+              "local_body"
+            ],
+            "label": "Government, government-aided or local-body school (not KV, JNV, residential or private)"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 350000,
+            "label": "Parental income up to Rs 3.5 lakh a year"
+          },
+          {
+            "id": "marks",
+            "label": "At least 55% in the previous class (50% for SC/ST)",
+            "any": [
+              {
+                "id": "marks55",
+                "field": "marks_percent",
+                "op": "gte",
+                "value": 55,
+                "label": "55% or more"
+              },
+              {
+                "id": "marks50scst",
+                "all": [
+                  {
+                    "id": "scst",
+                    "field": "social_category",
+                    "op": "in",
+                    "value": [
+                      "SC",
+                      "ST"
+                    ],
+                    "label": "SC or ST"
+                  },
+                  {
+                    "id": "marks50",
+                    "field": "marks_percent",
+                    "op": "gte",
+                    "value": 50,
+                    "label": "50% or more"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pm-usp-csss",
+      "name": "PM-USP Central Sector Scholarship for College and University Students",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Education (Department of Higher Education)",
+      "benefit_amount": 12000,
+      "benefit_text": "Rs 12,000 a year for the first three years of a degree, Rs 20,000 a year after that.",
+      "official_url": "https://www.education.gov.in/node/255",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "income_certificate",
+        "marksheet_class12",
+        "bonafide_certificate",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://www.education.gov.in/node/255",
+        "https://www.buddy4study.com/article/central-sector-scholarship"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "percentile",
+            "field": "above_80_percentile_class12",
+            "op": "is_true",
+            "label": "Above the 80th percentile of your Class 12 board"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "ug_degree",
+              "ug_technical",
+              "pg"
+            ],
+            "label": "In a regular degree course (not diploma)"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 450000,
+            "label": "Family income up to Rs 4.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pms-sc",
+      "name": "Post-Matric Scholarship for Scheduled Caste Students",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "benefit_amount": null,
+      "benefit_text": "Course fees plus a monthly maintenance allowance, from Class 11 to PhD.",
+      "official_url": "https://www.myscheme.gov.in/schemes/pmssc",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "caste_certificate",
+        "income_certificate",
+        "domicile_certificate",
+        "marksheet_previous",
+        "fee_receipt",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://www.myscheme.gov.in/schemes/pmssc",
+        "https://sje.gujarat.gov.in/dscw/assets/downloads/gr6_dscw_sje_02092022.pdf"
+      ],
+      "verify": [
+        "A raise of the income limit to Rs 4.5 lakh was proposed in March 2026; not yet in force when checked."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "sc",
+            "field": "social_category",
+            "op": "eq",
+            "value": "SC",
+            "label": "Scheduled Caste"
+          },
+          {
+            "id": "postmatric",
+            "label": "Studying in Class 11 or above, ITI, diploma or college",
+            "any": [
+              {
+                "id": "class11",
+                "field": "class_level",
+                "op": "gte",
+                "value": 11,
+                "label": "Class 11 or above"
+              },
+              {
+                "id": "course",
+                "field": "course",
+                "op": "in",
+                "value": [
+                  "iti",
+                  "diploma",
+                  "ug_degree",
+                  "ug_technical",
+                  "pg"
+                ],
+                "label": "ITI, diploma or college"
+              }
+            ]
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 250000,
+            "label": "Parents' income up to Rs 2.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pms-st",
+      "name": "Post-Matric Scholarship for Scheduled Tribe Students",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Tribal Affairs",
+      "benefit_amount": null,
+      "benefit_text": "Course fees plus a monthly maintenance allowance, from Class 11 to postgraduate.",
+      "official_url": "https://scholarships.gov.in/public/schemeGuidelines/EDUPostMatricScholarshipPMSforSTstudents.pdf",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "caste_certificate",
+        "income_certificate",
+        "domicile_certificate",
+        "marksheet_previous",
+        "fee_receipt",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://scholarships.gov.in/public/schemeGuidelines/EDUPostMatricScholarshipPMSforSTstudents.pdf",
+        "https://tribalwelfare.goa.gov.in/wp-content/uploads/2025/04/Post-Matric.pdf"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "st",
+            "field": "social_category",
+            "op": "eq",
+            "value": "ST",
+            "label": "Scheduled Tribe"
+          },
+          {
+            "id": "postmatric",
+            "label": "Studying in Class 11 or above, ITI, diploma or college",
+            "any": [
+              {
+                "id": "class11",
+                "field": "class_level",
+                "op": "gte",
+                "value": 11,
+                "label": "Class 11 or above"
+              },
+              {
+                "id": "course",
+                "field": "course",
+                "op": "in",
+                "value": [
+                  "iti",
+                  "diploma",
+                  "ug_degree",
+                  "ug_technical",
+                  "pg"
+                ],
+                "label": "ITI, diploma or college"
+              }
+            ]
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 250000,
+            "label": "Parents' income up to Rs 2.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pre-matric-sc",
+      "name": "Pre-Matric Scholarship for SC Students (Class 9 and 10)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "benefit_amount": null,
+      "benefit_text": "Monthly scholarship and a yearly books grant for Class 9 and 10.",
+      "official_url": "https://myscheme.gov.in/schemes/pre-sc",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "caste_certificate",
+        "income_certificate",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://myscheme.gov.in/schemes/pre-sc"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "sc",
+            "field": "social_category",
+            "op": "eq",
+            "value": "SC",
+            "label": "Scheduled Caste"
+          },
+          {
+            "id": "class",
+            "field": "class_level",
+            "op": "in",
+            "value": [
+              9,
+              10
+            ],
+            "label": "Studying in Class 9 or 10"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 250000,
+            "label": "Parents' income up to Rs 2.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pre-matric-st",
+      "name": "Pre-Matric Scholarship for ST Students (Class 9 and 10)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Tribal Affairs",
+      "benefit_amount": null,
+      "benefit_text": "Monthly scholarship and allowances for Class 9 and 10.",
+      "official_url": "https://www.myscheme.gov.in/schemes/pre-st",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "caste_certificate",
+        "income_certificate",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://twd.tripura.gov.in/sites/default/files/Revised_Guidelines_0.pdf",
+        "https://www.myscheme.gov.in/schemes/pre-st"
+      ],
+      "verify": [
+        "Income limit: the Ministry's revised guidelines say Rs 2.5 lakh; myScheme says Rs 2 lakh."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "st",
+            "field": "social_category",
+            "op": "eq",
+            "value": "ST",
+            "label": "Scheduled Tribe"
+          },
+          {
+            "id": "class",
+            "field": "class_level",
+            "op": "in",
+            "value": [
+              9,
+              10
+            ],
+            "label": "Studying in Class 9 or 10"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 250000,
+            "label": "Family income up to Rs 2.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pm-yasasvi-top-class-school",
+      "name": "PM-YASASVI Top Class School Education (OBC, EBC, DNT)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "benefit_amount": 75000,
+      "benefit_text": "Up to Rs 75,000 a year in Class 9 and 10, up to Rs 1,25,000 a year in Class 11 and 12, covering school and hostel fees.",
+      "official_url": "https://myscheme.gov.in/schemes/pm-yasasvitcseobcebcdnts",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "caste_certificate",
+        "income_certificate",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://myscheme.gov.in/schemes/pm-yasasvitcseobcebcdnts",
+        "https://socialjustice.gov.in/writereaddata/UploadFile/90711699348458.pdf"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "cat",
+            "field": "social_category",
+            "op": "in",
+            "value": [
+              "OBC",
+              "EBC",
+              "DNT"
+            ],
+            "label": "OBC, EBC or DNT"
+          },
+          {
+            "id": "class",
+            "field": "class_level",
+            "op": "in",
+            "value": [
+              9,
+              11
+            ],
+            "label": "Studying in Class 9 or 11"
+          },
+          {
+            "id": "school",
+            "field": "in_top_class_school",
+            "op": "is_true",
+            "label": "In a school on the scheme's Top Class School list"
+          },
+          {
+            "id": "marks",
+            "field": "marks_percent",
+            "op": "gte",
+            "value": 60,
+            "label": "60% or more in Class 8 or 10"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lt",
+            "value": 250000,
+            "label": "Family income below Rs 2.5 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "aicte-pragati",
+      "name": "AICTE Pragati Scholarship for Girls (Technical Degree and Diploma)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Education (AICTE)",
+      "benefit_amount": 50000,
+      "benefit_text": "Rs 50,000 a year for fees, a computer, books and equipment. At most two girls per family.",
+      "official_url": "https://www.myscheme.gov.in/schemes/psgs-deg",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "income_certificate",
+        "admission_letter",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://aicte.gov.in/sites/default/files/pragatisaksham.pdf",
+        "https://scholarships.gov.in/public/schemeGuidelines/AICTE/AICTE_2011_G.pdf"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "girl",
+            "field": "gender",
+            "op": "eq",
+            "value": "female",
+            "label": "Girl student"
+          },
+          {
+            "id": "aicte",
+            "field": "institution_aicte",
+            "op": "is_true",
+            "label": "Admitted to an AICTE-approved institution"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "diploma",
+              "ug_technical"
+            ],
+            "label": "First year of a technical diploma or degree (or second year by lateral entry)"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 800000,
+            "label": "Family income up to Rs 8 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "aicte-saksham",
+      "name": "AICTE Saksham Scholarship for Specially-Abled Students",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Education (AICTE)",
+      "benefit_amount": 50000,
+      "benefit_text": "Rs 50,000 a year for every year of the course.",
+      "official_url": "https://myscheme.gov.in/schemes/sak-deg",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "disability_certificate",
+        "income_certificate",
+        "admission_letter",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://aicte.gov.in/sites/default/files/Saksham Scheme Guidelines.pdf",
+        "https://www.myscheme.gov.in/schemes/sak-dip"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "disability",
+            "field": "is_disabled",
+            "op": "is_true",
+            "label": "Certified disability of 40% or more"
+          },
+          {
+            "id": "aicte",
+            "field": "institution_aicte",
+            "op": "is_true",
+            "label": "Admitted to an AICTE-approved institution"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "diploma",
+              "ug_technical"
+            ],
+            "label": "Technical diploma or degree"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 800000,
+            "label": "Family income up to Rs 8 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "aicte-swanath",
+      "name": "AICTE Swanath Scholarship",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Education (AICTE)",
+      "benefit_amount": 50000,
+      "benefit_text": "Rs 50,000 a year for orphans, students who lost a parent to Covid-19, and wards of martyred armed or paramilitary personnel.",
+      "official_url": "https://myscheme.gov.in/schemes/aicte-ssss",
+      "apply_url": "https://scholarships.gov.in",
+      "documents": [
+        "orphan_or_death_certificate",
+        "income_certificate",
+        "bonafide_certificate",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://myscheme.gov.in/schemes/aicte-ssss",
+        "https://aicte.gov.in/sites/default/files/FAQs-Swanath Scheme.pdf"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "status",
+            "field": "is_orphan_or_covid_affected",
+            "op": "is_true",
+            "label": "Orphan, lost a parent to Covid-19, or ward of a martyr"
+          },
+          {
+            "id": "aicte",
+            "field": "institution_aicte",
+            "op": "is_true",
+            "label": "Admitted to an AICTE-approved institution"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "diploma",
+              "ug_technical"
+            ],
+            "label": "Technical diploma or degree"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 800000,
+            "label": "Family income up to Rs 8 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pm-internship",
+      "name": "PM Internship Scheme",
+      "kind": "internship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Corporate Affairs",
+      "benefit_amount": null,
+      "benefit_text": "A 12-month internship in a top company with a monthly stipend, a one-time grant of Rs 6,000, and insurance cover.",
+      "official_url": "https://pminternship.mca.gov.in",
+      "apply_url": "https://pminternship.mca.gov.in",
+      "documents": [
+        "aadhaar",
+        "marksheet_highest",
+        "bank_account_aadhaar_seeded",
+        "noc_institution"
+      ],
+      "sources": [
+        "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/oct/doc20241012415201.pdf",
+        "https://www.myscheme.gov.in/hi/schemes/pmis",
+        "https://www.businesstoday.in/latest/economy/story/eligibility-expanded-in-pm-internship-scheme-read-all-about-new-criteria-526943-2026-04-22"
+      ],
+      "verify": [
+        "Age widened in April 2026 to 18 to 25 for final-year students (with a college NOC); earlier 21 to 24.",
+        "Monthly stipend: Rs 5,000 in the scheme launch; reported as Rs 9,000 in 2026."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "age",
+            "field": "age",
+            "op": "between",
+            "value": [
+              18,
+              25
+            ],
+            "label": "Aged 18 to 25"
+          },
+          {
+            "id": "job",
+            "field": "in_full_time_job",
+            "op": "is_false",
+            "label": "Not in a full-time job"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lt",
+            "value": 800000,
+            "label": "No family member earning Rs 8 lakh or more a year"
+          },
+          {
+            "id": "govt",
+            "field": "family_govt_employee",
+            "op": "is_false",
+            "label": "No parent or spouse is a permanent government employee"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "naps",
+      "name": "National Apprenticeship Promotion Scheme (NAPS)",
+      "kind": "apprenticeship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Skill Development and Entrepreneurship",
+      "benefit_amount": 18000,
+      "benefit_text": "Paid apprenticeship with a company. The government adds 25% of your stipend, up to Rs 1,500 a month, straight to your bank account.",
+      "official_url": "https://msde.gov.in/schemes-initiatives/apprenticeship-training/naps",
+      "apply_url": "https://www.apprenticeshipindia.gov.in",
+      "documents": [
+        "aadhaar",
+        "marksheet_highest",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://www.myscheme.gov.in/schemes/naps",
+        "https://msde.gov.in/schemes-initiatives/apprenticeship-training/naps"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "age",
+            "field": "age",
+            "op": "between",
+            "value": [
+              14,
+              35
+            ],
+            "label": "Aged 14 to 35 (18+ for hazardous trades)"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pmkvy-4",
+      "name": "Pradhan Mantri Kaushal Vikas Yojana 4.0 (Short-Term Training)",
+      "kind": "scheme",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of Skill Development and Entrepreneurship",
+      "benefit_amount": null,
+      "benefit_text": "Free skill training, assessment and a government certificate in a job role you choose.",
+      "official_url": "https://www.skillindiadigital.gov.in",
+      "apply_url": "https://www.skillindiadigital.gov.in",
+      "documents": [
+        "aadhaar",
+        "marksheet_highest"
+      ],
+      "sources": [
+        "https://www.nielit.gov.in/hi/node/19508",
+        "https://nsdcindia.org/products/pradhan-mantri-kaushal-vikas-yojana"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "age",
+            "field": "age",
+            "op": "between",
+            "value": [
+              15,
+              45
+            ],
+            "label": "Aged 15 to 45"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pmegp",
+      "name": "Prime Minister's Employment Generation Programme (PMEGP)",
+      "kind": "entrepreneurship",
+      "level": "central",
+      "state": null,
+      "ministry": "Ministry of MSME (KVIC)",
+      "benefit_amount": null,
+      "benefit_text": "Bank loan with a 15% to 35% subsidy to start a new unit: up to Rs 50 lakh (manufacturing) or Rs 20 lakh (services).",
+      "official_url": "https://www.kviconline.gov.in/pmegpeportal",
+      "apply_url": "https://www.kviconline.gov.in/pmegpeportal",
+      "documents": [
+        "aadhaar",
+        "pan",
+        "project_report",
+        "marksheet_class8",
+        "caste_certificate"
+      ],
+      "sources": [
+        "https://www.myscheme.gov.in/hi/schemes/pmegp"
+      ],
+      "verify": [
+        "Class 8 pass is required only above Rs 10 lakh (manufacturing) or Rs 5 lakh (services)."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "age",
+            "field": "age",
+            "op": "gte",
+            "value": 18,
+            "label": "Aged 18 or above"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "mh-shahu-maharaj-shikshan-shulk",
+      "name": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulk Shishyavrutti Yojana (Maharashtra)",
+      "kind": "scholarship",
+      "level": "state",
+      "state": "Maharashtra",
+      "ministry": "Government of Maharashtra (Higher and Technical Education)",
+      "benefit_amount": null,
+      "benefit_text": "Tuition and exam fee reimbursement, 50% to 100% depending on income, course and gender.",
+      "official_url": "https://mahadbt.maharashtra.gov.in",
+      "apply_url": "https://mahadbt.maharashtra.gov.in",
+      "documents": [
+        "domicile_certificate",
+        "income_certificate",
+        "cap_allotment_letter",
+        "marksheet_previous",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://vcet.edu.in/wp-content/uploads/2022/11/Rajarshi-Chhatrapati-Shahu-Maharaj-Shikshan-Shulkh-Shishyavrutti-Yojna-EBC..pdf",
+        "https://unstop.com/scholarships/rajarshi-chhatrapati-shahu-maharaj-shikshan-shulkh-shishyavrutti-scheme-government-of-maharashtra-1153599"
+      ],
+      "verify": [
+        "Eligible categories are listed as General and SEBC; check whether EWS admissions qualify."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "state",
+            "field": "state",
+            "op": "eq",
+            "value": "Maharashtra",
+            "label": "Maharashtra domicile"
+          },
+          {
+            "id": "cat",
+            "field": "social_category",
+            "op": "in",
+            "value": [
+              "General",
+              "SEBC"
+            ],
+            "label": "Admitted under General or SEBC category"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "diploma",
+              "ug_degree",
+              "ug_technical",
+              "pg"
+            ],
+            "label": "Diploma, degree or postgraduate course"
+          },
+          {
+            "id": "cap",
+            "field": "cap_admission",
+            "op": "is_true",
+            "label": "Admission through the CAP round"
+          },
+          {
+            "id": "income",
+            "field": "family_income_annual",
+            "op": "lte",
+            "value": 800000,
+            "label": "Family income up to Rs 8 lakh a year"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "up-dashmottar",
+      "name": "UP Post-Matric (Dashmottar) Scholarship",
+      "kind": "scholarship",
+      "level": "state",
+      "state": "Uttar Pradesh",
+      "ministry": "Government of Uttar Pradesh",
+      "benefit_amount": null,
+      "benefit_text": "Fee reimbursement and maintenance allowance for ITI, diploma, degree and postgraduate students.",
+      "official_url": "https://scholarship.up.gov.in",
+      "apply_url": "https://scholarship.up.gov.in",
+      "documents": [
+        "domicile_certificate",
+        "income_certificate",
+        "caste_certificate",
+        "marksheet_previous",
+        "fee_receipt",
+        "aadhaar",
+        "bank_account_aadhaar_seeded"
+      ],
+      "sources": [
+        "https://myscheme.gov.in/schemes/mpss",
+        "https://school.careers360.com/articles/up-post-matric-scholarship-2025-26"
+      ],
+      "verify": [],
+      "rule": {
+        "all": [
+          {
+            "id": "state",
+            "field": "state",
+            "op": "eq",
+            "value": "Uttar Pradesh",
+            "label": "Uttar Pradesh native"
+          },
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "iti",
+              "diploma",
+              "ug_degree",
+              "ug_technical",
+              "pg"
+            ],
+            "label": "ITI, diploma, degree or postgraduate course"
+          },
+          {
+            "id": "income",
+            "label": "Family income up to Rs 2.5 lakh (SC/ST) or Rs 2 lakh (others)",
+            "any": [
+              {
+                "id": "scst",
+                "all": [
+                  {
+                    "id": "scst-cat",
+                    "field": "social_category",
+                    "op": "in",
+                    "value": [
+                      "SC",
+                      "ST"
+                    ],
+                    "label": "SC or ST"
+                  },
+                  {
+                    "id": "scst-inc",
+                    "field": "family_income_annual",
+                    "op": "lte",
+                    "value": 250000,
+                    "label": "Up to Rs 2.5 lakh"
+                  }
+                ]
+              },
+              {
+                "id": "others",
+                "all": [
+                  {
+                    "id": "oth-cat",
+                    "field": "social_category",
+                    "op": "in",
+                    "value": [
+                      "General",
+                      "OBC",
+                      "EBC",
+                      "DNT",
+                      "SEBC",
+                      "EWS"
+                    ],
+                    "label": "General, OBC or minority"
+                  },
+                  {
+                    "id": "oth-inc",
+                    "field": "family_income_annual",
+                    "op": "lte",
+                    "value": 200000,
+                    "label": "Up to Rs 2 lakh"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "inspire-she",
+      "name": "INSPIRE Scholarship for Higher Education (SHE)",
+      "kind": "scholarship",
+      "level": "central",
+      "state": null,
+      "ministry": "Department of Science and Technology",
+      "is_active": false,
+      "benefit_amount": 80000,
+      "benefit_text": "Rs 80,000 a year for B.Sc, B.S or integrated M.Sc in natural and basic sciences. Not open: no call for applications in 2025 or 2026.",
+      "official_url": "https://online-inspire.gov.in",
+      "apply_url": "https://online-inspire.gov.in",
+      "documents": [
+        "marksheet_class12",
+        "board_top1_certificate",
+        "admission_letter"
+      ],
+      "sources": [
+        "https://www.indiascienceandtechnology.gov.in/hi/nurturing-minds/scholarships/post-graduation/inspire-she-innovation-science-pursuit-inspired",
+        "https://school.careers360.com/articles/inspire-scholarship"
+      ],
+      "verify": [
+        "2025 and 2026 notices were not released; check online-inspire.gov.in before telling students to apply."
+      ],
+      "rule": {
+        "all": [
+          {
+            "id": "course",
+            "field": "course",
+            "op": "in",
+            "value": [
+              "ug_degree"
+            ],
+            "label": "B.Sc, B.S or integrated M.Sc in basic sciences"
+          },
+          {
+            "id": "age",
+            "field": "age",
+            "op": "between",
+            "value": [
+              17,
+              22
+            ],
+            "label": "Aged 17 to 22"
+          }
+        ]
+      }
+    }
+  ],
+  "document_types": {
+    "aadhaar": "Aadhaar card",
+    "bank_account_aadhaar_seeded": "Bank account linked to Aadhaar (for DBT)",
+    "income_certificate": "Income certificate from the Tehsildar or competent authority",
+    "caste_certificate": "Caste certificate",
+    "domicile_certificate": "Domicile certificate",
+    "disability_certificate": "Disability certificate (40% or more)",
+    "orphan_or_death_certificate": "Orphan certificate or parent's death certificate",
+    "marksheet_previous": "Marksheet of the last exam passed",
+    "marksheet_class8": "Class 8 pass certificate",
+    "marksheet_class12": "Class 12 marksheet",
+    "marksheet_highest": "Marksheet of your highest qualification",
+    "board_top1_certificate": "Board's top 1% eligibility note",
+    "bonafide_certificate": "Bonafide certificate from your institution",
+    "admission_letter": "Admission letter",
+    "cap_allotment_letter": "CAP allotment letter",
+    "fee_receipt": "Fee receipt",
+    "noc_institution": "No-objection certificate from your institution (final-year students)",
+    "pan": "PAN card",
+    "project_report": "Project report for your business"
+  }
+}

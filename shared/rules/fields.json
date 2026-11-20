@@ -1,0 +1,139 @@
+{
+  "_doc": "Facts a rule can ask about. 'ask' is the order the app asks in when several are missing (lower first). Question text lives in the frontend locale files under facts.<field>.",
+  "fields": {
+    "class_level": {
+      "type": "number",
+      "ask": 1,
+      "options": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unit": "class"
+    },
+    "course": {
+      "type": "enum",
+      "ask": 2,
+      "options": [
+        "school",
+        "iti",
+        "diploma",
+        "ug_degree",
+        "ug_technical",
+        "pg",
+        "none"
+      ]
+    },
+    "state": {
+      "type": "enum",
+      "ask": 3,
+      "options": [
+        "Maharashtra",
+        "Uttar Pradesh",
+        "Other"
+      ]
+    },
+    "family_income_annual": {
+      "type": "number",
+      "ask": 4,
+      "options": [
+        100000,
+        250000,
+        350000,
+        450000,
+        800000,
+        1000000
+      ],
+      "unit": "inr"
+    },
+    "social_category": {
+      "type": "enum",
+      "ask": 5,
+      "options": [
+        "SC",
+        "ST",
+        "OBC",
+        "EBC",
+        "DNT",
+        "SEBC",
+        "EWS",
+        "General"
+      ]
+    },
+    "marks_percent": {
+      "type": "number",
+      "ask": 6,
+      "unit": "percent"
+    },
+    "gender": {
+      "type": "enum",
+      "ask": 7,
+      "options": [
+        "female",
+        "male",
+        "other"
+      ]
+    },
+    "school_type": {
+      "type": "enum",
+      "ask": 8,
+      "options": [
+        "government",
+        "aided",
+        "local_body",
+        "private",
+        "kendriya_navodaya",
+        "residential_govt"
+      ]
+    },
+    "is_minority": {
+      "type": "boolean",
+      "ask": 9
+    },
+    "is_disabled": {
+      "type": "boolean",
+      "ask": 10,
+      "note": "Certified disability of 40% or more"
+    },
+    "age": {
+      "type": "number",
+      "ask": 11,
+      "unit": "years"
+    },
+    "institution_aicte": {
+      "type": "boolean",
+      "ask": 12
+    },
+    "in_full_time_job": {
+      "type": "boolean",
+      "ask": 13
+    },
+    "is_orphan_or_covid_affected": {
+      "type": "boolean",
+      "ask": 14,
+      "note": "Orphan, lost a parent to Covid-19, or ward of a martyred armed/paramilitary member"
+    },
+    "in_top_class_school": {
+      "type": "boolean",
+      "ask": 15
+    },
+    "above_80_percentile_class12": {
+      "type": "boolean",
+      "ask": 16
+    },
+    "family_govt_employee": {
+      "type": "boolean",
+      "ask": 17
+    },
+    "cap_admission": {
+      "type": "boolean",
+      "ask": 18
+    }
+  }
+}

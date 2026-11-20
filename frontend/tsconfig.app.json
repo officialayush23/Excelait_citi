@@ -25,10 +25,15 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@shared/*": [
+        "../shared/*"
       ]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": [
-    "src"
+    "src",
+    "../shared/**/*.json"
   ]
 }

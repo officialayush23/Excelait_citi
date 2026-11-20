@@ -1,0 +1,107 @@
+{
+  "_doc": "Typical months are when the exam has usually been held; dates change every year, so always check the official site.",
+  "exams": [
+    {
+      "slug": "jee-main",
+      "name": "JEE Main",
+      "conducting_body": "National Testing Agency",
+      "eligibility": "Class 12 with Physics, Chemistry and Maths",
+      "typical_months": [
+        1,
+        4
+      ],
+      "official_url": "https://jeemain.nta.nic.in"
+    },
+    {
+      "slug": "neet-ug",
+      "name": "NEET-UG",
+      "conducting_body": "National Testing Agency",
+      "eligibility": "Class 12 with Physics, Chemistry and Biology",
+      "typical_months": [
+        5
+      ],
+      "official_url": "https://neet.nta.nic.in"
+    },
+    {
+      "slug": "cuet-ug",
+      "name": "CUET-UG",
+      "conducting_body": "National Testing Agency",
+      "eligibility": "Class 12 in any stream",
+      "typical_months": [
+        5
+      ],
+      "official_url": "https://cuet.nta.nic.in"
+    },
+    {
+      "slug": "icar-aieea",
+      "name": "ICAR AIEEA (agriculture admissions)",
+      "conducting_body": "National Testing Agency / ICAR",
+      "eligibility": "Class 12 with Science (varies by course)",
+      "typical_months": [
+        6
+      ],
+      "official_url": "https://icar.nta.nic.in"
+    },
+    {
+      "slug": "ctet",
+      "name": "CTET (teacher eligibility)",
+      "conducting_body": "CBSE",
+      "eligibility": "Class 12 with D.El.Ed (Paper 1) or graduation with B.Ed (Paper 2)",
+      "typical_months": [],
+      "official_url": "https://ctet.nic.in"
+    },
+    {
+      "slug": "clat",
+      "name": "CLAT (law)",
+      "conducting_body": "Consortium of National Law Universities",
+      "eligibility": "Class 12 with 45% (40% SC/ST)",
+      "typical_months": [
+        12
+      ],
+      "official_url": "https://consortiumofnlus.ac.in"
+    },
+    {
+      "slug": "ibps-clerk",
+      "name": "IBPS Clerk / PO",
+      "conducting_body": "Institute of Banking Personnel Selection",
+      "eligibility": "Any graduation",
+      "typical_months": [],
+      "official_url": "https://www.ibps.in"
+    },
+    {
+      "slug": "rrb-group-d",
+      "name": "RRB Group D / Technician",
+      "conducting_body": "Railway Recruitment Boards",
+      "eligibility": "Class 10 with ITI (varies by post)",
+      "typical_months": [],
+      "official_url": "https://indianrailways.gov.in"
+    },
+    {
+      "slug": "agniveer",
+      "name": "Agniveer (Army)",
+      "conducting_body": "Indian Army",
+      "eligibility": "Class 10 or 12 (varies by role)",
+      "typical_months": [],
+      "official_url": "https://joinindianarmy.nic.in"
+    },
+    {
+      "slug": "state-police",
+      "name": "State police constable recruitment",
+      "conducting_body": "State police recruitment boards",
+      "eligibility": "Class 12 (varies by state)",
+      "typical_months": [],
+      "official_url": "https://www.mahapolice.gov.in"
+    },
+    {
+      "slug": "polytechnic-cet",
+      "name": "Polytechnic entrance (state)",
+      "conducting_body": "State technical education boards (e.g. JEECUP in UP, DTE in Maharashtra)",
+      "eligibility": "Class 10",
+      "typical_months": [
+        5,
+        6
+      ],
+      "official_url": "https://jeecup.admissions.nic.in"
+    }
+  ]
+}

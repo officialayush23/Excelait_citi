@@ -1,0 +1,2143 @@
+{
+  "_doc": "Careers for matching. Pay is an indicative monthly range in INR for an entry-to-early-career worker and must be checked locally before the pilot; NCO-2015 codes are listed where known and need a second check. rural_demand (0-1) is a placeholder until district data (PLFS, NCS) is loaded.",
+  "interest_tags": [
+    "hands_on",
+    "machines",
+    "electricity",
+    "vehicles",
+    "construction",
+    "computers",
+    "numbers",
+    "problem_solving",
+    "creative",
+    "art",
+    "fashion",
+    "food",
+    "talking",
+    "helping",
+    "teaching",
+    "health",
+    "science_lab",
+    "animals",
+    "nature",
+    "outdoors",
+    "business",
+    "public_service",
+    "sports",
+    "languages_love"
+  ],
+  "subject_tags": [
+    "maths",
+    "science",
+    "biology",
+    "english",
+    "languages",
+    "social",
+    "computers",
+    "art",
+    "commerce"
+  ],
+  "careers": [
+    {
+      "slug": "electrician",
+      "name": "Electrician",
+      "name_i18n": {
+        "hi": "इलेक्ट्रीशियन",
+        "mr": "विजतंत्री"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7411",
+      "nsqf_level": 4,
+      "pay_min": 12000,
+      "pay_max": 30000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "electricity",
+        "machines"
+      ],
+      "subject_tags": [
+        "science",
+        "maths"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "ITI Electrician (2 years)",
+        "Apprenticeship (NAPS)",
+        "Licensed wireman / own work"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "solar-technician",
+      "name": "Solar PV technician",
+      "name_i18n": {
+        "hi": "सोलर तकनीशियन",
+        "mr": "सौर तंत्रज्ञ"
+      },
+      "category": "emerging",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 12000,
+      "pay_max": 28000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "electricity",
+        "outdoors",
+        "nature"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "PMKVY solar course or ITI",
+        "Install with a solar company",
+        "Own installation business"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "plumber",
+      "name": "Plumber",
+      "name_i18n": {
+        "hi": "प्लंबर",
+        "mr": "प्लंबर"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7126",
+      "nsqf_level": 3,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "construction"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Class 8 or 10",
+        "ITI Plumber or PMKVY",
+        "Work with a contractor",
+        "Own work"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "welder",
+      "name": "Welder",
+      "name_i18n": {
+        "hi": "वेल्डर",
+        "mr": "वेल्डर"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7212",
+      "nsqf_level": 4,
+      "pay_min": 12000,
+      "pay_max": 30000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "machines"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": true,
+      "path": [
+        "Class 8 or 10",
+        "ITI Welder (1 year)",
+        "Apprenticeship",
+        "Factory or fabrication shop"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "motor-mechanic",
+      "name": "Two-wheeler and car mechanic",
+      "name_i18n": {
+        "hi": "मोटर मैकेनिक",
+        "mr": "मोटार मेकॅनिक"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7231",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 28000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "machines",
+        "vehicles"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "ITI Mechanic Motor Vehicle",
+        "Service centre job",
+        "Own garage"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "ev-technician",
+      "name": "Electric vehicle technician",
+      "name_i18n": {
+        "hi": "इलेक्ट्रिक वाहन तकनीशियन",
+        "mr": "इलेक्ट्रिक वाहन तंत्रज्ञ"
+      },
+      "category": "emerging",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 14000,
+      "pay_max": 32000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "machines",
+        "vehicles",
+        "electricity"
+      ],
+      "subject_tags": [
+        "science",
+        "maths"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "ITI or PMKVY EV course",
+        "Apprenticeship at an EV service centre",
+        "Senior technician"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "mobile-repair",
+      "name": "Mobile phone repair technician",
+      "name_i18n": {
+        "hi": "मोबाइल रिपेयर तकनीशियन",
+        "mr": "मोबाइल दुरुस्ती तंत्रज्ञ"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7422",
+      "nsqf_level": 3,
+      "pay_min": 8000,
+      "pay_max": 25000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "computers",
+        "electricity"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Class 8 or 10",
+        "PMKVY or short course",
+        "Work in a repair shop",
+        "Own shop"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "cnc-operator",
+      "name": "CNC machine operator",
+      "name_i18n": {
+        "hi": "सीएनसी मशीन ऑपरेटर",
+        "mr": "सीएनसी मशीन ऑपरेटर"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7223",
+      "nsqf_level": 4,
+      "pay_min": 14000,
+      "pay_max": 30000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "machines"
+      ],
+      "subject_tags": [
+        "maths",
+        "science"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "ITI Machinist or Turner",
+        "Apprenticeship in a factory",
+        "CNC programmer"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "carpenter",
+      "name": "Carpenter and furniture maker",
+      "name_i18n": {
+        "hi": "बढ़ई",
+        "mr": "सुतार"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7115",
+      "nsqf_level": 3,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "construction",
+        "creative"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 8",
+        "ITI Carpenter or apprenticeship",
+        "Work with a contractor",
+        "Own workshop"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "mason",
+      "name": "Mason and construction supervisor",
+      "name_i18n": {
+        "hi": "राजमिस्त्री",
+        "mr": "गवंडी"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7112",
+      "nsqf_level": 3,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "none",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "construction",
+        "outdoors"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Learn on site or PMKVY",
+        "Certified mason",
+        "Site supervisor",
+        "Small contractor"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "tailor",
+      "name": "Tailor and fashion stitching",
+      "name_i18n": {
+        "hi": "दर्ज़ी / सिलाई",
+        "mr": "शिंपी / शिवणकाम"
+      },
+      "category": "skilled_trade",
+      "nco_code": "7531",
+      "nsqf_level": 3,
+      "pay_min": 6000,
+      "pay_max": 20000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "fashion",
+        "creative"
+      ],
+      "subject_tags": [
+        "art"
+      ],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Class 8",
+        "ITI Sewing Technology or PMKVY",
+        "Work in a boutique or unit",
+        "Own tailoring shop"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "beautician",
+      "name": "Beautician and salon professional",
+      "name_i18n": {
+        "hi": "ब्यूटीशियन",
+        "mr": "ब्युटिशियन"
+      },
+      "category": "services",
+      "nco_code": "5142",
+      "nsqf_level": 3,
+      "pay_min": 8000,
+      "pay_max": 25000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "fashion",
+        "creative",
+        "helping"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "PMKVY Beauty & Wellness course",
+        "Salon job",
+        "Own parlour"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "cook-chef",
+      "name": "Cook and chef",
+      "name_i18n": {
+        "hi": "रसोइया / शेफ",
+        "mr": "आचारी / शेफ"
+      },
+      "category": "services",
+      "nco_code": "5120",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 35000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "food",
+        "hands_on",
+        "creative"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.7,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "Food production course (IHM or PMKVY)",
+        "Hotel or restaurant kitchen",
+        "Chef or own food business"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "hotel-front-office",
+      "name": "Hotel front office associate",
+      "name_i18n": {
+        "hi": "होटल फ्रंट ऑफिस",
+        "mr": "हॉटेल फ्रंट ऑफिस"
+      },
+      "category": "services",
+      "nco_code": "4224",
+      "nsqf_level": 4,
+      "pay_min": 12000,
+      "pay_max": 25000,
+      "min_education": "class_12",
+      "earning_speed": "fast",
+      "cost_band": "medium",
+      "interest_tags": [
+        "talking",
+        "helping"
+      ],
+      "subject_tags": [
+        "english",
+        "languages"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 12",
+        "Hospitality diploma or PMKVY",
+        "Front desk job",
+        "Front office manager"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "tour-guide",
+      "name": "Tourist guide",
+      "name_i18n": {
+        "hi": "टूरिस्ट गाइड",
+        "mr": "पर्यटक मार्गदर्शक"
+      },
+      "category": "services",
+      "nco_code": "5113",
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 25000,
+      "min_education": "class_12",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "talking",
+        "outdoors",
+        "nature"
+      ],
+      "subject_tags": [
+        "languages",
+        "social"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Tourism course or state guide licence",
+        "Guide at local sites",
+        "Own tour service"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "driver",
+      "name": "Commercial driver",
+      "name_i18n": {
+        "hi": "ड्राइवर",
+        "mr": "चालक"
+      },
+      "category": "services",
+      "nco_code": "8322",
+      "nsqf_level": 3,
+      "pay_min": 12000,
+      "pay_max": 25000,
+      "min_education": "class_8",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "vehicles",
+        "outdoors"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Age 18+, learner licence",
+        "Commercial licence",
+        "Taxi, delivery or bus",
+        "Own vehicle"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "delivery-logistics",
+      "name": "Warehouse and logistics associate",
+      "name_i18n": {
+        "hi": "वेयरहाउस / लॉजिस्टिक्स सहायक",
+        "mr": "गोदाम / लॉजिस्टिक्स सहाय्यक"
+      },
+      "category": "services",
+      "nco_code": "9333",
+      "nsqf_level": 3,
+      "pay_min": 10000,
+      "pay_max": 20000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "hands_on",
+        "vehicles"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.6,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "PMKVY logistics course",
+        "Warehouse job",
+        "Supervisor"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "data-entry",
+      "name": "Data entry and back-office operator",
+      "name_i18n": {
+        "hi": "डेटा एंट्री ऑपरेटर",
+        "mr": "डेटा एंट्री ऑपरेटर"
+      },
+      "category": "services",
+      "nco_code": "4132",
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 18000,
+      "min_education": "class_12",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "numbers"
+      ],
+      "subject_tags": [
+        "computers",
+        "english"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Computer course (CCC or PMKVY)",
+        "Back-office or CSC job",
+        "Office assistant"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "csc-operator",
+      "name": "Common Service Centre (CSC) operator",
+      "name_i18n": {
+        "hi": "सीएससी संचालक",
+        "mr": "सीएससी चालक"
+      },
+      "category": "entrepreneurship",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 25000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "helping",
+        "business"
+      ],
+      "subject_tags": [
+        "computers"
+      ],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "Basic computer skills",
+        "Register as a Village Level Entrepreneur",
+        "Run a CSC"
+      ],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "software-developer",
+      "name": "Software developer",
+      "name_i18n": {
+        "hi": "सॉफ्टवेयर डेवलपर",
+        "mr": "सॉफ्टवेअर डेव्हलपर"
+      },
+      "category": "stem",
+      "nco_code": "2512",
+      "nsqf_level": 6,
+      "pay_min": 25000,
+      "pay_max": 80000,
+      "min_education": "ug_technical",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "computers",
+        "numbers",
+        "problem_solving"
+      ],
+      "subject_tags": [
+        "maths",
+        "computers"
+      ],
+      "rural_demand": 0.2,
+      "needs_city": true,
+      "path": [
+        "Class 12 with Maths",
+        "BCA, B.Sc CS or B.Tech (or polytechnic + lateral)",
+        "Internships",
+        "Developer job"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "pm-usp-csss",
+        "pm-internship"
+      ],
+      "exam_slugs": [
+        "jee-main",
+        "cuet-ug"
+      ]
+    },
+    {
+      "slug": "web-designer",
+      "name": "Web and app designer",
+      "name_i18n": {
+        "hi": "वेब डिज़ाइनर",
+        "mr": "वेब डिझायनर"
+      },
+      "category": "creative",
+      "nco_code": "2166",
+      "nsqf_level": 5,
+      "pay_min": 15000,
+      "pay_max": 45000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "creative",
+        "art"
+      ],
+      "subject_tags": [
+        "computers",
+        "art"
+      ],
+      "rural_demand": 0.3,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Design or web course (online, PMKVY)",
+        "Freelance or agency work",
+        "Senior designer"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pm-internship"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "graphic-designer",
+      "name": "Graphic designer",
+      "name_i18n": {
+        "hi": "ग्राफिक डिज़ाइनर",
+        "mr": "ग्राफिक डिझायनर"
+      },
+      "category": "creative",
+      "nco_code": "2166",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 40000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "creative",
+        "art",
+        "computers"
+      ],
+      "subject_tags": [
+        "art"
+      ],
+      "rural_demand": 0.35,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Design course or diploma",
+        "Print shop, agency or freelance",
+        "Senior designer"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pm-internship"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "photographer",
+      "name": "Photographer and videographer",
+      "name_i18n": {
+        "hi": "फ़ोटोग्राफ़र",
+        "mr": "छायाचित्रकार"
+      },
+      "category": "creative",
+      "nco_code": "3431",
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 35000,
+      "min_education": "class_10",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "creative",
+        "art",
+        "outdoors"
+      ],
+      "subject_tags": [
+        "art"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "Short course and practice",
+        "Assist a studio",
+        "Own studio, weddings and events"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "content-creator",
+      "name": "Regional language content creator",
+      "name_i18n": {
+        "hi": "क्षेत्रीय भाषा कंटेंट क्रिएटर",
+        "mr": "प्रादेशिक भाषा कंटेंट क्रिएटर"
+      },
+      "category": "creative",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 5000,
+      "pay_max": 50000,
+      "min_education": "class_10",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "creative",
+        "talking",
+        "computers"
+      ],
+      "subject_tags": [
+        "languages"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Phone and practice",
+        "Learn editing",
+        "Build a channel",
+        "Brand work and freelancing"
+      ],
+      "scheme_slugs": [],
+      "exam_slugs": []
+    },
+    {
+      "slug": "primary-teacher",
+      "name": "Primary school teacher",
+      "name_i18n": {
+        "hi": "प्राथमिक शिक्षक",
+        "mr": "प्राथमिक शिक्षक"
+      },
+      "category": "government",
+      "nco_code": "2341",
+      "nsqf_level": 6,
+      "pay_min": 15000,
+      "pay_max": 45000,
+      "min_education": "class_12",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "teaching",
+        "helping",
+        "talking"
+      ],
+      "subject_tags": [
+        "languages",
+        "social"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "D.El.Ed (2 years)",
+        "Pass TET / CTET",
+        "Government or private school"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "up-dashmottar"
+      ],
+      "exam_slugs": [
+        "ctet"
+      ]
+    },
+    {
+      "slug": "anm-nurse",
+      "name": "Auxiliary nurse midwife (ANM)",
+      "name_i18n": {
+        "hi": "सहायक नर्स मिडवाइफ (ANM)",
+        "mr": "सहाय्यक परिचारिका (ANM)"
+      },
+      "category": "healthcare",
+      "nco_code": "3221",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 30000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "health",
+        "helping"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "ANM course (2 years)",
+        "Sub-centre or hospital",
+        "GNM or B.Sc Nursing later"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "up-dashmottar"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "staff-nurse",
+      "name": "Staff nurse (GNM / B.Sc Nursing)",
+      "name_i18n": {
+        "hi": "स्टाफ नर्स",
+        "mr": "स्टाफ नर्स"
+      },
+      "category": "healthcare",
+      "nco_code": "2221",
+      "nsqf_level": 6,
+      "pay_min": 20000,
+      "pay_max": 50000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "health",
+        "helping"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": true,
+      "path": [
+        "Class 12 with Biology",
+        "GNM (3 years) or B.Sc Nursing (4 years)",
+        "Register with the nursing council",
+        "Hospital job"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "pm-usp-csss"
+      ],
+      "exam_slugs": [
+        "neet-ug"
+      ]
+    },
+    {
+      "slug": "lab-technician",
+      "name": "Medical lab technician",
+      "name_i18n": {
+        "hi": "मेडिकल लैब तकनीशियन",
+        "mr": "वैद्यकीय प्रयोगशाळा तंत्रज्ञ"
+      },
+      "category": "healthcare",
+      "nco_code": "3212",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 30000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "health",
+        "science_lab"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": false,
+      "path": [
+        "Class 12 with Science",
+        "DMLT diploma",
+        "Lab or hospital job",
+        "Own collection centre"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "pharmacist",
+      "name": "Pharmacist",
+      "name_i18n": {
+        "hi": "फार्मासिस्ट",
+        "mr": "औषधनिर्माता"
+      },
+      "category": "healthcare",
+      "nco_code": "2262",
+      "nsqf_level": 6,
+      "pay_min": 15000,
+      "pay_max": 40000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "health",
+        "science_lab"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 12 with Science",
+        "D.Pharm (2 years)",
+        "Register with the pharmacy council",
+        "Hospital or own medical store"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "pmegp",
+        "aicte-pragati"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "physio-assistant",
+      "name": "Physiotherapy and rehab assistant",
+      "name_i18n": {
+        "hi": "फिजियोथेरेपी सहायक",
+        "mr": "फिजिओथेरपी सहाय्यक"
+      },
+      "category": "healthcare",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "health",
+        "helping",
+        "hands_on"
+      ],
+      "subject_tags": [
+        "biology"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 12",
+        "Diploma or PMKVY course",
+        "Clinic or hospital",
+        "BPT later"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "doctor",
+      "name": "Doctor (MBBS)",
+      "name_i18n": {
+        "hi": "डॉक्टर (एमबीबीएस)",
+        "mr": "डॉक्टर (एमबीबीएस)"
+      },
+      "category": "healthcare",
+      "nco_code": "2211",
+      "nsqf_level": 8,
+      "pay_min": 60000,
+      "pay_max": 200000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "high",
+      "interest_tags": [
+        "health",
+        "helping",
+        "science_lab"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": true,
+      "path": [
+        "Class 12 with Biology",
+        "Clear NEET-UG",
+        "MBBS (5.5 years)",
+        "Internship and practice"
+      ],
+      "scheme_slugs": [
+        "pms-sc",
+        "pms-st",
+        "pm-usp-csss"
+      ],
+      "exam_slugs": [
+        "neet-ug"
+      ]
+    },
+    {
+      "slug": "vet-assistant",
+      "name": "Veterinary livestock assistant",
+      "name_i18n": {
+        "hi": "पशुधन सहायक",
+        "mr": "पशुधन सहाय्यक"
+      },
+      "category": "agriculture",
+      "nco_code": "3240",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "animals",
+        "nature",
+        "health"
+      ],
+      "subject_tags": [
+        "biology"
+      ],
+      "rural_demand": 0.85,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Livestock or veterinary diploma",
+        "Government or dairy cooperative job",
+        "Own animal health service"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "dairy-entrepreneur",
+      "name": "Dairy farm entrepreneur",
+      "name_i18n": {
+        "hi": "डेयरी उद्यमी",
+        "mr": "दुग्ध व्यवसाय उद्योजक"
+      },
+      "category": "agriculture",
+      "nco_code": "6121",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 40000,
+      "min_education": "none",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "animals",
+        "nature",
+        "business"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Training at KVK or cooperative",
+        "Start with a few animals",
+        "Join a milk cooperative",
+        "Scale up"
+      ],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "organic-farmer",
+      "name": "Modern and organic farmer",
+      "name_i18n": {
+        "hi": "आधुनिक / जैविक किसान",
+        "mr": "आधुनिक / सेंद्रिय शेतकरी"
+      },
+      "category": "agriculture",
+      "nco_code": "6111",
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 40000,
+      "min_education": "none",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "nature",
+        "outdoors",
+        "business"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.95,
+      "needs_city": false,
+      "path": [
+        "Training at Krishi Vigyan Kendra",
+        "Soil testing and certification",
+        "Join an FPO",
+        "Sell direct or online"
+      ],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "agri-drone-pilot",
+      "name": "Agriculture drone pilot",
+      "name_i18n": {
+        "hi": "कृषि ड्रोन पायलट",
+        "mr": "कृषी ड्रोन पायलट"
+      },
+      "category": "emerging",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 15000,
+      "pay_max": 35000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "medium",
+      "interest_tags": [
+        "nature",
+        "machines",
+        "computers",
+        "outdoors"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "DGCA-approved remote pilot training",
+        "Spray services with an FPO or agency",
+        "Own drone service"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "food-processing",
+      "name": "Food processing technician",
+      "name_i18n": {
+        "hi": "खाद्य प्रसंस्करण तकनीशियन",
+        "mr": "अन्न प्रक्रिया तंत्रज्ञ"
+      },
+      "category": "agriculture",
+      "nco_code": "7514",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 25000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "food",
+        "hands_on",
+        "business"
+      ],
+      "subject_tags": [
+        "science"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "PMKVY food processing course",
+        "Unit or cooperative job",
+        "Own pickle, papad or flour unit"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "agri-graduate",
+      "name": "Agriculture officer / agronomist",
+      "name_i18n": {
+        "hi": "कृषि अधिकारी",
+        "mr": "कृषी अधिकारी"
+      },
+      "category": "agriculture",
+      "nco_code": "2132",
+      "nsqf_level": 7,
+      "pay_min": 25000,
+      "pay_max": 60000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "nature",
+        "science_lab",
+        "outdoors"
+      ],
+      "subject_tags": [
+        "biology",
+        "science"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": false,
+      "path": [
+        "Class 12 with Science",
+        "B.Sc Agriculture (4 years)",
+        "Agri companies or banks",
+        "State agriculture officer exam"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st"
+      ],
+      "exam_slugs": [
+        "icar-aieea"
+      ]
+    },
+    {
+      "slug": "accountant",
+      "name": "Accountant and tax assistant",
+      "name_i18n": {
+        "hi": "लेखाकार",
+        "mr": "लेखापाल"
+      },
+      "category": "non_stem",
+      "nco_code": "3313",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 35000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "numbers",
+        "business"
+      ],
+      "subject_tags": [
+        "commerce",
+        "maths"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": false,
+      "path": [
+        "Class 12 (Commerce helps)",
+        "B.Com or Tally/GST course",
+        "Work with a CA or firm",
+        "Own tax and accounts practice"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pmkvy-4"
+      ],
+      "exam_slugs": [
+        "cuet-ug"
+      ]
+    },
+    {
+      "slug": "bank-clerk",
+      "name": "Bank clerk / officer",
+      "name_i18n": {
+        "hi": "बैंक क्लर्क / अधिकारी",
+        "mr": "बँक लिपिक / अधिकारी"
+      },
+      "category": "government",
+      "nco_code": "4211",
+      "nsqf_level": 6,
+      "pay_min": 25000,
+      "pay_max": 50000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "low",
+      "interest_tags": [
+        "numbers",
+        "talking"
+      ],
+      "subject_tags": [
+        "maths",
+        "english"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Any graduation",
+        "Prepare for IBPS / SBI exams",
+        "Clerk or PO",
+        "Promotion to manager"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss"
+      ],
+      "exam_slugs": [
+        "ibps-clerk"
+      ]
+    },
+    {
+      "slug": "bank-mitra",
+      "name": "Bank Mitra (business correspondent)",
+      "name_i18n": {
+        "hi": "बैंक मित्र",
+        "mr": "बँक मित्र"
+      },
+      "category": "services",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 6000,
+      "pay_max": 20000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "helping",
+        "numbers",
+        "talking"
+      ],
+      "subject_tags": [
+        "maths"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "IIBF BC certification",
+        "Work with a bank's BC agent",
+        "Run your own BC point"
+      ],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "police-constable",
+      "name": "Police constable",
+      "name_i18n": {
+        "hi": "पुलिस कांस्टेबल",
+        "mr": "पोलीस शिपाई"
+      },
+      "category": "government",
+      "nco_code": "5412",
+      "nsqf_level": 4,
+      "pay_min": 25000,
+      "pay_max": 40000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "public_service",
+        "outdoors",
+        "sports"
+      ],
+      "subject_tags": [
+        "social"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Physical fitness",
+        "State police recruitment exam",
+        "Training and posting"
+      ],
+      "scheme_slugs": [],
+      "exam_slugs": [
+        "state-police"
+      ]
+    },
+    {
+      "slug": "army-soldier",
+      "name": "Soldier (Agniveer)",
+      "name_i18n": {
+        "hi": "सैनिक (अग्निवीर)",
+        "mr": "सैनिक (अग्निवीर)"
+      },
+      "category": "government",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 30000,
+      "pay_max": 40000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "public_service",
+        "sports",
+        "outdoors"
+      ],
+      "subject_tags": [
+        "social"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Class 10 or 12",
+        "Agniveer rally and written test",
+        "Training",
+        "Four years of service"
+      ],
+      "scheme_slugs": [],
+      "exam_slugs": [
+        "agniveer"
+      ]
+    },
+    {
+      "slug": "railway-technician",
+      "name": "Railway technician (Group C/D)",
+      "name_i18n": {
+        "hi": "रेलवे तकनीशियन",
+        "mr": "रेल्वे तंत्रज्ञ"
+      },
+      "category": "government",
+      "nco_code": null,
+      "nsqf_level": 5,
+      "pay_min": 25000,
+      "pay_max": 40000,
+      "min_education": "class_10",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "machines",
+        "public_service",
+        "hands_on"
+      ],
+      "subject_tags": [
+        "science",
+        "maths"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": true,
+      "path": [
+        "Class 10 + ITI",
+        "Prepare for RRB exams",
+        "Technician or Group D job",
+        "Promotion"
+      ],
+      "scheme_slugs": [
+        "naps"
+      ],
+      "exam_slugs": [
+        "rrb-group-d"
+      ]
+    },
+    {
+      "slug": "anganwadi-worker",
+      "name": "Anganwadi worker / ASHA",
+      "name_i18n": {
+        "hi": "आंगनवाड़ी कार्यकर्ता / आशा",
+        "mr": "अंगणवाडी सेविका / आशा"
+      },
+      "category": "government",
+      "nco_code": "5311",
+      "nsqf_level": 3,
+      "pay_min": 5000,
+      "pay_max": 12000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "helping",
+        "health",
+        "teaching"
+      ],
+      "subject_tags": [
+        "languages"
+      ],
+      "rural_demand": 0.95,
+      "needs_city": false,
+      "path": [
+        "Class 10 or 12",
+        "Local selection by the district",
+        "Training",
+        "Supervisor later"
+      ],
+      "scheme_slugs": [],
+      "exam_slugs": []
+    },
+    {
+      "slug": "social-worker",
+      "name": "Community and social worker",
+      "name_i18n": {
+        "hi": "सामाजिक कार्यकर्ता",
+        "mr": "सामाजिक कार्यकर्ता"
+      },
+      "category": "non_stem",
+      "nco_code": "2635",
+      "nsqf_level": 6,
+      "pay_min": 12000,
+      "pay_max": 35000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "low",
+      "interest_tags": [
+        "helping",
+        "talking",
+        "public_service"
+      ],
+      "subject_tags": [
+        "social",
+        "languages"
+      ],
+      "rural_demand": 0.7,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "BSW or BA",
+        "NGO field work",
+        "MSW, project lead"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st"
+      ],
+      "exam_slugs": [
+        "cuet-ug"
+      ]
+    },
+    {
+      "slug": "journalist",
+      "name": "Local journalist and reporter",
+      "name_i18n": {
+        "hi": "पत्रकार",
+        "mr": "पत्रकार"
+      },
+      "category": "non_stem",
+      "nco_code": "2642",
+      "nsqf_level": 6,
+      "pay_min": 10000,
+      "pay_max": 40000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "low",
+      "interest_tags": [
+        "talking",
+        "creative",
+        "public_service"
+      ],
+      "subject_tags": [
+        "languages",
+        "social"
+      ],
+      "rural_demand": 0.4,
+      "needs_city": true,
+      "path": [
+        "Class 12",
+        "BA Journalism or mass communication",
+        "Local paper or channel",
+        "Editor or digital media"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pm-internship"
+      ],
+      "exam_slugs": [
+        "cuet-ug"
+      ]
+    },
+    {
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "name_i18n": {
+        "hi": "वकील",
+        "mr": "वकील"
+      },
+      "category": "non_stem",
+      "nco_code": "2611",
+      "nsqf_level": 7,
+      "pay_min": 15000,
+      "pay_max": 80000,
+      "min_education": "ug_degree",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "talking",
+        "public_service",
+        "problem_solving"
+      ],
+      "subject_tags": [
+        "social",
+        "english"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 12",
+        "CLAT or state law entrance",
+        "LLB (3 or 5 years)",
+        "Practice at a district court"
+      ],
+      "scheme_slugs": [
+        "pm-usp-csss",
+        "pms-sc",
+        "pms-st"
+      ],
+      "exam_slugs": [
+        "clat"
+      ]
+    },
+    {
+      "slug": "civil-engineer",
+      "name": "Civil engineer (diploma or degree)",
+      "name_i18n": {
+        "hi": "सिविल इंजीनियर",
+        "mr": "स्थापत्य अभियंता"
+      },
+      "category": "stem",
+      "nco_code": "2142",
+      "nsqf_level": 6,
+      "pay_min": 18000,
+      "pay_max": 60000,
+      "min_education": "diploma",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "construction",
+        "numbers",
+        "outdoors"
+      ],
+      "subject_tags": [
+        "maths",
+        "science"
+      ],
+      "rural_demand": 0.6,
+      "needs_city": false,
+      "path": [
+        "Class 10",
+        "Polytechnic diploma (3 years) or B.Tech",
+        "Site engineer",
+        "Government engineer or contractor"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "aicte-saksham",
+        "mh-shahu-maharaj-shikshan-shulk",
+        "naps"
+      ],
+      "exam_slugs": [
+        "polytechnic-cet",
+        "jee-main"
+      ]
+    },
+    {
+      "slug": "electrical-engineer",
+      "name": "Electrical engineer (diploma or degree)",
+      "name_i18n": {
+        "hi": "इलेक्ट्रिकल इंजीनियर",
+        "mr": "विद्युत अभियंता"
+      },
+      "category": "stem",
+      "nco_code": "2151",
+      "nsqf_level": 6,
+      "pay_min": 18000,
+      "pay_max": 60000,
+      "min_education": "diploma",
+      "earning_speed": "slow",
+      "cost_band": "medium",
+      "interest_tags": [
+        "electricity",
+        "machines",
+        "numbers"
+      ],
+      "subject_tags": [
+        "maths",
+        "science"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "Polytechnic diploma or B.Tech",
+        "Apprenticeship (NATS)",
+        "Utility or plant engineer"
+      ],
+      "scheme_slugs": [
+        "aicte-pragati",
+        "aicte-saksham",
+        "naps"
+      ],
+      "exam_slugs": [
+        "polytechnic-cet",
+        "jee-main"
+      ]
+    },
+    {
+      "slug": "draughtsman",
+      "name": "Draughtsman and CAD operator",
+      "name_i18n": {
+        "hi": "ड्राफ्ट्समैन",
+        "mr": "आरेखक"
+      },
+      "category": "skilled_trade",
+      "nco_code": "3118",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 30000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "construction",
+        "art"
+      ],
+      "subject_tags": [
+        "maths",
+        "art"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "ITI Draughtsman Civil or Mechanical",
+        "CAD job",
+        "Senior draughtsman"
+      ],
+      "scheme_slugs": [
+        "naps",
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "ai-data-annotator",
+      "name": "AI data annotator",
+      "name_i18n": {
+        "hi": "एआई डेटा एनोटेटर",
+        "mr": "एआय डेटा अनोटेटर"
+      },
+      "category": "emerging",
+      "nco_code": null,
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 25000,
+      "min_education": "class_12",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "languages_love"
+      ],
+      "subject_tags": [
+        "computers",
+        "languages"
+      ],
+      "rural_demand": 0.5,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Short training",
+        "Remote annotation work in your language",
+        "Quality reviewer"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "digital-marketer",
+      "name": "Digital marketing executive",
+      "name_i18n": {
+        "hi": "डिजिटल मार्केटिंग",
+        "mr": "डिजिटल मार्केटिंग"
+      },
+      "category": "non_stem",
+      "nco_code": "2431",
+      "nsqf_level": 5,
+      "pay_min": 12000,
+      "pay_max": 40000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "computers",
+        "business",
+        "creative",
+        "talking"
+      ],
+      "subject_tags": [
+        "english",
+        "commerce"
+      ],
+      "rural_demand": 0.4,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Digital marketing course",
+        "Help local shops online, freelance",
+        "Agency or own business"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pm-internship"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "retail-sales",
+      "name": "Retail sales and store associate",
+      "name_i18n": {
+        "hi": "रिटेल सेल्स",
+        "mr": "रिटेल विक्री"
+      },
+      "category": "services",
+      "nco_code": "5223",
+      "nsqf_level": 3,
+      "pay_min": 9000,
+      "pay_max": 20000,
+      "min_education": "class_10",
+      "earning_speed": "fast",
+      "cost_band": "low",
+      "interest_tags": [
+        "talking",
+        "business"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.7,
+      "needs_city": true,
+      "path": [
+        "Class 10",
+        "Retail course (PMKVY)",
+        "Store job",
+        "Store manager"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "naps"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "small-business",
+      "name": "Small shop or village business owner",
+      "name_i18n": {
+        "hi": "छोटा व्यवसाय मालिक",
+        "mr": "लहान व्यवसाय मालक"
+      },
+      "category": "entrepreneurship",
+      "nco_code": "1420",
+      "nsqf_level": 4,
+      "pay_min": 8000,
+      "pay_max": 50000,
+      "min_education": "none",
+      "earning_speed": "medium",
+      "cost_band": "medium",
+      "interest_tags": [
+        "business",
+        "talking",
+        "numbers"
+      ],
+      "subject_tags": [
+        "commerce",
+        "maths"
+      ],
+      "rural_demand": 0.9,
+      "needs_city": false,
+      "path": [
+        "Pick a local need",
+        "Learn basic accounts",
+        "PMEGP or Mudra loan",
+        "Grow and hire"
+      ],
+      "scheme_slugs": [
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "handicraft-artisan",
+      "name": "Handicraft and handloom artisan",
+      "name_i18n": {
+        "hi": "हस्तशिल्प कारीगर",
+        "mr": "हस्तकला कारागीर"
+      },
+      "category": "creative",
+      "nco_code": "7317",
+      "nsqf_level": 3,
+      "pay_min": 6000,
+      "pay_max": 30000,
+      "min_education": "none",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "creative",
+        "hands_on",
+        "art"
+      ],
+      "subject_tags": [
+        "art"
+      ],
+      "rural_demand": 0.8,
+      "needs_city": false,
+      "path": [
+        "Learn from a master craftsperson",
+        "Design and quality training",
+        "Sell via cooperatives or online",
+        "Own brand"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4",
+        "pmegp"
+      ],
+      "exam_slugs": []
+    },
+    {
+      "slug": "fitness-trainer",
+      "name": "Fitness trainer and sports coach",
+      "name_i18n": {
+        "hi": "फ़िटनेस ट्रेनर",
+        "mr": "फिटनेस प्रशिक्षक"
+      },
+      "category": "services",
+      "nco_code": "3423",
+      "nsqf_level": 4,
+      "pay_min": 10000,
+      "pay_max": 30000,
+      "min_education": "class_12",
+      "earning_speed": "medium",
+      "cost_band": "low",
+      "interest_tags": [
+        "sports",
+        "helping",
+        "outdoors"
+      ],
+      "subject_tags": [],
+      "rural_demand": 0.5,
+      "needs_city": false,
+      "path": [
+        "Class 12",
+        "Fitness or coaching certificate",
+        "Gym or school job",
+        "Own coaching centre"
+      ],
+      "scheme_slugs": [
+        "pmkvy-4"
+      ],
+      "exam_slugs": []
+    }
+  ]
+}

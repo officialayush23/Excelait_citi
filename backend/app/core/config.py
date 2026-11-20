@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     supabase_db_url: str = ""
     groq_api_key: str = ""
     sarvam_api_key: str = ""
+    # OpenAI-compatible chat endpoint. Groq today; for Ollama use http://localhost:11434/v1 and a local model.
+    llm_base_url: str = "https://api.groq.com/openai/v1"
+    llm_model: str = "openai/gpt-oss-120b"
     cors_origins: str = "http://localhost:5173"
 
     @property

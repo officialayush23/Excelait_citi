@@ -1,0 +1,288 @@
+{
+  "_doc": "Hand-checked cases. Both engines must produce exactly these results.",
+  "cases": [
+    {
+      "name": "NMMSS: class 8 govt school, low income, 60% -> eligible",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "government",
+        "family_income_annual": 200000,
+        "marks_percent": 60
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "NMMSS: income unknown -> ask only income",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "aided",
+        "marks_percent": 70
+      },
+      "expect": {
+        "result": "needs_info",
+        "missing": [
+          "family_income_annual"
+        ]
+      }
+    },
+    {
+      "name": "NMMSS: private school -> not eligible on school",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "private",
+        "family_income_annual": 100000,
+        "marks_percent": 90
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "school"
+        ]
+      }
+    },
+    {
+      "name": "NMMSS: SC student with 52% -> eligible via relaxation",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "local_body",
+        "family_income_annual": 300000,
+        "marks_percent": 52,
+        "social_category": "SC"
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "NMMSS: 52% with category unknown -> ask category",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "government",
+        "family_income_annual": 300000,
+        "marks_percent": 52
+      },
+      "expect": {
+        "result": "needs_info",
+        "missing": [
+          "social_category"
+        ]
+      }
+    },
+    {
+      "name": "NMMSS: General 52% -> not eligible on marks group",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "government",
+        "family_income_annual": 300000,
+        "marks_percent": 52,
+        "social_category": "General"
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "marks"
+        ]
+      }
+    },
+    {
+      "name": "NMMSS: Class 10 student -> not eligible (apply in Class 8)",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 10
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "class8"
+        ]
+      }
+    },
+    {
+      "name": "NMMSS: income exactly 3.5 lakh is allowed",
+      "scheme": "nmmss",
+      "facts": {
+        "class_level": 8,
+        "school_type": "government",
+        "family_income_annual": 350000,
+        "marks_percent": 55
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "PMS-SC: ITI student, SC, 2 lakh -> eligible",
+      "scheme": "pms-sc",
+      "facts": {
+        "social_category": "SC",
+        "course": "iti",
+        "family_income_annual": 200000
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "PMS-SC: class 11 with no course given still counts",
+      "scheme": "pms-sc",
+      "facts": {
+        "social_category": "SC",
+        "class_level": 11,
+        "family_income_annual": 250000
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "PMS-SC: OBC student -> not eligible",
+      "scheme": "pms-sc",
+      "facts": {
+        "social_category": "OBC",
+        "course": "ug_degree",
+        "family_income_annual": 100000
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "sc"
+        ]
+      }
+    },
+    {
+      "name": "UP Dashmottar: OBC 2.2 lakh -> not eligible on income",
+      "scheme": "up-dashmottar",
+      "facts": {
+        "state": "Uttar Pradesh",
+        "course": "ug_degree",
+        "social_category": "OBC",
+        "family_income_annual": 220000
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "income"
+        ]
+      }
+    },
+    {
+      "name": "UP Dashmottar: SC 2.2 lakh -> eligible",
+      "scheme": "up-dashmottar",
+      "facts": {
+        "state": "Uttar Pradesh",
+        "course": "diploma",
+        "social_category": "SC",
+        "family_income_annual": 220000
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "UP Dashmottar: income known, category unknown -> ask category",
+      "scheme": "up-dashmottar",
+      "facts": {
+        "state": "Uttar Pradesh",
+        "course": "iti",
+        "family_income_annual": 220000
+      },
+      "expect": {
+        "result": "needs_info",
+        "missing": [
+          "social_category"
+        ]
+      }
+    },
+    {
+      "name": "Pragati: boy -> not eligible",
+      "scheme": "aicte-pragati",
+      "facts": {
+        "gender": "male",
+        "institution_aicte": true,
+        "course": "diploma",
+        "family_income_annual": 300000
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "girl"
+        ]
+      }
+    },
+    {
+      "name": "Pragati: girl, nothing else known -> asks three facts in rule order",
+      "scheme": "aicte-pragati",
+      "facts": {
+        "gender": "female"
+      },
+      "expect": {
+        "result": "needs_info",
+        "missing": [
+          "institution_aicte",
+          "course",
+          "family_income_annual"
+        ]
+      }
+    },
+    {
+      "name": "PM Internship: 22, no job, 3 lakh, no govt family -> eligible",
+      "scheme": "pm-internship",
+      "facts": {
+        "age": 22,
+        "in_full_time_job": false,
+        "family_income_annual": 300000,
+        "family_govt_employee": false
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "PM Internship: exactly 8 lakh -> not eligible",
+      "scheme": "pm-internship",
+      "facts": {
+        "age": 22,
+        "in_full_time_job": false,
+        "family_income_annual": 800000,
+        "family_govt_employee": false
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "income"
+        ]
+      }
+    },
+    {
+      "name": "NAPS: age 16 -> eligible",
+      "scheme": "naps",
+      "facts": {
+        "age": 16
+      },
+      "expect": {
+        "result": "eligible"
+      }
+    },
+    {
+      "name": "PMKVY: age 50 -> not eligible for short-term training",
+      "scheme": "pmkvy-4",
+      "facts": {
+        "age": 50
+      },
+      "expect": {
+        "result": "not_eligible",
+        "failed": [
+          "age"
+        ]
+      }
+    }
+  ]
+}
