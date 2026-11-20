@@ -6,12 +6,10 @@ import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { LANGUAGES } from '@/i18n'
 import { cn } from '@/lib/utils'
+import { speak, stopSpeaking } from '@/lib/voice'
 import { useUi } from '@/stores/ui'
 
-/**
- * Reads text aloud. Uses the phone's built-in voice for now (works offline when the
- * phone has a voice installed). Sarvam Bulbul voices replace this in Phase 2.
- */
+/** Reads text aloud: Sarvam voice when online, the phone's own voice offline. */
 export function SpeakButton({ text, className }: { text: string; className?: string }) {
   const { t } = useTranslation()
   const language = useUi((s) => s.language)
@@ -19,26 +17,20 @@ export function SpeakButton({ text, className }: { text: string; className?: str
   const supported = typeof window !== 'undefined' && 'speechSynthesis' in window
 
   useEffect(() => () => {
-    if (supported) window.speechSynthesis.cancel()
-  }, [supported])
+    if (speaking) stopSpeaking()
+  }, [speaking])
 
-  if (!supported) return null
+  if (!supported && !navigator.onLine) return null
 
   function toggle() {
-    const synth = window.speechSynthesis
     if (speaking) {
-      synth.cancel()
+      stopSpeaking()
       setSpeaking(false)
       return
     }
-    const u = new SpeechSynthesisUtterance(text)
-    u.lang = LANGUAGES.find((l) => l.code === language)?.voice ?? 'en-IN'
-    u.rate = 0.95
-    u.onend = () => setSpeaking(false)
-    u.onerror = () => setSpeaking(false)
-    synth.cancel()
-    synth.speak(u)
     setSpeaking(true)
+    const voice = LANGUAGES.find((l) => l.code === language)?.voice ?? 'en-IN'
+    void speak(text, language, voice, () => setSpeaking(false))
   }
 
   const label = speaking ? t('common.stopReading') : t('common.readAloud')

@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import { AuthProvider, useAuth } from '@/auth/AuthProvider'
@@ -13,6 +13,10 @@ import { AuthCallback } from '@/pages/auth/AuthCallback'
 import { SignIn } from '@/pages/auth/SignIn'
 import { SignUp } from '@/pages/auth/SignUp'
 import { Welcome } from '@/pages/auth/Welcome'
+import { Careers } from '@/pages/student/Careers'
+import { Money } from '@/pages/student/Money'
+import { Start } from '@/pages/student/Start'
+import { useFacts, useOnlineSync } from '@/data/facts'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60_000, retry: 1 } },
@@ -32,6 +36,23 @@ function RequireAuth({ children }: { children: ReactNode }) {
   return session ? children : <Navigate to="/sign-in" replace />
 }
 
+/** Loads the student's facts (phone first, then server) and drains queued changes when online. */
+function StudentData({ children }: { children: ReactNode }) {
+  const { session, role } = useAuth()
+  const load = useFacts((s) => s.load)
+  const userId = session?.user.id
+  useOnlineSync()
+  useEffect(() => {
+    if (userId && role === 'student') void load(userId)
+  }, [userId, role, load])
+  return children
+}
+
+function StudentOnly({ children }: { children: ReactNode }) {
+  const { role } = useAuth()
+  return role === 'student' ? children : <Navigate to="/app" replace />
+}
+
 function PublicOnly({ children }: { children: ReactNode }) {
   const { ready, session } = useAuth()
   if (!ready) return <Splash />
@@ -47,11 +68,16 @@ const router = createBrowserRouter([
     path: '/app',
     element: (
       <RequireAuth>
-        <AppShell />
+        <StudentData>
+          <AppShell />
+        </StudentData>
       </RequireAuth>
     ),
     children: [
       { index: true, element: <Home /> },
+      { path: 'start', element: <StudentOnly><Start /></StudentOnly> },
+      { path: 'careers', element: <StudentOnly><Careers /></StudentOnly> },
+      { path: 'money', element: <StudentOnly><Money /></StudentOnly> },
       { path: ':section', element: <Section /> },
     ],
   },

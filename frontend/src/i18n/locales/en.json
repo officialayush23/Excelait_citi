@@ -80,7 +80,11 @@
     "filters": "Filters",
     "search": "Search",
     "clear": "Clear",
-    "open": "Open"
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "save": "Save",
+    "next": "Next"
   },
   "auth": {
     "welcomeTitle": "Your guide from learning to earning",
@@ -113,7 +117,14 @@
     "nextLearn": "Get a plan for what to learn next, and lessons from your own books.",
     "roleLead": "Your {{role}} workspace is ready. Its tools arrive phase by phase.",
     "phase": "Phase {{phase}}",
-    "workspace": "Your workspace"
+    "workspace": "Your workspace",
+    "seeCareers": "See my careers",
+    "pendingSync_one": "1 change saved on this phone. It will sync when you are online.",
+    "pendingSync_other": "{{count}} changes saved on this phone. They will sync when you are online.",
+    "oneAway_one": "1 more is one answer away",
+    "oneAway_other": "{{count}} more are one answer away",
+    "eligibleCount_one": "From 1 scheme",
+    "eligibleCount_other": "From {{count}} schemes"
   },
   "kpi": {
     "students": "Students",
@@ -135,5 +146,305 @@
     "schemes": "Schemes",
     "careers": "Careers",
     "reports": "Open reports"
+  },
+  "facts": {
+    "upTo": "Up to {{amount}}",
+    "moreThan": "More than {{amount}}",
+    "classN": "Class {{n}}",
+    "collegeYear": "College year {{n}}",
+    "class_level": {
+      "q": "Which class are you in?"
+    },
+    "course": {
+      "q": "What are you studying now?",
+      "options": {
+        "school": "School",
+        "iti": "ITI",
+        "diploma": "Diploma / polytechnic",
+        "ug_degree": "Degree (BA, BSc, BCom…)",
+        "ug_technical": "Engineering / technical degree",
+        "pg": "Postgraduate",
+        "none": "Not studying now"
+      }
+    },
+    "state": {
+      "q": "Which state do you live in?",
+      "options": {
+        "Maharashtra": "Maharashtra",
+        "Uttar Pradesh": "Uttar Pradesh",
+        "Other": "Another state"
+      }
+    },
+    "family_income_annual": {
+      "q": "About how much does your family earn in a year?",
+      "hint": "All family income together. A rough answer is fine; you can change it later."
+    },
+    "social_category": {
+      "q": "Which category are you in?",
+      "hint": "Only if you are comfortable. Many scholarships depend on it.",
+      "options": {
+        "SC": "SC",
+        "ST": "ST",
+        "OBC": "OBC",
+        "EBC": "EBC",
+        "DNT": "DNT / VJNT",
+        "SEBC": "SEBC",
+        "EWS": "EWS",
+        "General": "General"
+      }
+    },
+    "marks_percent": {
+      "q": "What percentage did you get in your last exam?",
+      "hint": "Type a number from 0 to 100."
+    },
+    "gender": {
+      "q": "Are you a girl or a boy?",
+      "hint": "Some schemes are only for girls.",
+      "options": {
+        "female": "Girl / woman",
+        "male": "Boy / man",
+        "other": "Other"
+      }
+    },
+    "school_type": {
+      "q": "What kind of school do you go to?",
+      "options": {
+        "government": "Government school",
+        "aided": "Government-aided school",
+        "local_body": "Zilla Parishad / municipal school",
+        "private": "Private school",
+        "kendriya_navodaya": "Kendriya / Navodaya Vidyalaya",
+        "residential_govt": "Government residential school"
+      }
+    },
+    "is_minority": {
+      "q": "Do you belong to a minority community?",
+      "hint": "Muslim, Christian, Sikh, Buddhist, Jain or Parsi."
+    },
+    "is_disabled": {
+      "q": "Do you have a certified disability of 40% or more?"
+    },
+    "age": {
+      "q": "How old are you?",
+      "hint": "Type your age in years."
+    },
+    "institution_aicte": {
+      "q": "Is your college approved by AICTE?",
+      "hint": "Most engineering, pharmacy and management colleges are. Ask your college office if unsure."
+    },
+    "in_full_time_job": {
+      "q": "Do you have a full-time job right now?"
+    },
+    "is_orphan_or_covid_affected": {
+      "q": "Have you lost a parent, or are you a ward of a martyred armed forces member?"
+    },
+    "in_top_class_school": {
+      "q": "Is your school on the government's 'Top Class School' list?",
+      "hint": "Your school office can tell you."
+    },
+    "above_80_percentile_class12": {
+      "q": "Were you in the top 20% of your Class 12 board results?"
+    },
+    "family_govt_employee": {
+      "q": "Does anyone in your family have a government job?"
+    },
+    "cap_admission": {
+      "q": "Did you get admission through the CAP (centralised) process?"
+    },
+    "needs_income_soon": {
+      "q": "Do you need to start earning soon?",
+      "hint": "For example, to help your family in the next year or two."
+    },
+    "can_relocate": {
+      "q": "Could you move to a city for study or work?"
+    }
+  },
+  "start": {
+    "title": "About you",
+    "subtitle": "A few quick questions. Tap an answer, or talk to the guide.",
+    "talkInstead": "Talk instead",
+    "tapInstead": "Tap instead",
+    "progress": "Question {{n}} of {{total}}",
+    "preferNot": "Prefer not to say",
+    "skip": "Skip for now",
+    "stage": {
+      "q": "Where are you studying now?",
+      "c8": "Class 8",
+      "c9": "Class 9",
+      "c10": "Class 10",
+      "c11": "Class 11",
+      "c12": "Class 12",
+      "iti": "ITI",
+      "diploma": "Diploma",
+      "ug_degree": "College degree",
+      "ug_technical": "Engineering degree",
+      "pg": "Postgraduate",
+      "none": "Not studying"
+    },
+    "interests": {
+      "q": "What do you enjoy doing?",
+      "hint": "Pick up to 5."
+    },
+    "subjects": {
+      "q": "Which subjects do you like most?",
+      "hint": "Pick up to 4."
+    }
+  },
+  "tags": {
+    "hands_on": "Working with my hands",
+    "machines": "Machines",
+    "electricity": "Electrical work",
+    "vehicles": "Bikes and vehicles",
+    "construction": "Building things",
+    "computers": "Computers",
+    "numbers": "Numbers and accounts",
+    "problem_solving": "Solving puzzles",
+    "creative": "Making new things",
+    "art": "Drawing and art",
+    "fashion": "Clothes and fashion",
+    "food": "Cooking",
+    "talking": "Talking to people",
+    "helping": "Helping people",
+    "teaching": "Teaching others",
+    "health": "Health and care",
+    "science_lab": "Science experiments",
+    "animals": "Animals",
+    "nature": "Plants and nature",
+    "outdoors": "Being outdoors",
+    "business": "Business and selling",
+    "public_service": "Serving the public",
+    "sports": "Sports",
+    "languages_love": "Languages and writing",
+    "maths": "Maths",
+    "science": "Science",
+    "biology": "Biology",
+    "english": "English",
+    "languages": "Hindi / Marathi",
+    "social": "History and civics",
+    "commerce": "Commerce"
+  },
+  "guide": {
+    "opening": "Namaste! Tell me a little about yourself. Which class are you in, and what do you like doing?",
+    "saved": "Got it, I have noted that.",
+    "offline": "The guide needs internet. You can still answer by tapping.",
+    "notHeard": "I could not hear that clearly. Please try again or type.",
+    "noMic": "The microphone is not available. Please allow it, or type instead.",
+    "stop": "Stop recording",
+    "speak": "Speak",
+    "typeHere": "Type here…",
+    "send": "Send"
+  },
+  "careers": {
+    "emptyTitle": "Let's find careers for you",
+    "emptyBody": "Answer a few questions about what you enjoy and where you study. It takes two minutes.",
+    "subtitle": "Matched to what you enjoy, your subjects and work near you. Every match shows why.",
+    "editAnswers": "Change my answers",
+    "whatIf": "What if…",
+    "whatIfCity": "I can move to a city",
+    "whatIfEarn": "I need to earn soon",
+    "resetWhatIf": "Back to my answers",
+    "topMatches_one": "Your top match",
+    "topMatches_other": "Your top {{count}} matches",
+    "pay": "Usual monthly pay: {{range}}",
+    "city": "Mostly in cities",
+    "why": "Why this fits you",
+    "toWorkOn": "Things to work on",
+    "path": "How to get there",
+    "money": "Money that can help",
+    "exams": "Exams on this path"
+  },
+  "categories": {
+    "agriculture": "Agriculture",
+    "creative": "Creative",
+    "emerging": "New-age jobs",
+    "entrepreneurship": "Own business",
+    "government": "Government",
+    "healthcare": "Health care",
+    "non_stem": "Arts and commerce",
+    "services": "Services",
+    "skilled_trade": "Skilled trade",
+    "stem": "Science and engineering"
+  },
+  "speed": {
+    "fast": "Earn within 1–2 years",
+    "medium": "Earn in 2–4 years",
+    "slow": "Longer study path"
+  },
+  "reasons": {
+    "interest": "You enjoy {{items}}",
+    "no_subject_barrier": "No particular subject needed",
+    "subjects": "You like {{items}}",
+    "local_demand": "Many jobs near villages and small towns",
+    "marks": "Your marks meet the usual {{n}}% bar",
+    "affordable": "Low cost to train",
+    "earn_soon": "You can start earning soon"
+  },
+  "gaps": {
+    "subjects": "Usually needs {{items}}",
+    "needs_city": "Mostly in cities, and you said you cannot move",
+    "marks": "Most courses ask for about {{n}}% marks",
+    "cost": "Training costs more, but scholarships can help",
+    "slow_to_earn": "Takes longer before you earn"
+  },
+  "money": {
+    "emptyTitle": "Find money you are owed",
+    "emptyBody": "Answer a few questions and we check every scholarship and scheme for you, right on your phone.",
+    "subtitle": "Checked by fixed government rules, not guessed. Answer one question to unlock more.",
+    "kpiRupees": "You can claim (per year)",
+    "kpiRupeesHint": "From schemes with a fixed amount",
+    "kpiEligible": "Schemes you qualify for",
+    "kpiOneAway": "One answer away",
+    "kpiChecked": "Schemes checked",
+    "checkedOn": "Rules checked on {{date}}",
+    "listTitle": "Scholarships and schemes",
+    "oneAway": "One answer away",
+    "result": {
+      "eligible": "You qualify",
+      "needs_info": "Need more answers",
+      "not_eligible": "Not for you now"
+    },
+    "verdict": {
+      "eligible": "Good news: you qualify",
+      "needs_info": "We need a little more to check",
+      "not_eligible": "You do not qualify right now"
+    },
+    "allIndia": "All India",
+    "failedBecause": "Rule: {{rule}}",
+    "answersLeft_one": "1 question left",
+    "answersLeft_other": "{{count}} questions left",
+    "youMeet": "You already meet",
+    "verifyTitle": "We are double-checking",
+    "apply": "Apply on the official site",
+    "official": "Official page",
+    "disclaimer": "The final decision is made by the government office. Always check the official page before applying.",
+    "documents": "Papers to keep ready ({{done}}/{{total}})"
+  },
+  "kinds": {
+    "apprenticeship": "Apprenticeship",
+    "entrepreneurship": "Start a business",
+    "internship": "Internship",
+    "scheme": "Scheme",
+    "scholarship": "Scholarship"
+  },
+  "docs": {
+    "aadhaar": "Aadhaar card",
+    "bank_account_aadhaar_seeded": "Bank account linked to Aadhaar",
+    "income_certificate": "Income certificate",
+    "caste_certificate": "Caste certificate",
+    "domicile_certificate": "Domicile certificate",
+    "disability_certificate": "Disability certificate (40% or more)",
+    "orphan_or_death_certificate": "Orphan or parent's death certificate",
+    "marksheet_previous": "Last exam marksheet",
+    "marksheet_class8": "Class 8 pass certificate",
+    "marksheet_class12": "Class 12 marksheet",
+    "marksheet_highest": "Highest qualification marksheet",
+    "board_top1_certificate": "Board top 1% note",
+    "bonafide_certificate": "Bonafide certificate",
+    "admission_letter": "Admission letter",
+    "cap_allotment_letter": "CAP allotment letter",
+    "fee_receipt": "Fee receipt",
+    "noc_institution": "No-objection certificate from college",
+    "pan": "PAN card",
+    "project_report": "Business project report"
   }
 }

@@ -41,15 +41,14 @@ LIST_FACTS = {"interests", "subjects"}
 
 
 def merge_facts(user_id: str, patch: dict, replace_lists: bool = False) -> dict:
-    """Merge new facts in. Lists (interests, subjects) grow unless replace_lists is set."""
-    current = get_facts(user_id)
+    """Merge new facts in atomically. Lists (interests, subjects) grow unless replace_lists is set.
+    An explicit null means "forget this fact"."""
     incoming = clean_facts(patch)
-    if not replace_lists:
-        for k in LIST_FACTS & incoming.keys():
-            incoming[k] = list(dict.fromkeys([*(current.get(k) or []), *incoming[k]]))
-    facts = {**current, **incoming}
-    for k, v in patch.items():  # an explicit null means "forget this"
-        if v is None and k in facts:
-            facts.pop(k)
-    get_db().table("student_profiles").upsert({"user_id": user_id, "facts": facts}, on_conflict="user_id").execute()
+    remove = [k for k, v in patch.items() if v is None and allowed_fact(k)]
+    res = get_db().rpc("merge_student_facts", {
+        "p_user": user_id, "p_set": incoming, "p_remove": remove, "p_append_lists": not replace_lists,
+    }).execute()
+    facts = dict(res.data or {})
+    if "age" not in facts and facts.get("date_of_birth"):
+        facts["age"] = _age(facts["date_of_birth"])
     return facts

@@ -7,6 +7,8 @@ import { useAuth } from '@/auth/AuthProvider'
 import { KpiCard, KpiRow } from '@/components/page/Kpi'
 import { PageHeader } from '@/components/page/PageHeader'
 import { Button } from '@/components/ui/button'
+import { useFacts } from '@/data/facts'
+import { profileComplete, useEligibility, useMatches } from '@/data/insights'
 import { cn } from '@/lib/utils'
 
 const NEXT = [
@@ -20,6 +22,11 @@ export function StudentHome() {
   const { t } = useTranslation()
   const { profile } = useAuth()
   const firstName = profile?.full_name?.split(' ')[0] || t('home.friend')
+  const facts = useFacts((s) => s.facts)
+  const pending = useFacts((s) => s.pending)
+  const done = profileComplete(facts)
+  const matches = useMatches()
+  const { rupees, eligible, oneAway } = useEligibility()
 
   return (
     <>
@@ -28,18 +35,26 @@ export function StudentHome() {
         subtitle={t('home.studentLead')}
         actions={
           <Button asChild size="lg" className="h-12 rounded-full px-6 text-base">
-            <Link to="/app/careers">
-              {t('home.startProfile')}
+            <Link to={done ? '/app/careers' : '/app/start'}>
+              {done ? t('home.seeCareers') : t('home.startProfile')}
               <ArrowRight data-icon="inline-end" />
             </Link>
           </Button>
         }
       />
 
-      {/* Real numbers arrive with Discover and Claim; until then these honestly show zero. */}
+      {pending > 0 && <p className="mb-3 text-sm text-muted-foreground">{t('home.pendingSync', { count: pending })}</p>}
+      {/* Lessons and applications arrive with Learn and Connect; until then they honestly show zero. */}
       <KpiRow>
-        <KpiCard tone="lilac" label={t('home.kpi.careers')} value={0} icon={<Compass />} />
-        <KpiCard tone="peach" label={t('home.kpi.rupees')} value={0} prefix="₹" icon={<Wallet />} />
+        <KpiCard tone="lilac" label={t('home.kpi.careers')} value={done ? matches.length : 0} icon={<Compass />} />
+        <KpiCard
+          tone="peach"
+          label={t('home.kpi.rupees')}
+          value={rupees}
+          prefix="₹"
+          hint={oneAway.length ? t('home.oneAway', { count: oneAway.length }) : t('home.eligibleCount', { count: eligible.length })}
+          icon={<Wallet />}
+        />
         <KpiCard tone="mint" label={t('home.kpi.lessons')} value={0} icon={<BookOpen />} />
         <KpiCard tone="rose" label={t('home.kpi.applications')} value={0} />
       </KpiRow>
