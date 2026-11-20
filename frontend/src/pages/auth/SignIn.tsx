@@ -35,8 +35,8 @@ export function SignIn() {
 
   return (
     <AuthLayout>
-      <form onSubmit={onSubmit} className="flex flex-col gap-5 rounded-3xl border bg-card p-6 sm:p-8">
-        <h1 className="text-2xl font-semibold tracking-tight">{t('auth.signInTitle')}</h1>
+      <form onSubmit={onSubmit} className="flex flex-col gap-5 rounded-3xl border bg-card p-6 sm:p-8 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0">
+        <h1 className="text-3xl font-semibold tracking-tight">{t('auth.signInTitle')}</h1>
         {!supabaseConfigured && <p className="rounded-xl bg-destructive/10 p-3 text-sm text-destructive">{t('auth.notConfigured')}</p>}
         <div className="grid gap-2">
           <Label htmlFor="email">{t('common.email')}</Label>

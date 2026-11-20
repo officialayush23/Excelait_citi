@@ -52,11 +52,11 @@ export function SignUp() {
 
   return (
     <AuthLayout>
-      <div className="rounded-3xl border bg-card p-6 sm:p-8">
+      <div className="rounded-3xl border bg-card p-6 sm:p-8 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0">
         <AnimatePresence mode="wait">
           {step === 'role' && (
             <motion.div key="role" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="flex flex-col gap-4">
-              <h1 className="text-2xl font-semibold tracking-tight">{t('auth.iAm')}</h1>
+              <h1 className="text-3xl font-semibold tracking-tight">{t('auth.iAm')}</h1>
               <div role="radiogroup" className="grid gap-2">
                 {SELF_SERVICE_ROLES.map((r) => {
                   const Icon = ROLE_ICON[r] ?? GraduationCap
@@ -69,11 +69,11 @@ export function SignUp() {
                       aria-checked={on}
                       onClick={() => setRole(r)}
                       className={cn(
-                        'flex items-center gap-4 rounded-2xl border p-4 text-left transition-colors',
+                        'flex items-center gap-3.5 rounded-2xl border px-4 py-3 text-left transition-colors',
                         on ? 'border-transparent bg-nav-active text-nav-active-foreground' : 'hover:bg-accent',
                       )}
                     >
-                      <span className={cn('grid size-11 shrink-0 place-items-center rounded-xl', on ? 'bg-background/15' : 'bg-muted')}>
+                      <span className={cn('grid size-10 shrink-0 place-items-center rounded-xl', on ? 'bg-background/15' : 'bg-muted')}>
                         <Icon className="size-5" />
                       </span>
                       <span>

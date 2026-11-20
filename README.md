@@ -12,10 +12,13 @@ Rule of the product: **AI suggests, the rules engine decides eligibility, the te
 
 ## Run it locally
 
-### 1. Backend (Python 3.10+)
+### 1. Backend (Python 3.11 or newer)
 
 ```bash
 cd backend
+# Windows: make sure the venv uses your newest Python, not an older one on PATH
+#   py -0                    (lists installed versions)
+#   py -3.13 -m venv .venv   (use the newest one listed)
 python -m venv .venv
 # Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 pip install -r requirements-dev.txt
