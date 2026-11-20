@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.routes import learn, passport, teacher
 from app.api.routes import assist, assistant, catalogue, community, explore, health, me, notifications, partners, plans, students
 from app.core.config import get_settings
 
@@ -21,7 +22,7 @@ def create_app() -> FastAPI:
     )
     app.include_router(health.router)
     for r in (me.router, catalogue.router, students.router, assist.router, explore.router, assistant.router, plans.router,
-              partners.router, community.router, notifications.router):
+              partners.router, community.router, notifications.router, learn.router, passport.router, teacher.router):
         app.include_router(r, prefix="/api/v1")
     return app
 

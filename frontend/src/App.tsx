@@ -33,6 +33,16 @@ import { Postings } from '@/pages/partner/Postings'
 import { Applicants } from '@/pages/partner/Applicants'
 import { Partners } from '@/pages/admin/Partners'
 import { Moderation } from '@/pages/admin/Moderation'
+import { Lessons } from '@/pages/learn/Lessons'
+import { LessonPage } from '@/pages/learn/LessonPage'
+import { Passport } from '@/pages/passport/Passport'
+import { TaskPage } from '@/pages/passport/TaskPage'
+import { VerifyCredential } from '@/pages/passport/VerifyCredential'
+import { Cohort } from '@/pages/teacher/Cohort'
+import { Students } from '@/pages/teacher/Students'
+import { StudentDetail } from '@/pages/teacher/StudentDetail'
+import { Verify } from '@/pages/teacher/Verify'
+import { Modules } from '@/pages/teacher/Modules'
 
 import { useFacts, useOnlineSync } from '@/data/facts'
 
@@ -72,6 +82,7 @@ function Only({ roles, children }: { roles: string[]; children: ReactNode }) {
 }
 const StudentOnly = ({ children }: { children: ReactNode }) => <Only roles={['student']}>{children}</Only>
 const PartnerOnly = ({ children }: { children: ReactNode }) => <Only roles={['partner', 'admin']}>{children}</Only>
+const TeacherOnly = ({ children }: { children: ReactNode }) => <Only roles={['facilitator', 'admin']}>{children}</Only>
 const AdminOnly = ({ children }: { children: ReactNode }) => <Only roles={['admin', 'facilitator']}>{children}</Only>
 
 function PublicOnly({ children }: { children: ReactNode }) {
@@ -85,6 +96,7 @@ const router = createBrowserRouter([
   { path: '/sign-in', element: <PublicOnly><SignIn /></PublicOnly> },
   { path: '/sign-up', element: <PublicOnly><SignUp /></PublicOnly> },
   { path: '/auth/callback', element: <AuthCallback /> },
+  { path: '/verify/:publicId', element: <VerifyCredential /> },
   {
     path: '/app',
     element: (
@@ -116,6 +128,15 @@ const router = createBrowserRouter([
       { path: 'applicants', element: <PartnerOnly><Applicants /></PartnerOnly> },
       { path: 'partners', element: <AdminOnly><Partners /></AdminOnly> },
       { path: 'moderation', element: <AdminOnly><Moderation /></AdminOnly> },
+      { path: 'lessons', element: <Lessons /> },
+      { path: 'lessons/:id', element: <LessonPage /> },
+      { path: 'passport', element: <StudentOnly><Passport /></StudentOnly> },
+      { path: 'passport/tasks/:id', element: <StudentOnly><TaskPage /></StudentOnly> },
+      { path: 'cohort', element: <TeacherOnly><Cohort /></TeacherOnly> },
+      { path: 'students', element: <TeacherOnly><Students /></TeacherOnly> },
+      { path: 'students/:id', element: <TeacherOnly><StudentDetail /></TeacherOnly> },
+      { path: 'verify', element: <TeacherOnly><Verify /></TeacherOnly> },
+      { path: 'modules', element: <TeacherOnly><Modules /></TeacherOnly> },
       { path: ':section', element: <Section /> },
     ],
   },

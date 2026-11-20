@@ -47,6 +47,7 @@ export const NAV: Record<Role, NavItem[]> = {
     { key: 'learn', icon: BookOpen, phase: 3 },
     { key: 'opportunities', icon: Briefcase, phase: 5 },
     { key: 'community', icon: MessagesSquare, phase: 5 },
+    { key: 'passport', icon: BadgeCheck, phase: 4 },
   ],
   facilitator: [
     { key: 'cohort', icon: LayoutDashboard, phase: 4 },
