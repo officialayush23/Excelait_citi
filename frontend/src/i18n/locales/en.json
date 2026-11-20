@@ -1,0 +1,139 @@
+{
+  "app": {
+    "name": "ExcelAIt",
+    "tagline": "Find what you are good at, learn it, prove it, and claim what you are owed."
+  },
+  "nav": {
+    "home": "Home",
+    "careers": "Careers",
+    "money": "Money",
+    "learn": "Learn",
+    "opportunities": "Opportunities",
+    "community": "Community",
+    "passport": "Passport",
+    "cohort": "Class",
+    "students": "Students",
+    "verify": "Verify",
+    "modules": "Modules",
+    "postings": "Postings",
+    "applicants": "Applicants",
+    "organisation": "Organisation",
+    "inbox": "Inbox",
+    "sessions": "Sessions",
+    "consent": "Consent",
+    "outcomes": "Outcomes",
+    "partners": "Partners",
+    "schemes": "Schemes",
+    "moderation": "Moderation"
+  },
+  "roles": {
+    "student": {
+      "name": "Student",
+      "desc": "Class 9 to graduation, ITI, or looking for work"
+    },
+    "facilitator": {
+      "name": "Teacher / Career Mitra",
+      "desc": "I guide a class or a group of students"
+    },
+    "parent": {
+      "name": "Parent or guardian",
+      "desc": "I look after a student"
+    },
+    "mentor": {
+      "name": "Mentor",
+      "desc": "Alumni, professional or volunteer"
+    },
+    "partner": {
+      "name": "Partner organisation",
+      "desc": "College, ITI, NGO, employer or CSR"
+    },
+    "funder": {
+      "name": "Funder",
+      "desc": "CSR or government viewer"
+    },
+    "admin": {
+      "name": "Admin",
+      "desc": "ExcelAIt team"
+    }
+  },
+  "common": {
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Your name",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "readAloud": "Read aloud",
+    "stopReading": "Stop reading",
+    "continue": "Continue",
+    "back": "Back",
+    "loading": "Loading",
+    "notifications": "Notifications",
+    "voice": "Speak",
+    "comingTitle": "This part is on its way",
+    "comingBody": "{{section}} arrives in phase {{phase}} of the build. Everything here will work offline once it is ready.",
+    "profile": "Profile",
+    "filters": "Filters",
+    "search": "Search",
+    "clear": "Clear",
+    "open": "Open"
+  },
+  "auth": {
+    "welcomeTitle": "Your guide from learning to earning",
+    "welcomeBody": "Careers you never heard of, a plan to get there, and the scholarships you qualify for. In your language.",
+    "iAm": "I am a",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "We sent a link to {{email}}. Open it on this phone to finish creating your account.",
+    "haveAccount": "Already have an account?",
+    "noAccount": "New here?",
+    "passwordHint": "At least 8 characters",
+    "signInTitle": "Welcome back",
+    "signUpTitle": "Create your account",
+    "error": "Something went wrong. Please try again.",
+    "notConfigured": "Sign-in is not set up yet. Add the Supabase keys to frontend/.env."
+  },
+  "home": {
+    "hello": "Hello, {{name}}",
+    "friend": "friend",
+    "studentLead": "Let's find what you are good at. Start with a few questions; you can speak or tap.",
+    "startProfile": "Start my profile",
+    "kpi": {
+      "careers": "Careers matched",
+      "rupees": "Rupees you can claim",
+      "lessons": "Lessons done",
+      "applications": "Applications"
+    },
+    "nextTitle": "What happens next",
+    "nextCareers": "Answer a few questions and see careers that fit you, with reasons.",
+    "nextMoney": "See which scholarships and schemes you qualify for.",
+    "nextLearn": "Get a plan for what to learn next, and lessons from your own books.",
+    "roleLead": "Your {{role}} workspace is ready. Its tools arrive phase by phase.",
+    "phase": "Phase {{phase}}",
+    "workspace": "Your workspace"
+  },
+  "kpi": {
+    "students": "Students",
+    "rupeesUnlocked": "Rupees unlocked",
+    "toVerify": "To verify",
+    "atRisk": "At risk",
+    "postings": "Open postings",
+    "applicants": "Applicants",
+    "shortlisted": "Shortlisted",
+    "questions": "Questions waiting",
+    "answered": "Answered",
+    "sessions": "Sessions",
+    "updates": "Updates",
+    "consents": "Consents",
+    "reached": "Students reached",
+    "claimed": "Rupees claimed",
+    "placed": "Placed after 90 days",
+    "pendingPartners": "Partners to verify",
+    "schemes": "Schemes",
+    "careers": "Careers",
+    "reports": "Open reports"
+  }
+}
