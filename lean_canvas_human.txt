@@ -1,0 +1,296 @@
+=== 1. PROBLEM ===
+We are building for rural students from Class 9 to graduation and for the village teachers and facilitators who guide them. From the data and from talking to students around us, we see three connected problems.
+
+Problem 1: Students don't know what they are good at or what careers exist. Most rural students never get proper career guidance or career counselling. ASER 2023 found that about 1 in 5 youth aged 14 to 18 cannot name any career they want, around three-quarters pick from the same 7 or so popular careers, and 42 to 48% have no role model. Only 3.4% of rural youth have formal vocational training (PLFS), even though it raises wages by about 13%. The guidance that does exist is usually a one-time aptitude test, mostly in English, text-heavy and focused on STEM. Vocational, skilled-trade, agriculture, creative, government and entrepreneurship careers rarely come up, so students never hear about them.
+
+Problem 2: Learning doesn't lead to livelihood. School education, vocational training, online courses, mentorship, apprenticeships and actual jobs all sit in separate silos. DIKSHA has 2.25 crore registered users but only about 3 lakh use it daily, and only around 8% of SWAYAM enrolments end in a certificate. The content exists, but it isn't personalised, isn't linked to a career goal, isn't in the student's language and often doesn't work offline. Access is also shared: 89.1% of rural 14 to 16 year olds have a smartphone at home, but only 31.4% of users own one (26.9% for girls, ASER 2024). Rural areas have 48.3 internet subscriptions per 100 people against 126.8 in cities. Even when students do learn a skill, nobody assesses or verifies it, so employers don't trust it.
+
+Problem 3: Scholarships, schemes and opportunities go unclaimed. The money and seats exist, but students don't reach them. NMMSS, which pays Rs 12,000 a year from Class 9 to 12, received only 85,420 applications for 1 lakh scholarships. Minority scholarships used about 2.3% of their budget. Only about 10% of PM Internship offers turned into joinings, and 41% of those who joined quit, mostly because of distance and cost. Around 7% of PMKVY 4.0 trainees were placed, and over 74% of employers registered under NAPS are inactive. The reasons are practical: no scheme finder in the local language, confusing eligibility rules, difficulty getting income, caste and domicile certificates, bank accounts not linked to Aadhaar for DBT, forms in English, cyber cafe agents charging fees, missed deadlines, and no one to follow up. On the other side, colleges, NGOs, CSR foundations and employers have no easy way to reach or assess rural talent.
+
+Teachers are stuck too. A single teacher handles a large class with no tools to spot talent, track progress or recommend students, and school career counsellors are rare.
+
+Why this matters: youth unemployment is 9.9% (PLFS) and only 51.9% of students stay through secondary school (UDISE+ 2025-26). First-generation learners, girls, SC/ST/OBC/minority and low-income families are hit hardest. The result is dropouts, under-employment, low earnings and distress migration, while scholarship budgets, skilling schemes and apprenticeship seats go unused.
+
+Why now: NEP 2020 asks for career guidance, vocational exposure and multilingual learning. India's digital public infrastructure (APAAR ID, Academic Bank of Credits, DigiLocker, BHASHINI, DIKSHA) is already live, and 548 million rural Indians are online, mostly using Indian languages. But nothing connects these pieces for a rural student.
+
+What the research says works: in the US, helping families fill the student aid form raised applications by 15.7 percentage points while information alone did nothing (J-PAL). In South Africa, skill certificates employers trusted raised youth employment from 31% to 36% and earnings by 34%. In India, Medha's bootcamp plus internship support raised employment to 32.5% vs 24%. So guidance alone isn't enough. Students need learning, verified skills and real hand-holding through applications.
+
+=== 2. EXISTING ALTERNATIVES ===
+Here is what students, teachers and families use today, and where each falls short.
+
+1) Government platforms: DIKSHA for school content, SWAYAM and NPTEL for online courses, Skill India Digital Hub and PMKVY for skilling, NAPS and the PM Internship portal for apprenticeships and internships, the National Career Service portal, the National Scholarship Portal and state scholarship portals, myScheme, DigiLocker, APAAR and BHASHINI. Each one is useful but solves a single piece. There is no single journey from discovering a career to earning from it. Most are text-based, online-only and built for literate adults. None gives personal AI career guidance, helps a student actually apply, or tracks what happens after. Few have public APIs, and none has a teacher or community layer.
+
+2) State and NGO career portals, such as UNICEF and iDreamCareer state portals, psychometric tests and Samagra Shiksha counselling sessions. These usually give a one-time report with no voice option, no follow-up, no learning plan and no link to scholarships or employers.
+
+3) Edtech and test-prep apps like Physics Wallah, Unacademy, BYJU'S, Seekho and YouTube. They are mostly urban, paid, focused on STEM entrance exams and heavy on video and data. They don't cover vocational paths, don't verify skills, don't help with schemes and aren't designed for shared low-end phones offline.
+
+4) Job and internship platforms like Apna, Naukri, Internshala, LinkedIn and WorkIndia. They are built for urban graduates and adults, mostly in English, and not meant for a Class 10 student with low literacy. Many listings are in cities and unpaid, which rural students can't afford to take up.
+
+5) Scholarship and benefit services. Buddy4Study lists scholarships but is English-first. Haqdarshak helps households claim welfare schemes but not student careers. Common Service Centres and cyber cafe agents help, but often charge fees.
+
+6) NGO programmes like Pratham, Quest Alliance, Medha, Antarang, Magic Bus and Lend-A-Hand India. These work well in person, but they are expensive per student, hard to scale beyond their regions and often lose touch with students once the programme ends.
+
+7) Informal help from teachers, relatives, WhatsApp groups, coaching centres and word of mouth. It is well meant but unstructured, unverified and usually limited to a handful of popular careers.
+
+8) Global models we studied: CareerVillage in the US (career questions answered by volunteer professionals, now with an AI coach), Harambee in South Africa (assessment-based youth job matching), UNICEF Passport to Earning (certified skilling with offline mode), Kolibri by Learning Equality (open-source offline learning with peer-to-peer sync), Mobile Vaani by Gram Vaani (a voice-based community for people who can't read), Karya (rural Indians earning through Indian-language AI data work), and AI tutors like Khanmigo and Rori, which improve test scores but not livelihoods.
+
+What we learned from all of this:
+1) Information doesn't lead to action. Students need help with forms, documents and follow-up.
+2) Content doesn't lead to completion unless it is personal, tied to a goal, in the student's language and available offline.
+3) A listing isn't a livelihood. Rural students drop out of opportunities they can't afford to reach.
+4) Guidance isn't proof. Employers need skills they can trust.
+5) In-person programmes don't scale cheaply.
+6) Listing-fee and lead-generation businesses struggle to become profitable, while outcome-based models like the Skill Impact Bond and Haqdarshak have scaled.
+
+The gap: nobody combines AI career guidance, a personal learning pathway, a moderated community, verified skills, an opportunity marketplace for colleges, NGOs and employers, a way to earn while learning, a scheme and scholarship navigator, and a facilitator mode, in the student's own language, by voice, offline on a low-end Android phone, grounded in real government data and open through standard APIs. That is the gap ExcelAIt fills. We see government platforms, BHASHINI, AI4Bharat and NGOs as partners and data sources, not competitors.
+
+=== 3. SOLUTION ===
+ExcelAIt is an open-source, AI-powered learning-to-livelihood platform. It works by voice in the student's language, works offline on low-end Android phones, and is built around the student, their teacher and the wider community. It has eight parts.
+
+1) Discover (AI career guide). The student talks or types in any of 22 Indian languages, using BHASHINI for speech-to-text and text-to-speech. The AI builds a profile from the conversation: interests, aptitude, skills, goals, marks and family constraints. Short, game-like psychometric and aptitude activities add to it. AI career matching uses a career graph based on NCO occupation codes and NSQF levels, covering STEM, non-STEM, vocational, agriculture, creative, government jobs, new occupations and entrepreneurship. A local economy map shows which careers are in demand in their own district.
+
+2) Learn (learning hub). The AI builds a personal learning pathway: the next skill, the next course and the competitive exams to prepare for, with dates. Students can upload any PDF, textbook or notes and get a summary, an audio lesson, flashcards and quizzes in their own language. We link to content from DIKSHA, SWAYAM, Skill India Digital Hub and NPTEL instead of building it again. There are adaptive quizzes, mock tests and skill assessments, and lessons can be downloaded for offline use. Phones can also share content and progress directly with each other over Wi-Fi Direct or Bluetooth when there's no internet.
+
+3) Prove (Skill Passport). Standard skill assessments and small project tasks, checked and signed by the teacher with a photo or video as evidence. These become verifiable credentials the student owns, which can later link to APAAR and DigiLocker, along with a report they can share with employers.
+
+4) Community (Gyan Chaupal). A moderated, Reddit-style community with groups by district, school, interest and exam. Students can ask questions by voice and get answers from alumni, working professionals and corporate volunteers. The AI drafts a first answer and a human checks it. There are mentor Q&A sessions, study circles and upvotes, plus missed-call IVR access for basic phones. AI and teachers moderate together, with child-safety controls and privacy in line with the DPDP Act.
+
+5) Connect (opportunity marketplace). Colleges, universities, ITIs, NGOs, companies, CSR foundations, MSMEs and government bodies sign up themselves and post internships, tech internships, NAPS apprenticeships, workshops, bootcamps, hackathons, admissions, jobs and mentorship slots. The AI matches students and checks eligibility, and students apply in one tap with their Skill Passport. A take-home calculator shows what an opportunity is really worth after travel and rent, and flags distance, safety and timing. Only verified partners can post, and nobody can pay to rank higher.
+
+6) Earn (Kamao-Seekho). Learners aged 18 and above can earn through paid micro-tasks such as recording Indian-language speech and text data for AI, digitisation work and small gigs from partners. This builds digital skills, a work history and some income. An entrepreneurship track connects students to Mudra, PMEGP and Startup India.
+
+7) Claim (scheme and scholarship navigator). A database of central and state scholarships and schemes such as NSP, NMMSS, PM-YASASVI, AICTE Pragati and Saksham, PMKVY, NAPS and the PM Internship scheme. A rules engine checks eligibility and cites the official source. Students get a document checklist and a calendar of which certificates to get first, and AI checks uploaded documents for mismatches. Applications are pre-filled for the student to review, deadline reminders go out, and the student can check whether their bank account is linked to Aadhaar for DBT. We track each claim until the money actually arrives.
+
+8) Facilitator mode. One teacher can guide many students on shared phones. A class dashboard with AI insights helps them spot talent, recommend students for opportunities and verify Skill Passport tasks. An AI teaching assistant turns PDFs into lesson plans, quizzes and training modules, which teachers can offer free, per module or by subscription. Parents get voice updates and give consent over IVR.
+
+How it's built: an Android app under 25 MB, a PWA, WhatsApp and SMS/IVR. Local SQLite storage with background sync on low bandwidth. An LLM with RAG over a curated knowledge base of schemes, scholarships, exams, courses and apprenticeships, with every answer citing its source. Our rule is that AI suggests, the rules engine decides eligibility and the teacher confirms. Open-source microservices that can scale from 10 users to 10,000 and beyond, and are easy to extend to new languages, occupations, mentors and employers. OpenAPI 3 and Beckn/ONEST APIs for colleges, employers, NGOs and government systems. Role-based access, encryption, a consent record and audit logs for security.
+=== 4. KEY METRICS ===
+Our main measure of success is the number of rural students who reach a verified livelihood outcome for every Rs 1 lakh invested. An outcome means a scholarship actually received, a skill certified, an apprenticeship, internship or job still held after 90 days, or a first income earned.
+
+1) Reach and usage: students onboarded, profiles completed by voice, daily, weekly and monthly active users, share of girls, first-generation and SC/ST/OBC/minority students, active teachers and facilitators, students per facilitator, languages and districts live, and offline sessions. Targets for the Year 1 pilot are 10,000 students, 300 facilitators, 2 districts and 3 languages. By Year 3 we aim for 10 lakh students across 5 states in 10 or more languages, with over 40% of registered students active each month.
+
+2) Learning: learning pathways created, lessons and modules completed, PDFs turned into lessons, quiz, mock test and assessment attempts, improvement in assessment scores (target 20% within 3 months), offline downloads, course completion rate (aiming for 3 times SWAYAM's roughly 8%), Skill Passports issued and competitive exam registrations.
+
+3) Community and partners: questions asked and the share answered within 24 hours (target 80% or more), active mentors, alumni and corporate volunteers, mentor sessions held, partner organisations onboarded (colleges, ITIs, NGOs, companies, CSR foundations, MSMEs), opportunities posted each month, partner retention, and moderation response time with safety incidents kept near zero.
+
+4) Livelihood outcomes: career matches accepted, applications submitted, interview calls, internships, apprenticeships and jobs secured, 90-day retention (target 70% or more), money earned through Kamao-Seekho tasks, scholarship and scheme money students are eligible for compared with what they actually receive through DBT, claim conversion (target 50% of eligible claims filed and 70% approved), bank accounts linked to Aadhaar, and average change in student income.
+
+5) Business: revenue per partner and per student, number of paying CSR, government, employer, college and NGO partners, annual recurring revenue, sales in the teacher module marketplace, cost to acquire a student (target under Rs 30 through facilitators), cost to serve under Rs 50 per student per year, gross margin, payback period and Net Promoter Score from students, facilitators and partners.
+
+6) Return on investment: money reaching students in benefits and earnings for every Rs 1 spent by funders (target 5 times or more), cost per verified outcome, dropout reduction in pilot schools, share of students choosing non-STEM, vocational or local career paths, and the rise in scholarship uptake in pilot districts compared with before.
+
+7) AI and app quality: speech recognition accuracy by language, how often students accept recommendations, share of AI answers with a valid source (target 100%), eligibility-check accuracy against official rules, app size, crash-free rate and speed on 2 to 3 GB RAM phones, sync success on weak networks, and uptime above 99.5%.
+
+8) Teachers and facilitators: how many facilitators activate and stay active each week, students guided per facilitator (target 50 to 100), talent recommendations made, skill tasks verified, training modules created and sold, and monthly facilitator earnings.
+
+9) Marketplace health: time taken to fill posted opportunities, application-to-selection ratio, employer satisfaction and repeat postings, quality ratings for mentor answers, and volunteer hours given.
+
+How we will measure: baseline and endline surveys in pilot districts, comparison with blocks not using ExcelAIt, and tracking cohorts from Class 9 to their first job. Analytics are aggregated and privacy-safe in line with the DPDP Act. Students, facilitators, partners, CSR funders and government officials each get a live dashboard at district, block and school level. In Year 2 we plan an independent impact evaluation designed so it can run as an RCT.
+
+What success looks like for one student: they have chosen a career path, are following a learning plan, hold at least one verified skill, are in touch with a mentor, and have claimed at least one scholarship, scheme or opportunity.
+
+Year 3 goals: 2 lakh verified livelihood outcomes, over Rs 100 crore in scholarships, stipends and earnings reaching students, 25,000 active facilitators, 5,000 partner organisations, and girls making up at least half of active users. This work supports SDG 4, 5, 8 and 10.
+
+=== 5. UNIQUE VALUE PROPOSITION ===
+ExcelAIt helps a rural student go from "I don't know what I'm good at" to a verified skill, a real opportunity, their first income and the scholarships they are entitled to. All of it works by voice in their own language, on a shared low-end Android phone, even without internet.
+
+What makes it different:
+
+1) One journey instead of many portals. Today a student would need a dozen separate apps and websites, and most stop at giving information, content or a one-time test. We connect career discovery, personalised learning, skill verification, community, opportunities, earning and scheme claiming in one place, and we stay with the student until they are placed, paid or funded.
+
+2) Community is at the centre. Gyan Chaupal is a moderated, voice-first community where students learn from peers, alumni, mentors, professionals and corporate volunteers. Colleges, universities, ITIs, NGOs, CSR foundations and employers post internships, workshops, hackathons, apprenticeships and jobs directly to rural students.
+
+3) AI that is personal and grounded in real data. We use AI for career matching, learning pathways, turning PDFs into lessons, eligibility checks and opportunity matching. It is grounded in official data from DIKSHA, SWAYAM, Skill India, NAPS, NSP and AISHE, and every answer shows its source. The AI suggests, the rules engine decides eligibility, and the teacher confirms.
+
+4) Designed for rural India. Voice in 22 Indian languages through BHASHINI, a simple interface with icons and audio for low-literacy users, offline use with phone-to-phone sharing, IVR for basic phones, several profiles on one shared phone, and low data use.
+
+5) Skills employers can trust. Skill Passports combine assessment results with evidence verified by the teacher, so employers have a reason to call rural students for interviews.
+
+6) Earning while learning. Kamao-Seekho lets learners aged 18 and above earn through Indian-language AI data tasks and partner gigs, so their own language becomes a source of income and work experience.
+
+7) Benefits actually received, not just found. The navigator checks eligibility, verifies documents, guides the application, checks that the bank account is ready for DBT and tracks the claim until the money arrives.
+
+8) Teachers are supported, not replaced. Facilitator mode lets one teacher guide many students, spot talent, recommend students, verify skills, and create and sell their own training modules.
+
+What each group gets:
+1) Students: clarity, skills, confidence, community, income and scholarships.
+2) Parents: a safe and clear path for their child, explained by voice in their language.
+3) Teachers: tools, recognition and extra income.
+4) Colleges, NGOs and employers: direct access to motivated, verified rural talent at low cost.
+5) Government and CSR funders: measurable livelihood outcomes, higher scheme uptake and clear ROI dashboards.
+6) Banks: student accounts linked to Aadhaar for DBT, and financial literacy at scale.
+
+A student's story, before and after. Before, she hears about careers only from relatives, studies from a borrowed textbook, misses the NMMSS deadline and never meets anyone from a college or company. With ExcelAIt, she finds three careers she hadn't heard of by speaking in her own language, studies her own PDFs offline, earns a Skill Passport, gets an answer from an alumna engineer within a day, applies for a nearby apprenticeship posted by an ITI, and receives her scholarship through DBT.
+
+Our design principles: voice first, offline first, community before content, proof over promises, outcomes over screen time, and privacy and child safety by default. We follow open source and open standards, and design for girls, first-generation learners and students with disabilities through audio, large icons and screen-reader support.
+
+Why people will pay: governments and CSR funders get measurable ROI and better scheme uptake, employers get pre-assessed talent at lower hiring cost, and colleges and NGOs reach rural students they couldn't reach before. Students use it free.
+
+In short, one platform gives six results: career clarity, personalised learning, verified skills, a trusted community, real opportunities and benefits received. Every one can be measured, is in the student's own language and works offline on a shared phone. It is open source, interoperable and can scale from one village to every district in India.
+
+=== 6. HIGH LEVEL CONCEPT ===
+The simplest way we describe it: LinkedIn, Reddit and Khan Academy for rural India, in your own language and working offline.
+
+A few other ways to see it:
+
+1) CareerVillage, Harambee and Karya combined for Bharat: career advice from mentors like CareerVillage, skill assessment and job matching like Harambee, and earning in your own language like Karya, brought together for rural students from Class 9 to graduation.
+
+2) Haqdarshak for students: help claiming the scholarships and schemes a student is entitled to, from checking eligibility to the money arriving through DBT.
+
+3) Duolingo for careers: short, voice-first learning steps with streaks, quizzes and assessments that lead to real skills and real opportunities.
+
+4) Internshala and Unstop for rural talent: colleges, NGOs, companies and MSMEs post internships, workshops, hackathons, apprenticeships and jobs for verified rural students.
+
+5) Open rails for opportunities, the way UPI works for payments: open-source, interoperable APIs (Beckn/ONEST, OpenAPI) so any college, employer, NGO or government system can connect.
+
+6) An ASHA worker for careers: a trained teacher-facilitator, the Career Mitra, in every village school, supported by an AI assistant, guiding many students the way ASHA workers support community health.
+
+7) Kolibri plus Mobile Vaani for career guidance: offline learning with peer-to-peer sync, plus a voice and IVR community for people who can't read easily.
+
+In one line: ExcelAIt is an AI-powered, voice-first, offline-first learning-to-livelihood platform that helps every rural student discover what they are good at, learn how to build it, prove it, earn from it, and connect with the people and institutions who can open doors for them.
+
+A short example: a 16-year-old girl in a village speaks to ExcelAIt in her own language. It builds her profile and shows her three career paths she had never heard of, with what each one pays. It turns her textbook PDF into an audio lesson and a quiz. It connects her to an alumna mentor and a nearby apprenticeship posted by a local ITI. Her teacher verifies her skill in a Skill Passport, and the app helps her claim a Rs 12,000 scholarship into her own bank account. All of this happens on her family's shared phone, even offline.
+
+What it is not: it isn't another content app, another job portal, a one-time aptitude test or an open social network for minors.
+
+How it works, in six steps:
+1) Discover: AI career guide, voice profiling and a career graph.
+2) Learn: personal pathway, PDF-to-lesson, quizzes and offline packs.
+3) Prove: Skill Passport and verifiable credentials.
+4) Connect: the Gyan Chaupal community, mentors and the opportunity marketplace.
+5) Earn: Kamao-Seekho tasks, apprenticeships, internships and entrepreneurship.
+6) Claim: the scheme and scholarship navigator with DBT tracking.
+
+What it means for each group:
+1) Students: a career counsellor, tutor, mentor network and scholarship helper on their phone, in their language.
+2) Teachers: an assistant that lets one teacher run a small career guidance centre.
+3) Colleges, NGOs and employers: a direct, verified pipeline to rural talent.
+4) Government and CSR: an outcome dashboard for every rupee spent on education, skilling and scholarships.
+
+Our AI principle is simple: the AI suggests, the rules decide and the teacher confirms. It is responsible, explainable AI with a human in the loop.
+
+An analogy for judges: if DIKSHA is the library, the National Scholarship Portal is the bank counter, NAPS is the job board and BHASHINI is the translator, then ExcelAIt is the guide who walks each rural student through all of them, in their own language, until they are learning, earning and funded.
+
+Positioning: for rural students from Class 9 to graduation who lack career guidance, learning support and access to opportunities, ExcelAIt finds talent, builds skills, verifies them and connects students to mentors, colleges, NGOs, employers and scholarships. Unlike separate government portals and urban edtech apps, it works by voice, works offline, is built around a community and is paid for by outcomes.
+
+Categories: AI in education, edtech, career tech, skilling, livelihoods, financial inclusion, digital public infrastructure, social impact and responsible AI.
+
+Our vision is that every rural student in India knows what they are good at, how to build it, how to earn from it and who can open a door for them. We want to build that as open infrastructure, starting with one district, one teacher and one student at a time.
+
+=== 7. UNFAIR ADVANTAGE ===
+1) Network effects from the community. Every student, alumnus, mentor, volunteer, college, ITI, NGO and employer who joins makes the platform more useful for everyone else. Alumni become mentors, mentors bring in partners, partners post opportunities and opportunities bring in more students. A marketplace with a real community around it is very hard for a content app or portal to copy.
+
+2) A trusted facilitator network. Trained teachers in village schools (Career Mitras) whose income is tied to student outcomes and their own module sales. That local trust and presence can't be bought with ads or an app download.
+
+3) Verified skills that students own. Skill Passports combine assessments with teacher-verified evidence and are issued as verifiable credentials that can link to APAAR and DigiLocker. The longer a student uses ExcelAIt, the richer their record gets and the more employers trust it.
+
+4) An outcome dataset nobody else has. District-level data linking skills, learning progress, career choices, scheme uptake, earnings, placements and 90-day retention. Governments, CSR funders and employers can use it to plan and pay for outcomes. No government portal or edtech app tracks the full path from learning to livelihood.
+
+5) A data loop from earning. When learners earn through Kamao-Seekho by creating Indian-language speech and text data, students get income, the platform gets revenue, and our own speech and language models get better at rural dialects over time.
+
+6) A grounded knowledge base. A curated, versioned and source-cited database and rules engine for central and state scholarships, schemes, exams, courses and apprenticeships, mapped to NCO and NSQF. Keeping eligibility rules accurate is slow, careful work that most competitors skip.
+
+7) Built on India's digital public infrastructure. We integrate with BHASHINI, DIKSHA, SWAYAM, Skill India Digital Hub, NAPS, NSP, APAAR, DigiLocker and Beckn/ONEST. Because it is open source and interoperable, states and NGOs can adopt it without lock-in, so it can grow as public infrastructure rather than just another app.
+
+8) Designed for rural conditions from the start. Voice in 22 languages, a low-literacy interface, offline-first design with phone-to-phone sync, IVR for basic phones, several profiles per shared phone, and an app under 25 MB for 2 to 3 GB RAM phones. Urban edtech products can't easily retrofit this.
+
+9) A business model aligned with students. We earn when students succeed: scholarships received, skills certified, jobs kept and income earned. That builds trust with students, parents, government and CSR funders in a way ad-funded or listing-fee platforms can't match.
+
+10) Safety and compliance built in. Parental consent under the DPDP Act, no behavioural tracking of minors, verified partners only, a moderated community and audit logs. That earns approval from schools, education departments and CSR partners, which takes time to build.
+
+11) Our team. We are students building for students, close to the people we serve, with hands-on experience in AI, full-stack development and building products, so we can test and improve quickly with real schools and teachers.
+
+12) Trust that compounds. Every verified outcome improves our matching, makes employers trust Skill Passports more and lowers the cost per outcome, which brings in more funders. Competitors can't shortcut that loop.
+
+13) Very low acquisition cost. We reach students through institutions and facilitators instead of the heavy ad spending consumer edtech apps rely on.
+
+14) Depth in dialects. Speech data from Kamao-Seekho and community voice notes improves accuracy for rural accents that general AI models struggle with.
+
+15) Reasons to stay. Partners connect through APIs, dashboards and white-label setups, facilitators build modules and followings, and students build up credentials, learning history and mentor relationships. All of this makes the platform hard to leave.
+
+16) A mission-led brand. Positioned as open-source public-good infrastructure aligned with NEP 2020, Skill India, Digital India and Viksit Bharat 2047, which helps us attract CSR, government and volunteer support.
+
+17) Speed. A modular open-source stack and free public infrastructure like BHASHINI and DIKSHA content let us add new districts, languages and partners in weeks rather than months.
+
+=== 8. CHANNELS ===
+Our go-to-market works through institutions people already trust (government to school to student, and partner to student), supported by community-led and digital growth.
+
+1) Government: state education departments and Samagra Shiksha's career guidance and counselling component, state skill development missions, District Collectors and District Education Officers, and block and cluster resource centres. We integrate with DIKSHA, SWAYAM, Skill India Digital Hub, NAPS, NSP, APAAR and DigiLocker, and work with Ministry of Education, MSDE, NITI Aayog innovation programmes and the BHASHINI partner ecosystem.
+
+2) Schools and institutions: government and aided schools, PM SHRI schools, Jawahar Navodaya Vidyalayas, Kasturba Gandhi Balika Vidyalayas, Eklavya Model Residential Schools, ITIs and polytechnics, and colleges and universities from the AISHE list. Also NSS and NCC units, campus ambassadors, innovation councils and college career cells.
+
+3) Teachers and facilitators: a train-the-trainer Career Mitra programme, teacher training through DIKSHA and SCERT/DIET, referral rewards for facilitators, the facilitator module marketplace and teacher WhatsApp groups.
+
+4) Community and last mile: Common Service Centres and village-level entrepreneurs, NRLM women's self-help groups with "Career Sakhis", panchayats and gram sabhas, anganwadi and ASHA networks to reach parents, community radio, parent-teacher meetings, wall paintings, posters and missed-call numbers, and local melas, career fairs and village roadshows.
+
+5) Partners and ecosystem: NGOs such as Pratham, Quest Alliance, Medha, Magic Bus and Antarang, CSR foundations and corporate volunteering programmes, UNICEF YuWaah and Passport to Earning, industry bodies (CII, FICCI, NASSCOM, sector skill councils), MSME clusters, banks and financial inclusion partners, content partners, and workshops, bootcamps and hackathons hosted by partner colleges.
+
+6) Digital and voice: the Android app on Google Play with listings in regional languages, a lightweight PWA, a WhatsApp chatbot and channel, IVR and missed-call service for basic phones, SMS alerts, short videos on YouTube, Instagram and ShareChat/Moj in regional languages, student and alumni success stories, and search-friendly pages for scholarship and career queries.
+
+7) Word of mouth: student referrals with rewards, alumni ambassadors from the same area, study circles that invite classmates, shareable Skill Passports and badges, offline sharing of the app and content from phone to phone, and friendly challenges and leaderboards between schools and districts.
+
+8) Open source and APIs: a public code repository and developer community, standard APIs (OpenAPI, Beckn/ONEST) for colleges, employers, NGOs and government systems, and white-label versions for states and NGOs.
+
+9) Events and campaigns: district career melas, scholarship awareness drives timed to NMMSS, NSP and state deadlines, skill showcases, inter-school hackathons and challenges, and Ada Lovelace Day and National Youth Day campaigns encouraging girls in STEM and skilling.
+
+10) Building trust with parents: voice messages to parents in their dialect over IVR, parent sessions in villages led by facilitators, local alumni stories on community radio and WhatsApp, and women role models to raise girls' career ambitions.
+
+How a student moves through: they first hear about us through school, an SHG, a CSC, radio or social media. A facilitator helps them sign up by voice, and they get their first career report in under 5 minutes. They stay engaged through their learning plan, quizzes, community answers and reminders. Then they reach an outcome: a Skill Passport, an opportunity or a scholarship. Finally, they refer friends, and alumni and facilitators bring in more.
+
+How partners join: colleges, NGOs and employers sign up through a self-serve web portal, upload opportunities by CSV or API, or sign partnership MoUs. Industry bodies and CSR networks help us reach many partners at once.
+
+Rollout plan:
+1) Phase 1: a pilot in 2 districts with one CSR partner, 20 schools, 300 facilitators and 3 languages.
+2) Phase 2: state-level adoption through Samagra Shiksha and skill missions, with 10 or more languages and the partner marketplace live.
+3) Phase 3: national scale through public infrastructure integrations, open APIs and the facilitator network.
+
+Cost: reaching students through institutions and facilitators costs far less than paid ads. Each trained facilitator can onboard and guide 50 to 100 students, and each partner institution brings hundreds of students and opportunities at once.
+
+=== 9. CUSTOMER SEGMENTS ===
+Users (who uses ExcelAIt):
+
+1) Rural and semi-urban students from Class 9 to graduation, roughly aged 14 to 24, especially first-generation learners, girls, SC/ST/OBC/minority and low-income students. This includes students in government schools, JNVs, KGBVs, ITIs, polytechnics and rural colleges.
+
+2) Rural youth aged 18 to 25 who are out of school or have recently graduated and want skilling, apprenticeships, jobs or self-employment.
+
+3) Teachers, village facilitators and Career Mitras who guide many students through facilitator mode.
+
+4) Parents and guardians, who give consent, help make family decisions and get voice updates over IVR.
+
+5) Mentors: alumni, working professionals and corporate employee volunteers.
+
+6) Opportunity providers: colleges, universities, ITIs, NGOs, companies, MSMEs and government bodies that post opportunities.
+
+Payers (who pays) and how we make money:
+
+1) CSR foundations and outcome funders pay a yearly fee of Rs 150 to 250 per student, plus bonuses only when outcomes happen: Rs 300 to 500 for each scholarship actually received, and Rs 1,000 to 2,000 for each apprenticeship or job still held after 90 days. This matches how CSR money is already spent on education, skilling and livelihoods, and how impact bonds work.
+
+2) State governments, Samagra Shiksha and state skill missions pay a licence per district or state, plus facilitator training, outcome dashboards and integration services.
+
+3) Employers, apprenticeship establishments and MSMEs pay Rs 3,000 to 8,000 per verified hire still in the job after 90 days, which is less than usual placement fees. They can also pay for premium talent search and sponsored challenges.
+
+4) Colleges, universities and edtech partners list for free, and pay for premium recruitment and admissions outreach, sponsored workshops, bootcamps and hackathons, and analytics.
+
+5) NGOs and training partners pay a white-label licence to run their programmes on the platform.
+
+6) AI and data companies pay for Indian-language data tasks done through Kamao-Seekho. We keep a margin, and most of the money goes to the learners.
+
+7) Banks and financial inclusion partners support student account opening, Aadhaar seeding for DBT, financial literacy modules and education loan awareness.
+
+8) Teachers and content creators sell training modules in the marketplace with a 70/30 revenue share.
+
+9) Students use the core platform free for life. Optional premium test prep and mock tests cost Rs 29 to 49 a month, and we never charge for scholarship or scheme help.
+
+Unit economics and ROI (estimates): it should cost about Rs 20 to 50 per student per year, because BHASHINI speech is free, audio is cached, the app works offline and we use a low-cost LLM gateway. A district of 20,000 students would cost about Rs 40 to 50 lakh a year. If 10% of them receive one NMMSS scholarship of Rs 12,000 a year, that is Rs 2.4 crore reaching students, about 5 times the spend, and renewals repeat every year. With several revenue streams, the platform can sustain itself.
+
+Market size (estimates): India has about 25 crore young people aged 15 to 24, around two-thirds of them rural. Our serviceable market is rural students from Class 9 to graduation in government and aided institutions with access to a shared smartphone. In the first 3 years we aim for 10 lakh students across 5 states through CSR and state partnerships. Funding is available: India's CSR spend was Rs 35,918 crore in FY24, including Rs 12,508 crore on education, Rs 1,430 crore on vocational skills and Rs 2,409 crore on livelihoods, along with Samagra Shiksha career guidance and state skill mission budgets.
+
+Example users:
+1) Pooja, 16, Class 11 in Uttar Pradesh, a first-generation learner who speaks Hindi, uses a shared phone and wants a stable job near home.
+2) Raju, 19, an ITI student in Maharashtra, who wants an apprenticeship and to earn while he learns.
+3) A government school teacher guiding 120 students with no counselling tools.
+4) A CSR head who needs measurable outcomes for every rupee.
+5) An HR manager at an MSME who needs reliable, skilled entry-level hires.
+6) A college outreach cell looking for rural applicants for programmes, workshops and hackathons.
+
+Early adopters: one CSR-funded pilot district each in Maharashtra and Uttar Pradesh, clusters of JNVs and KGBVs, government school teachers who already counsel students informally, partner colleges, ITIs and NGOs posting opportunities, first-generation college students who become alumni mentors, and Class 9 to 12 students preparing for NMMSS or choosing streams and careers.
