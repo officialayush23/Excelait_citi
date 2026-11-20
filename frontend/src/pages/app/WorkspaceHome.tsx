@@ -9,6 +9,7 @@ import { FilterBar } from '@/components/page/FilterBar'
 import { KpiCard, KpiRow, type Tone } from '@/components/page/Kpi'
 import { PageHeader } from '@/components/page/PageHeader'
 import { ListRow, SplitView } from '@/components/page/SplitView'
+import { AdminHome, PartnerHome } from '@/components/partner/OpsHome'
 import { pathFor } from '@/components/shell/Nav'
 import { Button } from '@/components/ui/button'
 import { NAV, type Role } from '@/config/roles'
@@ -54,6 +55,14 @@ const KPIS: Record<Exclude<Role, 'student'>, { key: string; prefix?: string; ton
  * KPI row, filter bar, and the list + detail split view from the dark reference.
  */
 export function WorkspaceHome() {
+  const { t } = useTranslation()
+  const { role } = useAuth()
+  if (role === 'partner') return <PartnerHome roleName={t('roles.partner.name')} />
+  if (role === 'admin') return <AdminHome roleName={t('roles.admin.name')} />
+  return <GenericWorkspaceHome />
+}
+
+function GenericWorkspaceHome() {
   const { t } = useTranslation()
   const { role } = useAuth()
   const items = NAV[role]

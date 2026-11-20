@@ -26,7 +26,8 @@
     "schemes": "Schemes",
     "moderation": "Moderation",
     "plan": "My plan",
-    "colleges": "Colleges"
+    "colleges": "Colleges",
+    "more": "More"
   },
   "roles": {
     "student": {

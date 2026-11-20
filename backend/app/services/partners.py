@@ -155,7 +155,13 @@ def publish_offer(user_id: str, org_id: str, offer_id: str) -> dict:
     if org["verification_status"] != "verified":
         raise PartnerError("Your organisation must be verified before you can publish.")
     db = get_db()
-    offer = db.table("opportunities").update({"status": "open", "published_at": "now()"}).eq("id", offer_id).eq("org_id", org_id).execute().data[0]
+    current = db.table("opportunities").select("status, published_at").eq("id", offer_id).eq("org_id", org_id).single().execute().data
+    if current["status"] == "open":
+        raise PartnerError("This offering is already published.")
+    first_time = current["published_at"] is None
+    offer = db.table("opportunities").update({"status": "open", **({"published_at": "now()"} if first_time else {})}).eq("id", offer_id).eq("org_id", org_id).execute().data[0]
+    if not first_time:  # reopening does not notify everyone again
+        return offer
     sent = notify_matches(offer, org["name"])
     db.table("opportunities").update({"notified_count": sent}).eq("id", offer_id).execute()
     return {**offer, "notified_count": sent}

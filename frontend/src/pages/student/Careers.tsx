@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
+import { SaveButton } from '@/components/explore/shared'
 import { EmptyState } from '@/components/page/EmptyState'
 import { PageHeader } from '@/components/page/PageHeader'
 import { ListRow, SplitView } from '@/components/page/SplitView'
@@ -15,6 +16,7 @@ import { useFacts } from '@/data/facts'
 import { profileComplete, useEligibility, useMatches, type WhatIf } from '@/data/insights'
 import type { Gap, Match, Reason } from '@/engine/matching'
 import { payRange } from '@/lib/format'
+import { to } from '@/lib/links'
 
 export function Careers() {
   const { t, i18n } = useTranslation()
@@ -142,6 +144,15 @@ function CareerDetail({ match }: { match: Match }) {
             {t('careers.pay', { range: pay })} {c.needs_city && <span className="inline-flex items-center gap-1"><MapPin className="size-3.5" />{t('careers.city')}</span>}
           </p>
         )}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Button asChild className="h-11 rounded-full px-5">
+            <Link to={to.career(c.slug)}>
+              {t('explore.openFullPage')}
+              <ArrowRight data-icon="inline-end" />
+            </Link>
+          </Button>
+          <SaveButton career={c.slug} />
+        </div>
       </div>
 
       <section>

@@ -1,7 +1,8 @@
-import { Bell, Check, Languages, LogOut, Moon, Sun, UserRound } from 'lucide-react'
+import { Check, Languages, LogOut, Moon, Sun, UserRound } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { useAuth } from '@/auth/AuthProvider'
+import { NotificationsBell } from '@/components/community/NotificationsBell'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -70,12 +71,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 }
 
 export function NotificationsButton() {
-  const { t } = useTranslation()
-  return (
-    <button type="button" className={iconBtn} aria-label={t('common.notifications')}>
-      <Bell className="size-[18px]" />
-    </button>
-  )
+  return <NotificationsBell className={iconBtn} />
 }
 
 export function UserMenu() {

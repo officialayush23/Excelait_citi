@@ -79,7 +79,12 @@ def feed(facts: dict, kind: str | None = None, group_id: str | None = None, care
         query = query.or_(f"title.ilike.%{q[:60]}%,body.ilike.%{q[:60]}%")
     rows = query.order("created_at", desc=True).limit(limit * 2).execute().data
     hidden = {x["id"] for x in db.table("groups").select("id").eq("women_only", True).execute().data} if facts.get("gender") != "female" else set()
-    return [_post(r) for r in rows if r["group_id"] not in hidden][:limit]
+    out = [_post(r) for r in rows if r["group_id"] not in hidden][:limit]
+    ids = [p["id"] for p in out]
+    accepted = {c["post_id"] for c in db.table("comments").select("post_id").in_("post_id", ids).eq("is_accepted", True).execute().data} if ids else set()
+    for p in out:
+        p["has_accepted"] = p["id"] in accepted
+    return out
 
 
 def _post(r: dict) -> dict:
@@ -125,7 +130,7 @@ def comment(user_id: str, roles: set[str], post_id: str, body: str) -> dict:
         post = db.table("posts").update({"answer_count": n}).eq("id", post_id).execute().data[0]
         if post["author_id"] != user_id:
             db.table("notifications").insert({"user_id": post["author_id"], "kind": "answer", "title": "New answer to your question",
-                                              "body": post["title"], "link": f"/app/community?post={post_id}"}).execute()
+                                              "body": post["title"], "link": f"/app/community/{post_id}"}).execute()
     return {**c, "held_for_review": status != "visible"}
 
 

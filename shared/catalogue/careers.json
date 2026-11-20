@@ -1145,9 +1145,7 @@
         "pms-st",
         "pm-usp-csss"
       ],
-      "exam_slugs": [
-        "neet-ug"
-      ],
+      "exam_slugs": [],
       "program_slugs": [
         "gnm",
         "bsc-nursing"

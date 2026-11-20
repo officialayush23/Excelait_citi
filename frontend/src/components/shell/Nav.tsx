@@ -1,8 +1,11 @@
+import { Ellipsis } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
 
 import type { NavItem } from '@/config/roles'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
 export function pathFor(item: NavItem, index: number) {
@@ -54,7 +57,11 @@ export function PillNav({ items }: { items: NavItem[] }) {
 export function BottomNav({ items }: { items: NavItem[] }) {
   const { t } = useTranslation()
   const active = useActiveIndex(items)
-  const visible = items.slice(0, 5)
+  const { t: tr } = useTranslation()
+  const [open, setOpen] = useState(false)
+  const overflow = items.length > 5
+  const visible = overflow ? items.slice(0, 4) : items
+  const rest = overflow ? items.slice(4) : []
   return (
     <nav
       aria-label="Main"
@@ -89,6 +96,46 @@ export function BottomNav({ items }: { items: NavItem[] }) {
             </li>
           )
         })}
+        {overflow && (
+          <li className="flex-1">
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  className={cn('relative flex w-full flex-col items-center gap-1 rounded-2xl py-1.5 text-[11px] font-medium',
+                    active >= 4 ? 'text-foreground' : 'text-muted-foreground')}
+                >
+                  <span className={cn('grid h-8 w-14 place-items-center rounded-full', active >= 4 && 'bg-nav-active text-nav-active-foreground')}>
+                    <Ellipsis className="size-5" aria-hidden="true" />
+                  </span>
+                  <span>{tr('nav.more')}</span>
+                </button>
+              </SheetTrigger>
+              <SheetContent side="bottom" className="rounded-t-3xl pb-[calc(env(safe-area-inset-bottom)+1rem)]">
+                <SheetHeader>
+                  <SheetTitle>{tr('nav.more')}</SheetTitle>
+                </SheetHeader>
+                <ul className="grid grid-cols-3 gap-2 px-4">
+                  {rest.map((item, j) => {
+                    const Icon = item.icon
+                    return (
+                      <li key={item.key}>
+                        <NavLink
+                          to={pathFor(item, j + 4)}
+                          onClick={() => setOpen(false)}
+                          className="flex flex-col items-center gap-2 rounded-2xl border bg-card p-4 text-sm font-medium hover:bg-accent"
+                        >
+                          <Icon className="size-6" aria-hidden="true" />
+                          {tr(`nav.${item.key}`)}
+                        </NavLink>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </SheetContent>
+            </Sheet>
+          </li>
+        )}
       </ul>
     </nav>
   )

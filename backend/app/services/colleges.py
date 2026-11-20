@@ -12,7 +12,7 @@ def search(kind: str | None = None, state: str | None = None, district: str | No
     if kind:
         query = query.eq("kind", kind)
     if state:
-        query = query.ilike("state", state)
+        query = query.ilike("state", f"%{state.strip()[:40]}%")
     if district:
         query = query.ilike("district", f"%{district}%")
     if q:

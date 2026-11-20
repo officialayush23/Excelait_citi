@@ -1,6 +1,6 @@
 /** One place for every in-app URL, so all pages link to each other the same way. */
 export const to = {
-  saathi: () => '/app',
+  saathi: () => '/app/saathi',
   careers: () => '/app/careers',
   career: (slug: string) => `/app/careers/${slug}`,
   course: (slug: string) => `/app/courses/${slug}`,

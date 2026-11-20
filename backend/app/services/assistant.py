@@ -27,7 +27,9 @@ SYSTEM = """You are Saathi, a career and education guide for rural Indian studen
 Reply in {language}. The app shows rich cards from your tool calls, so your own text must be SHORT:
 at most 2 short sentences that connect the cards or say the next step. Never repeat what a card shows.
 Always use tools for facts: careers, courses, exams, colleges, schemes, learning, plans, community, opportunities.
-Use web_search only for fresh facts the other tools cannot give (dates, notices, news), then mention it is from the web.
+Use web_search only for fresh facts the other tools cannot give (dates, notices, news). When you repeat a date or number
+from the web, name the website it came from, prefer gov.in/nic.in sources, and if sources disagree say so.
+Describe courses exactly as tools name them (an ITI course is not a diploma).
 Never say whether someone qualifies for money yourself; check_money does that with fixed rules.
 If a needed fact is missing, call ask_student instead of guessing. Save facts the student states with save_facts.
 Today is {today}. Treat web results older than this year as possibly out of date and say so.
@@ -68,7 +70,12 @@ def _slug(kind: str, value: str | None) -> str | None:
     if v in table:
         return v
     for slug, row in table.items():
-        if v in row["name"].lower() or v.replace(" ", "-") in slug:
+        names = [row["name"].lower(), *(x.lower() for x in (row.get("name_i18n") or {}).values())]
+        if any(v in n for n in names) or v.replace(" ", "-") in slug:
+            return slug
+    words = [w for w in v.replace("-", " ").split() if len(w) > 3]
+    for slug, row in table.items():
+        if words and all(w in row["name"].lower() or w in slug for w in words):
             return slug
     return None
 
@@ -92,14 +99,17 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
         ms = rank(pool, {**ctx.facts, **wi}, 6)
         items = [{"slug": m.slug, "score": m.score, "reasons": m.reasons, "gaps": m.gaps, **{k: g.careers[m.slug][k] for k in ("name", "name_i18n", "category", "pay_min", "pay_max", "earning_speed")}} for m in ms]
         ctx.cards.append({"type": "careers", "what_if": wi, "items": items})
-        return "; ".join(f"{i['slug']} {i['score']}" for i in items)
+        def first_course(slug: str) -> str:
+            ps = [g.programs[p] for p in g.careers[slug]["program_slugs"] if p in g.programs]
+            return f"{ps[0]['name']} ({ps[0]['duration_months']} mo)" if ps else "-"
+        return "; ".join(f"{i['name']} [{i['slug']}] score {i['score']}, via {first_course(i['slug'])}" for i in items)
     if name == "career_details":
         s = _slug("career", a.get("slug"))
         card = career_card(s, ctx.facts) if s else None
         if not card:
             return "not found"
         ctx.cards.append({"type": "career", "saved": s in plans.saved(ctx.user_id), **card})
-        return f"{s}: courses {[p['slug'] for p in card['programs']]}; exams {[e['slug'] for e in card['exams']]}; money eligible {[x['slug'] for x in card['schemes'] if x['result'] == 'eligible']}"
+        return f"{s}: courses {[(p['name'], p['duration_months']) for p in card['programs']]}; exams {[e['slug'] for e in card['exams']]}; money eligible {[x['slug'] for x in card['schemes'] if x['result'] == 'eligible']}"
     if name == "course_details":
         s = _slug("program", a.get("slug"))
         card = program_card(s, ctx.facts) if s else None

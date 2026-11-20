@@ -11,7 +11,7 @@
       "ministry": "Ministry of Education (Department of School Education & Literacy)",
       "benefit_amount": 12000,
       "benefit_text": "Rs 12,000 a year from Class 9 to 12. You apply and sit the selection test (MAT + SAT) in Class 8.",
-      "official_url": "https://dsel.education.gov.in/scheme/nmmss",
+      "official_url": "https://www.myscheme.gov.in/schemes/nmmss",
       "apply_url": "https://scholarships.gov.in",
       "documents": [
         "income_certificate",
@@ -21,12 +21,12 @@
         "bank_account_aadhaar_seeded"
       ],
       "sources": [
-        "https://dsel.education.gov.in/scheme/nmmss",
-        "https://dsel.education.gov.in/sites/default/files/NMMSS_Guidelines_22.pdf",
-        "https://myscheme.gov.in/schemes/nmmss"
+        "https://www.myscheme.gov.in/schemes/nmmss",
+        "https://scholarships.gov.in"
       ],
       "verify": [
-        "Minimum marks are for Class 7 in the 2022 guidelines; some notices say Class 8."
+        "Minimum marks are for Class 7 in the 2022 guidelines; some notices say Class 8.",
+        "The Ministry of Education's old NMMSS page and 2022 guideline PDF links now return 'not found' (checked 2026-11-20)."
       ],
       "rule": {
         "all": [
