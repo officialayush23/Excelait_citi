@@ -1,0 +1,2210 @@
+{
+ "_doc": "Practical, verifiable skills for the Skill Passport. Each task has steps, evidence to upload, and a rubric of pass/needs-work criteria. careers lists career slugs from careers.json.",
+ "skills": [
+  {
+   "slug": "switchboard-wiring",
+   "name": "Wire a switchboard safely",
+   "name_i18n": {
+    "hi": "स्विचबोर्ड सुरक्षित रूप से जोड़ना",
+    "mr": "स्विचबोर्ड सुरक्षितपणे जोडणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "electrician",
+    "electrical-engineer",
+    "railway-technician"
+   ],
+   "tasks": [
+    {
+     "slug": "switchboard-wiring-1",
+     "title": "Wire a switch and bulb on a practice board",
+     "title_i18n": {
+      "hi": "प्रैक्टिस बोर्ड पर स्विच और बल्ब जोड़ें",
+      "mr": "सराव बोर्डवर स्विच आणि बल्ब जोडा"
+     },
+     "instructions": "Wire one switch controlling one bulb on a dead (unpowered) practice board, with a teacher or trained electrician present.",
+     "steps": [
+      "Switch OFF the main supply and confirm with a tester that the board is dead.",
+      "Connect phase (red) through the switch to the bulb holder; neutral (black) straight to the holder.",
+      "Check every screw is tight and no bare copper is visible.",
+      "Photograph the board before powering on and have your supervisor test it."
+     ],
+     "evidence": "2 photos: the full board, and a close-up of the connections. Note: who supervised.",
+     "rubric": {
+      "title": "Wire a switch and bulb on a practice board rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Safety first",
+        "pass_text": "Main supply was switched off and tested before work started"
+       },
+       {
+        "id": "c2",
+        "name": "Correct wiring",
+        "pass_text": "Phase goes through the switch; neutral goes directly to the holder"
+       },
+       {
+        "id": "c3",
+        "name": "Neat connections",
+        "pass_text": "No loose strands or bare copper; screws tight"
+       },
+       {
+        "id": "c4",
+        "name": "Colour code",
+        "pass_text": "Red/black wires used for phase/neutral"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "multimeter-use",
+   "name": "Measure voltage and continuity with a multimeter",
+   "name_i18n": {
+    "hi": "मल्टीमीटर से वोल्टेज और कंटीन्यूटी मापना",
+    "mr": "मल्टीमीटरने व्होल्टेज आणि कंटिन्युटी मोजणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "electrician",
+    "ev-technician",
+    "mobile-repair",
+    "electrical-engineer"
+   ],
+   "tasks": [
+    {
+     "slug": "multimeter-use-1",
+     "title": "Measure a battery and test a wire",
+     "title_i18n": {
+      "hi": "बैटरी मापें और तार जांचें",
+      "mr": "बॅटरी मोजा आणि वायर तपासा"
+     },
+     "instructions": "Use a multimeter to read a cell or battery voltage and test a wire for continuity.",
+     "steps": [
+      "Set the dial to DC voltage and touch the probes to the battery ends; note the reading.",
+      "Set the dial to continuity (beep) and test a good wire and a broken wire.",
+      "Write both readings on paper."
+     ],
+     "evidence": "2 photos: the multimeter showing the battery reading, and the continuity test. Note: the readings.",
+     "rubric": {
+      "title": "Measure a battery and test a wire rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Right setting",
+        "pass_text": "Dial set correctly for each test"
+       },
+       {
+        "id": "c2",
+        "name": "Probe contact",
+        "pass_text": "Probes placed on correct points"
+       },
+       {
+        "id": "c3",
+        "name": "Reading recorded",
+        "pass_text": "Voltage reading written and sensible for the battery"
+       },
+       {
+        "id": "c4",
+        "name": "Continuity result",
+        "pass_text": "Correctly identified good and broken wire"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "solar-panel-check",
+   "name": "Check a solar panel output",
+   "name_i18n": {
+    "hi": "सोलर पैनल का आउटपुट जांचना",
+    "mr": "सोलर पॅनेलचे आउटपुट तपासणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "solar-technician",
+    "electrician"
+   ],
+   "tasks": [
+    {
+     "slug": "solar-panel-check-1",
+     "title": "Measure open-circuit voltage of a panel",
+     "title_i18n": {
+      "hi": "पैनल का वोल्टेज मापें",
+      "mr": "पॅनेलचा व्होल्टेज मोजा"
+     },
+     "instructions": "Measure the open-circuit voltage of a small solar panel in sunlight and clean its surface.",
+     "steps": [
+      "Wipe the panel with a soft damp cloth.",
+      "Face it to the sun, set the multimeter to DC volts and touch the red probe to + and black to -.",
+      "Note the voltage and the time of day."
+     ],
+     "evidence": "2 photos: panel in sun, multimeter reading. Note: rated voltage vs measured.",
+     "rubric": {
+      "title": "Measure open-circuit voltage of a panel rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Panel cleaned",
+        "pass_text": "Surface visibly clean"
+       },
+       {
+        "id": "c2",
+        "name": "Correct polarity",
+        "pass_text": "Red on + and black on -"
+       },
+       {
+        "id": "c3",
+        "name": "Reading recorded",
+        "pass_text": "Voltage noted with time"
+       },
+       {
+        "id": "c4",
+        "name": "Safe handling",
+        "pass_text": "No damage to wires or panel"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "pipe-joint",
+   "name": "Join and seal a pipe fitting",
+   "name_i18n": {
+    "hi": "पाइप जोड़ना और सील करना",
+    "mr": "पाईप जोडणे आणि सील करणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "plumber"
+   ],
+   "tasks": [
+    {
+     "slug": "pipe-joint-1",
+     "title": "Make a leak-free threaded joint",
+     "title_i18n": {
+      "hi": "बिना रिसाव का थ्रेडेड जोड़ बनाएं",
+      "mr": "गळतीमुक्त थ्रेडेड जोड बनवा"
+     },
+     "instructions": "Join two threaded pipe pieces with teflon tape and test with water.",
+     "steps": [
+      "Wrap teflon tape 4-5 times clockwise on the male thread.",
+      "Screw the fitting by hand, then tighten with a wrench by 1-2 turns.",
+      "Run water and watch the joint for 2 minutes."
+     ],
+     "evidence": "2 photos: the finished joint, and the joint under running water.",
+     "rubric": {
+      "title": "Make a leak-free threaded joint rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Tape applied",
+        "pass_text": "Tape wrapped in the right direction on clean threads"
+       },
+       {
+        "id": "c2",
+        "name": "Tight fit",
+        "pass_text": "Joint tight without cross-threading"
+       },
+       {
+        "id": "c3",
+        "name": "No leak",
+        "pass_text": "No drips after 2 minutes under water"
+       },
+       {
+        "id": "c4",
+        "name": "Tools used well",
+        "pass_text": "Wrench used safely, pipe not crushed"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "arc-weld-bead",
+   "name": "Run a straight weld bead",
+   "name_i18n": {
+    "hi": "सीधी वेल्ड बीड बनाना",
+    "mr": "सरळ वेल्ड बीड बनवणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "welder"
+   ],
+   "tasks": [
+    {
+     "slug": "arc-weld-bead-1",
+     "title": "Weld a straight bead on mild steel",
+     "title_i18n": {
+      "hi": "सीधी वेल्ड बीड बनाएं",
+      "mr": "सरळ वेल्ड बीड बनवा"
+     },
+     "instructions": "With an instructor present and full protective gear, run a 10 cm bead on a steel plate.",
+     "steps": [
+      "Wear helmet, gloves and apron; clear flammable items away.",
+      "Strike the arc and move steadily along a marked line.",
+      "Chip off slag and brush clean."
+     ],
+     "evidence": "2 photos: you in protective gear, and the cleaned bead. Note: electrode used.",
+     "rubric": {
+      "title": "Weld a straight bead on mild steel rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Protective gear",
+        "pass_text": "Helmet, gloves and apron worn"
+       },
+       {
+        "id": "c2",
+        "name": "Straight line",
+        "pass_text": "Bead follows the marked line"
+       },
+       {
+        "id": "c3",
+        "name": "Even bead",
+        "pass_text": "Width and height fairly even, no big gaps"
+       },
+       {
+        "id": "c4",
+        "name": "Cleaned",
+        "pass_text": "Slag removed and surface brushed"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "puncture-repair",
+   "name": "Repair a two-wheeler tyre puncture",
+   "name_i18n": {
+    "hi": "टायर पंक्चर ठीक करना",
+    "mr": "टायर पंक्चर दुरुस्त करणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "motor-mechanic"
+   ],
+   "tasks": [
+    {
+     "slug": "puncture-repair-1",
+     "title": "Patch a tube and refit the tyre",
+     "title_i18n": {
+      "hi": "ट्यूब पर पैच लगाएं",
+      "mr": "ट्यूबवर पॅच लावा"
+     },
+     "instructions": "Find the hole in a tube using water, patch it and refit.",
+     "steps": [
+      "Dip the inflated tube in water and mark the bubbles.",
+      "Roughen, apply solution, wait, press the patch for 1 minute.",
+      "Refit and inflate; check no air escapes."
+     ],
+     "evidence": "2 photos: the marked hole, and the finished patch. Note: tyre pressure used.",
+     "rubric": {
+      "title": "Patch a tube and refit the tyre rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Hole found",
+        "pass_text": "Leak located and marked"
+       },
+       {
+        "id": "c2",
+        "name": "Patch applied",
+        "pass_text": "Surface roughened, solution dried, patch pressed"
+       },
+       {
+        "id": "c3",
+        "name": "Holds air",
+        "pass_text": "Tube holds air after 10 minutes"
+       },
+       {
+        "id": "c4",
+        "name": "Refit",
+        "pass_text": "Tyre and tube refitted without pinching"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "engine-oil-change",
+   "name": "Change engine oil on a two-wheeler",
+   "name_i18n": {
+    "hi": "इंजन ऑयल बदलना",
+    "mr": "इंजिन ऑइल बदलणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "motor-mechanic",
+    "driver"
+   ],
+   "tasks": [
+    {
+     "slug": "engine-oil-change-1",
+     "title": "Drain and refill engine oil",
+     "title_i18n": {
+      "hi": "इंजन ऑयल निकालें और भरें",
+      "mr": "इंजिन ऑइल काढा आणि भरा"
+     },
+     "instructions": "Change the oil of a cold two-wheeler with an experienced mechanic watching.",
+     "steps": [
+      "Put the vehicle on its stand and place a tray under the drain bolt.",
+      "Drain fully, refit the bolt with a new washer.",
+      "Fill to the correct level on the dipstick."
+     ],
+     "evidence": "2 photos: old oil in tray, dipstick showing correct level.",
+     "rubric": {
+      "title": "Drain and refill engine oil rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Safe setup",
+        "pass_text": "Vehicle stable, engine cold"
+       },
+       {
+        "id": "c2",
+        "name": "Fully drained",
+        "pass_text": "Old oil drained into tray"
+       },
+       {
+        "id": "c3",
+        "name": "Correct level",
+        "pass_text": "Dipstick between min and max"
+       },
+       {
+        "id": "c4",
+        "name": "Clean work",
+        "pass_text": "No spills, waste oil kept safely"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ev-battery-safety",
+   "name": "Inspect an EV battery pack safely",
+   "name_i18n": {
+    "hi": "ईवी बैटरी की सुरक्षित जांच",
+    "mr": "ईव्ही बॅटरीची सुरक्षित तपासणी"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "ev-technician"
+   ],
+   "tasks": [
+    {
+     "slug": "ev-battery-safety-1",
+     "title": "Visual and safety checklist of a battery",
+     "title_i18n": {
+      "hi": "बैटरी का सुरक्षा चेकलिस्ट",
+      "mr": "बॅटरीची सुरक्षा चेकलिस्ट"
+     },
+     "instructions": "Do a visual inspection of a (disconnected) e-bike or e-rickshaw battery with a supervisor.",
+     "steps": [
+      "Confirm the battery is disconnected and insulated gloves are worn.",
+      "Check for swelling, cracks, burn marks and loose terminals.",
+      "Fill the checklist and mark any problem."
+     ],
+     "evidence": "2 photos: battery front/back, terminals close-up. Note: checklist result.",
+     "rubric": {
+      "title": "Visual and safety checklist of a battery rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Disconnected",
+        "pass_text": "Battery isolated before inspection"
+       },
+       {
+        "id": "c2",
+        "name": "Gloves used",
+        "pass_text": "Insulated gloves worn"
+       },
+       {
+        "id": "c3",
+        "name": "All checks done",
+        "pass_text": "Swelling, cracks, terminals, casing checked"
+       },
+       {
+        "id": "c4",
+        "name": "Report",
+        "pass_text": "Problems (or none) clearly written"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "phone-screen-replace",
+   "name": "Replace a mobile phone screen",
+   "name_i18n": {
+    "hi": "मोबाइल स्क्रीन बदलना",
+    "mr": "मोबाईल स्क्रीन बदलणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "mobile-repair"
+   ],
+   "tasks": [
+    {
+     "slug": "phone-screen-replace-1",
+     "title": "Replace a screen on a practice phone",
+     "title_i18n": {
+      "hi": "प्रैक्टिस फोन की स्क्रीन बदलें",
+      "mr": "सराव फोनची स्क्रीन बदला"
+     },
+     "instructions": "On a spare or practice phone, replace a cracked screen.",
+     "steps": [
+      "Power off, heat edges lightly, lift the screen with a pick.",
+      "Disconnect battery and display connectors; swap the screen.",
+      "Reassemble, power on and test touch."
+     ],
+     "evidence": "3 photos: cracked phone, opened phone, finished phone with display on.",
+     "rubric": {
+      "title": "Replace a screen on a practice phone rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Safe opening",
+        "pass_text": "Battery disconnected first, no cracked frame"
+       },
+       {
+        "id": "c2",
+        "name": "Correct fit",
+        "pass_text": "New screen seated and connected properly"
+       },
+       {
+        "id": "c3",
+        "name": "Working",
+        "pass_text": "Touch and display work after repair"
+       },
+       {
+        "id": "c4",
+        "name": "Tidy",
+        "pass_text": "Screws sorted and all parts back"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "cnc-reading-drawing",
+   "name": "Read an engineering drawing",
+   "name_i18n": {
+    "hi": "इंजीनियरिंग ड्रॉइंग पढ़ना",
+    "mr": "इंजिनिअरिंग ड्रॉइंग वाचणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "cnc-operator",
+    "draughtsman",
+    "civil-engineer"
+   ],
+   "tasks": [
+    {
+     "slug": "cnc-reading-drawing-1",
+     "title": "Measure a part with a vernier caliper",
+     "title_i18n": {
+      "hi": "वर्नियर कैलिपर से माप",
+      "mr": "व्हर्नियर कॅलिपरने मोजमाप"
+     },
+     "instructions": "Take 3 measurements of a part and compare with the drawing.",
+     "steps": [
+      "Close the caliper and check it reads zero.",
+      "Measure length, width and thickness.",
+      "Compare with the drawing sizes and note the difference."
+     ],
+     "evidence": "2 photos: the caliper on the part, and your notes.",
+     "rubric": {
+      "title": "Measure a part with a vernier caliper rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Zero check",
+        "pass_text": "Caliper checked at zero"
+       },
+       {
+        "id": "c2",
+        "name": "Correct reading",
+        "pass_text": "Readings within 0.2 mm of teacher's"
+       },
+       {
+        "id": "c3",
+        "name": "Compared",
+        "pass_text": "Difference with drawing noted"
+       },
+       {
+        "id": "c4",
+        "name": "Careful handling",
+        "pass_text": "Tool and part handled carefully"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "wood-joint",
+   "name": "Make a wooden joint",
+   "name_i18n": {
+    "hi": "लकड़ी का जोड़ बनाना",
+    "mr": "लाकडी जोड बनवणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "carpenter"
+   ],
+   "tasks": [
+    {
+     "slug": "wood-joint-1",
+     "title": "Cut and fit a lap joint",
+     "title_i18n": {
+      "hi": "लैप जॉइंट काटें और जोड़ें",
+      "mr": "लॅप जॉइंट कापा आणि जोडा"
+     },
+     "instructions": "Mark, cut and glue a half-lap joint between two pieces of wood.",
+     "steps": [
+      "Mark with pencil and try-square.",
+      "Saw inside the line and chisel the waste.",
+      "Glue and clamp for 30 minutes."
+     ],
+     "evidence": "2 photos: marked wood, finished joint.",
+     "rubric": {
+      "title": "Cut and fit a lap joint rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Accurate marking",
+        "pass_text": "Lines square and clear"
+       },
+       {
+        "id": "c2",
+        "name": "Clean cuts",
+        "pass_text": "Cut inside the line, no splits"
+       },
+       {
+        "id": "c3",
+        "name": "Tight fit",
+        "pass_text": "Pieces fit with no big gap"
+       },
+       {
+        "id": "c4",
+        "name": "Safe tool use",
+        "pass_text": "Tools used safely, work clamped"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "brick-wall-level",
+   "name": "Lay bricks plumb and level",
+   "name_i18n": {
+    "hi": "ईंटें सीधी और लेवल में लगाना",
+    "mr": "विटा सरळ आणि लेव्हलमध्ये लावणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "mason",
+    "civil-engineer"
+   ],
+   "tasks": [
+    {
+     "slug": "brick-wall-level-1",
+     "title": "Build a 5-course wall",
+     "title_i18n": {
+      "hi": "5 परत की दीवार बनाएं",
+      "mr": "५ थरांची भिंत बांधा"
+     },
+     "instructions": "Build a small wall of 5 courses with mortar and check with plumb line and spirit level.",
+     "steps": [
+      "Mix mortar 1:4 and lay the first course on a line.",
+      "Stagger joints and check each course with a spirit level.",
+      "Check the wall with a plumb line."
+     ],
+     "evidence": "2 photos: wall from front and side with the level on it.",
+     "rubric": {
+      "title": "Build a 5-course wall rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Mortar mix",
+        "pass_text": "Mortar workable, not too wet"
+       },
+       {
+        "id": "c2",
+        "name": "Level",
+        "pass_text": "Courses level (bubble centred)"
+       },
+       {
+        "id": "c3",
+        "name": "Plumb",
+        "pass_text": "Wall vertical by plumb line"
+       },
+       {
+        "id": "c4",
+        "name": "Bond",
+        "pass_text": "Joints staggered, even thickness"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "cloth-cut-pattern",
+   "name": "Measure and cut cloth to a pattern",
+   "name_i18n": {
+    "hi": "कपड़ा नाप कर पैटर्न से काटना",
+    "mr": "कापड मोजून पॅटर्ननुसार कापणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "tailor",
+    "handicraft-artisan"
+   ],
+   "tasks": [
+    {
+     "slug": "cloth-cut-pattern-1",
+     "title": "Cut a kurta front panel",
+     "title_i18n": {
+      "hi": "कुर्ते का आगे का हिस्सा काटें",
+      "mr": "कुर्त्याचा पुढचा भाग कापा"
+     },
+     "instructions": "Take body measurements and cut one panel using a paper pattern.",
+     "steps": [
+      "Measure chest, length and shoulder of a person.",
+      "Draw the pattern on paper and add seam allowance.",
+      "Pin to cloth and cut along the line."
+     ],
+     "evidence": "3 photos: measurements written, paper pattern, cut cloth.",
+     "rubric": {
+      "title": "Cut a kurta front panel rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Measurements",
+        "pass_text": "Taken and written correctly"
+       },
+       {
+        "id": "c2",
+        "name": "Pattern",
+        "pass_text": "Pattern with seam allowance"
+       },
+       {
+        "id": "c3",
+        "name": "Clean cut",
+        "pass_text": "Edges straight and smooth"
+       },
+       {
+        "id": "c4",
+        "name": "Cloth saving",
+        "pass_text": "Pattern placed to waste little cloth"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "basic-stitching",
+   "name": "Stitch a straight seam",
+   "name_i18n": {
+    "hi": "सीधी सिलाई करना",
+    "mr": "सरळ शिवण घालणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "tailor"
+   ],
+   "tasks": [
+    {
+     "slug": "basic-stitching-1",
+     "title": "Stitch a neat French seam",
+     "title_i18n": {
+      "hi": "साफ फ्रेंच सीम सिलें",
+      "mr": "नीटनेटकी फ्रेंच शिवण घाला"
+     },
+     "instructions": "Sew two cloth pieces with a straight, even seam.",
+     "steps": [
+      "Set thread tension on a scrap first.",
+      "Sew with 1 cm seam allowance, backstitch at ends.",
+      "Press the seam flat."
+     ],
+     "evidence": "2 photos: the seam from both sides.",
+     "rubric": {
+      "title": "Stitch a neat French seam rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Straight line",
+        "pass_text": "Seam straight within 2 mm"
+       },
+       {
+        "id": "c2",
+        "name": "Even stitches",
+        "pass_text": "Stitch length equal, no skipped stitches"
+       },
+       {
+        "id": "c3",
+        "name": "Ends secured",
+        "pass_text": "Backstitched at both ends"
+       },
+       {
+        "id": "c4",
+        "name": "Pressed",
+        "pass_text": "Seam pressed flat"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "facial-basic",
+   "name": "Do a basic facial with hygiene",
+   "name_i18n": {
+    "hi": "बेसिक फेशियल (स्वच्छता सहित)",
+    "mr": "स्वच्छतेसह बेसिक फेशियल"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "beautician"
+   ],
+   "tasks": [
+    {
+     "slug": "facial-basic-1",
+     "title": "Complete a basic facial on a volunteer",
+     "title_i18n": {
+      "hi": "स्वयंसेवक पर फेशियल करें",
+      "mr": "स्वयंसेवकावर फेशियल करा"
+     },
+     "instructions": "Do cleansing, steam, and massage on a consenting adult with a trainer present.",
+     "steps": [
+      "Wash hands and sanitise tools.",
+      "Cleanse, steam briefly, massage, apply pack.",
+      "Clean up the area."
+     ],
+     "evidence": "2 photos: your prepared tray and the clean workstation (no faces needed).",
+     "rubric": {
+      "title": "Complete a basic facial on a volunteer rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Hygiene",
+        "pass_text": "Hands washed, tools sanitised"
+       },
+       {
+        "id": "c2",
+        "name": "Right order",
+        "pass_text": "Steps done in correct order"
+       },
+       {
+        "id": "c3",
+        "name": "Consent",
+        "pass_text": "Volunteer agreed and was comfortable"
+       },
+       {
+        "id": "c4",
+        "name": "Clean-up",
+        "pass_text": "Used items disposed, area clean"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "cooking-hygiene",
+   "name": "Cook a meal with food hygiene",
+   "name_i18n": {
+    "hi": "स्वच्छता के साथ खाना बनाना",
+    "mr": "स्वच्छतेसह स्वयंपाक"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "cook-chef",
+    "food-processing"
+   ],
+   "tasks": [
+    {
+     "slug": "cooking-hygiene-1",
+     "title": "Cook dal-rice for 4 hygienically",
+     "title_i18n": {
+      "hi": "4 लोगों के लिए दाल-चावल",
+      "mr": "४ जणांसाठी डाळ-भात"
+     },
+     "instructions": "Prepare dal and rice following hygiene steps.",
+     "steps": [
+      "Wash hands, tie hair, wash vegetables and grains.",
+      "Cook dal and rice properly; taste for salt.",
+      "Serve with clean utensils."
+     ],
+     "evidence": "2 photos: ingredients washed, finished dishes.",
+     "rubric": {
+      "title": "Cook dal-rice for 4 hygienically rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Hygiene",
+        "pass_text": "Hands washed, hair tied"
+       },
+       {
+        "id": "c2",
+        "name": "Cooked well",
+        "pass_text": "Dal and rice cooked, not raw or burnt"
+       },
+       {
+        "id": "c3",
+        "name": "Taste",
+        "pass_text": "Salt and spices balanced"
+       },
+       {
+        "id": "c4",
+        "name": "Clean kitchen",
+        "pass_text": "Workspace clean after cooking"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "front-desk-greeting",
+   "name": "Handle a guest check-in",
+   "name_i18n": {
+    "hi": "अतिथि चेक-इन संभालना",
+    "mr": "पाहुण्याचे चेक-इन हाताळणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "hotel-front-office",
+    "tour-guide"
+   ],
+   "tasks": [
+    {
+     "slug": "front-desk-greeting-1",
+     "title": "Role-play a guest check-in",
+     "title_i18n": {
+      "hi": "चेक-इन का रोल-प्ले",
+      "mr": "चेक-इन रोल-प्ले"
+     },
+     "instructions": "Do a role-play check-in with a classmate and write the steps.",
+     "steps": [
+      "Greet politely and ask the name.",
+      "Fill the register and collect ID details.",
+      "Explain room, timings and hand over the key."
+     ],
+     "evidence": "1 photo of your filled register/form, and a note of what you said.",
+     "rubric": {
+      "title": "Role-play a guest check-in rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Greeting",
+        "pass_text": "Polite and clear greeting"
+       },
+       {
+        "id": "c2",
+        "name": "Form filled",
+        "pass_text": "All fields filled correctly"
+       },
+       {
+        "id": "c3",
+        "name": "Information",
+        "pass_text": "Room, timing and rules explained"
+       },
+       {
+        "id": "c4",
+        "name": "Politeness",
+        "pass_text": "Calm, respectful tone"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "vehicle-pre-check",
+   "name": "Do a vehicle pre-trip check",
+   "name_i18n": {
+    "hi": "गाड़ी की यात्रा-पूर्व जांच",
+    "mr": "गाडीची प्रवासापूर्वी तपासणी"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "driver",
+    "motor-mechanic",
+    "delivery-logistics"
+   ],
+   "tasks": [
+    {
+     "slug": "vehicle-pre-check-1",
+     "title": "Check tyres, lights, brakes and fluids",
+     "title_i18n": {
+      "hi": "टायर, लाइट, ब्रेक जांचें",
+      "mr": "टायर, लाईट, ब्रेक तपासा"
+     },
+     "instructions": "Run through a checklist on a vehicle before driving.",
+     "steps": [
+      "Check tyre pressure and tread.",
+      "Test lights, indicators and horn.",
+      "Check brake feel and engine oil/coolant."
+     ],
+     "evidence": "2 photos: checklist filled, a tyre being checked.",
+     "rubric": {
+      "title": "Check tyres, lights, brakes and fluids rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Tyres",
+        "pass_text": "Pressure and tread checked"
+       },
+       {
+        "id": "c2",
+        "name": "Lights",
+        "pass_text": "All lights and horn tested"
+       },
+       {
+        "id": "c3",
+        "name": "Brakes and fluids",
+        "pass_text": "Brake and fluid levels checked"
+       },
+       {
+        "id": "c4",
+        "name": "Documents",
+        "pass_text": "Papers checked present"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "stock-count",
+   "name": "Count and record warehouse stock",
+   "name_i18n": {
+    "hi": "स्टॉक गिनना और दर्ज करना",
+    "mr": "स्टॉक मोजणे आणि नोंदवणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "delivery-logistics",
+    "retail-sales",
+    "small-business"
+   ],
+   "tasks": [
+    {
+     "slug": "stock-count-1",
+     "title": "Count 10 items and fill a stock register",
+     "title_i18n": {
+      "hi": "10 वस्तुएं गिनें",
+      "mr": "१० वस्तू मोजा"
+     },
+     "instructions": "Count items in a shop or store and record in a register.",
+     "steps": [
+      "Pick 10 different items.",
+      "Count each twice.",
+      "Write item, quantity and date in a register."
+     ],
+     "evidence": "2 photos: items on the shelf and the filled register.",
+     "rubric": {
+      "title": "Count 10 items and fill a stock register rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Accurate count",
+        "pass_text": "Counts match teacher's check"
+       },
+       {
+        "id": "c2",
+        "name": "Neat register",
+        "pass_text": "Clear, dated entries"
+       },
+       {
+        "id": "c3",
+        "name": "Double check",
+        "pass_text": "Each item counted twice"
+       },
+       {
+        "id": "c4",
+        "name": "Organised",
+        "pass_text": "Items arranged tidily"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "spreadsheet-basic",
+   "name": "Make a basic spreadsheet with formulas",
+   "name_i18n": {
+    "hi": "बेसिक स्प्रेडशीट बनाना",
+    "mr": "बेसिक स्प्रेडशीट बनवणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "data-entry",
+    "accountant",
+    "csc-operator",
+    "bank-clerk"
+   ],
+   "tasks": [
+    {
+     "slug": "spreadsheet-basic-1",
+     "title": "Build an expense sheet with SUM",
+     "title_i18n": {
+      "hi": "खर्च शीट बनाएं (SUM)",
+      "mr": "खर्च शीट बनवा (SUM)"
+     },
+     "instructions": "Make a monthly expense table with totals in a spreadsheet app.",
+     "steps": [
+      "Make columns: date, item, amount.",
+      "Enter at least 10 rows.",
+      "Use SUM for the total and bold the header."
+     ],
+     "evidence": "2 screenshots/photos of the sheet on screen, one showing the formula.",
+     "rubric": {
+      "title": "Build an expense sheet with SUM rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Structure",
+        "pass_text": "Clear columns and headers"
+       },
+       {
+        "id": "c2",
+        "name": "Data",
+        "pass_text": "At least 10 correct rows"
+       },
+       {
+        "id": "c3",
+        "name": "Formula",
+        "pass_text": "SUM used correctly"
+       },
+       {
+        "id": "c4",
+        "name": "Formatting",
+        "pass_text": "Readable, header highlighted"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "typing-accuracy",
+   "name": "Type with speed and accuracy",
+   "name_i18n": {
+    "hi": "तेज़ और सही टाइपिंग",
+    "mr": "वेगवान आणि अचूक टायपिंग"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "data-entry",
+    "csc-operator",
+    "bank-mitra"
+   ],
+   "tasks": [
+    {
+     "slug": "typing-accuracy-1",
+     "title": "Type a paragraph in 5 minutes",
+     "title_i18n": {
+      "hi": "5 मिनट में पैराग्राफ टाइप करें",
+      "mr": "५ मिनिटांत परिच्छेद टाइप करा"
+     },
+     "instructions": "Type a given paragraph in 5 minutes and check mistakes.",
+     "steps": [
+      "Use any typing test or a copy of a printed paragraph.",
+      "Type for 5 minutes without looking at keys if possible.",
+      "Count words and mistakes."
+     ],
+     "evidence": "Screenshot/photo of the result with words and mistakes.",
+     "rubric": {
+      "title": "Type a paragraph in 5 minutes rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Speed",
+        "pass_text": "At least 20 words per minute"
+       },
+       {
+        "id": "c2",
+        "name": "Accuracy",
+        "pass_text": "Over 90% accuracy"
+       },
+       {
+        "id": "c3",
+        "name": "Posture",
+        "pass_text": "Sitting posture correct"
+       },
+       {
+        "id": "c4",
+        "name": "Recorded",
+        "pass_text": "Result noted"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "form-filling-csc",
+   "name": "Fill an online government form",
+   "name_i18n": {
+    "hi": "ऑनलाइन सरकारी फ़ॉर्म भरना",
+    "mr": "ऑनलाइन सरकारी फॉर्म भरणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "csc-operator",
+    "bank-mitra",
+    "data-entry"
+   ],
+   "tasks": [
+    {
+     "slug": "form-filling-csc-1",
+     "title": "Fill a practice form and upload documents",
+     "title_i18n": {
+      "hi": "प्रैक्टिस फ़ॉर्म भरें",
+      "mr": "सराव फॉर्म भरा"
+     },
+     "instructions": "Fill a sample online form (e.g. scholarship practice form) and upload scanned documents.",
+     "steps": [
+      "Gather documents and check name spelling.",
+      "Fill all fields, upload, preview.",
+      "Save the acknowledgement (do not submit real private data)."
+     ],
+     "evidence": "2 screenshots: filled form, preview page. Cover personal numbers.",
+     "rubric": {
+      "title": "Fill a practice form and upload documents rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Correct data",
+        "pass_text": "Details match documents"
+       },
+       {
+        "id": "c2",
+        "name": "Uploads",
+        "pass_text": "Files right size and format"
+       },
+       {
+        "id": "c3",
+        "name": "Review",
+        "pass_text": "Form previewed before submit"
+       },
+       {
+        "id": "c4",
+        "name": "Privacy",
+        "pass_text": "Private data covered or practice data used"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "basic-coding",
+   "name": "Write a small working program",
+   "name_i18n": {
+    "hi": "छोटा प्रोग्राम लिखना",
+    "mr": "छोटा प्रोग्राम लिहिणे"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "software-developer",
+    "web-designer",
+    "ai-data-annotator"
+   ],
+   "tasks": [
+    {
+     "slug": "basic-coding-1",
+     "title": "Write a program that prints a multiplication table",
+     "title_i18n": {
+      "hi": "पहाड़े का प्रोग्राम",
+      "mr": "पाढ्याचा प्रोग्राम"
+     },
+     "instructions": "Write a program (any language) that prints the table of a number given by the user.",
+     "steps": [
+      "Ask for a number.",
+      "Use a loop 1 to 10.",
+      "Run and show output for two numbers."
+     ],
+     "evidence": "2 screenshots: the code and the output.",
+     "rubric": {
+      "title": "Write a program that prints a multiplication table rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Works",
+        "pass_text": "Program runs without errors"
+       },
+       {
+        "id": "c2",
+        "name": "Loop",
+        "pass_text": "Loop used correctly"
+       },
+       {
+        "id": "c3",
+        "name": "Input",
+        "pass_text": "Takes a number from the user"
+       },
+       {
+        "id": "c4",
+        "name": "Readable",
+        "pass_text": "Clear names and spacing"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "webpage-basic",
+   "name": "Build a simple web page",
+   "name_i18n": {
+    "hi": "सरल वेब पेज बनाना",
+    "mr": "साधे वेब पेज बनवणे"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "web-designer",
+    "software-developer",
+    "digital-marketer"
+   ],
+   "tasks": [
+    {
+     "slug": "webpage-basic-1",
+     "title": "Make a one-page profile in HTML",
+     "title_i18n": {
+      "hi": "HTML में प्रोफ़ाइल पेज",
+      "mr": "HTML मध्ये प्रोफाइल पेज"
+     },
+     "instructions": "Make a page with a heading, photo, paragraph and a link.",
+     "steps": [
+      "Write HTML with h1, img, p and a.",
+      "Open in a browser.",
+      "Resize to phone width and check it reads well."
+     ],
+     "evidence": "2 screenshots: the page on laptop and in phone view.",
+     "rubric": {
+      "title": "Make a one-page profile in HTML rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Structure",
+        "pass_text": "Heading, image, text, link present"
+       },
+       {
+        "id": "c2",
+        "name": "Opens",
+        "pass_text": "Page loads without errors"
+       },
+       {
+        "id": "c3",
+        "name": "Mobile",
+        "pass_text": "Readable on small screen"
+       },
+       {
+        "id": "c4",
+        "name": "Original",
+        "pass_text": "Content is the student's own"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "poster-design",
+   "name": "Design a clear poster",
+   "name_i18n": {
+    "hi": "साफ पोस्टर डिज़ाइन",
+    "mr": "स्पष्ट पोस्टर डिझाइन"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "graphic-designer",
+    "digital-marketer",
+    "content-creator"
+   ],
+   "tasks": [
+    {
+     "slug": "poster-design-1",
+     "title": "Design a poster for a school event",
+     "title_i18n": {
+      "hi": "स्कूल कार्यक्रम का पोस्टर",
+      "mr": "शाळेच्या कार्यक्रमाचे पोस्टर"
+     },
+     "instructions": "Design a poster with a title, date, venue and one image.",
+     "steps": [
+      "Sketch layout on paper.",
+      "Make it in Canva or by hand.",
+      "Check text is large and readable."
+     ],
+     "evidence": "1-2 photos or screenshots of the poster.",
+     "rubric": {
+      "title": "Design a poster for a school event rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Information",
+        "pass_text": "Title, date, venue present"
+       },
+       {
+        "id": "c2",
+        "name": "Readable",
+        "pass_text": "Text large with good contrast"
+       },
+       {
+        "id": "c3",
+        "name": "Layout",
+        "pass_text": "Balanced, not crowded"
+       },
+       {
+        "id": "c4",
+        "name": "Original",
+        "pass_text": "Own work"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "photo-composition",
+   "name": "Take well-composed photos",
+   "name_i18n": {
+    "hi": "अच्छी फ़ोटो खींचना",
+    "mr": "चांगले फोटो काढणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "photographer",
+    "content-creator"
+   ],
+   "tasks": [
+    {
+     "slug": "photo-composition-1",
+     "title": "Shoot 3 photos with good light and framing",
+     "title_i18n": {
+      "hi": "अच्छी रोशनी में 3 फ़ोटो",
+      "mr": "चांगल्या प्रकाशात ३ फोटो"
+     },
+     "instructions": "Take 3 photos of an object using rule of thirds and natural light.",
+     "steps": [
+      "Place the subject off-centre on the grid.",
+      "Use window or outdoor light, not harsh flash.",
+      "Pick the sharpest shot."
+     ],
+     "evidence": "3 photos.",
+     "rubric": {
+      "title": "Shoot 3 photos with good light and framing rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Framing",
+        "pass_text": "Subject placed by rule of thirds"
+       },
+       {
+        "id": "c2",
+        "name": "Light",
+        "pass_text": "Natural light, no harsh shadows"
+       },
+       {
+        "id": "c3",
+        "name": "Sharp",
+        "pass_text": "Subject in focus"
+       },
+       {
+        "id": "c4",
+        "name": "Variety",
+        "pass_text": "Three different angles"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "short-video",
+   "name": "Record a clear short video",
+   "name_i18n": {
+    "hi": "छोटा वीडियो रिकॉर्ड करना",
+    "mr": "छोटा व्हिडिओ रेकॉर्ड करणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "content-creator",
+    "photographer",
+    "journalist"
+   ],
+   "tasks": [
+    {
+     "slug": "short-video-1",
+     "title": "Record a 30-second explainer",
+     "title_i18n": {
+      "hi": "30 सेकंड का वीडियो",
+      "mr": "३० सेकंदांचा व्हिडिओ"
+     },
+     "instructions": "Record a 30-second video explaining something you know. Upload a screenshot and a short note.",
+     "steps": [
+      "Write 3 lines first.",
+      "Record in a quiet place with steady phone.",
+      "Check sound and face lighting."
+     ],
+     "evidence": "1-2 photos (frame of the video, setup) and note describing the topic.",
+     "rubric": {
+      "title": "Record a 30-second explainer rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Clear audio",
+        "pass_text": "Voice clear, little noise"
+       },
+       {
+        "id": "c2",
+        "name": "Steady shot",
+        "pass_text": "Phone held steady"
+       },
+       {
+        "id": "c3",
+        "name": "Structure",
+        "pass_text": "Intro, content, ending"
+       },
+       {
+        "id": "c4",
+        "name": "Length",
+        "pass_text": "About 30 seconds"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "blood-pressure",
+   "name": "Take blood pressure",
+   "name_i18n": {
+    "hi": "रक्तचाप मापना",
+    "mr": "रक्तदाब मोजणे"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "anm-nurse",
+    "staff-nurse",
+    "doctor",
+    "pharmacist",
+    "anganwadi-worker"
+   ],
+   "tasks": [
+    {
+     "slug": "blood-pressure-1",
+     "title": "Measure and record BP of a volunteer",
+     "title_i18n": {
+      "hi": "BP मापें और लिखें",
+      "mr": "BP मोजा आणि नोंदवा"
+     },
+     "instructions": "Measure blood pressure of an adult volunteer with trainer present.",
+     "steps": [
+      "Seat volunteer calmly for 5 minutes, arm at heart level.",
+      "Put the cuff on bare arm, inflate and read.",
+      "Record systolic/diastolic and time."
+     ],
+     "evidence": "1 photo of the monitor/meter reading (no face) and a note of readings.",
+     "rubric": {
+      "title": "Measure and record BP of a volunteer rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Preparation",
+        "pass_text": "Volunteer rested, arm supported"
+       },
+       {
+        "id": "c2",
+        "name": "Cuff",
+        "pass_text": "Cuff size and position correct"
+       },
+       {
+        "id": "c3",
+        "name": "Reading",
+        "pass_text": "Reading taken correctly and recorded"
+       },
+       {
+        "id": "c4",
+        "name": "Hygiene",
+        "pass_text": "Hands/equipment cleaned"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "first-aid",
+   "name": "Give basic first aid",
+   "name_i18n": {
+    "hi": "प्राथमिक चिकित्सा देना",
+    "mr": "प्रथमोपचार देणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "anm-nurse",
+    "staff-nurse",
+    "police-constable",
+    "army-soldier",
+    "anganwadi-worker",
+    "fitness-trainer"
+   ],
+   "tasks": [
+    {
+     "slug": "first-aid-1",
+     "title": "Dress a minor wound",
+     "title_i18n": {
+      "hi": "छोटे घाव की पट्टी",
+      "mr": "लहान जखमेची पट्टी"
+     },
+     "instructions": "On a volunteer or dummy, clean and dress a small wound.",
+     "steps": [
+      "Wash hands, wear gloves if available.",
+      "Clean the wound with clean water, cover with gauze.",
+      "Bandage firmly, not too tight."
+     ],
+     "evidence": "2 photos: your first-aid kit and the finished dressing.",
+     "rubric": {
+      "title": "Dress a minor wound rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Hygiene",
+        "pass_text": "Hands washed, clean materials"
+       },
+       {
+        "id": "c2",
+        "name": "Wound cleaned",
+        "pass_text": "Cleaned before dressing"
+       },
+       {
+        "id": "c3",
+        "name": "Dressing",
+        "pass_text": "Covered fully, secure"
+       },
+       {
+        "id": "c4",
+        "name": "Not too tight",
+        "pass_text": "Circulation not blocked"
+       }
+      ]
+     }
+    },
+    {
+     "slug": "first-aid-2",
+     "title": "Show CPR hand position on a dummy",
+     "title_i18n": {
+      "hi": "डमी पर CPR",
+      "mr": "डमीवर CPR"
+     },
+     "instructions": "Show hand position and rhythm for chest compressions on a dummy or pillow.",
+     "steps": [
+      "Place heel of hand at chest centre.",
+      "Compress 5 cm at 100-120 per minute.",
+      "Count aloud for 30 compressions."
+     ],
+     "evidence": "2 photos or one short note by the trainer.",
+     "rubric": {
+      "title": "Show CPR hand position on a dummy rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Position",
+        "pass_text": "Hands at centre of chest"
+       },
+       {
+        "id": "c2",
+        "name": "Rhythm",
+        "pass_text": "About 100-120 per minute"
+       },
+       {
+        "id": "c3",
+        "name": "Depth",
+        "pass_text": "Firm, full compressions"
+       },
+       {
+        "id": "c4",
+        "name": "Calling help",
+        "pass_text": "Said to call 108 first"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "sample-collection",
+   "name": "Handle a sample hygienically",
+   "name_i18n": {
+    "hi": "नमूना स्वच्छता से संभालना",
+    "mr": "नमुना स्वच्छतेने हाताळणे"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "lab-technician",
+    "pharmacist"
+   ],
+   "tasks": [
+    {
+     "slug": "sample-collection-1",
+     "title": "Label and handle a practice sample",
+     "title_i18n": {
+      "hi": "नमूने पर लेबल लगाएं",
+      "mr": "नमुन्यावर लेबल लावा"
+     },
+     "instructions": "With a water sample, practice labelling, gloves and disposal.",
+     "steps": [
+      "Wear gloves, wash hands.",
+      "Fill container, close and label name/date/time.",
+      "Dispose of gloves safely."
+     ],
+     "evidence": "2 photos: labelled container and disposal.",
+     "rubric": {
+      "title": "Label and handle a practice sample rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "PPE",
+        "pass_text": "Gloves worn"
+       },
+       {
+        "id": "c2",
+        "name": "Labelling",
+        "pass_text": "Name, date, time on label"
+       },
+       {
+        "id": "c3",
+        "name": "Closed properly",
+        "pass_text": "Container closed, no spill"
+       },
+       {
+        "id": "c4",
+        "name": "Disposal",
+        "pass_text": "Waste disposed correctly"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "physio-exercise",
+   "name": "Guide a simple exercise",
+   "name_i18n": {
+    "hi": "सरल व्यायाम सिखाना",
+    "mr": "साधा व्यायाम शिकवणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "physio-assistant",
+    "fitness-trainer"
+   ],
+   "tasks": [
+    {
+     "slug": "physio-exercise-1",
+     "title": "Guide a stretching routine",
+     "title_i18n": {
+      "hi": "स्ट्रेचिंग रूटीन सिखाएं",
+      "mr": "स्ट्रेचिंग रूटीन शिकवा"
+     },
+     "instructions": "Guide a volunteer through 4 safe stretches.",
+     "steps": [
+      "Warm up for 2 minutes.",
+      "Show each stretch slowly.",
+      "Ask about pain and stop if it hurts."
+     ],
+     "evidence": "1-2 photos of the group or setup; note listing the 4 stretches.",
+     "rubric": {
+      "title": "Guide a stretching routine rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Warm-up",
+        "pass_text": "Warm-up done first"
+       },
+       {
+        "id": "c2",
+        "name": "Correct form",
+        "pass_text": "Stretches shown correctly"
+       },
+       {
+        "id": "c3",
+        "name": "Safety",
+        "pass_text": "Pain asked about and respected"
+       },
+       {
+        "id": "c4",
+        "name": "Clear instructions",
+        "pass_text": "Clear and kind voice"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "animal-care",
+   "name": "Check a cattle animal for health",
+   "name_i18n": {
+    "hi": "पशु स्वास्थ्य जांच",
+    "mr": "पशु आरोग्य तपासणी"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "vet-assistant",
+    "dairy-entrepreneur"
+   ],
+   "tasks": [
+    {
+     "slug": "animal-care-1",
+     "title": "Do a basic health check on a cow or goat",
+     "title_i18n": {
+      "hi": "गाय/बकरी की जांच",
+      "mr": "गाय/शेळीची तपासणी"
+     },
+     "instructions": "With the owner or vet present, check temperature, eyes, appetite and gait.",
+     "steps": [
+      "Wash hands; approach calmly.",
+      "Check eyes, nose, appetite and walking.",
+      "Record observations."
+     ],
+     "evidence": "2 photos (animal from distance, your notes). Note: owner/vet name.",
+     "rubric": {
+      "title": "Do a basic health check on a cow or goat rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Safe approach",
+        "pass_text": "Calm handling"
+       },
+       {
+        "id": "c2",
+        "name": "Checks",
+        "pass_text": "Eyes, appetite and gait checked"
+       },
+       {
+        "id": "c3",
+        "name": "Notes",
+        "pass_text": "Observations recorded"
+       },
+       {
+        "id": "c4",
+        "name": "Hygiene",
+        "pass_text": "Hands washed after"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "soil-ph-test",
+   "name": "Test soil pH",
+   "name_i18n": {
+    "hi": "मिट्टी का pH परीक्षण",
+    "mr": "मातीचा pH तपासणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "organic-farmer",
+    "agri-graduate",
+    "agri-drone-pilot"
+   ],
+   "tasks": [
+    {
+     "slug": "soil-ph-test-1",
+     "title": "Test soil from a field with a pH kit",
+     "title_i18n": {
+      "hi": "pH किट से मिट्टी जांचें",
+      "mr": "pH किटने माती तपासा"
+     },
+     "instructions": "Collect soil from two spots and test pH with a kit or paper.",
+     "steps": [
+      "Take soil from 15 cm depth at two spots.",
+      "Mix with distilled/clean water per kit.",
+      "Compare colour with the chart."
+     ],
+     "evidence": "2 photos: sampling and colour chart result. Note: pH values.",
+     "rubric": {
+      "title": "Test soil from a field with a pH kit rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Sampling",
+        "pass_text": "Soil taken from proper depth"
+       },
+       {
+        "id": "c2",
+        "name": "Method",
+        "pass_text": "Kit steps followed"
+       },
+       {
+        "id": "c3",
+        "name": "Reading",
+        "pass_text": "Colour matched correctly"
+       },
+       {
+        "id": "c4",
+        "name": "Interpretation",
+        "pass_text": "Said what the pH means for crops"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "drip-irrigation",
+   "name": "Set up a drip irrigation line",
+   "name_i18n": {
+    "hi": "ड्रिप सिंचाई लगाना",
+    "mr": "ठिबक सिंचन बसवणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "organic-farmer",
+    "agri-graduate"
+   ],
+   "tasks": [
+    {
+     "slug": "drip-irrigation-1",
+     "title": "Lay out a small drip line",
+     "title_i18n": {
+      "hi": "छोटी ड्रिप लाइन",
+      "mr": "छोटी ठिबक लाईन"
+     },
+     "instructions": "Lay out a drip line for 5 plants and test.",
+     "steps": [
+      "Lay the main pipe and connect the filter.",
+      "Fit drippers at each plant.",
+      "Run water and check each dripper."
+     ],
+     "evidence": "2 photos: layout and water dripping at a plant.",
+     "rubric": {
+      "title": "Lay out a small drip line rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Layout",
+        "pass_text": "Pipes laid neatly"
+       },
+       {
+        "id": "c2",
+        "name": "Drippers",
+        "pass_text": "Each plant has a dripper"
+       },
+       {
+        "id": "c3",
+        "name": "Leaks",
+        "pass_text": "No leaks at joints"
+       },
+       {
+        "id": "c4",
+        "name": "Test",
+        "pass_text": "Water tested at each plant"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "basic-bookkeeping",
+   "name": "Keep a simple cash book",
+   "name_i18n": {
+    "hi": "साधारण कैश बुक रखना",
+    "mr": "साधी कॅश बुक ठेवणे"
+   },
+   "nsqf_level": 4,
+   "careers": [
+    "accountant",
+    "small-business",
+    "retail-sales",
+    "bank-clerk"
+   ],
+   "tasks": [
+    {
+     "slug": "basic-bookkeeping-1",
+     "title": "Maintain a cash book for one week",
+     "title_i18n": {
+      "hi": "एक सप्ताह की कैश बुक",
+      "mr": "एका आठवड्याची कॅश बुक"
+     },
+     "instructions": "Record income and expenses of a small shop or home for 7 days.",
+     "steps": [
+      "Make columns: date, details, in, out, balance.",
+      "Fill daily.",
+      "Check that closing balance matches cash in hand."
+     ],
+     "evidence": "2 photos: the cash book pages. Cover names/numbers.",
+     "rubric": {
+      "title": "Maintain a cash book for one week rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Complete",
+        "pass_text": "All 7 days recorded"
+       },
+       {
+        "id": "c2",
+        "name": "Balance",
+        "pass_text": "Balance calculated correctly"
+       },
+       {
+        "id": "c3",
+        "name": "Neat",
+        "pass_text": "Legible, no overwriting"
+       },
+       {
+        "id": "c4",
+        "name": "Verified",
+        "pass_text": "Closing cash matched"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "customer-handling",
+   "name": "Handle a customer politely",
+   "name_i18n": {
+    "hi": "ग्राहक को विनम्रता से संभालना",
+    "mr": "ग्राहकाला नम्रपणे हाताळणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "retail-sales",
+    "hotel-front-office",
+    "bank-clerk",
+    "small-business"
+   ],
+   "tasks": [
+    {
+     "slug": "customer-handling-1",
+     "title": "Role-play a complaint",
+     "title_i18n": {
+      "hi": "शिकायत का रोल-प्ले",
+      "mr": "तक्रारीचे रोल-प्ले"
+     },
+     "instructions": "Role-play handling an upset customer and write what you did.",
+     "steps": [
+      "Listen without interrupting.",
+      "Say sorry and repeat the problem.",
+      "Offer a solution and confirm."
+     ],
+     "evidence": "A note describing the situation and what you said; 1 photo of the role-play if allowed.",
+     "rubric": {
+      "title": "Role-play a complaint rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Listening",
+        "pass_text": "Listened fully"
+       },
+       {
+        "id": "c2",
+        "name": "Empathy",
+        "pass_text": "Apologised sincerely"
+       },
+       {
+        "id": "c3",
+        "name": "Solution",
+        "pass_text": "Gave a sensible solution"
+       },
+       {
+        "id": "c4",
+        "name": "Closing",
+        "pass_text": "Confirmed customer was happy"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "handloom-craft",
+   "name": "Make a handicraft item",
+   "name_i18n": {
+    "hi": "हस्तशिल्प बनाना",
+    "mr": "हस्तकला वस्तू बनवणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "handicraft-artisan"
+   ],
+   "tasks": [
+    {
+     "slug": "handicraft-1",
+     "title": "Make and finish one craft item",
+     "title_i18n": {
+      "hi": "एक हस्तशिल्प बनाएं",
+      "mr": "एक हस्तकला बनवा"
+     },
+     "instructions": "Make a small item (basket, rope mat, embroidery) with local materials.",
+     "steps": [
+      "Plan the design and gather materials.",
+      "Make the item with even pattern.",
+      "Finish edges."
+     ],
+     "evidence": "3 photos: materials, in progress, finished.",
+     "rubric": {
+      "title": "Make and finish one craft item rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Planned",
+        "pass_text": "Design planned"
+       },
+       {
+        "id": "c2",
+        "name": "Even work",
+        "pass_text": "Pattern even"
+       },
+       {
+        "id": "c3",
+        "name": "Finish",
+        "pass_text": "Edges finished"
+       },
+       {
+        "id": "c4",
+        "name": "Own work",
+        "pass_text": "Made by student"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "classroom-teaching",
+   "name": "Teach a small lesson",
+   "name_i18n": {
+    "hi": "छोटा पाठ पढ़ाना",
+    "mr": "छोटा धडा शिकवणे"
+   },
+   "nsqf_level": 5,
+   "careers": [
+    "primary-teacher",
+    "social-worker"
+   ],
+   "tasks": [
+    {
+     "slug": "classroom-teaching-1",
+     "title": "Teach a 10-minute lesson to younger children",
+     "title_i18n": {
+      "hi": "10 मिनट का पाठ",
+      "mr": "१० मिनिटांचा धडा"
+     },
+     "instructions": "Plan and teach a 10-minute lesson to 3 or more younger children with a teacher present.",
+     "steps": [
+      "Write a 3-point plan.",
+      "Teach with an example and a question.",
+      "Check understanding with 2 questions."
+     ],
+     "evidence": "1 photo of the lesson (no faces if preferred) and your lesson plan.",
+     "rubric": {
+      "title": "Teach a 10-minute lesson to younger children rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Plan",
+        "pass_text": "Clear lesson plan"
+       },
+       {
+        "id": "c2",
+        "name": "Explanation",
+        "pass_text": "Simple, clear teaching"
+       },
+       {
+        "id": "c3",
+        "name": "Interaction",
+        "pass_text": "Asked questions, children took part"
+       },
+       {
+        "id": "c4",
+        "name": "Check",
+        "pass_text": "Checked understanding at end"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "map-reading",
+   "name": "Read a map and survey a distance",
+   "name_i18n": {
+    "hi": "नक्शा पढ़ना और दूरी मापना",
+    "mr": "नकाशा वाचणे आणि अंतर मोजणे"
+   },
+   "nsqf_level": 3,
+   "careers": [
+    "civil-engineer",
+    "tour-guide",
+    "police-constable",
+    "army-soldier"
+   ],
+   "tasks": [
+    {
+     "slug": "map-reading-1",
+     "title": "Measure a 50 m distance with a tape",
+     "title_i18n": {
+      "hi": "50 मीटर दूरी मापें",
+      "mr": "५० मीटर अंतर मोजा"
+     },
+     "instructions": "Measure a 50 m line with a measuring tape and draw it to scale.",
+     "steps": [
+      "Mark start and end pegs.",
+      "Measure with tape, two people.",
+      "Draw a scale map (1 cm = 5 m)."
+     ],
+     "evidence": "2 photos: measuring and the drawn map.",
+     "rubric": {
+      "title": "Measure a 50 m distance with a tape rubric",
+      "criteria": [
+       {
+        "id": "c1",
+        "name": "Accurate",
+        "pass_text": "Measurement within 20 cm of the teacher's"
+       },
+       {
+        "id": "c2",
+        "name": "Scale",
+        "pass_text": "Drawing correct to scale"
+       },
+       {
+        "id": "c3",
+        "name": "Teamwork",
+        "pass_text": "Done with a partner"
+       },
+       {
+        "id": "c4",
+        "name": "Labelled",
+        "pass_text": "Start, end and scale labelled"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

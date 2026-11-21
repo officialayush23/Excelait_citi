@@ -9,6 +9,7 @@ import { ReportDialog } from '@/components/community/ReportDialog'
 import { DeadlineChip, PostSkeletons, formatDate, timeAgo } from '@/components/community/shared'
 import { EmptyState } from '@/components/page/EmptyState'
 import { PageHeader } from '@/components/page/PageHeader'
+import { CredentialPicker } from '@/components/passport/CredentialPicker'
 import { SpeakButton } from '@/components/shell/SpeakButton'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
@@ -220,11 +221,16 @@ function OfferDetail({ offer, applied, onDone }: { offer: Offer; applied: boolea
   const lang = useUi((s) => s.language)
   const qc = useQueryClient()
   const [note, setNote] = useState('')
+  const [credIds, setCredIds] = useState<string[]>([])
   const [reporting, setReporting] = useState(false)
   const eligible = offer.match === 'eligible'
 
   const apply = useMutation({
-    mutationFn: () => api(`/api/v1/opportunities/${offer.id}/apply`, { method: 'POST', body: JSON.stringify({ note: note.trim() || null }) }),
+    mutationFn: async () => {
+      const app = await api<{ id: string }>(`/api/v1/opportunities/${offer.id}/apply`, { method: 'POST', body: JSON.stringify({ note: note.trim() || null }) })
+      if (credIds.length) await api(`/api/v1/passport/applications/${app.id}/credentials`, { method: 'POST', body: JSON.stringify({ credential_ids: credIds }) })
+      return app
+    },
     onSuccess: () => {
       toast.success(t('community.opp.applySent'))
       void qc.invalidateQueries({ queryKey: ['opportunities'] })
@@ -309,6 +315,7 @@ function OfferDetail({ offer, applied, onDone }: { offer: Offer; applied: boolea
       <div className="flex flex-col gap-2">
         <label htmlFor="apply-note" className="text-sm font-medium">{t('community.opp.noteLabel')}</label>
         <Textarea id="apply-note" value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} rows={3} disabled={!eligible || applied} placeholder={t('community.opp.notePlaceholder')} className="rounded-2xl px-4 py-3 text-base" />
+        {eligible && !applied && <CredentialPicker value={credIds} onChange={setCredIds} disabled={apply.isPending} />}
         <Button size="lg" className="h-14 rounded-full text-base" disabled={!eligible || applied || apply.isPending} onClick={() => apply.mutate()}>
           {applied ? t('community.opp.alreadyApplied') : apply.isPending ? t('community.posting') : t('community.opp.apply')}
         </Button>

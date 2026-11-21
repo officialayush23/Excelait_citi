@@ -1,3 +1,4 @@
+import { JoinClassCard } from '@/components/teacher/JoinClassCard'
 import { useQueryClient } from '@tanstack/react-query'
 import { Bookmark, Map, Sparkles, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -89,6 +90,7 @@ export function Plans() {
           })}
         </div>
       </Section>
+      <JoinClassCard />
     </div>
   )
 }

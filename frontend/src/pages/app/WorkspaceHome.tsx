@@ -11,6 +11,7 @@ import { PageHeader } from '@/components/page/PageHeader'
 import { ListRow, SplitView } from '@/components/page/SplitView'
 import { AdminHome, PartnerHome } from '@/components/partner/OpsHome'
 import { pathFor } from '@/components/shell/Nav'
+import { TeacherHome } from '@/components/teacher/TeacherHome'
 import { Button } from '@/components/ui/button'
 import { NAV, type Role } from '@/config/roles'
 
@@ -59,6 +60,7 @@ export function WorkspaceHome() {
   const { role } = useAuth()
   if (role === 'partner') return <PartnerHome roleName={t('roles.partner.name')} />
   if (role === 'admin') return <AdminHome roleName={t('roles.admin.name')} />
+  if (role === 'facilitator') return <TeacherHome roleName={t('roles.facilitator.name')} />
   return <GenericWorkspaceHome />
 }
 

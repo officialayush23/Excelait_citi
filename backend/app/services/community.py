@@ -98,6 +98,7 @@ def create_post(user_id: str, roles: set[str], data: dict) -> dict:
     row = {"author_id": user_id, **{k: data.get(k) for k in ("group_id", "kind", "title", "body", "tags", "deadline", "link", "district", "language")}}
     row["tags"] = row.get("tags") or {}
     row["kind"] = row.get("kind") or "post"
+    row = {k: v for k, v in row.items() if v is not None}  # let column defaults apply (e.g. language)
     post = get_db().table("posts").insert({**row, "status": status}).execute().data[0]
     return {**post, "held_for_review": status != "visible"}
 
