@@ -28,10 +28,12 @@ def _headers() -> dict:
 
 def speech_to_text(audio: bytes, filename: str, content_type: str, language: str | None) -> dict:
     data = {"language_code": LANG.get(language or "", "unknown")}
+    # Browsers label recordings like "audio/webm;codecs=opus"; Sarvam accepts only the bare type.
+    mime = (content_type or "audio/webm").split(";")[0].strip()
     r = httpx.post(f"{BASE}/speech-to-text", headers=_headers(), timeout=60,
-                   files={"file": (filename, audio, content_type)}, data=data)
+                   files={"file": (filename, audio, mime)}, data=data)
     if r.status_code != 200:
-        raise VoiceError(f"Sarvam speech-to-text failed ({r.status_code})")
+        raise VoiceError(f"Sarvam speech-to-text failed ({r.status_code}): {r.text[:200]}")
     body = r.json()
     return {"transcript": body.get("transcript", ""), "language": body.get("language_code")}
 
