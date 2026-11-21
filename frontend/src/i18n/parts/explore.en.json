@@ -175,5 +175,11 @@
   "whenReady": "Whenever you are ready",
   "byDate": "By {{date}}",
   "deletePlan": "Delete this plan",
-  "deleteConfirm": "Delete this plan? Your saved career stays."
+  "deleteConfirm": "Delete this plan? Your saved career stays.",
+  "paySources_one": "Pay from {{count}} source · checked {{date}}",
+  "paySources_other": "Pay from {{count}} sources · checked {{date}}",
+  "payUnverified": "Estimate — not yet confirmed",
+  "payUnverifiedBody": "We could not find two sites that agree on this pay yet, so treat it as a rough guide and ask people who do this work near you.",
+  "sourcesTitle": "Where this comes from",
+  "noSources": "No pages are listed for this career yet."
 }

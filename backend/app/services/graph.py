@@ -117,6 +117,7 @@ def career_card(slug: str, facts: dict | None = None) -> dict | None:
     scheme_slugs = list(dict.fromkeys([*c["scheme_slugs"], *(s for p in c["program_slugs"] if p in g.programs for s in g.programs[p]["scheme_slugs"])]))
     return {
         **{k: c[k] for k in ("slug", "name", "name_i18n", "category", "pay_min", "pay_max", "min_education", "earning_speed", "cost_band", "nsqf_level", "needs_city", "path")},
+        **{k: c.get(k) for k in ("sources", "pay_evidence", "pay_status", "checked_on", "min_age", "hazardous_for_minors")},
         "programs": [program_card(p, facts) for p in c["program_slugs"] if p in g.programs],
         "exams": [{"slug": e, "name": g.exams[e]["name"], "next": next_window(g.exams[e]["typical_months"]), "official_url": g.exams[e]["official_url"]} for e in exam_slugs if e in g.exams],
         "schemes": [s for s in (scheme_status(x, facts) for x in scheme_slugs) if s],

@@ -35,7 +35,8 @@ def schemes_with_rules(active_only: bool = True) -> list[dict]:
 def careers() -> list[dict]:
     return get_db().table("careers").select(
         "slug, name, name_i18n, category, nco_code, nsqf_level, pay_min, pay_max, min_education, earning_speed, "
-        "cost_band, interest_tags, subject_tags, rural_demand, needs_city, path, scheme_slugs, exam_slugs, program_slugs"
+        "cost_band, interest_tags, subject_tags, rural_demand, needs_city, path, scheme_slugs, exam_slugs, program_slugs, "
+        "sources, pay_evidence, pay_status, checked_on, min_age, hazardous_for_minors"
     ).eq("is_active", True).execute().data
 
 

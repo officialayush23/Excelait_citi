@@ -80,7 +80,61 @@
         "iti-electrician",
         "apprenticeship",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "400 Electrician Job For Fresher Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-electrician-job-for-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 11,829 to Rs 25,000 per month."
+        },
+        {
+          "title": "300 Iti Electrician Fresher Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-iti-electrician-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 8,086 per month."
+        },
+        {
+          "title": "ITI Electrician salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/iti-electrician-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 per month."
+        },
+        {
+          "title": "Salary: Iti Electrician | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/iti-electrician-salary-SRCH_KO0,15.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 28,000 per month."
+        },
+        {
+          "title": "ELECTRICIAN",
+          "url": "https://dgt.gov.in/sites/default/files/Electrician_CITS2.1_NSQF-4.5.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "ELECTRICIAN",
+          "url": "https://dgt.gov.in/sites/default/files/2024-02/Electrician.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Electrician | National Skill Training Institute",
+          "url": "https://nstibengaluru.dgt.gov.in/index.php/en/node/1846",
+          "site": "nstibengaluru.dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 11829,
+        "max": 28000,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "saathi_policy"
     },
     {
       "slug": "solar-technician",
@@ -124,7 +178,43 @@
         "iti-solar",
         "iti-electrician",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "73 Fresher solar technician jobs in India",
+          "url": "https://www.glassdoor.co.in/Job/fresher-solar-technician-jobs-SRCH_KO0,24.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 22,000 per month."
+        },
+        {
+          "title": "58 Solar Technician Jobs in India (Updated Nov, 2026)",
+          "url": "https://www.ambitionbox.com/jobs/solar-technician-jobs-prf",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "Solar Technician salaries in India by 700+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/solar-technician-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 24,167 per month."
+        },
+        {
+          "title": "300 Solar Technician Job Vacancies",
+          "url": "https://in.indeed.com/q-solar-technician-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 15000,
+        "max": 22500,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "saathi_policy"
     },
     {
       "slug": "plumber",
@@ -164,7 +254,61 @@
         "iti-plumber",
         "pmkvy-short",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "100 Plumber Job For Fresher Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-plumber-job-for-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 26,000 to Rs 28,000 per month."
+        },
+        {
+          "title": "Plumber salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/plumber-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 25,833 to Rs 26,000 per month."
+        },
+        {
+          "title": "Plumber salaries in India by 100+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/plumber-salary/construction-site-engineering-department",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 24,900 to Rs 25,000 per month."
+        },
+        {
+          "title": "352 plumber jobs in India, November 2026 - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-plumber-jobs-SRCH_IL.0,5_IN115_KO6,13.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 35,000 per month."
+        },
+        {
+          "title": "PLUMBER",
+          "url": "https://dgt.gov.in/sites/default/files/Plumber_CTS2.0_NSQF-3.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Job Title: Plumber",
+          "url": "https://www.skillindiadigital.gov.in/job/detail/93be1bcc-7011-461b-bd6c-09688113865e",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "| National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/nos-listing/41",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 25000,
+        "max": 35000,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "welder",
@@ -204,7 +348,61 @@
       "program_slugs": [
         "iti-welder",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "200 Fresher Welder Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-fresher-welder-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Welder salary in India - Indeed",
+          "url": "https://in.indeed.com/career/welder/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,269 per month."
+        },
+        {
+          "title": "ITI Welder salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/iti-welder-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 to Rs 23,400 per month."
+        },
+        {
+          "title": "6G Welder salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/6g-welder-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 34,700 to Rs 35,000 per month."
+        },
+        {
+          "title": "WELDER (GAS &ELECTRIC)",
+          "url": "https://dgt.gov.in/sites/default/files/2024-02/Welder-Gas-Electric.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "WELDER (GMAW & GTAW)",
+          "url": "https://dgt.gov.in/sites/default/files/Welder%20%28GMAW%20_%20GTAW%29_CTS2.0_NSQF-3.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "WELDER (PIPE)",
+          "url": "https://dgt.gov.in/sites/default/files/2025-01/Welder%20%28Pipe%29_CTS2.0_NSQF-2.5.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20269,
+        "max": 34167,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "motor-mechanic",
@@ -246,7 +444,43 @@
       "program_slugs": [
         "iti-mmv",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Motor Mechanic salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/motor-mechanic-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 21,300 to Rs 21,667 per month."
+        },
+        {
+          "title": "200 Motor Mechanic Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-motor-mechanic-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 27,000 per month."
+        },
+        {
+          "title": "CAR Mechanic salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/car-mechanic-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 to Rs 23,600 per month."
+        },
+        {
+          "title": "200 Fresher Mechanic Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-fresher-mechanic-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 22500,
+        "max": 27000,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "ev-technician",
@@ -290,7 +524,25 @@
         "iti-ev-mechanic",
         "iti-electrician",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "90 Electric vehicle technician jobs in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/electric-vehicle-technician-jobs-SRCH_KO0,27.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": null,
+        "max": null,
+        "n_sources": 0
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "mobile-repair",
@@ -331,7 +583,41 @@
       "program_slugs": [
         "iti-electronics",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "3 Mobile Repair Technician Jobs in India (Updated Nov, 2026)",
+          "url": "https://www.ambitionbox.com/jobs/mobile-repair-technician-jobs-prf",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "Mobile Repair Technician salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/mobile-repair-technician-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 24,000 to Rs 24,167 per month."
+        },
+        {
+          "title": "Mobile Repair Technician Jobs In Kukatpally Hyderabad",
+          "url": "https://apna.co/jobs/title_mobile_repair_technician-jobs-in-kukatpally-hyderabad",
+          "site": "apna.co",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        },
+        {
+          "title": "Mobile Technician Jobs In Delhi Ncr - Latest Vacancies in November 2026",
+          "url": "https://apna.co/jobs/mobile-technician-jobs-in-delhi-ncr",
+          "site": "apna.co",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 24000,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "cnc-operator",
@@ -372,7 +658,55 @@
       "program_slugs": [
         "iti-fitter",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "73 Cnc operator resume jobs in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/cnc-operator-resume-jobs-SRCH_KO0,19.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 16,000 per month."
+        },
+        {
+          "title": "Cnc operator,production jobs - Indeed",
+          "url": "https://in.indeed.com/q-cnc-operator,production-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 11,000 to Rs 20,000 per month."
+        },
+        {
+          "title": "Cnc Operator Freshers 12th Pass Jobs - 26 Verified Vacancies",
+          "url": "https://apna.co/jobs/title_cnc_operator-freshers-12th_pass-jobs",
+          "site": "apna.co",
+          "note": "Pay figure(s) found: about Rs 22,000 per month."
+        },
+        {
+          "title": "CNC operator salary in India - Indeed",
+          "url": "https://in.indeed.com/career/cnc-operator/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 19,287 per month."
+        },
+        {
+          "title": "| National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/nos-listing/14",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "CNC Operator Machining Technician (Lathe) - Kannada",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/5d4b7153-fb75-495f-bd5e-573e5154ce12",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 16000,
+        "max": 22000,
+        "n_sources": 4
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "carpenter",
@@ -412,7 +746,55 @@
       "program_slugs": [
         "iti-carpenter",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Carpenter salaries in India by 3200+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/carpenter-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 30,000 per month."
+        },
+        {
+          "title": "Find Out What Does A Carpenter Do: With Salary And Skills",
+          "url": "https://in.indeed.com/career-advice/finding-a-job/what-does-carpenter-do",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,877 per month."
+        },
+        {
+          "title": "Carpenter salary in India",
+          "url": "https://in.indeed.com/career/carpenter/salaries",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "CARPENTER",
+          "url": "https://dgt.gov.in/sites/default/files/2024-02/Carpenter.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "CITS 2022",
+          "url": "https://dgt.gov.in/sites/default/files/Modified%20CITS-Prospectus%202022.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "PATTERN MAKER",
+          "url": "https://dgt.gov.in/sites/default/files/2024-02/Pattern_Maker.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20877,
+        "max": 30000,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "mason",
@@ -451,7 +833,49 @@
       "program_slugs": [
         "pmkvy-short",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "184 Mason jobs in India | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/mason-jobs-SRCH_KO0,5.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "89 mason company jobs in India, November 2026 | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-mason-company-jobs-SRCH_IL.0,5_IN115_KO6,19.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "14 6-7 Year Experience Mason Foreman Jobs Oct 2026 | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/6-7-year-experience-mason-foreman-jobs-yexpprf-n4qMqV",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 33,333 per month."
+        },
+        {
+          "title": "75 Construction Mason Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-construction-mason-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "RPL Report.cdr - CREDAI",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-08/RPL%20Training%20Programme%20for%20Construction%20Workers%20-%20Type-2%2C%20Employer%20Premise.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 33333,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "tailor",
@@ -493,7 +917,29 @@
         "iti-sewing",
         "pmkvy-short",
         "entrepreneur-training"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Tailor salary in India",
+          "url": "https://in.indeed.com/career/tailor/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 10,000 to Rs 16,247 per month."
+        },
+        {
+          "title": "Courses - Skill India",
+          "url": "https://www.skillindiadigital.gov.in/courses/course-mode?sector=2",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 13124,
+        "max": 13124,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "beautician",
@@ -533,7 +979,41 @@
         "iti-cosmetology",
         "pmkvy-short",
         "entrepreneur-training"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "25 Beautician Fresher Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-beautician-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,000 to Rs 25,000 per month."
+        },
+        {
+          "title": "100 Female Beautician Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-female-beautician-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 30,000 per month."
+        },
+        {
+          "title": "Beautician salaries in India by 2700+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/beautician-salary?page=5",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "Beautician and Makeup Artist salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/beautician-and-makeup-artist-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 31,667 to Rs 31,900 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 31667,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "cook-chef",
@@ -573,7 +1053,55 @@
       "program_slugs": [
         "iti-food-production",
         "hotel-management"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "50 Cook Fresher Job Vacancies",
+          "url": "https://in.indeed.com/q-cook-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 14,000 per month."
+        },
+        {
+          "title": "100+ 4-5 Year Experience Cook Jobs Oct 2026",
+          "url": "https://www.ambitionbox.com/jobs/4-5-year-experience-cook-jobs-yexpprf-UALgJH",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 41,667 per month."
+        },
+        {
+          "title": "Chef salary in India",
+          "url": "https://in.indeed.com/career/chef/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,453 per month."
+        },
+        {
+          "title": "Commis Chef salaries in India by 4100+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/commis-chef-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 to Rs 22,700 per month."
+        },
+        {
+          "title": "Multi-cuisine Cook | National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/multi-cuisine-cook",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Trainee Chef - Tamil",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/4530c058-ba0f-408c-ae3f-7eaaab8e92b5",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20453,
+        "max": 22700,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "hotel-front-office",
@@ -614,7 +1142,49 @@
       "program_slugs": [
         "hotel-management",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "What Does A Front Office Executive Do? (Skills And Salary) - Indeed",
+          "url": "https://in.indeed.com/career-advice/finding-a-job/front-office-executive",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 19,375 per month."
+        },
+        {
+          "title": "5000 Front Office Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-front-office-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Front Desk Executive and Receptionist salaries in India by 700+ ...",
+          "url": "https://www.ambitionbox.com/profile/front-desk-executive-and-receptionist-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 26,667 to Rs 26,800 per month."
+        },
+        {
+          "title": "3-4 Year Experience Receptionist and Front Office Executive Jobs",
+          "url": "https://www.ambitionbox.com/jobs/3-4-year-experience-receptionist-and-front-office-executive-jobs-yexpprf-Q6AA3XR0",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 20,833 per month."
+        },
+        {
+          "title": "Introduction to Front Office Executive - Skill India",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/3edfdfdc-0bef-4077-a1a6-1cc65bcc8649",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 19688,
+        "max": 20833,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "tour-guide",
@@ -656,7 +1226,41 @@
       "program_slugs": [
         "pmkvy-short",
         "ba-bsc-bcom"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Tour guide salary in India",
+          "url": "https://in.indeed.com/career/tour-guide/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 19,165 per month."
+        },
+        {
+          "title": "Tour Guide salaries in India by 100+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/tour-guide-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 39,900 to Rs 40,000 per month."
+        },
+        {
+          "title": "Tourist guide salary in India",
+          "url": "https://in.indeed.com/career/tourist-guide/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 140,321 per month."
+        },
+        {
+          "title": "Average Tour Guide Salary in India",
+          "url": "https://www.payscale.com/research/IN/Job=Tour_Guide/Salary",
+          "site": "payscale.com",
+          "note": "Pay figure(s) found: about Rs 18,333 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 18333,
+        "max": 79743,
+        "n_sources": 4
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "driver",
@@ -693,7 +1297,49 @@
       "exam_slugs": [],
       "program_slugs": [
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "50 Entry Level Truck Driver Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-entry-level-truck-driver-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 29,500 per month."
+        },
+        {
+          "title": "Driver salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/driver-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 26,400 to Rs 26,667 per month."
+        },
+        {
+          "title": "Personal Driver salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/personal-driver-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 27,300 to Rs 27,500 per month."
+        },
+        {
+          "title": "700 Driver Job ₹2,40,000 Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-driver-job-%E2%82%B92,40,000-l-anywhere-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "BFSI Industry – A Future Skills Perspective - | NSDC",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-08/BFSI%20-%20A%20Future%20Skills%20Perspective.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 27300,
+        "max": 29500,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "mv_act"
     },
     {
       "slug": "delivery-logistics",
@@ -730,7 +1376,43 @@
       "exam_slugs": [],
       "program_slugs": [
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "14 10-11 Year Experience Warehouse Associate Jobs | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/10-11-year-experience-warehouse-associate-jobs-yexpprf-ntq3Rp",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 per month."
+        },
+        {
+          "title": "Logistics Jobs in India: Pay Scale, Roles & Career Opportunities",
+          "url": "https://apna.co/career-central/warehouse-jobs-india-salary-roles-hiring-trends",
+          "site": "apna.co",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Warehouse jobs in All india - Indeed",
+          "url": "https://in.indeed.com/Warehouse-jobs-in-All-india",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "NSDC CONNECT",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-07/05_January%202024_NSDC%20Connect_Sector%20Skill%20Councils.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 23333,
+        "max": 23333,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "mv_act"
     },
     {
       "slug": "data-entry",
@@ -771,7 +1453,53 @@
       "program_slugs": [
         "iti-copa",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Data entry , fresher jobs",
+          "url": "https://in.indeed.com/q-data-entry-,-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "200 Data Entry Job Vacancies in Ncr",
+          "url": "https://in.indeed.com/Data-Entry-jobs-in-Ncr,",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 12,000 per month."
+        },
+        {
+          "title": "Data Entry Operator salaries in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/data-entry-operator-salary-SRCH_KO0,19.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Data Entry Jobs - 192700 Data Entry Job Vacancies In November 2026 - Naukri.com",
+          "url": "https://www.naukri.com/data-entry-jobs",
+          "site": "naukri.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Domestic Data Entry Operator - Skill India",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/ec9faee6-9b70-4622-88ef-a7c9f2e70cf1",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "NcsNewWebsite - NCS Portal",
+          "url": "https://ncs.gov.in?ios+923+liar-game-characters.shtm=",
+          "site": "ncs.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 16000,
+        "max": 16000,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "csc-operator",
@@ -811,7 +1539,17 @@
       "program_slugs": [
         "csc-vle",
         "iti-copa"
-      ]
+      ],
+      "sources": [],
+      "pay_evidence": {
+        "min": null,
+        "max": null,
+        "n_sources": 0
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false,
+      "min_age": 18
     },
     {
       "slug": "software-developer",
@@ -858,7 +1596,41 @@
         "btech",
         "bca",
         "diploma-engineering"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "75 Fresher Jr Software Developer Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-fresher-jr-software-developer-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        },
+        {
+          "title": "600 Software Developer- Fresher jobs in India, August 2026",
+          "url": "https://www.glassdoor.co.in/Job/jobs.htm?sc.occupationParam=Software+Developer-+Fresher&sc.locationSeoString=India&locId=115&locT=N",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        },
+        {
+          "title": "600 Software Developer Fresher Job Vacancies | Indeed",
+          "url": "https://india.indeed.com/q-software-developer-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 33,333 per month."
+        },
+        {
+          "title": "Object Oriented Programming - Skill India",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/f1b2cf37-b70d-404c-8a8a-0d406f36cf1a",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 25000,
+        "max": 29166,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "web-designer",
@@ -901,7 +1673,47 @@
         "iti-copa",
         "bca",
         "design-diploma"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "321 Web designer freshers jobs in India | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/web-designer-freshers-jobs-SRCH_KO0,21.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 16,667 per month."
+        },
+        {
+          "title": "322 Web designer fresher jobs in India | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/web-designer-fresher-jobs-SRCH_KO0,20.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 8,333 per month."
+        },
+        {
+          "title": "5-6 Year Experience Frontend Web Designer Jobs - AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/5-6-year-experience-frontend-web-designer-jobs-yexpprf-6ng4GU1A",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "7 Freelance Web Designer Experienced Jobs Nov 2026 | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/freelance-web-designer-experienced-jobs-expprf-W40jqf",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 26,667 per month."
+        },
+        {
+          "title": "Web Design & Development",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/0e985123-f259-488a-9a41-a316980ea081",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 12500,
+        "max": 24584,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "graphic-designer",
@@ -942,7 +1754,41 @@
       "program_slugs": [
         "design-diploma",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Junior graphic designer salary in India - Indeed",
+          "url": "https://in.indeed.com/career/junior-graphic-designer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 32,970 per month."
+        },
+        {
+          "title": "Graphic designer salary in India - Indeed",
+          "url": "https://in.indeed.com/career/graphic-designer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 10,516 per month."
+        },
+        {
+          "title": "Graphic Designer/Video Editor salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/graphic-designer-or-video-editor-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 36,300 to Rs 36,667 per month."
+        },
+        {
+          "title": "1,140 fresher graphic designer jobs in India, November 2026 ...",
+          "url": "https://www.glassdoor.co.in/Job/india-fresher-graphic-designer-jobs-SRCH_IL.0,5_IN115_KO6,30.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 21743,
+        "max": 36484,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "photographer",
@@ -983,7 +1829,41 @@
       "program_slugs": [
         "pmkvy-short",
         "design-diploma"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "1,000 Photography Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-photography-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 9,900 per month."
+        },
+        {
+          "title": "200 Photographer Beginner Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-photographer-beginner-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 to Rs 30,000 per month."
+        },
+        {
+          "title": "Photographer and Videographer salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/photographer-and-videographer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 34,167 to Rs 34,500 per month."
+        },
+        {
+          "title": "Photographer and Photo Editor salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/photographer-and-photo-editor-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 29,167 to Rs 29,200 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 31667,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "content-creator",
@@ -1021,7 +1901,47 @@
       "program_slugs": [
         "pmkvy-short",
         "bjmc"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Content Creator Intern salaries in India by 10+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/content-creator-intern-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 33,300 to Rs 33,333 per month."
+        },
+        {
+          "title": "Content Creator salaries by 900+ Employees - Page 16 (Updated 2026) | AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/content-creator-salary?page=16",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        },
+        {
+          "title": "100 Content Creator Remote Jobs Job Vacancies in Remote",
+          "url": "https://in.indeed.com/q-content-creator-remote-jobs-l-remote-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 6,000 per month."
+        },
+        {
+          "title": "Content Creator salaries in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/content-creator-salary-SRCH_KO0,15.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Reels Masterclass (Hindi) - Skill India",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/f76ed5b7-9b08-42b9-bd45-30dee1e8b128",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 6000,
+        "max": 34583,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "primary-teacher",
@@ -1066,7 +1986,35 @@
       "program_slugs": [
         "deled",
         "ba-bsc-bcom"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "How Much Does A Primary Teacher Make: With Salary And Duties",
+          "url": "https://in.indeed.com/career-advice/pay-salary/how-much-does-primary-teacher-make",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,703 to Rs 35,000 per month."
+        },
+        {
+          "title": "2 PRE Primary Teacher C Jobs in India Oct 2026 | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/c-pre-primary-teacher-jobs-skiprf-1R176r",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 20,833 per month."
+        },
+        {
+          "title": "1 14-15 Year Experience Primary Teacher Jobs | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/14-15-year-experience-primary-teacher-jobs-yexpprf-w6fue",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 24,167 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 22500,
+        "max": 25352,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "anm-nurse",
@@ -1107,7 +2055,59 @@
       "exam_slugs": [],
       "program_slugs": [
         "anm"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "375 Anm nurse jobs in India | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-anm-nurse-jobs-SRCH_IL.0,5_KO6,15.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 21,500 to Rs 22,000 per month."
+        },
+        {
+          "title": "Anm nursing job vacancy jobs - Indeed",
+          "url": "https://in.indeed.com/q-anm-nursing-job-vacancy-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "200 Anm Nursing Staff Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-anm-nursing-staff-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 21,500 per month."
+        },
+        {
+          "title": "ANM Nurse salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/anm-nurse-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Resolutions - Indian Nursing Council",
+          "url": "https://www.indiannursingcouncil.org/uploads/pdf/173019809314911197596720ba4d74624.pdf",
+          "site": "indiannursingcouncil.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "1-6/2018-INC Dated - Indian Nursing Council",
+          "url": "https://indiannursingcouncil.org/uploads/pdf/16001691603883619785f60a4c8a9e0d.pdf",
+          "site": "indiannursingcouncil.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "GUIDELINES AND MINIMUM REQUIREMENTS TO ESTABLISH ...",
+          "url": "https://indiannursingcouncil.org/uploads/pdf/16777602713172325806400970f3f105.pdf",
+          "site": "indiannursingcouncil.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 22500,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "staff-nurse",
@@ -1149,7 +2149,47 @@
       "program_slugs": [
         "gnm",
         "bsc-nursing"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "100 Male Staff Nurse ₹1,50,000 Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-male-staff-nurse-%E2%82%B91,50,000-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 21,500 per month."
+        },
+        {
+          "title": "400 Clinic Staff Nurse Job Vacancies in India - Indeed",
+          "url": "https://in.indeed.com/Clinic-Staff-Nurse-jobs-in-India",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 10,000 per month."
+        },
+        {
+          "title": "1-2 Year Experience Staff Nurse Jobs - AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/1-2-year-experience-staff-nurse-jobs-yexpprf-uh2NO",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 per month."
+        },
+        {
+          "title": "GNM Staff Nurse salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/gnm-staff-nurse-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 24,167 per month."
+        },
+        {
+          "title": "Integration of Nursing Education and Service (Dual Role) Dated ...",
+          "url": "https://www.indiannursingcouncil.org/uploads/pdf/16449961921658311354620ca660c8534.pdf",
+          "site": "indiannursingcouncil.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 19345,
+        "max": 23750,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "lab-technician",
@@ -1190,7 +2230,41 @@
       "exam_slugs": [],
       "program_slugs": [
         "dmlt"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "31 Lab Technician (DMLT) Fresher jobs in India, September 2026 ...",
+          "url": "https://www.glassdoor.co.in/Job/jobs.htm?sc.occupationParam=Lab+Technician+%28DMLT%29+Fresher&sc.locationSeoString=India&locId=115&locT=N",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 16,667 per month."
+        },
+        {
+          "title": "200 Entry Level Laboratory Technician Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-entry-level-laboratory-technician-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "316 entry laboratory jobs in India, August 2026 | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-entry-laboratory-jobs-SRCH_IL.0,5_IN115_KO6,22.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Lab Technician Jobs - 43+ Vacancies in November 2026 | apna.co",
+          "url": "https://apna.co/jobs/lab-technician-jobs",
+          "site": "apna.co",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 16667,
+        "max": 16667,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "pharmacist",
@@ -1232,7 +2306,59 @@
       "exam_slugs": [],
       "program_slugs": [
         "dpharm"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "400 Clinical Pharmacist Jobs in India Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-clinical-pharmacist-jobs-in-india-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Pharmacist salary in India - Indeed",
+          "url": "https://in.indeed.com/career/pharmacist/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,410 per month."
+        },
+        {
+          "title": "600+ Pharmacist Jobs in India (Updated Nov, 2026) | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/pharmacist-jobs-prf",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "Pharmacist salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/pharmacist-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 22,500 per month."
+        },
+        {
+          "title": "Hkkjrh; Hks\"kth ifj\"kn vf/klwpuk ubZ fnYyh] 9 vDVwcj] 2020 QkesZlh ...",
+          "url": "https://www.pci.nic.in/pdf/Education_REGULATION_2020_12022021.pdf",
+          "site": "pci.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "pharmacy council of india education regulations - PCI",
+          "url": "https://www.pci.nic.in/Circulars/Proposed_Amendments.pdf",
+          "site": "pci.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Diploma in Pharmacy Exit Examination Regulations - PCI",
+          "url": "https://www.pci.nic.in/pdf/Diploma-Exit%20Examination%20circular.pdf",
+          "site": "pci.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 17640,
+        "max": 22500,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "physio-assistant",
@@ -1271,7 +2397,47 @@
       "exam_slugs": [],
       "program_slugs": [
         "bpt"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "300 Fresher Physiotherapy Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-fresher-physiotherapy-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "300 Fresher Physiotherapist Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-fresher-physiotherapist-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Physiotherapist salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/physiotherapist-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 29,167 per month."
+        },
+        {
+          "title": "Salary: Physiotherapist - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/physiotherapist-salary-SRCH_KO0,15.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 18,000 per month."
+        },
+        {
+          "title": "KPMG Portrait LETTER (2007 v1.1) - | NSDC",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-08/Human%20Resource%20and%20Skill%20Requirement%20in%20the%20Beauty%20%26%20Wellness%20Sector.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 18000,
+        "max": 33300,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "doctor",
@@ -1315,7 +2481,35 @@
       ],
       "program_slugs": [
         "mbbs"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Mbbs Doctor salaries in India by 1600+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/mbbs-doctor-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 20,000 to Rs 85,833 per month."
+        },
+        {
+          "title": "Page 11 - Fresher Mbbs Jobs In India - 1903 Fresher Mbbs Job Vacancies In India",
+          "url": "https://www.naukri.com/fresher-mbbs-jobs-in-india-11",
+          "site": "naukri.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "National Medical Commission",
+          "url": "https://nmc.org.in",
+          "site": "nmc.org.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 60000,
+        "max": 60000,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "vet-assistant",
@@ -1356,7 +2550,35 @@
       "program_slugs": [
         "livestock-diploma",
         "bvsc"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Veterinary Assistant salaries in India by 300+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/veterinary-assistant-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 28,100 to Rs 28,333 per month."
+        },
+        {
+          "title": "Veterinary assistant salary in India",
+          "url": "https://in.indeed.com/career/veterinary-assistant/salaries",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Veterinary assistant salary in Tamil Nadu",
+          "url": "https://in.indeed.com/career/veterinary-assistant/salaries/Tamil-Nadu",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 28216,
+        "max": 28216,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "dairy-entrepreneur",
@@ -1394,7 +2616,47 @@
       "program_slugs": [
         "entrepreneur-training",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Dairy Farm Worker salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/dairy-farm-worker-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 19,167 to Rs 19,200 per month."
+        },
+        {
+          "title": "Dairy Farm Manager salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/dairy-farm-manager-salary",
+          "site": "ambitionbox.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Dairy farm, visa sponsorship jobs - Indeed",
+          "url": "https://ie.indeed.com/q-dairy-farm,-visa-sponsorship-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "NSDC CONNECT",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-07/05_January%202024_NSDC%20Connect_Sector%20Skill%20Councils.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "EVALUATION STUDY REPORT OF THE SCHEME ... - | NSDC",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-08/Evaluation%20Report%20of%20PMKVY%202.0_0.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 19184,
+        "max": 19184,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "organic-farmer",
@@ -1434,7 +2696,47 @@
       "program_slugs": [
         "entrepreneur-training",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "100 Fresher Farmer Job Vacancies",
+          "url": "https://in.indeed.com/q-fresher-farmer-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 12,000 per month."
+        },
+        {
+          "title": "Farmer salary in India",
+          "url": "https://in.indeed.com/career/farmer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 18,149 per month."
+        },
+        {
+          "title": "| National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/nos-listing/2",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "| National Skill Development Corporation (NSDC)",
+          "url": "http://www.nsdcindia.org/nos-listing/2",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Goat Farmer | National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/goat-farmer-0",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 15074,
+        "max": 15074,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "agri-drone-pilot",
@@ -1475,7 +2777,60 @@
       "exam_slugs": [],
       "program_slugs": [
         "drone-pilot"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "46 drone pilot jobs in India, November 2026 - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-drone-pilot-jobs-SRCH_IL.0,5_IN115_KO6,17.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        },
+        {
+          "title": "Licensed Drone Pilot salaries in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/licensed-drone-pilot-salary-SRCH_KO0,20.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 4,167 per month."
+        },
+        {
+          "title": "Drone pilot salary in India - Indeed",
+          "url": "https://in.indeed.com/career/drone-pilot/salaries",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "700 Pilot Job in India Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-pilot-job-in-india-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "GOVERNMENT OF INDIA",
+          "url": "https://www.dgca.gov.in/digigov-portal/Upload?flag=iframeAttachView&attachId=eNFRqt%2FjcMq57Lvy9e2v0Q%3D%3D",
+          "site": "dgca.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "DGCA-31052/1/2024-DRONE-Dte",
+          "url": "https://digitalsky.dgca.gov.in/assets/files/Amended_DTC_01_of_2023_19_Aug_for_DSP.pdf",
+          "site": "digitalsky.dgca.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "[PDF] File number – ABC/TPM/RPTO - Digital Sky",
+          "url": "https://digitalsky.dgca.gov.in/assets/files/Model-TPM-for-RPTO.pdf",
+          "site": "digitalsky.dgca.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 14584,
+        "max": 14584,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false,
+      "min_age": 18
     },
     {
       "slug": "food-processing",
@@ -1517,7 +2872,43 @@
       "program_slugs": [
         "iti-food-production",
         "entrepreneur-training"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Food Technologist salaries in India by 1400+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/food-technologist-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 29,167 per month."
+        },
+        {
+          "title": "Food Processing Engineer salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/food-processing-engineer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 33,300 to Rs 33,333 per month."
+        },
+        {
+          "title": "19 Food Processing Industry Fresher Jobs and Vacancies - 31 October 2026",
+          "url": "https://in.indeed.com/q-food-processing-industry-fresher-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "248 fresher food processing jobs in India, November 2026 | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-fresher-food-processing-jobs-SRCH_IL.0,5_IN115_KO6,29.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 33300,
+        "max": 33300,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "agri-graduate",
@@ -1561,7 +2952,29 @@
       ],
       "program_slugs": [
         "bsc-agriculture"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Agriculture Officer salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/agriculture-officer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 39,167 per month."
+        },
+        {
+          "title": "7 Agriculture Officer Jobs in India (Updated Oct, 2026) | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/agriculture-officer-jobs-prf",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 37,500 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 38334,
+        "max": 38334,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "accountant",
@@ -1604,7 +3017,41 @@
       ],
       "program_slugs": [
         "ba-bsc-bcom"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Accountant Salary in India, Freshers and Experienced Salary Guide",
+          "url": "https://apna.co/career-central/accountant-salary-in-india",
+          "site": "apna.co",
+          "note": "Pay figure(s) found: about Rs 15,000 to Rs 120,000 per month."
+        },
+        {
+          "title": "500 Accountant Fresher Job Vacancies in India - Indeed",
+          "url": "https://in.indeed.com/accountant-fresher-jobs-in-india",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 30,000 per month."
+        },
+        {
+          "title": "491 entry level accountant jobs in India, November 2026 | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/india-entry-level-accountant-jobs-SRCH_IL.0,5_IN115_KO6,28.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 10,000 per month."
+        },
+        {
+          "title": "Fresher Accountant Salaries (57 Salaries submitted) | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salary/Fresher-Accountant-Salaries-E5024442_D_KO8,18.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 18,000 to Rs 20,000 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 18000,
+        "max": 47500,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "bank-clerk",
@@ -1646,7 +3093,36 @@
       "program_slugs": [
         "ba-bsc-bcom",
         "bank-exam-prep"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "How Much Do Bank Employees Make? A Complete Salary Guide",
+          "url": "https://in.indeed.com/career-advice/pay-salary/how-much-do-bank-employees-make",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 22,750 per month."
+        },
+        {
+          "title": "Bank Clerk and Cashier salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/bank-clerk-and-cashier-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 33,300 to Rs 33,333 per month."
+        },
+        {
+          "title": "14 Highest-Paying Banking Jobs (With Salaries And Duties) - Indeed",
+          "url": "https://in.indeed.com/career-advice/finding-a-job/highest-paying-banking-jobs",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 22,339 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 22544,
+        "max": 33316,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false,
+      "min_age": 20
     },
     {
       "slug": "bank-mitra",
@@ -1685,7 +3161,30 @@
       "exam_slugs": [],
       "program_slugs": [
         "bank-mitra-training"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Life at Bank Mitra Financial Services: Culture, Salary, Reviews, Interviews ...",
+          "url": "https://www.ambitionbox.com/overview/bank-mitra-financial-services-overview",
+          "site": "ambitionbox.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Certificate Examination for Business Correspondents",
+          "url": "https://www.iibf.org.in/documents/RulesSyllabus/2024/BCBF-DOA%20syllabus_Updated%20020424_revised_Amit.pdf",
+          "site": "iibf.org.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": null,
+        "max": null,
+        "n_sources": 0
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false,
+      "min_age": 18
     },
     {
       "slug": "police-constable",
@@ -1724,7 +3223,30 @@
       ],
       "program_slugs": [
         "police-recruitment"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Police Constable salaries in India by 400+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/police-constable-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 38,000 to Rs 38,333 per month."
+        },
+        {
+          "title": "Salary: Police Constable | Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/police-constable-salary-SRCH_KO0,16.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 100,000 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 38166,
+        "max": 100000,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false,
+      "min_age": 18
     },
     {
       "slug": "army-soldier",
@@ -1763,7 +3285,35 @@
       ],
       "program_slugs": [
         "agniveer-recruitment"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "recruitment notification: indian army",
+          "url": "https://joinindianarmy.nic.in/writereaddata/Portal/BRAVO_NotificationPDF/Rally_notification_ARO_Gaya_2025-26.pdf",
+          "site": "joinindianarmy.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "indian army zonal recruiting office, bangalore invites online application",
+          "url": "https://joinindianarmy.nic.in/writereaddata/Portal/BRAVO_NotificationPDF/ZRO_BANGALORE_RECT__RALLY_NOTIFICATION_FOR_WOMEN_MILITARY_POLICE_AGNIVEER_GD__KARNATAKA_AND_KERALA__FOR_RY_25_-26.pdf",
+          "site": "joinindianarmy.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "recruitment notification : indian army",
+          "url": "https://www.joinindianarmy.nic.in/writereaddata/Portal/BRAVO_NotificationPDF/RECRUITMENT_NOTIFICATION_OF_AGNIVEER__ARO_MUMBAI__2025-26_.pdf",
+          "site": "joinindianarmy.nic.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": null,
+        "max": null,
+        "n_sources": 0
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "railway-technician",
@@ -1807,7 +3357,37 @@
         "iti-fitter",
         "iti-electrician",
         "railway-recruitment"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Technician Grade 2 salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/technician-grade-2-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 26,667 to Rs 26,700 per month."
+        },
+        {
+          "title": "Technician Grade 3 salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/technician-grade-3-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 30,800 to Rs 30,833 per month."
+        },
+        {
+          "title": "50 Railway Technician Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-railway-technician-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 28750,
+        "max": 28750,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": true,
+      "min_age": 18,
+      "minor_basis": "calpra_schedule"
     },
     {
       "slug": "anganwadi-worker",
@@ -1844,7 +3424,47 @@
       "exam_slugs": [],
       "program_slugs": [
         "anganwadi-recruitment"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Anganwadi worker, helper jobs - Indeed",
+          "url": "https://in.indeed.com/q-anganwadi-worker,-helper-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 11,500 per month."
+        },
+        {
+          "title": "Anganwadi Worker salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/anganwadi-worker-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 10,000 per month."
+        },
+        {
+          "title": "Anganwadi worker, assistant jobs - Indeed",
+          "url": "https://in.indeed.com/q-anganwadi-worker,-assistant-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        },
+        {
+          "title": "Anganwadi Workers Training centre Salaries by 6 Employees",
+          "url": "https://www.ambitionbox.com/salaries/anganwadi-workers-training-centre-salaries",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 25,000 to Rs 28,333 per month."
+        },
+        {
+          "title": "NSDC CONNECT",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-07/01_September%202023_NSDC%20Connect_Life%20Skills.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 11500,
+        "max": 17084,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "social-worker",
@@ -1888,7 +3508,41 @@
       ],
       "program_slugs": [
         "bsw"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Psychiatric Social Worker salaries in India (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/psychiatric-social-worker-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 25,833 per month."
+        },
+        {
+          "title": "Medical Social Worker salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/medical-social-worker-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 28,333 to Rs 28,700 per month."
+        },
+        {
+          "title": "25 Entry Level Ngo Jobs Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-entry-level-ngo-jobs-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "100 Social Worker ₹3,30,000 Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-social-worker-%E2%82%B93,30,000-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 25833,
+        "max": 25833,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "journalist",
@@ -1931,7 +3585,47 @@
       ],
       "program_slugs": [
         "bjmc"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "2 Content Writer/ Journalist Fresher Jobs | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/content-writer-or-journalist-fresher-jobs-frshprf-5RQzII",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 21,667 per month."
+        },
+        {
+          "title": "12 Types of Journalism Jobs (With Salaries and Tips) - Indeed",
+          "url": "https://in.indeed.com/career-advice/finding-a-job/types-of-journalism-jobs",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 21,686 to Rs 28,058 per month."
+        },
+        {
+          "title": "How To Become a Journalist (With Salary, Duties And Skills) - Indeed",
+          "url": "https://in.indeed.com/career-advice/finding-a-job/how-to-become-journalist",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 22,147 per month."
+        },
+        {
+          "title": "The Times of India Journalist Salaries - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salary/The-Times-of-India-Journalist-Salaries-E148974_D_KO19,29.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 30,000 per month."
+        },
+        {
+          "title": "nt and Evaluation of rning (RPL) under as Yojana (PMKVY)",
+          "url": "https://stag-api.nsdcindia.org/system/files/2025-08/Impact%20Assessment%20for%20RPL%20Under%20PMKVY%202.0%20-%20Final%20Report%20for%20Media%20and%20Entertainment%20Industry_0.pdf",
+          "site": "stag-api.nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 22147,
+        "max": 30000,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "lawyer",
@@ -1975,7 +3669,59 @@
       ],
       "program_slugs": [
         "llb-integrated"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "How to Become a Lawyer: Skills, Eligibility, Salary, Top Law Firms!",
+          "url": "https://www.naukri.com/campus/career-guidance/how-to-become-a-lawyer",
+          "site": "naukri.com",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        },
+        {
+          "title": "Private Lawyer salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/private-lawyer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 32,500 per month."
+        },
+        {
+          "title": "Lawyer Panel Salaries by 100+ Employees - AmbitionBox",
+          "url": "https://www.ambitionbox.com/salaries/lawyer-panel-salaries",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 per month."
+        },
+        {
+          "title": "How Much Does An Advocate Make? (With Skills And Duties) - Indeed",
+          "url": "https://in.indeed.com/career-advice/pay-salary/how-much-does-advocate-make",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 40,164 per month."
+        },
+        {
+          "title": "All India Bar Examinations (AIBE) | Bar Council of India",
+          "url": "https://www.barcouncilofindia.org/info/aibe",
+          "site": "barcouncilofindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Bar Council of India",
+          "url": "https://www.barcouncilofindia.org",
+          "site": "barcouncilofindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Information Centre | Bar Council of India",
+          "url": "https://www.barcouncilofindia.org/info/foreign-universities",
+          "site": "barcouncilofindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 15000,
+        "max": 40164,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "civil-engineer",
@@ -2022,7 +3768,41 @@
       "program_slugs": [
         "diploma-engineering",
         "btech"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Junior civil engineer salary in India - Indeed",
+          "url": "https://in.indeed.com/career/junior-civil-engineer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 47,763 per month."
+        },
+        {
+          "title": "Civil engineer salary in India - Indeed",
+          "url": "https://in.indeed.com/career/civil-engineer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 47,765 per month."
+        },
+        {
+          "title": "Trainee Civil Engineer salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/trainee-civil-engineer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 23,333 to Rs 23,400 per month."
+        },
+        {
+          "title": "83 Entry level civil engineer jobs in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Job/entry-level-civil-engineer-jobs-SRCH_KO0,26.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 7,000 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 7000,
+        "max": 47765,
+        "n_sources": 4
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "electrical-engineer",
@@ -2068,7 +3848,41 @@
       "program_slugs": [
         "diploma-engineering",
         "btech"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Electrical engineer salary in India - Indeed",
+          "url": "https://in.indeed.com/career/electrical-engineer/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 30,558 per month."
+        },
+        {
+          "title": "Fresher Electrical Engineer salaries in India - Glassdoor",
+          "url": "https://www.glassdoor.co.in/Salaries/fresher-electrical-engineer-salary-SRCH_KO0,27.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 25,000 per month."
+        },
+        {
+          "title": "33 No experience entry level electrical engineer jobs in India",
+          "url": "https://www.glassdoor.co.in/Job/india-no-experience-entry-level-electrical-engineer-jobs-SRCH_IL.0,5_IN115_KO6,51.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 7,000 per month."
+        },
+        {
+          "title": "Electrical engineer salary in Gujarat - Indeed",
+          "url": "https://in.indeed.com/career/electrical-engineer/salaries/Gujarat",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 27,469 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 16000,
+        "max": 42600,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "draughtsman",
@@ -2109,7 +3923,59 @@
       "exam_slugs": [],
       "program_slugs": [
         "iti-draughtsman-civil"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Draughtsman Trainee salaries in India by 30+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/draughtsman-trainee-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        },
+        {
+          "title": "Draughtsman salaries in India by 5100+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/draughtsman-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 39,167 to Rs 39,500 per month."
+        },
+        {
+          "title": "Average Architectural Draftsman Salary in India",
+          "url": "https://www.payscale.com/research/IN/Job=Architectural_Draftsman/Salary",
+          "site": "payscale.com",
+          "note": "Pay figure(s) found: about Rs 15,260 per month."
+        },
+        {
+          "title": "200 Fresher Civil AutoCAD Draftsman Job Vacancies",
+          "url": "https://in.indeed.com/q-fresher-civil-autocad-draftsman-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "DRAUGHTSMAN (MECHANICAL)",
+          "url": "https://dgt.gov.in/sites/default/files/2025-01/Draughtsman_Mechanical.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "DRAUGHTSMAN CIVIL",
+          "url": "https://dgt.gov.in/sites/default/files/Draughtsman%20Civil_CTS2.0_NSQF-4.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "DRAUGHTSMAN MECHANICAL",
+          "url": "https://dgt.gov.in/sites/default/files/2023-12/D_man%20Mechanical_CTS2.0_NSQF-4.pdf",
+          "site": "dgt.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 15260,
+        "max": 38334,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "ai-data-annotator",
@@ -2149,7 +4015,41 @@
       "program_slugs": [
         "iti-copa",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Data Annotator Jobs In Bengaluru - 33+ Vacancies in September 2026 | apna.co",
+          "url": "https://apna.co/jobs/title_data_annotator-jobs-in-bengaluru",
+          "site": "apna.co",
+          "note": "Pay figure(s) found: about Rs 30,000 per month."
+        },
+        {
+          "title": "RMSI India AI Data Annotator Monthly Pay",
+          "url": "https://www.glassdoor.co.in/Monthly-Pay/RMSI-India-AI-Data-Annotator-Monthly-Pay-E321540_D_KO11,28.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 14,000 to Rs 15,833 per month."
+        },
+        {
+          "title": "200 Data Annotation Jobs Salary Per Month Job Vacancies",
+          "url": "https://in.indeed.com/q-data-annotation-jobs-salary-per-month-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 41,667 per month."
+        },
+        {
+          "title": "Data Annotator Jobs - 155+ Vacancies in August 2026 | apna.co",
+          "url": "https://apna.co/jobs/title_data_annotator-jobs",
+          "site": "apna.co",
+          "note": "Mentions this role; no pay figure in the returned text."
+        }
+      ],
+      "pay_evidence": {
+        "min": 14958,
+        "max": 41667,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "digital-marketer",
@@ -2192,7 +4092,59 @@
       "program_slugs": [
         "pmkvy-short",
         "ba-bsc-bcom"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "84 digital marketing executive entry level jobs in India, November ...",
+          "url": "https://www.glassdoor.co.in/Job/india-digital-marketing-executive-entry-level-jobs-SRCH_IL.0,5_IN115_KO6,45.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 10,000 per month."
+        },
+        {
+          "title": "200 Entry Level Digital Marketing Job Vacancies in Remote",
+          "url": "https://in.indeed.com/q-entry-level-digital-marketing-l-remote-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 15,000 per month."
+        },
+        {
+          "title": "Salary: Marketing Entry Level",
+          "url": "https://www.glassdoor.co.in/Salaries/marketing-entry-level-salary-SRCH_KO0,21.htm",
+          "site": "glassdoor.co.in",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Career in Digital Marketing in India: Opportunities, Salary & Scope",
+          "url": "https://apna.co/career-central/digital-marketing-career-opportunities-salary-scope",
+          "site": "apna.co",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "Digital Marketing for Artisan Entrepreneurs (Basic)",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/55d05e2f-79a6-4059-90e5-bc27aa81b52a",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Skill India Digital Hub (SIDH) - Upskilling, reskilling, career growth ...",
+          "url": "https://www.skillindiadigital.gov.in",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Digital Marketing With AI",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/6f0c1dcc-d9c0-401a-af3c-74d75bdf482d",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 10000,
+        "max": 15000,
+        "n_sources": 2
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "retail-sales",
@@ -2230,7 +4182,41 @@
       "program_slugs": [
         "pmkvy-short",
         "apprenticeship"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Retail sales associate salary in India - Indeed",
+          "url": "https://in.indeed.com/career/retail-sales-associate/salaries",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 19,196 to Rs 79,825 per month."
+        },
+        {
+          "title": "19 entry level retail sales associate jobs in India, September 2026 ...",
+          "url": "https://www.glassdoor.co.in/Job/india-entry-level-retail-sales-associate-jobs-SRCH_IL.0,5_IN115_KO6,40.htm",
+          "site": "glassdoor.co.in",
+          "note": "Pay figure(s) found: about Rs 20,000 per month."
+        },
+        {
+          "title": "Retail sales associate salary in Delhi - Indeed",
+          "url": "https://in.indeed.com/career/retail-sales-associate/salaries/Delhi",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 23,452 to Rs 81,316 per month."
+        },
+        {
+          "title": "Retail Sales Associate salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/retail-sales-associate-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 20,500 to Rs 20,833 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 20000,
+        "max": 53074,
+        "n_sources": 3
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "matches",
+      "hazardous_for_minors": false
     },
     {
       "slug": "small-business",
@@ -2270,7 +4256,24 @@
       "exam_slugs": [],
       "program_slugs": [
         "entrepreneur-training"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Shop Owner salaries in India by 400+ Employees (Updated 2026)",
+          "url": "https://www.ambitionbox.com/profile/shop-owner-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 28,800 to Rs 29,167 per month."
+        }
+      ],
+      "pay_evidence": {
+        "min": 28984,
+        "max": 28984,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false,
+      "min_age": 18
     },
     {
       "slug": "handicraft-artisan",
@@ -2311,7 +4314,35 @@
       "program_slugs": [
         "entrepreneur-training",
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "50 Artisan Job Vacancies | Indeed",
+          "url": "https://in.indeed.com/q-artisan-jobs.html",
+          "site": "indeed.com",
+          "note": "Pay figure(s) found: about Rs 10,000 per month."
+        },
+        {
+          "title": "National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Digital Marketing for Artisan Entrepreneurs (Basic)",
+          "url": "https://www.skillindiadigital.gov.in/courses/detail/55d05e2f-79a6-4059-90e5-bc27aa81b52a",
+          "site": "skillindiadigital.gov.in",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 10000,
+        "max": 10000,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     },
     {
       "slug": "fitness-trainer",
@@ -2348,7 +4379,47 @@
       "exam_slugs": [],
       "program_slugs": [
         "pmkvy-short"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Fitness Trainer salaries in India (Updated 2026) - AmbitionBox",
+          "url": "https://www.ambitionbox.com/profile/fitness-trainer-salary",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 29,100 to Rs 29,167 per month."
+        },
+        {
+          "title": "28 Fitness Trainer Experienced Jobs Nov 2026 | AmbitionBox",
+          "url": "https://www.ambitionbox.com/jobs/fitness-trainer-experienced-jobs-expprf-FKGND6",
+          "site": "ambitionbox.com",
+          "note": "Pay figure(s) found: about Rs 27,500 per month."
+        },
+        {
+          "title": "300 Fitness Trainer Job Vacancies - Indeed",
+          "url": "https://in.indeed.com/q-fitness-trainer-jobs.html",
+          "site": "indeed.com",
+          "note": "Mentions this role; no pay figure in the returned text."
+        },
+        {
+          "title": "| National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/nos-listing/40",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        },
+        {
+          "title": "Fitness Trainer | National Skill Development Corporation (NSDC)",
+          "url": "https://nsdcindia.org/fitness-trainer",
+          "site": "nsdcindia.org",
+          "note": "Training, eligibility and licence details for this role."
+        }
+      ],
+      "pay_evidence": {
+        "min": 27250,
+        "max": 27250,
+        "n_sources": 1
+      },
+      "checked_on": "2026-11-21",
+      "pay_status": "unverified",
+      "hazardous_for_minors": false
     }
   ]
 }

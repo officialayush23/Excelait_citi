@@ -5,10 +5,12 @@ import { cn } from '@/lib/utils'
 
 import type { LessonStage } from './api'
 
+export type OcrCount = { done: number; total: number }
+
 const STEPS = ['reading', 'writing', 'recording'] as const
 
-/** Three steps: Reading your chapter, Writing the lesson, Recording audio. */
-export function LessonProgress({ stage, className }: { stage: LessonStage | 'uploading'; className?: string }) {
+/** Three steps: Reading your chapter ("Reading your pages (3 of 8)" while OCR runs), Writing the lesson, Recording audio. */
+export function LessonProgress({ stage, ocr, className }: { stage: LessonStage | 'uploading'; ocr?: OcrCount; className?: string }) {
   const { t } = useTranslation()
   const current = stage === 'uploading' ? 0 : stage === 'done' ? 3 : Math.max(0, STEPS.indexOf(stage as (typeof STEPS)[number]))
   return (
@@ -27,7 +29,11 @@ export function LessonProgress({ stage, className }: { stage: LessonStage | 'upl
             >
               {done ? <Check className="size-5" /> : active ? <Loader2 className="size-5 animate-spin" /> : <span className="text-sm">{i + 1}</span>}
             </span>
-            <span className={cn(active && 'font-medium')}>{t(`learn.stage.${s}`)}</span>
+            <span className={cn(active && 'font-medium')}>
+              {s === 'reading' && active && ocr && ocr.total > 0
+                ? t('learn.ocrProgress', { done: Math.min(ocr.done + 1, ocr.total), total: ocr.total })
+                : t(`learn.stage.${s}`)}
+            </span>
           </li>
         )
       })}

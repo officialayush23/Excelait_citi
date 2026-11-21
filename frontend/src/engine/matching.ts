@@ -22,7 +22,17 @@ export type Career = {
   path: string[]
   scheme_slugs: string[]
   exam_slugs: string[]
+  /** Where the pay and path figures come from (backend/scripts/reference_careers.py). Absent on older catalogues. */
+  sources?: CareerSource[]
+  pay_evidence?: { min: number | null; max: number | null; n_sources: number } | null
+  pay_status?: 'matches' | 'differs' | 'unverified' | null
+  checked_on?: string | null
+  /** Set when the catalogue says a job is closed to minors. */
+  min_age?: number | null
+  hazardous_for_minors?: boolean
 }
+
+export type CareerSource = { title: string; url: string; site: string; note: string }
 
 export type MatchProfile = {
   interests?: string[]

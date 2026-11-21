@@ -9,6 +9,7 @@ import { EmptyState } from '@/components/page/EmptyState'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
+import type { CareerSource } from '@/engine/matching'
 import { api } from '@/lib/api'
 import { to } from '@/lib/links'
 import { cn } from '@/lib/utils'
@@ -63,6 +64,10 @@ export type Career = {
   schemes: SchemeStatus[]
   resources: Resource[]
   related: CareerRef[]
+  sources?: CareerSource[]
+  pay_evidence?: { min: number | null; max: number | null; n_sources: number } | null
+  pay_status?: 'matches' | 'differs' | 'unverified' | null
+  checked_on?: string | null
 }
 export type Exam = {
   slug: string

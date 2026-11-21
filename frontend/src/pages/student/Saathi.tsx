@@ -147,6 +147,9 @@ export function Saathi() {
 
   const dateFmt = new Intl.DateTimeFormat(i18n.language === 'en' ? 'en-IN' : `${i18n.language}-IN`, { day: 'numeric', month: 'short' })
   const empty = msgs.length === 0 && !loadingThread
+  // Saathi's last reply asked a question: answering it is the student's next step.
+  const lastMsg = msgs[msgs.length - 1]
+  const asking = Boolean(lastMsg && lastMsg.role === 'assistant' && lastMsg.cards.some((c) => c.type === 'question'))
 
   return (
     <CardActionsProvider value={{ send: (m) => void send(m), busy }}>
@@ -217,7 +220,7 @@ export function Saathi() {
                             {m.content && <SpeakButton text={m.content} className="-my-1 -mr-2" />}
                           </div>
                         )}
-                        <CardList cards={m.cards} />
+                        <CardList cards={m.cards} active={asking && i === msgs.length - 1} />
                       </div>
                     </>
                   )}
@@ -271,7 +274,7 @@ export function Saathi() {
             </div>
           </div>
         )}
-        <Composer onSend={(v) => void send(v)} busy={busy} disabled={!online} className="border-t bg-background pt-3" />
+        <Composer onSend={(v) => void send(v)} busy={busy} disabled={!online} answering={asking} className="border-t bg-background pt-3" />
       </div>
 
       <Sheet open={historyOpen} onOpenChange={setHistoryOpen}>

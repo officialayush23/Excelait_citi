@@ -17,7 +17,7 @@ type FactsState = {
   sync: () => Promise<void>
 }
 
-const LIST = new Set(['interests', 'subjects'])
+const LIST = new Set(['interests', 'subjects', 'skills'])
 let syncing: Promise<void> | null = null
 let again = false
 let currentUser = ''

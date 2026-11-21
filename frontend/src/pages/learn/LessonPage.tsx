@@ -48,7 +48,7 @@ export function LessonPage() {
       <div className="flex flex-col gap-5 pb-8">
         <PageHeader title={l.title} back actions={owner} />
         {l.status === 'processing' ? (
-          <div className="rounded-3xl border bg-card p-5"><LessonProgress stage={l.stage ?? 'writing'} /></div>
+          <div className="rounded-3xl border bg-card p-5"><LessonProgress stage={l.stage ?? 'writing'} ocr={l.progress?.ocr} /></div>
         ) : (
           <div className="flex flex-col gap-3">
             <Note tone="warn">{l.error ?? t('learn.failed')}</Note>
@@ -85,6 +85,9 @@ export function LessonPage() {
         </label>
       )}
       {l.error && <Note tone="warn">{t('learn.someAudioMissing')}</Note>}
+      {(l.notes ?? []).map((n) => (
+        <Note key={n} tone="warn">{t(`learn.note.${n}`)}</Note>
+      ))}
       <PillTabs tabs={tabs} value={tab} onChange={setTab} />
       {tab === 'listen' && <ListenTab sections={sections} />}
       {tab === 'read' && <ReadTab summary={l.summary} sections={sections} terms={l.key_terms ?? []} />}

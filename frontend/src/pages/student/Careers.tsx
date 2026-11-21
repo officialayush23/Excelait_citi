@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { SaveButton } from '@/components/explore/shared'
+import { PaySources } from '@/components/explore/PaySources'
 import { EmptyState } from '@/components/page/EmptyState'
 import { PageHeader } from '@/components/page/PageHeader'
 import { ListRow, SplitView } from '@/components/page/SplitView'
@@ -14,9 +15,16 @@ import { Switch } from '@/components/ui/switch'
 import { careerBySlug, careerName, examBySlug, schemeBySlug } from '@/data/catalogue'
 import { useFacts } from '@/data/facts'
 import { profileComplete, useEligibility, useMatches, type WhatIf } from '@/data/insights'
-import type { Gap, Match, Reason } from '@/engine/matching'
+import type { Career, Gap, Match, Reason } from '@/engine/matching'
 import { payRange } from '@/lib/format'
 import { to } from '@/lib/links'
+
+/** The age a career opens at, if the student is younger; null when there is nothing to say (or age is unknown). */
+export function ageGate(c: Career, age: unknown): number | null {
+  if (typeof age !== 'number' || age >= 18) return null
+  const from = c.min_age ?? (c.hazardous_for_minors ? 18 : null)
+  return from != null && from > age ? from : null
+}
 
 export function Careers() {
   const { t, i18n } = useTranslation()
@@ -26,6 +34,7 @@ export function Careers() {
   const matches = useMatches(stableWhatIf)
   const [selected, setSelected] = useState<string | null>(null)
   const current = matches.find((m) => m.slug === selected) ?? matches[0]
+  const minor = typeof facts.age === 'number' && facts.age < 18
 
   if (!profileComplete(facts))
     return (
@@ -84,6 +93,11 @@ export function Careers() {
           </Button>
         )}
       </div>
+      {minor && (
+        <p role="note" className="mb-4 rounded-2xl border bg-tile-peach px-5 py-3 text-sm font-medium text-tile-foreground">
+          {t('careers.minorBanner')}
+        </p>
+      )}
       <SplitView
         listTitle={<h2 className="text-lg font-semibold">{t('careers.topMatches', { count: matches.length })}</h2>}
         list={matches.map((m) => {
@@ -96,6 +110,7 @@ export function Careers() {
               leading={<span className="grid size-11 place-items-center rounded-xl bg-tile-lilac text-sm font-semibold text-tile-foreground">{m.score}</span>}
               title={careerName(c, i18n.language)}
               subtitle={t(`categories.${c.category}`, { defaultValue: c.category })}
+              trailing={ageGate(c, facts.age) != null ? <Badge variant="outline">{t('careers.afterAge', { age: ageGate(c, facts.age) })}</Badge> : undefined}
             />
           )
         })}
@@ -126,10 +141,14 @@ function CareerDetail({ match }: { match: Match }) {
   const status = Object.fromEntries(checks.map((x) => [x.scheme.slug, x.result]))
   const name = careerName(c, i18n.language)
   const pay = payRange(c.pay_min, c.pay_max)
+  const gate = ageGate(c, useFacts((s) => s.facts.age))
 
   return (
     <div className="flex flex-col gap-6">
       <div>
+        {gate != null && (
+          <p role="note" className="mb-3 rounded-2xl bg-tile-peach px-4 py-2 text-sm font-medium text-tile-foreground">{t('careers.afterAgeNote', { age: gate })}</p>
+        )}
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="secondary">{t(`categories.${c.category}`, { defaultValue: c.category })}</Badge>
           {c.nsqf_level && <Badge variant="outline">NSQF {c.nsqf_level}</Badge>}
@@ -144,6 +163,7 @@ function CareerDetail({ match }: { match: Match }) {
             {t('careers.pay', { range: pay })} {c.needs_city && <span className="inline-flex items-center gap-1"><MapPin className="size-3.5" />{t('careers.city')}</span>}
           </p>
         )}
+        {pay && <PaySources c={c} className="mt-1" />}
         <div className="mt-4 flex flex-wrap gap-2">
           <Button asChild className="h-11 rounded-full px-5">
             <Link to={to.career(c.slug)}>

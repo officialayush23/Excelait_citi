@@ -1,0 +1,267 @@
+{
+  "_doc": "Indian rules for a student under 18 who wants to work or earn. Used by backend/app/services/work_rules.py to build the 'What the law says for your age' card and to keep hazardous careers away from minors. 'policy': true marks Saathi's own safety rule (stricter than the law), not a legal rule. Re-check every source before the pilot.",
+  "checked_on": "2026-11-21",
+  "jobs_min_age": 18,
+  "apprentice_min_age": 14,
+  "apprentice_hazardous_min_age": 18,
+  "skill_training_min_age": 15,
+  "driving_min_age": 18,
+  "sources": {
+    "calpra": {
+      "title": "Child and Adolescent Labour (Prohibition and Regulation) Act, 1986 (as amended in 2016)",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://labour.gov.in/sites/default/files/the_child_and_adolescent_labour_prohibition_amp_regulation_act_1986_0.pdf",
+      "also": [
+        "https://www.indiacode.nic.in/handle/123456789/1848"
+      ],
+      "sections": "s.2, s.3, s.3A, s.7, s.14"
+    },
+    "calpra_rules_2017": {
+      "title": "Child Labour (Prohibition and Regulation) Amendment Rules, 2017, rule 2B (published 2 June 2017)",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://www.legitquest.com/act/child-labour-prohibition-and-regulation-amendment-rules-2017/9015",
+      "also": [
+        "https://labour.gov.in/acts/intent-notification-child-labour-prohibition-and-regulation-amendment-rules20-april-2017"
+      ]
+    },
+    "calpra_schedule": {
+      "title": "Schedule of hazardous occupations and processes, Part A and Part B (S.O. 1022(E), 31 March 2017)",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://labour.gov.in/sites/default/files/amendment_in_the_schedule_to_the_child_and_adolescent_labour_prohibition_regulation_act_1986_.pdf",
+      "note": "The labour.gov.in copy is the notification as published for comments; Saathi applies the full Part A + Part B list to everyone under 18 as a safety policy, which is stricter than the law."
+    },
+    "apprentices_act": {
+      "title": "Apprentices Act, 1961, section 3 (minimum age 14; 18 for trades in hazardous industries)",
+      "publisher": "Directorate General of Training",
+      "url": "https://dgt.gov.in/content/question-who-eligible-become-apprentice",
+      "also": [
+        "https://indiankanoon.org/doc/1039932/",
+        "https://dtet.odisha.gov.in/en/naps-faqs"
+      ]
+    },
+    "mv_act": {
+      "title": "Motor Vehicles Act, 1988, section 4 (age limit for driving)",
+      "publisher": "Ministry of Road Transport and Highways",
+      "url": "https://indiankanoon.org/doc/8820/",
+      "also": [
+        "https://morth.gov.in"
+      ]
+    },
+    "pmkvy": {
+      "title": "Pradhan Mantri Kaushal Vikas Yojana 4.0 (age 15 to 45)",
+      "publisher": "Skill India / NSDC",
+      "url": "https://www.skillindiadigital.gov.in",
+      "also": [
+        "https://nsdcindia.org/products/pradhan-mantri-kaushal-vikas-yojana"
+      ],
+      "from": "shared/rules/schemes.json#pmkvy-4"
+    },
+    "naps": {
+      "title": "National Apprenticeship Promotion Scheme",
+      "publisher": "Ministry of Skill Development and Entrepreneurship",
+      "url": "https://msde.gov.in/schemes-initiatives/apprenticeship-training/naps",
+      "from": "shared/rules/schemes.json#naps"
+    },
+    "pm_internship": {
+      "title": "PM Internship Scheme (age 18 to 25)",
+      "publisher": "Ministry of Corporate Affairs",
+      "url": "https://pminternship.mca.gov.in",
+      "from": "shared/rules/schemes.json#pm-internship"
+    },
+    "saathi_policy": {
+      "title": "Saathi safety policy: live electrical work and work at height are kept for 18+ (stricter than the law)",
+      "publisher": "ExcelAIt",
+      "url": "https://labour.gov.in/sites/default/files/amendment_in_the_schedule_to_the_child_and_adolescent_labour_prohibition_regulation_act_1986_.pdf",
+      "policy": true
+    }
+  },
+  "rules": [
+    {
+      "id": "child_no_job",
+      "kind": "not_allowed",
+      "min_age": 0,
+      "max_age": 13,
+      "sources": [
+        "calpra"
+      ],
+      "text": {
+        "en": "Under 14, nobody may employ you or make you work in any job or business, paid or unpaid.",
+        "hi": "14 साल से कम उम्र में कोई भी आपको किसी नौकरी या काम पर नहीं रख सकता, चाहे पैसे मिलें या नहीं।",
+        "mr": "14 वर्षांखालील मुलांना कोणीही कोणत्याही नोकरीवर किंवा कामावर ठेवू शकत नाही, पैसे मिळो वा न मिळो."
+      }
+    },
+    {
+      "id": "child_family_help",
+      "kind": "allowed",
+      "min_age": 0,
+      "max_age": 13,
+      "sources": [
+        "calpra",
+        "calpra_rules_2017"
+      ],
+      "text": {
+        "en": "You may help your own family or family business after school or in holidays, if the work is not hazardous. Not during school hours, not between 7 pm and 8 am, at most 3 hours a day, it must not affect studies or homework, and you must not replace a worker.",
+        "hi": "आप स्कूल के बाद या छुट्टियों में अपने परिवार या परिवार के कारोबार में मदद कर सकते हैं, अगर काम खतरनाक नहीं है। स्कूल के समय में नहीं, शाम 7 से सुबह 8 के बीच नहीं, दिन में ज़्यादा से ज़्यादा 3 घंटे, पढ़ाई और होमवर्क पर असर नहीं, और किसी मज़दूर की जगह नहीं।",
+        "mr": "शाळेनंतर किंवा सुट्टीत तुम्ही आपल्या कुटुंबाला किंवा कुटुंबाच्या व्यवसायात मदत करू शकता, काम धोकादायक नसेल तर. शाळेच्या वेळेत नाही, संध्याकाळी 7 ते सकाळी 8 मध्ये नाही, दिवसाला जास्तीत जास्त 3 तास, अभ्यास-गृहपाठावर परिणाम नको, आणि कामगाराच्या जागी नाही."
+      }
+    },
+    {
+      "id": "child_family_help_unpaid",
+      "kind": "limit",
+      "min_age": 0,
+      "max_age": 13,
+      "sources": [
+        "calpra_rules_2017"
+      ],
+      "text": {
+        "en": "This family help is not a paid job: the rules say it must not earn money for you or your family.",
+        "hi": "परिवार की यह मदद पैसे वाली नौकरी नहीं है: नियम कहते हैं इससे आपको या परिवार को कमाई नहीं होनी चाहिए।",
+        "mr": "कुटुंबाला केलेली ही मदत पगाराची नोकरी नाही: नियमानुसार यातून तुम्हाला किंवा कुटुंबाला कमाई होऊ नये."
+      }
+    },
+    {
+      "id": "child_artist",
+      "kind": "allowed",
+      "min_age": 0,
+      "max_age": 13,
+      "sources": [
+        "calpra"
+      ],
+      "text": {
+        "en": "Child artists (films, TV, ads, sports) are allowed with safety conditions, but not in a circus, and school must not suffer.",
+        "hi": "बाल कलाकार (फ़िल्म, टीवी, विज्ञापन, खेल) सुरक्षा शर्तों के साथ काम कर सकते हैं, सर्कस में नहीं, और पढ़ाई पर असर नहीं होना चाहिए।",
+        "mr": "बाल कलाकार (चित्रपट, टीव्ही, जाहिरात, खेळ) सुरक्षेच्या अटींसह काम करू शकतात, सर्कसमध्ये नाही, आणि शाळेवर परिणाम नको."
+      }
+    },
+    {
+      "id": "child_no_apprentice",
+      "kind": "not_allowed",
+      "min_age": 0,
+      "max_age": 13,
+      "sources": [
+        "apprentices_act"
+      ],
+      "text": {
+        "en": "Apprenticeship starts only from age 14.",
+        "hi": "अप्रेंटिसशिप 14 साल की उम्र से ही शुरू हो सकती है।",
+        "mr": "अप्रेंटिसशिप वयाच्या 14 वर्षांपासूनच सुरू होते."
+      }
+    },
+    {
+      "id": "teen_light_work",
+      "kind": "allowed",
+      "min_age": 14,
+      "max_age": 17,
+      "sources": [
+        "calpra"
+      ],
+      "text": {
+        "en": "From 14 to 17 you may do work that is not hazardous: at most 3 hours at a time with 1 hour rest, the whole day spread over at most 6 hours, never between 7 pm and 8 am, no overtime, and not at two places on the same day.",
+        "hi": "14 से 17 साल में आप ऐसा काम कर सकते हैं जो खतरनाक न हो: एक बार में ज़्यादा से ज़्यादा 3 घंटे और फिर 1 घंटा आराम, पूरा काम दिन में 6 घंटे के अंदर, शाम 7 से सुबह 8 के बीच कभी नहीं, ओवरटाइम नहीं, और एक दिन में दो जगह काम नहीं।",
+        "mr": "14 ते 17 वयात धोकादायक नसलेले काम करू शकता: एका वेळी जास्तीत जास्त 3 तास मग 1 तास विश्रांती, संपूर्ण काम दिवसात 6 तासांच्या आत, संध्याकाळी 7 ते सकाळी 8 मध्ये कधीच नाही, ओव्हरटाइम नाही, आणि एका दिवशी दोन ठिकाणी काम नाही."
+      }
+    },
+    {
+      "id": "teen_no_hazardous",
+      "kind": "not_allowed",
+      "min_age": 14,
+      "max_age": 17,
+      "sources": [
+        "calpra",
+        "calpra_schedule"
+      ],
+      "text": {
+        "en": "No hazardous work before 18: mines and quarries, brick kilns, explosives and fireworks, welding, factories with hazardous processes, chemicals, and hazardous construction work.",
+        "hi": "18 से पहले कोई खतरनाक काम नहीं: खदान और पत्थर खदान, ईंट भट्ठा, विस्फोटक और पटाखे, वेल्डिंग, खतरनाक प्रक्रिया वाली फ़ैक्टरियाँ, रसायन, और खतरनाक निर्माण कार्य।",
+        "mr": "18 वर्षांपूर्वी धोकादायक काम नाही: खाणी व दगडखाणी, वीटभट्टी, स्फोटके व फटाके, वेल्डिंग, धोकादायक प्रक्रिया असलेले कारखाने, रसायने, आणि धोकादायक बांधकाम."
+      }
+    },
+    {
+      "id": "under18_saathi_safety",
+      "kind": "not_allowed",
+      "min_age": 0,
+      "max_age": 17,
+      "sources": [
+        "calpra_schedule"
+      ],
+      "policy": true,
+      "text": {
+        "en": "For your safety Saathi also does not suggest these before 18: construction, masonry and building carpentry, garages and vehicle repair, soldering, dhabas and hotels, domestic work, and farm work with tractors or threshers.",
+        "hi": "आपकी सुरक्षा के लिए साथी 18 से पहले ये काम भी नहीं सुझाता: निर्माण, राजमिस्त्री और भवन बढ़ईगिरी, गैराज और गाड़ी मरम्मत, सोल्डरिंग, ढाबे और होटल, घरेलू काम, और ट्रैक्टर या थ्रेशर वाला खेती का काम।",
+        "mr": "तुमच्या सुरक्षेसाठी साथी 18 पूर्वी हीही कामे सुचवत नाही: बांधकाम, गवंडीकाम व बांधकामातील सुतारकाम, गॅरेज व वाहन दुरुस्ती, सोल्डरिंग, ढाबे व हॉटेल, घरकाम, आणि ट्रॅक्टर किंवा मळणीयंत्रावरील शेतीकाम."
+      }
+    },
+    {
+      "id": "under18_no_driving",
+      "kind": "not_allowed",
+      "min_age": 0,
+      "max_age": 17,
+      "sources": [
+        "mv_act"
+      ],
+      "text": {
+        "en": "Driving a motor vehicle on public roads needs age 18 (a gearless scooter up to 50cc from 16 with a licence). So driving and delivery jobs are for 18+.",
+        "hi": "सड़क पर गाड़ी चलाने के लिए 18 साल ज़रूरी है (50cc तक बिना गियर स्कूटर 16 से, लाइसेंस के साथ)। इसलिए ड्राइविंग और डिलीवरी का काम 18+ के लिए है।",
+        "mr": "रस्त्यावर वाहन चालवण्यासाठी 18 वर्षे आवश्यक (50cc पर्यंत बिनगिअर स्कूटर 16 पासून, परवान्यासह). म्हणून ड्रायव्हिंग व डिलिव्हरीची कामे 18+ साठी."
+      }
+    },
+    {
+      "id": "teen_apprentice",
+      "kind": "allowed",
+      "min_age": 14,
+      "max_age": 17,
+      "sources": [
+        "apprentices_act",
+        "naps"
+      ],
+      "text": {
+        "en": "From 14 you can be an apprentice in a safe (non-hazardous) trade and get a stipend; trades in hazardous industries need 18.",
+        "hi": "14 साल से आप सुरक्षित (गैर-खतरनाक) ट्रेड में अप्रेंटिस बनकर स्टाइपेंड पा सकते हैं; खतरनाक उद्योग वाले ट्रेड के लिए 18 साल चाहिए।",
+        "mr": "14 वर्षांपासून सुरक्षित (धोकादायक नसलेल्या) ट्रेडमध्ये अप्रेंटिस होऊन स्टायपेंड मिळवू शकता; धोकादायक उद्योगातील ट्रेडसाठी 18 वर्षे हवीत."
+      }
+    },
+    {
+      "id": "skill_training_15",
+      "kind": "allowed",
+      "min_age": 15,
+      "max_age": 17,
+      "sources": [
+        "pmkvy"
+      ],
+      "text": {
+        "en": "From 15 you can join free government skill training (PMKVY) and get a certificate, so you are ready to work at 18.",
+        "hi": "15 साल से आप मुफ़्त सरकारी कौशल प्रशिक्षण (PMKVY) लेकर प्रमाणपत्र पा सकते हैं, ताकि 18 पर काम के लिए तैयार रहें।",
+        "mr": "15 वर्षांपासून मोफत सरकारी कौशल्य प्रशिक्षण (PMKVY) घेऊन प्रमाणपत्र मिळवू शकता, म्हणजे 18 ला कामासाठी तयार असाल."
+      }
+    },
+    {
+      "id": "under18_jobs_policy",
+      "kind": "limit",
+      "min_age": 0,
+      "max_age": 17,
+      "sources": [
+        "pm_internship"
+      ],
+      "policy": true,
+      "text": {
+        "en": "Saathi shows job openings only from 18; before that it shows training and apprenticeships your age allows.",
+        "hi": "साथी नौकरी की वैकेंसी 18 साल से ही दिखाता है; उससे पहले आपकी उम्र के हिसाब से ट्रेनिंग और अप्रेंटिसशिप दिखाता है।",
+        "mr": "साथी नोकरीच्या जागा 18 वर्षांपासूनच दाखवतो; त्याआधी तुमच्या वयाला चालणारे प्रशिक्षण व अप्रेंटिसशिप दाखवतो."
+      }
+    },
+    {
+      "id": "adult_work",
+      "kind": "allowed",
+      "min_age": 18,
+      "max_age": 200,
+      "sources": [
+        "calpra"
+      ],
+      "text": {
+        "en": "At 18 you are an adult under labour law: the child and adolescent limits no longer apply.",
+        "hi": "18 साल पर आप श्रम कानून में वयस्क हैं: बच्चों और किशोरों वाली पाबंदियाँ लागू नहीं होतीं।",
+        "mr": "18 व्या वर्षी तुम्ही कामगार कायद्यानुसार प्रौढ आहात: मुले व किशोरांचे निर्बंध लागू होत नाहीत."
+      }
+    }
+  ]
+}

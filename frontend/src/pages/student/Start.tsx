@@ -30,14 +30,22 @@ const STAGES: Record<string, { class_level: number; course: string }> = {
 }
 
 type Step = { key: string; optional?: boolean; when?: (f: Record<string, unknown>) => boolean }
+/** Things a student may already be able to do; saved as the `skills` fact. */
+const SKILLS = ['phone_repair', 'cooking', 'stitching', 'farming', 'computer_basics', 'drawing', 'teaching_kids', 'selling', 'two_wheeler', 'electrical_basics']
+
+// One question per screen, in this order. Hours a week is asked only of students who need to earn soon.
 const STEPS: Step[] = [
   { key: 'stage' },
+  { key: 'age' },
+  { key: 'state' },
+  { key: 'district', optional: true },
   { key: 'interests' },
+  { key: 'skills', optional: true },
   { key: 'subjects' },
   { key: 'marks_percent', optional: true },
-  { key: 'state' },
   { key: 'school_type', when: (f) => f.course === 'school' },
   { key: 'needs_income_soon' },
+  { key: 'hours_per_week', when: (f) => f.needs_income_soon === true },
   { key: 'can_relocate' },
   { key: 'family_income_annual', optional: true },
   { key: 'social_category', optional: true },
@@ -72,12 +80,13 @@ export function Start() {
           <ChipGroup options={Object.keys(STAGES).map((k) => ({ value: k, label: t(`start.stage.${k}`) }))} value={[]} onChange={([k]) => void answer(STAGES[k])} />
         </Question>
       )
-    if (step.key === 'interests' || step.key === 'subjects') {
-      const tags = step.key === 'interests' ? interestTags : subjectTags
+    if (step.key === 'interests' || step.key === 'subjects' || step.key === 'skills') {
+      const tags = step.key === 'interests' ? interestTags : step.key === 'subjects' ? subjectTags : SKILLS
+      const label = (k: string) => (step.key === 'skills' ? t(`start.skills.options.${k}`) : t(`tags.${k}`))
       const current = multi.length ? multi : ((facts[step.key] as string[]) ?? [])
       return (
         <Question title={t(`start.${step.key}.q`)} hint={t(`start.${step.key}.hint`)}>
-          <ChipGroup multiple max={step.key === 'interests' ? 5 : 4} options={tags.map((k) => ({ value: k, label: t(`tags.${k}`) }))} value={current} onChange={setMulti} />
+          <ChipGroup multiple max={step.key === 'interests' ? 5 : step.key === 'subjects' ? 4 : SKILLS.length} options={tags.map((k) => ({ value: k, label: label(k) }))} value={current} onChange={setMulti} />
           <Button size="lg" className="mt-6 h-12 rounded-full px-7 text-base" disabled={!current.length} onClick={() => void answer({ [step.key]: current })}>
             {t('common.next')}
             <ArrowRight data-icon="inline-end" />

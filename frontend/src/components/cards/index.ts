@@ -6,6 +6,7 @@ export { CollegesCard, OffersCard, ResourcesCard, ResourceRows, WebCard } from '
 export { PostsCard, SeniorsCard } from './community'
 export { PlanCard, MyPlanCard } from './plan'
 export { QuestionCard } from './QuestionCard'
+export { JobsCard, LawCard, SourceList } from './work'
 export {
   CardActionsProvider,
   CardShell,

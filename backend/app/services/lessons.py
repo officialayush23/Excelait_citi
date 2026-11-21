@@ -1,9 +1,12 @@
-"""Chapter to lesson: a textbook chapter PDF becomes a short lesson in simple language,
-with audio per section, a quiz and flashcards.
+"""Chapter to lesson: a textbook chapter (a PDF, or photos of its pages) becomes a short lesson
+in simple language, with audio per section, a quiz and flashcards.
+
+Reading: a PDF page with a real text layer is read directly; a scanned page (and every photo)
+goes through OCR (app/services/ocr.py) in the background task, page by page, with progress.
 
 Cost: one LLM call per lesson (a second only if the first reply is not valid JSON),
 then one or more Sarvam TTS calls per section. Everything is grounded in the text read
-from the PDF; the prompt forbids adding facts that are not in it."""
+from the pages; the prompt forbids adding facts that are not in it."""
 
 from __future__ import annotations
 
@@ -13,27 +16,33 @@ import json
 import random
 import re
 import time
+import unicodedata
 import wave
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 
 import httpx
 
 from app.core.config import get_settings
 from app.core.db import get_db
+from app.services import ocr
 from app.services.ai import LANG_NAMES
 from app.services.voice import MAX_TTS_CHARS, text_to_speech
 
 MAX_PDF_BYTES = 10 * 1024 * 1024
 MAX_PAGES = 40           # pages read from one PDF
 MAX_INPUT_CHARS = 12_000  # chapter text sent to the model
-MIN_TEXT_CHARS = 200     # below this the PDF is treated as a scan
+MIN_TEXT_CHARS = 200     # fewer characters than this in all pages is too little to write a lesson from
+MIN_PAGE_CHARS = 30      # a page needs this much real text in its text layer, else it is read by OCR
+MAX_OCR_PAGES = 15       # scanned pages read per lesson; later ones are skipped (and the lesson says so)
+OCR_DPI = 200            # scanned PDF pages are drawn at this resolution before OCR
+MAX_IMAGES = 10
+MAX_IMAGE_BYTES = 8 * 1024 * 1024
 SECTION_WORDS = 160      # hard cap on a section; the prompt asks for 120
 SIGNED_URL_SECONDS = 6 * 3600
 STALE_AFTER = timedelta(minutes=15)
 PDF_BUCKET, AUDIO_BUCKET = "lesson-pdfs", "lesson-audio"
 FALLBACK_MODEL = "openai/gpt-oss-20b"
-SCAN_MESSAGE = "This PDF is a scan; text-reading for scans comes next. Please upload a PDF with selectable text."
-
 LIST_COLS = "id, owner_id, title, language, status, stage, is_public, summary, page_count, created_at"
 
 
@@ -50,9 +59,36 @@ def _clean(text: str) -> str:
     return text.strip()
 
 
-def extract_pages(pdf: bytes) -> list[str]:
+@dataclass
+class Source:
+    """What a lesson is made from. `pages` holds the text of every page; "" marks a page that
+    still has to be read by OCR (its index is in `ocr_pages`, in reading order)."""
+
+    kind: str                                   # 'pdf' or 'photo'
+    pages: list[str]
+    ocr_pages: list[int] = field(default_factory=list)
+    pdf: bytes | None = None
+    images: list[bytes] = field(default_factory=list)
+    skipped: int = 0                            # scanned pages left unread because of MAX_OCR_PAGES
+
+    @property
+    def needs_ocr(self) -> bool:
+        return bool(self.ocr_pages)
+
+
+def is_real_text(text: str) -> bool:
+    """A text layer worth using: enough letters, and not the garbage that PDFs with broken font
+    maps produce ("(cid:12)", replacement characters, mostly symbols)."""
+    body = re.sub(r"\s+", "", text)
+    if len(body) < MIN_PAGE_CHARS or "(cid:" in text:
+        return False
+    letters = sum(1 for c in body if unicodedata.category(c)[0] in "LM")  # M: Devanagari vowel signs are marks
+    return letters / len(body) >= 0.6 and text.count("\ufffd") <= len(body) * 0.02
+
+
+def plan_pdf(pdf: bytes) -> Source:
+    """Reads the text layer of each page and decides which pages need OCR."""
     from pypdf import PdfReader
-    from pypdf.errors import PdfReadError
 
     if not pdf.startswith(b"%PDF"):
         raise LessonError("This file is not a PDF.")
@@ -63,16 +99,94 @@ def extract_pages(pdf: bytes) -> list[str]:
                 reader.decrypt("")
             except Exception as e:  # noqa: BLE001
                 raise LessonError("This PDF is locked with a password.") from e
-        pages = [_clean(p.extract_text() or "") for p in reader.pages[:MAX_PAGES]]
+        layers = []
+        for p in reader.pages[:MAX_PAGES]:
+            try:
+                layers.append(_clean(p.extract_text() or ""))
+            except Exception:  # noqa: BLE001 - one bad page: try OCR for it
+                layers.append("")
     except LessonError:
         raise
-    except (PdfReadError, Exception) as e:  # noqa: BLE001 - pypdf raises many kinds
+    except Exception as e:  # noqa: BLE001 - pypdf raises many kinds
         raise LessonError("This PDF could not be read. Try saving it again or another file.") from e
-    if not pages:
+    if not layers:
         raise LessonError("This PDF has no pages.")
-    if sum(len(p) for p in pages) < MIN_TEXT_CHARS:
-        raise LessonError(SCAN_MESSAGE)
-    return pages
+    pages = [t if is_real_text(t) else "" for t in layers]
+    wanted = [i for i, t in enumerate(pages) if not t]
+    return Source("pdf", pages, wanted[:MAX_OCR_PAGES], pdf=pdf, skipped=max(0, len(wanted) - MAX_OCR_PAGES))
+
+
+def check_images(files: list[bytes]) -> None:
+    """Up to 10 JPEG/PNG/WebP photos of at most 8 MB, judged by file header, that can be opened."""
+    from PIL import Image
+
+    if not files:
+        raise LessonError("Please choose a PDF or some photos.")
+    if len(files) > MAX_IMAGES:
+        raise LessonError(f"You can add up to {MAX_IMAGES} photos.")
+    for n, data in enumerate(files, 1):
+        if len(data) > MAX_IMAGE_BYTES:
+            raise LessonError(f"Photo {n} is bigger than 8 MB.")
+        if ocr.sniff_image(data) is None:
+            raise LessonError(f"Photo {n} is not a JPEG, PNG or WebP picture.")
+        try:
+            with Image.open(io.BytesIO(data)) as im:
+                too_big = im.width * im.height > ocr.MAX_PIXELS
+        except Exception as e:  # noqa: BLE001
+            raise LessonError(f"Photo {n} could not be opened.") from e
+        if too_big:
+            raise LessonError(f"Photo {n} is too large. Please use a smaller picture.")
+
+
+def plan_photos(files: list[bytes]) -> Source:
+    check_images(files)
+    return Source("photo", [""] * len(files), list(range(len(files))), images=list(files))
+
+
+def _render_page(doc, index: int):
+    """One PDF page as an RGB image at OCR_DPI (very large pages are scaled to 3000 px)."""
+    page = doc[index]
+    w, h = page.get_size()
+    scale = min(OCR_DPI / 72, 3000 / max(w, h, 1))
+    return page.render(scale=scale).to_pil().convert("RGB")
+
+
+def read_scans(source: Source, language: str, on_progress=None, ocr_fn=None, render=None) -> tuple[list[str], float | None, list]:
+    """OCR every page in source.ocr_pages. Returns (page texts, mean confidence or None, per page results).
+    A page's text is never left out: pages that read as nothing stay "". `on_progress(done, total)`
+    is called before the first page and after each one."""
+    ocr_fn = ocr_fn or ocr.ocr_image
+    pages = list(source.pages)
+    total = len(source.ocr_pages)
+    doc = None
+    results, first = [], None
+    try:
+        if source.kind == "pdf" and render is None:
+            import pypdfium2 as pdfium
+
+            try:
+                doc = pdfium.PdfDocument(source.pdf)
+            except Exception as e:  # noqa: BLE001
+                raise LessonError("This PDF could not be read. Try saving it again or another file.") from e
+            render = lambda i: _render_page(doc, i)  # noqa: E731
+        if on_progress:
+            on_progress(0, total)
+        for k, idx in enumerate(source.ocr_pages):
+            image = ocr.load_image(source.images[idx]) if source.kind == "photo" else render(idx)
+            res = ocr_fn(image, language, first)
+            del image
+            results.append(res)
+            if res.text.strip() and res.confidence >= ocr.RETRY_CONFIDENCE:
+                first = res.script  # the next page starts with the model that just worked
+            pages[idx] = _clean(res.text)
+            if on_progress:
+                on_progress(k + 1, total)
+    finally:
+        if doc is not None:
+            doc.close()
+    chars = sum(len(r.text) for r in results)
+    conf = sum(r.confidence * len(r.text) for r in results) / chars if chars else None
+    return pages, conf, results
 
 
 def _cut(text: str, limit: int) -> str:
@@ -303,38 +417,110 @@ def active_count(owner_id: str) -> int:
     return len(rows or [])
 
 
-def start_lesson(owner_id: str, pdf: bytes, language: str, title: str | None, filename: str = "") -> tuple[dict, str]:
-    """Reads the PDF now (so scans fail at once), saves the row and the file. Returns (row, capped text)."""
-    if len(pdf) > MAX_PDF_BYTES:
-        raise LessonError("This PDF is bigger than 10 MB.")
+def start_lesson(owner_id: str, files: bytes | list[bytes], language: str, title: str | None, filename: str = "") -> tuple[dict, str | Source]:
+    """Checks the upload now (a bad file fails at once), saves the row and the PDF, and returns
+    (row, source). `files` is one PDF or up to 10 photos in reading order. The source is plain
+    capped text when every page has a text layer, else a Source whose scanned pages are read by
+    process_lesson in the background."""
+    files = [files] if isinstance(files, (bytes, bytearray)) else list(files)
+    if any(len(f) > (MAX_PDF_BYTES if f.startswith(b"%PDF") else MAX_IMAGE_BYTES) for f in files):
+        raise LessonError("This PDF is bigger than 10 MB." if files and files[0].startswith(b"%PDF") else "A photo is bigger than 8 MB.")
     if language not in LANG_NAMES:
         raise LessonError("This language is not supported yet.")
-    pages = extract_pages(pdf)
-    text = cap_text(pages)
+    pdf = None
+    if files and files[0].startswith(b"%PDF"):
+        if len(files) > 1:
+            raise LessonError("Please choose one PDF, or photos, but not both.")
+        pdf = bytes(files[0])
+        source = plan_pdf(pdf)
+    else:
+        source = plan_photos([bytes(f) for f in files])
+    if not source.needs_ocr:
+        text = cap_text(source.pages)
+        if len(text) < MIN_TEXT_CHARS:
+            raise LessonError("This PDF has too little text to make a lesson from.")
     title = _s(title)[:160] or None
-    stem = _s(re.sub(r"[_-]+", " ", re.sub(r"\.pdf$", "", filename, flags=re.I)))[:160]
+    stem = _s(re.sub(r"[_-]+", " ", re.sub(r"\.pdf$", "", filename, flags=re.I)))[:160] if pdf else ""
     db = get_db()
     row = db.table("lessons").insert({"owner_id": owner_id, "title": title or stem or "Lesson", "language": language, "status": "processing",
-                                      "stage": "writing", "source": "pdf", "page_count": len(pages)}).execute().data[0]
-    path = f"{owner_id}/{row['id']}.pdf"
+                                      "stage": "reading" if source.needs_ocr else "writing", "source": "pdf" if pdf else "photo",
+                                      "page_count": len(source.pages)}).execute().data[0]
+    if pdf:
+        path = f"{owner_id}/{row['id']}.pdf"
+        try:
+            db.storage.from_(PDF_BUCKET).upload(path, pdf, {"content-type": "application/pdf", "upsert": "true"})
+            _update(row["id"], source_pdf_path=path)
+        except Exception:  # noqa: BLE001 - the lesson still works without the stored original
+            pass
+    return row, (source if source.needs_ocr else text)
+
+
+def _progress_writer(lesson_id: str):
+    """Writes the OCR progress to lessons.progress; a failure (column not there yet) is ignored, once."""
+    state = {"ok": True}
+
+    def write(done: int, total: int) -> None:
+        if state["ok"]:
+            try:
+                _update(lesson_id, progress={"ocr": {"done": done, "total": total}})
+            except Exception:  # noqa: BLE001
+                state["ok"] = False
+
+    return write
+
+
+def read_source(lesson_id: str, source: Source, language: str, ocr_fn=None, render=None) -> tuple[str, list[str]]:
+    """Runs OCR for the scanned pages, then caps the text. Returns (chapter text, note codes).
+    Raises LessonError with a message the student can act on."""
     try:
-        db.storage.from_(PDF_BUCKET).upload(path, pdf, {"content-type": "application/pdf", "upsert": "true"})
-        _update(row["id"], source_pdf_path=path)
-    except Exception:  # noqa: BLE001 - the lesson still works without the stored original
-        pass
-    return row, text
+        pages, conf, _results = read_scans(source, language, _progress_writer(lesson_id), ocr_fn=ocr_fn, render=render)
+    except ocr.ImageError as e:
+        raise LessonError(f"{e} Please take the photo again.") from e
+    except ocr.OcrError as e:
+        raise LessonError("The text reader is not available right now. Please try again in a few minutes.") from e
+    text = cap_text(pages)
+    if len(text) < MIN_TEXT_CHARS:
+        what = "photos" if source.kind == "photo" else "scanned pages"
+        raise LessonError(f"We could not read enough text from these {what}. Please use clear, well lit pictures of the whole page.")
+    notes = []
+    if source.skipped:
+        notes.append("pages_skipped")
+    if conf is not None and conf < ocr.LOW_CONFIDENCE:
+        notes.append("low_confidence")
+    return text, notes
 
 
-def process_lesson(lesson_id: str, owner_id: str, text: str, language: str, title: str | None, llm=None, tts=None) -> None:
-    """Background task: write the lesson, save quiz and flashcards, record audio."""
+def process_lesson(lesson_id: str, owner_id: str, text: "str | Source", language: str, title: str | None, llm=None, tts=None,
+                   ocr_fn=None, render=None) -> None:
+    """Background task: read scanned pages (OCR), write the lesson, save quiz and flashcards, record audio."""
     db = get_db()
+    notes: list[str] = []
+    source: Source | None = None
+    if isinstance(text, Source):
+        source = text
+        try:
+            text, notes = read_source(lesson_id, source, language, ocr_fn=ocr_fn, render=render)
+        except Exception as e:  # noqa: BLE001
+            msg = str(e) if isinstance(e, LessonError) else "We could not read these pages. Please try again."
+            _update(lesson_id, status="failed", stage=None, error=msg)
+            return
+        try:
+            _update(lesson_id, stage="writing")
+        except Exception:  # noqa: BLE001
+            pass
     try:
         lesson, _tokens = generate(text, language, title, llm=llm)
     except Exception as e:  # noqa: BLE001
         _update(lesson_id, status="failed", stage=None, error=f"Could not write the lesson. Please try again. ({str(e)[:160]})")
         return
+    summary = lesson["summary"]
+    if notes:  # the lesson page shows these as a banner (get_lesson returns them as `notes`)
+        try:
+            _update(lesson_id, progress={"notes": notes})
+        except Exception:  # noqa: BLE001 - progress column is optional for the lesson itself
+            pass
     try:
-        _update(lesson_id, title=title or lesson["title"], summary=lesson["summary"], sections=lesson["sections"], key_terms=lesson["key_terms"],
+        _update(lesson_id, title=title or lesson["title"], summary=summary, sections=lesson["sections"], key_terms=lesson["key_terms"],
                 body="\n\n".join(f"{s['heading']}\n{s['text']}" for s in lesson["sections"]), stage="recording")
         quiz = db.table("quizzes").insert({"lesson_id": lesson_id, "title": title or lesson["title"], "created_by": owner_id}).execute().data[0]
         db.table("quiz_questions").insert([{"quiz_id": quiz["id"], "prompt": q["prompt"], "options": q["options"], "answer_index": q["answer_index"],
@@ -406,7 +592,11 @@ def get_lesson(user_id: str, lesson_id: str) -> dict:
         row = {**row, "status": "failed", "stage": None, "error": "This took too long. Please upload the chapter again."}
     out = {k: row.get(k) for k in ("id", "title", "language", "status", "stage", "error", "is_public", "summary", "page_count", "created_at")}
     out["is_owner"] = row["owner_id"] == user_id
+    out["source"] = row.get("source")
+    prog = row.get("progress") or {}
+    out["notes"] = prog.get("notes") or []
     if row["status"] != "ready":
+        out["progress"] = {"ocr": prog["ocr"]} if prog.get("ocr") else None
         return out
     audio = row.get("audio_paths") or []
     urls = _signed(audio)

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ChipGroup, type ChipOption } from '@/components/student/Chips'
+import { DistrictQuestion } from '@/components/student/DistrictQuestion'
 import { SpeakButton } from '@/components/shell/SpeakButton'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -11,12 +12,15 @@ import { lakh } from '@/lib/format'
 export const INCOME_TOP = 1000001
 /** Yes/no facts used for career matching that are not part of any scheme rule. */
 const EXTRA_BOOLEANS = new Set(['needs_income_soon', 'can_relocate'])
+/** Hours a week the student can give; the stored number is the middle of the chosen band. */
+export const HOURS_BANDS = [0, 3, 8, 15, 25]
 
 /** Answer choices for a fact, with labels a student understands. */
 export function useFactOptions(field: string): ChipOption[] | null {
   const { t } = useTranslation()
   const f = fields[field]
   if (EXTRA_BOOLEANS.has(field) || f?.type === 'boolean') return [{ value: 'true', label: t('common.yes') }, { value: 'false', label: t('common.no') }]
+  if (field === 'hours_per_week') return HOURS_BANDS.map((n) => ({ value: String(n), label: t(`facts.hours_per_week.options.${n}`) }))
   if (!f) return null
   if (field === 'family_income_annual')
     return [
@@ -32,7 +36,7 @@ export function useFactOptions(field: string): ChipOption[] | null {
 export function parseAnswer(field: string, raw: string): unknown {
   const f = fields[field]
   if (EXTRA_BOOLEANS.has(field) || f?.type === 'boolean') return raw === 'true'
-  if (f?.type === 'number') return Number(raw)
+  if (f?.type === 'number' || field === 'hours_per_week') return Number(raw)
   return raw
 }
 
@@ -40,13 +44,18 @@ type Props = { field: string; onAnswer: (value: unknown) => void; compact?: bool
 
 /** One question about one fact: tap a chip, or type a number when there are no choices. */
 export function FactQuestion({ field, onAnswer, compact }: Props) {
+  if (field === 'district') return <DistrictQuestion onAnswer={onAnswer} compact={compact} />
+  return <FactInput field={field} onAnswer={onAnswer} compact={compact} />
+}
+
+function FactInput({ field, onAnswer, compact }: Props) {
   const { t } = useTranslation()
   const options = useFactOptions(field)
   const [num, setNum] = useState('')
   const question = t(`facts.${field}.q`)
   const hint = t(`facts.${field}.hint`, { defaultValue: '' })
   const f = fields[field]
-  const max = field === 'marks_percent' ? 100 : 120
+  const [min, max] = field === 'marks_percent' ? [0, 100] : field === 'age' ? [8, 60] : [0, 120]
 
   return (
     <div className="flex flex-col gap-4">
@@ -65,13 +74,13 @@ export function FactQuestion({ field, onAnswer, compact }: Props) {
           onSubmit={(e) => {
             e.preventDefault()
             const n = Number(num)
-            if (num !== '' && n >= 0 && n <= max) onAnswer(n)
+            if (num !== '' && n >= min && n <= max) onAnswer(n)
           }}
         >
           <Input
             inputMode="decimal"
             type="number"
-            min={0}
+            min={min}
             max={max}
             value={num}
             onChange={(e) => setNum(e.target.value)}

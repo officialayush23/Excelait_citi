@@ -5,9 +5,10 @@ import { CollegesCard, OffersCard, ResourcesCard, WebCard } from './places'
 import { MyPlanCard, PlanCard } from './plan'
 import { QuestionCard } from './QuestionCard'
 import type { Card } from './types'
+import { JobsCard, LawCard } from './work'
 
 /** Picks the right renderer for any card Saathi sends. Unknown types render nothing. */
-export function CardView({ card }: { card: Card }) {
+export function CardView({ card, active }: { card: Card; active?: boolean }) {
   switch (card.type) {
     case 'careers':
       return <CareersCard card={card} />
@@ -38,19 +39,23 @@ export function CardView({ card }: { card: Card }) {
     case 'web':
       return <WebCard card={card} />
     case 'question':
-      return <QuestionCard card={card} />
+      return <QuestionCard card={card} active={active} />
+    case 'law':
+      return <LawCard card={card} />
+    case 'jobs':
+      return <JobsCard card={card} />
     default:
       return null
   }
 }
 
 /** A stack of cards, e.g. everything one Saathi reply brought back. */
-export function CardList({ cards }: { cards: Card[] }) {
+export function CardList({ cards, active }: { cards: Card[]; active?: boolean }) {
   if (!cards.length) return null
   return (
     <div className="flex flex-col gap-3">
       {cards.map((c, i) => (
-        <CardView key={`${c.type}-${i}`} card={c} />
+        <CardView key={`${c.type}-${i}`} card={c} active={active} />
       ))}
     </div>
   )

@@ -31,7 +31,7 @@ export function Money() {
   const selected = params.get('scheme')
   const current = checks.find((c) => c.scheme.slug === selected) ?? checks[0]
 
-  if (!Object.keys(facts).length)
+  if (!Object.keys(facts).length || !current)
     return (
       <>
         <PageHeader title={t('nav.money')} back />

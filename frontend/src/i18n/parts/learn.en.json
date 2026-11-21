@@ -70,5 +70,27 @@
   "shareOff": "Only you can see this lesson.",
   "delete": "Delete lesson",
   "deleteConfirm": "Delete this lesson? This cannot be undone.",
-  "grounded": "This lesson is made only from your chapter. Check with your textbook if something looks wrong."
+  "grounded": "This lesson is made only from your chapter. Check with your textbook if something looks wrong.",
+  "uploadBodyPhotos": "Upload a chapter as a PDF, or take photos of its pages. We make a short lesson in simple words.",
+  "pdfHint": "Up to 10 MB. Scanned PDFs work too.",
+  "orPhotos": "or use photos of the pages",
+  "takePhoto": "Take a photo",
+  "choosePhotos": "Choose photos",
+  "photoHint": "Up to 10 photos, 8 MB each. JPEG, PNG or WebP.",
+  "photoTip": "Take photos in good light, with the page flat and the whole page in the frame.",
+  "photoOrder": "Pages are read in this order",
+  "photoN": "Page {{n}}",
+  "moveUp": "Move earlier",
+  "moveDown": "Move later",
+  "removePhoto": "Remove photo",
+  "addMorePhotos": "Add more photos",
+  "notImage": "Please choose JPEG, PNG or WebP photos.",
+  "photoTooBig": "A photo is bigger than 8 MB. Please take it again at a lower quality.",
+  "tooManyPhotos": "You can add up to 10 photos.",
+  "ocrProgress": "Reading your pages ({{done}} of {{total}})",
+  "makeFromPhotos": "Make my lesson from {{count}} photos",
+  "note": {
+    "low_confidence": "Some words may be wrong because the photo was unclear.",
+    "pages_skipped": "Only the first 15 scanned pages were read. Later pages were skipped."
+  }
 }

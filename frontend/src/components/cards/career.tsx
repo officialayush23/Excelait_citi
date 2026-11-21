@@ -9,12 +9,24 @@ import { cn } from '@/lib/utils'
 
 import { CardShell, ChipLink, MakePlanButton, ResultBadge, RowLink, SaveButton, SectionLabel, SeeAll, TileIcon, useDateText, useName } from './kit'
 import { ResourceRows } from './places'
-import type { CardOf, CareerItem, ExamRef, MatchReason, SchemeStatus } from './types'
+import type { AgeStatus, CardOf, CareerItem, ExamRef, MatchReason, SchemeStatus } from './types'
+import { SourceList } from './work'
 
 function useReasonText() {
   const { t } = useTranslation()
   const tags = (d: (string | number)[]) => d.map((x) => t(`tags.${x}`, { defaultValue: String(x) })).join(', ')
   return (r: MatchReason) => t(`reasons.${r.code}`, { items: tags(r.detail), n: r.detail[0], defaultValue: '' })
+}
+
+/** 'Possible after 18' for a student too young for this work (never shown as a job now). */
+function AgeBadge({ status }: { status?: AgeStatus }) {
+  const { t } = useTranslation()
+  if (!status || status === 'now') return null
+  return (
+    <span className="inline-flex items-center rounded-full bg-tile-peach px-2.5 py-0.5 text-xs font-semibold text-tile-foreground">
+      {t('saathi.afterAge', { age: status.replace('after_', '') })}
+    </span>
+  )
 }
 
 function usePay() {
@@ -55,8 +67,12 @@ function CareerRow({ item, index }: { item: CareerItem; index: number }) {
         title={name(item)}
         subtitle={
           <>
+            {item.age_status && item.age_status !== 'now' && <span className="mb-0.5 block"><AgeBadge status={item.age_status} /></span>}
             {top && <span className="line-clamp-1">{top}</span>}
             {p && <span className="mt-0.5 flex items-center gap-1 font-medium text-foreground/80"><Wallet aria-hidden="true" className="size-3.5" />{p}</span>}
+            {p && item.sources && item.sources.length > 0 && (
+              <span className="block text-xs">{t('saathi.paySeenOn', { sites: [...new Set(item.sources.map((s) => s.site).filter(Boolean))].join(', ') })}</span>
+            )}
           </>
         }
       />
@@ -71,6 +87,9 @@ export function CareersCard({ card }: { card: CardOf<'careers'> }) {
   const notes = [wi.can_relocate !== undefined && t(wi.can_relocate ? 'saathi.whatIf.relocate' : 'saathi.whatIf.stay'), wi.needs_income_soon && t('saathi.whatIf.earnSoon')].filter(Boolean) as string[]
   return (
     <CardShell icon={<Compass />} tone="lilac" title={t('saathi.cards.careers')} subtitle={t('saathi.cards.careersSub', { count: card.items.length })}>
+      {card.minor && card.items.some((i) => i.age_status && i.age_status !== 'now') && (
+        <p className="rounded-2xl bg-tile-peach p-3 text-sm text-tile-foreground">{t('saathi.cards.minorCareersNote')}</p>
+      )}
       {notes.length > 0 && (
         <p className="flex flex-wrap gap-2">
           {notes.map((n) => (
@@ -154,6 +173,7 @@ export function CareerCard({ card }: { card: CardOf<'career'> }) {
         {p && <span className="inline-flex items-center gap-1.5 rounded-full bg-tile-mint px-3 py-1.5 text-sm font-semibold text-tile-foreground"><Wallet aria-hidden="true" className="size-4" />{p}</span>}
         {card.earning_speed && <span className="rounded-full bg-surface px-3 py-1.5 text-sm">{t(`speed.${card.earning_speed}`, { defaultValue: card.earning_speed })}</span>}
         {card.needs_city && <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1.5 text-sm"><MapPin aria-hidden="true" className="size-3.5" />{t('saathi.mostlyCity')}</span>}
+        <AgeBadge status={card.age_status} />
       </div>
 
       {card.path.length > 0 && (
@@ -221,6 +241,8 @@ export function CareerCard({ card }: { card: CardOf<'career'> }) {
           </div>
         </div>
       )}
+
+      {card.sources && card.sources.length > 0 && <SourceList sources={card.sources} checkedOn={card.checked_on} label={t('saathi.cards.paySources')} />}
 
       <div className="flex flex-wrap items-start gap-2 border-t pt-4">
         <MakePlanButton career={card.slug} />

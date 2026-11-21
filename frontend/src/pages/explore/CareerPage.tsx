@@ -8,6 +8,7 @@ import {
   CareerChips, CollegeList, CommunityBlock, ExamRow, ListSkeleton, LoadError, Note, PageSkeleton, PillTabs, ProgramCard, ResourceGrid, SaveButton, SchemeRow, Section,
   useCareer, useCareerOffers, useMakePlan, useSaved, loc, type Career,
 } from '@/components/explore/shared'
+import { PaySources } from '@/components/explore/PaySources'
 import { PageHeader } from '@/components/page/PageHeader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -84,6 +85,7 @@ function Hero({ c, pay }: { c: Career; pay: string | null }) {
           {c.needs_city && <span className="inline-flex items-center gap-1 text-sm font-normal"><MapPin className="size-4" />{t('careers.city')}</span>}
         </p>
       )}
+      {pay && <PaySources c={c} className="mt-1" />}
       <div className="mt-4 flex flex-wrap gap-2">
         <Button onClick={go} disabled={make.isPending} className="h-12 rounded-full px-6 text-base">
           <Sparkles data-icon="inline-start" />

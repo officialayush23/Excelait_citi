@@ -110,10 +110,12 @@ type ComposerProps = {
   disabled?: boolean
   autoFocus?: boolean
   className?: string
+  /** Saathi asked a question: the box says so and stands out, so answering is the obvious next step. */
+  answering?: boolean
 }
 
 /** Big mic, a text box and send. Speaking is the first choice for many students. */
-export function Composer({ onSend, busy, disabled, autoFocus, className }: ComposerProps) {
+export function Composer({ onSend, busy, disabled, autoFocus, className, answering }: ComposerProps) {
   const { t } = useTranslation()
   const language = useUi((s) => s.language)
   const [text, setText] = useState('')
@@ -162,6 +164,12 @@ export function Composer({ onSend, busy, disabled, autoFocus, className }: Compo
 
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
+      {answering && !busy && (
+        <p className="flex items-center gap-1.5 px-4 text-sm font-medium text-foreground" role="status">
+          <span aria-hidden="true" className="size-2 animate-pulse rounded-full bg-highlight" />
+          {t('saathi.answerQuestionHint')}
+        </p>
+      )}
       <form
         className="flex items-center gap-2"
         onSubmit={(e) => {
@@ -187,13 +195,16 @@ export function Composer({ onSend, busy, disabled, autoFocus, className }: Compo
           id="saathi-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder={recording ? t('saathi.listening') : t('saathi.typeHere')}
+          placeholder={recording ? t('saathi.listening') : answering ? t('saathi.typeAnswer') : t('saathi.typeHere')}
           disabled={disabled || recording || listening}
           autoFocus={autoFocus}
           maxLength={1000}
           autoComplete="off"
           enterKeyHint="send"
-          className="h-14 min-w-0 flex-1 rounded-full border border-input bg-card px-5 text-base outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/40 disabled:opacity-60"
+          className={cn(
+            'h-14 min-w-0 flex-1 rounded-full border border-input bg-card px-5 text-base outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/40 disabled:opacity-60',
+            answering && 'border-ring ring-3 ring-ring/30',
+          )}
         />
         <Button
           type="submit"

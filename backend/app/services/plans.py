@@ -11,6 +11,37 @@ from app.services.students import get_facts
 ENTRY_CLASS = {"none": 0, "class_8": 8, "class_10": 10, "class_12": 12, "diploma": 13, "ug_degree": 15, "ug_technical": 15}
 
 
+# Recruitment exams (jobs), as opposed to admission tests; a minor cannot sit these before the minimum age.
+RECRUITMENT_EXAMS = {"state-police", "agniveer", "rrb-group-d", "ibps-clerk", "ssc-gd"}
+ADULT_AGE = 18
+
+
+def min_age_for(career: dict, prog: dict | None) -> int | None:
+    """Youngest age at which the student may take this career's jobs: the career's own min_age if the catalogue has
+    one, 18 if it is flagged hazardous for minors, a program's min_age, else 18 for government recruitment routes."""
+    if career.get("min_age") is not None:
+        return int(career["min_age"])
+    if career.get("hazardous_for_minors"):
+        return ADULT_AGE
+    if prog and prog.get("min_age") is not None:
+        return int(prog["min_age"])
+    if (prog and prog["slug"].endswith("-recruitment")) or career.get("category") == "government":
+        return ADULT_AGE
+    return None
+
+
+def eligible_on(facts: dict, min_age: int, age: int, today: date) -> date:
+    """The date the student reaches `min_age`: exact from a date of birth, else counted in whole years from today."""
+    dob = facts.get("date_of_birth")
+    try:
+        if dob:
+            d = date.fromisoformat(dob)
+            return date(d.year + min_age, d.month, min(d.day, 28))
+    except (ValueError, TypeError):
+        pass
+    return date(today.year + (min_age - age), today.month, min(today.day, 28))
+
+
 def _admission_date(today: date) -> date:
     """Most courses start admissions around June; use the next June."""
     return date(today.year if today.month < 6 else today.year + 1, 6, 1)
@@ -40,20 +71,33 @@ def build_steps(career_slug: str, facts: dict, program_slug: str | None = None, 
     prog = g.programs.get(program_slug) if program_slug in progs else (g.programs[progs[0]] if progs else None)
     steps: list[dict] = []
 
+    # Minors: jobs and recruitment exams wait until the legal / minimum age; say so with a milestone.
+    age = facts.get("age")
+    min_age = min_age_for(c, prog)
+    gate: date | None = None
+    if isinstance(age, (int, float)) and not isinstance(age, bool) and min_age is not None and age < min_age:
+        gate = eligible_on(facts, min_age, int(age), today)
+
     need = ENTRY_CLASS.get(prog["entry"] if prog else c["min_education"], 0)
     have = facts.get("class_level") or 0
     if need and have and have < need and need <= 12:
         steps.append({"kind": "milestone", "title": f"Pass Class {need}", "detail": "Keep your marks up; many courses look at them.",
                       "due_date": date(today.year + max(0, need - have - (1 if today.month < 4 else 0)), 3, 31).isoformat()})
+    if gate:
+        steps.append({"kind": "milestone", "title": f"Eligible from age {min_age}",
+                      "detail": f"Jobs and recruitment exams for {c['name']} start at age {min_age}. Until then, finish your studies and build skills.",
+                      "due_date": gate.isoformat()})
     if prog:
         for e in prog["exam_slugs"]:
             if e in g.exams:
-                win = next_window(g.exams[e]["typical_months"], today)
+                held_back = bool(gate) and e in RECRUITMENT_EXAMS
+                win = next_window(g.exams[e]["typical_months"], gate if held_back else today)
                 steps.append({"kind": "exam", "ref_id": e, "title": f"Prepare for and take {g.exams[e]['name']}",
-                              "detail": f"Usually held around {win}. Check the official site for the exact date.", "due_date": f"{win}-01" if win else None})
+                              "detail": f"Usually held around {win}. Check the official site for the exact date." + (f" You can sit it from age {min_age}." if held_back else ""),
+                              "due_date": f"{win}-01" if win else None})
         steps.append({"kind": "program", "ref_id": prog["slug"], "title": f"Get admission: {prog['name']}",
                       "detail": f"{prog['where']}. About {prog['duration_months']} months." if prog["duration_months"] else prog["where"],
-                      "due_date": _admission_date(today).isoformat()})
+                      "due_date": (max(_admission_date(today), gate) if gate and prog["slug"].endswith("-recruitment") else _admission_date(today)).isoformat()})
         docs: list[str] = []
         for s in prog["scheme_slugs"]:
             st = scheme_status(s, facts)
@@ -65,7 +109,9 @@ def build_steps(career_slug: str, facts: dict, program_slug: str | None = None, 
             steps.append({"kind": "document", "ref_id": d, "title": f"Get ready: {g.docs.get(d, d)}"})
     for r in resources_for(careers=[career_slug], programs=[prog["slug"]] if prog else [], categories=[c["category"]], limit=2):
         steps.append({"kind": "course", "ref_id": r["slug"], "title": f"Start learning: {r['title']}", "detail": r["url"]})
-    steps.append({"kind": "milestone", "title": f"Start work as {c['name']}", "detail": " → ".join(c["path"])})
+    steps.append({"kind": "milestone", "title": f"Start work as {c['name']}",
+                  "detail": " → ".join(c["path"]) + (f" (from age {min_age})" if gate else ""),
+                  **({"due_date": gate.isoformat()} if gate else {})})
     for i, s in enumerate(steps):
         s["position"] = i
     return steps

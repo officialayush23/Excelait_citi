@@ -195,6 +195,49 @@
     "webSummary": "Web summary",
     "question": "One quick question",
     "questionSub": "Your answer helps Saathi check for you",
-    "thanksSaved": "Thank you! Your answer is saved."
+    "thanksSaved": "Thank you! Your answer is saved.",
+    "sources": "Sources",
+    "checkedOn": "Checked on {{date}}",
+    "paySources": "Where the pay and path come from",
+    "minorCareersNote": "Some of these are only possible after you turn 18. Until then, learn the skill safely.",
+    "answerBelow": "Type or speak your answer in the box below."
+  },
+  "afterAge": "Possible after {{age}}",
+  "paySeenOn": "Pay seen on {{sites}}",
+  "answerQuestionHint": "Saathi asked you a question. Answer it above, or type or speak here.",
+  "typeAnswer": "Type your answer…",
+  "choice": {
+    "hours_per_week_zero": "None",
+    "hours_per_week_one": "{{count}} hour",
+    "hours_per_week_other": "{{count}} hours",
+    "can_travel_km_zero": "Only near home",
+    "can_travel_km_one": "{{count}} km",
+    "can_travel_km_other": "{{count}} km"
+  },
+  "law": {
+    "title": "What the law says for your age",
+    "forAge": "For a student aged {{age}}",
+    "allowed": "Allowed",
+    "notAllowed": "Not allowed",
+    "note": "Good to know",
+    "policy": "Saathi safety rule",
+    "sources": "From these official sources",
+    "disclaimer": "This is a simple summary, not legal advice. If someone makes you work against these rules, call Childline 1098."
+  },
+  "jobs": {
+    "title": "Job openings now",
+    "apprenticeTitle": "Apprenticeships you can apply for",
+    "sub": "{{role}} · {{place}}",
+    "note": "Listings are from {{sites}}. Check each one on the site before you apply. Never pay anyone to get a job.",
+    "minorNote": "You are under 18, so Saathi shows only apprenticeships your age allows, not jobs.",
+    "nearbyShown": "Nothing new in {{place}}, so these are from {{nearby}}.",
+    "fromSite": "On {{site}}",
+    "postedAgo_zero": "Posted today",
+    "postedAgo_one": "Posted 1 day ago",
+    "postedAgo_other": "Posted {{count}} days ago",
+    "seenOn": "Seen on {{date}}",
+    "none": "No current openings found near {{place}} on these sites.",
+    "tryNearby": "Try {{places}}, or the apprenticeships below.",
+    "moreOnSites": "See more on the sites"
   }
 }

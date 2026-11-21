@@ -100,3 +100,62 @@ def test_needs_info_scheme_wording(fake, monkeypatch):
     monkeypatch.setattr(plans, "scheme_status", lambda s, f: {"slug": s, "name": "X", "result": "needs_info", "documents": []})
     steps = plans.build_steps("electrician", {"class_level": 10}, today=TODAY)
     assert next(s for s in steps if s["kind"] == "scheme")["detail"] == "Answer a few questions to confirm"
+
+
+# --- minors: no jobs or recruitment exams before the legal / minimum age -------------------------------
+
+def _gov_graph(monkeypatch, **career_extra):
+    g = SimpleNamespace(
+        careers={"constable": {"slug": "constable", "name": "Police constable", "program_slugs": ["police-recruitment"], "min_education": "class_12",
+                               "category": "government", "path": ["Class 12", "Physical fitness"], **career_extra}},
+        programs={"police-recruitment": {"slug": "police-recruitment", "name": "Police recruitment", "entry": "class_12", "exam_slugs": ["state-police"],
+                                         "scheme_slugs": [], "where": "State police", "duration_months": None}},
+        exams={"state-police": {"name": "State police exam", "typical_months": [3]}},
+        docs={},
+    )
+    monkeypatch.setattr(plans, "graph", lambda: g)
+    monkeypatch.setattr(plans, "scheme_status", lambda slug, facts: None)
+    monkeypatch.setattr(plans, "resources_for", lambda **kw: [])
+
+
+def test_minor_gets_eligible_from_age_milestone_and_no_early_recruitment_exam(monkeypatch):
+    _gov_graph(monkeypatch)
+    steps = plans.build_steps("constable", {"class_level": 12, "age": 16}, today=TODAY)
+    gate = next(s for s in steps if s["title"] == "Eligible from age 18")
+    assert gate["kind"] == "milestone" and gate["due_date"] == "2028-11-20"
+    exam = next(s for s in steps if s["kind"] == "exam")
+    assert exam["due_date"] >= gate["due_date"][:7]  # the exam window is the first one after the 18th birthday
+    assert steps[-1]["due_date"] == gate["due_date"] and "from age 18" in steps[-1]["detail"]
+    assert steps.index(gate) < steps.index(exam)
+
+
+def test_career_min_age_wins_and_dob_gives_exact_date(monkeypatch):
+    _gov_graph(monkeypatch, min_age=21)
+    steps = plans.build_steps("constable", {"age": 17, "date_of_birth": "2009-05-02"}, today=TODAY)
+    gate = next(s for s in steps if s["title"].startswith("Eligible from age"))
+    assert gate["title"] == "Eligible from age 21" and gate["due_date"] == "2030-05-02"
+
+
+def test_adults_and_unknown_age_are_not_gated(monkeypatch):
+    _gov_graph(monkeypatch)
+    for facts in ({"age": 19}, {"age": 18}, {}):
+        steps = plans.build_steps("constable", facts, today=TODAY)
+        assert not any(s["title"].startswith("Eligible from age") for s in steps)
+
+
+def test_hazardous_flag_means_18_even_outside_government(monkeypatch):
+    g = _fake_graph()
+    g.careers["electrician"]["hazardous_for_minors"] = True
+    monkeypatch.setattr(plans, "graph", lambda: g)
+    monkeypatch.setattr(plans, "scheme_status", lambda slug, facts: None)
+    monkeypatch.setattr(plans, "resources_for", lambda **kw: [])
+    steps = plans.build_steps("electrician", {"class_level": 10, "age": 15}, today=TODAY)
+    assert any(s["title"] == "Eligible from age 18" for s in steps)
+    # the ITI course itself is still scheduled: only the job is held back
+    assert any(s["kind"] == "program" for s in steps)
+
+
+def test_min_age_for_defaults():
+    assert plans.min_age_for({"category": "trades"}, None) is None
+    assert plans.min_age_for({"category": "government"}, None) == 18
+    assert plans.min_age_for({"min_age": 16, "category": "government"}, None) == 16

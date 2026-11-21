@@ -50,6 +50,10 @@ def main() -> None:
             "interest_tags": c["interest_tags"], "subject_tags": c["subject_tags"], "path": c["path"],
             "rural_demand": c["rural_demand"], "needs_city": c["needs_city"],
             "scheme_slugs": c["scheme_slugs"], "exam_slugs": c["exam_slugs"], "program_slugs": c["program_slugs"],
+            # Where the pay and path figures come from (backend/scripts/reference_careers.py); migration 0014.
+            "sources": c.get("sources", []), "pay_evidence": c.get("pay_evidence"), "pay_status": c.get("pay_status"),
+            "checked_on": c.get("checked_on"), "pay_previous": c.get("pay_previous"),
+            "min_age": c.get("min_age"), "hazardous_for_minors": c.get("hazardous_for_minors", False),
         })
     db.table("careers").upsert(career_rows, on_conflict="slug").execute()
     career_ids = {r["slug"]: r["id"] for r in db.table("careers").select("id, slug").execute().data}

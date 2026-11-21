@@ -9,9 +9,17 @@ export type Result = 'eligible' | 'needs_info' | 'not_eligible'
 
 export type MatchReason = { code: string; points: number; detail: (string | number)[] }
 
+/** Where a career's pay or path figure was seen (shared/catalogue/careers.json `sources`). */
+export type SourceRef = { title?: string | null; url: string; site?: string | null }
+/** 'now', or 'after_18' etc. when the student is too young for this work. */
+export type AgeStatus = 'now' | `after_${number}`
+
 export type CareerItem = I18nName & {
   slug: string
   score: number
+  age_status?: AgeStatus
+  sources?: SourceRef[]
+  checked_on?: string | null
   reasons: MatchReason[]
   gaps: { code: string; detail: (string | number)[] }[]
   category: string
@@ -68,6 +76,9 @@ export type CareerData = I18nName & {
   resources: Resource[]
   related: Ref[]
   saved?: boolean
+  age_status?: AgeStatus
+  sources?: SourceRef[]
+  checked_on?: string | null
 }
 
 export type ExamData = {
@@ -158,8 +169,44 @@ export type PlanData = { id: string; career_slug: string; title: string; status:
 
 export type WebResult = { title: string; url: string; snippet: string }
 
+export type LawRule = { id: string; kind: 'allowed' | 'not_allowed' | 'limit'; text: Record<string, string>; policy: boolean; sources: string[] }
+export type LawSource = { id: string; title: string; url: string; publisher?: string | null; policy?: boolean }
+export type LawData = {
+  age: number | null
+  band: 'child' | 'adolescent' | 'adult' | 'unknown'
+  rules: LawRule[]
+  sources: LawSource[]
+  checked_on: string
+  can_apprentice?: boolean
+  can_skill_training?: boolean
+  can_take_jobs?: boolean
+}
+
+export type JobPost = {
+  title: string
+  employer?: string | null
+  place?: string | null
+  pay?: string | null
+  posted?: string | null
+  site: string
+  url: string
+}
+export type JobsData = {
+  role: string
+  place: string
+  searched_place: string
+  items: JobPost[]
+  pages: { title: string; site: string; url: string; snippet?: string }[]
+  sites: string[]
+  site_names: Record<string, string>
+  apprenticeship_only: boolean
+  checked_on: string
+  nearby: string[]
+  minor?: boolean
+}
+
 export type Card =
-  | { type: 'careers'; what_if?: { can_relocate?: boolean; needs_income_soon?: boolean }; items: CareerItem[] }
+  | { type: 'careers'; what_if?: { can_relocate?: boolean; needs_income_soon?: boolean }; items: CareerItem[]; minor?: boolean }
   | ({ type: 'career' } & CareerData)
   | ({ type: 'program' } & ProgramData)
   | ({ type: 'exam' } & ExamData)
@@ -173,7 +220,9 @@ export type Card =
   | { type: 'my_plan'; saved: string[]; plans: PlanSummary[] }
   | ({ type: 'plan' } & PlanData)
   | { type: 'web'; query: string; results: WebResult[]; cached?: boolean }
-  | { type: 'question'; field: string | null }
+  | { type: 'question'; field: string | null; question?: string | null; lang?: string; answered?: string }
+  | ({ type: 'law' } & LawData)
+  | ({ type: 'jobs' } & JobsData)
 
 export type CardType = Card['type']
 export type CardOf<T extends CardType> = Extract<Card, { type: T }>

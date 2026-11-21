@@ -26,6 +26,9 @@ export type KeyTerm = { term: string; meaning: string }
 export type QuizQuestion = { id: string; prompt: string; options: string[] }
 export type Flashcard = { id: string; front: string; back: string }
 
+/** OCR progress while a scanned PDF or photos are read; `notes` once written ('low_confidence', 'pages_skipped'). */
+export type LessonProgressData = { ocr?: { done: number; total: number } } | null
+
 export type Lesson = {
   id: string
   title: string
@@ -38,6 +41,9 @@ export type Lesson = {
   summary: string | null
   page_count: number | null
   created_at: string
+  source?: 'pdf' | 'photo' | 'text' | null
+  progress?: LessonProgressData
+  notes?: string[]
   sections?: Section[]
   key_terms?: KeyTerm[]
   quiz?: { id: string; questions: QuizQuestion[] } | null
@@ -70,11 +76,11 @@ export const useLesson = (id?: string) =>
     refetchInterval: (q) => (q.state.data?.status === 'processing' ? 3000 : false),
   })
 
-/** Multipart upload; api() always sends JSON, so this one uses fetch directly. */
-export async function uploadChapter(file: File, language: string, title: string): Promise<{ id: string }> {
+/** Multipart upload of one PDF or up to 10 photos (in reading order) as `files`; api() always sends JSON, so this one uses fetch directly. */
+export async function uploadChapter(files: File[], language: string, title: string): Promise<{ id: string }> {
   const { data } = await supabase.auth.getSession()
   const form = new FormData()
-  form.append('file', file)
+  for (const f of files) form.append('files', f)
   form.append('language', language)
   if (title.trim()) form.append('title', title.trim())
   const res = await fetch(`${API_URL}${base}`, {
@@ -97,7 +103,7 @@ export async function uploadChapter(file: File, language: string, title: string)
 export function useUpload() {
   const qc = useQueryClient()
   return useMutation({
-    mutationFn: (v: { file: File; language: string; title: string }) => uploadChapter(v.file, v.language, v.title),
+    mutationFn: (v: { files: File[]; language: string; title: string }) => uploadChapter(v.files, v.language, v.title),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['lessons'] }),
   })
 }

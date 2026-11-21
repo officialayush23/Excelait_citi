@@ -8,7 +8,8 @@ from app.core.db import get_db
 from app.services.catalogue import fields
 
 # Facts the matcher uses that are not scheme-rule fields.
-EXTRA_FACTS = {"interests", "subjects", "needs_income_soon", "can_relocate", "district", "stage", "date_of_birth"}
+EXTRA_FACTS = {"interests", "subjects", "needs_income_soon", "can_relocate", "district", "stage", "date_of_birth",
+               "skills", "hours_per_week", "has_family_business", "can_travel_km"}
 
 
 def allowed_fact(name: str) -> bool:
@@ -37,7 +38,7 @@ def get_facts(user_id: str) -> dict:
     return facts
 
 
-LIST_FACTS = {"interests", "subjects"}
+LIST_FACTS = {"interests", "subjects", "skills"}
 
 
 def merge_facts(user_id: str, patch: dict, replace_lists: bool = False) -> dict:

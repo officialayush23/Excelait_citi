@@ -260,6 +260,22 @@
     },
     "can_relocate": {
       "q": "Could you move to a city for study or work?"
+    },
+    "district": {
+      "q": "Which district do you live in?",
+      "hint": "Tap one, or type yours.",
+      "placeholder": "Your district"
+    },
+    "hours_per_week": {
+      "q": "How many hours a week can you give to learning or work?",
+      "hint": "A rough answer is fine.",
+      "options": {
+        "0": "None right now",
+        "3": "Up to 5 hours",
+        "8": "5 to 10 hours",
+        "15": "10 to 20 hours",
+        "25": "More than 20 hours"
+      }
     }
   },
   "start": {
@@ -291,6 +307,22 @@
     "subjects": {
       "q": "Which subjects do you like most?",
       "hint": "Pick up to 4."
+    },
+    "skills": {
+      "q": "What can you already do?",
+      "hint": "Pick all that fit. Skip if none yet.",
+      "options": {
+        "phone_repair": "Fix phones",
+        "cooking": "Cook",
+        "stitching": "Stitch clothes",
+        "farming": "Farming",
+        "computer_basics": "Use a computer",
+        "drawing": "Draw",
+        "teaching_kids": "Teach younger kids",
+        "selling": "Sell or work in a shop",
+        "two_wheeler": "Ride a two-wheeler (jobs need 18+)",
+        "electrical_basics": "Basic electrical work"
+      }
     }
   },
   "tags": {
@@ -354,7 +386,10 @@
     "toWorkOn": "Things to work on",
     "path": "How to get there",
     "money": "Money that can help",
-    "exams": "Exams on this path"
+    "exams": "Exams on this path",
+    "minorBanner": "Some of these are for after 18",
+    "afterAge": "From age {{age}}",
+    "afterAgeNote": "You can start this from age {{age}}. Until then, you can study and build skills for it."
   },
   "categories": {
     "agriculture": "Agriculture",
