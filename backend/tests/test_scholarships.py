@@ -293,3 +293,26 @@ def test_jobs_found_on_web_are_stored_until_they_expire(monkeypatch):
     res = jobs.find_jobs("electrician", "Pune", "Maharashtra")
     assert not res["from_store"] and [x["source_url"] for x in stored] == [fresh["url"]]  # the 2020 post has expired
     assert stored[0]["kind"] == "job" and stored[0]["district"] == "Pune" and logged[0][0][0] == "job"
+
+
+def test_relevance_needs_the_students_own_course():
+    nurse = {"class_level": 13, "course": "ug_degree", "subjects": ["nursing"], "gender": "female", "state": "Maharashtra"}
+    general = {"name": "Post-Matric Scholarship", "eligibility_text": "students in UG courses", "eligibility": {"unknown": [], "levels": ["ug"]}}
+    nursing = {"name": "Nursing Scholarship for Girls", "eligibility_text": "B.Sc nursing", "eligibility": {"unknown": [], "levels": ["ug"]}}
+    assert not s.relevant_to(general, s.match(general, nurse, TODAY), nurse)
+    assert s.relevant_to(nursing, s.match(nursing, nurse, TODAY), nurse)
+    assert s.relevant_to(general, s.match(general, {**nurse, "subjects": []}, TODAY), {**nurse, "subjects": []})
+
+
+def test_title_names_the_state():
+    assert s.parse_states("", None, "Merit Scholarship for OBC Students in Delhi")[1] == ["Delhi"]
+    r = s._record("Post‑Matric OBC Scholarships", "https://x/y", None, "", "", "", [], "", None)
+    assert r["name"] == "Post-Matric OBC Scholarships" and r["provider_type"] == "government"
+
+
+def test_old_session_in_the_title_is_expired():
+    assert s.session_end_year("NSP Post Matric Scholarships Scheme for Minorities 2022-23") == 2023
+    assert s.session_end_year("Aditya Birla Capital Scholarship Program 2026-27") == 2027
+    old = {**rec(levels=["class_10"]), "name": "Minority Scholarship 2022-23", "deadline": None}
+    assert s.match(old, GIRL, TODAY)["status"] == "expired"
+    assert s.match({**old, "name": "PUPSS Scholarship 2027"}, GIRL, TODAY)["status"] == "likely_eligible"

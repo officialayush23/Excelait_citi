@@ -332,7 +332,8 @@ def parse_states(text: str, region: str | None = None, title: str = "") -> tuple
             if names and not re.search(r"across india|all over india|anywhere in india|pan[- ]india", s, re.I):
                 found += names
     if not found and title:  # 'Pudhumai Penn Scheme (Tamil Nadu)': the scheme's own name says the state
-        found += [st for st in STATES if re.search(rf"\(\s*{re.escape(st)}\s*\)|\b{re.escape(st)} (?:government|state|govt)", title, re.I)]
+        found += [st for st in STATES if re.search(rf"\(\s*{re.escape(st)}\s*\)|\b{re.escape(st)} (?:government|state|govt)|"
+                                                  rf"\b(?:in|of) {re.escape(st)}\b|^{re.escape(st)}\b", title, re.I)]
     if region and region.strip().lower() not in ("india", "all india", "pan india", "international", ""):
         found += [st for st in STATES if st.lower() == region.strip().lower()]
     found = list(dict.fromkeys(found))
@@ -474,7 +475,9 @@ def provider_type(name: str, provider: str | None, url: str) -> str:
 def _record(name: str, url: str, provider: str | None, elig_text: str, benefits: str, dates_text: str, docs: list[str],
             how: str, apply_url: str | None, region: str | None = None, partial: bool = False, parser: str = "",
             amount_hint: str | None = None, extra_text: str = "") -> dict:
-    name = re.sub(r"\s+", " ", name).strip(" .-–|")[:200]
+    dash = str.maketrans({c: "-" for c in "\u2010\u2011\u2012\u2013\u2014\u2015"})
+    name, elig_text = name.translate(dash), (elig_text or "").translate(dash)
+    name = re.sub(r"\s+", " ", name).strip(" .-|")[:200]
     deadline, dl_text, closed = find_deadline(f"{dates_text}\n{extra_text}")
     amount_text = _short(amount_hint or benefits, 240) or None
     amount = parse_amount(amount_hint or benefits[:600]) if (amount_hint or benefits) else None
@@ -683,6 +686,8 @@ def match(rec: dict, facts: dict, today: date | None = None) -> dict:
         return {"status": "expired", "reasons": ["deadline passed"], "unknown": [], "passed": []}
     if rec.get("closed"):
         return {"status": "expired", "reasons": ["applications closed"], "unknown": [], "passed": []}
+    if (yr := session_end_year(rec.get("name") or "")) and yr < today.year:
+        return {"status": "expired", "reasons": [f"old session ({yr})"], "unknown": [], "passed": []}
     fails, unknown, passed = [], list(e.get("unknown") or []), []
 
     lv = e.get("levels")
@@ -758,6 +763,16 @@ def match(rec: dict, facts: dict, today: date | None = None) -> dict:
     unknown = list(dict.fromkeys(unknown))
     status = "not_eligible" if fails else ("check" if unknown else "likely_eligible")
     return {"status": status, "reasons": fails, "unknown": unknown, "passed": passed}
+
+
+def session_end_year(name: str) -> int | None:
+    """'... 2022-23' -> 2023, 'Scholarship 2024' -> 2024: the year the page's own title says it is for."""
+    m = re.search(r"\b(20\d\d)\s*[-/]\s*(\d{2,4})\b", name)
+    if m:
+        end = m.group(2)
+        return int(end) if len(end) == 4 else int(m.group(1)[:2] + end)
+    m = re.search(r"\b(20\d\d)\b", name)
+    return int(m.group(1)) if m else None
 
 
 def days_left(rec: dict, today: date | None = None) -> int | None:
@@ -984,6 +999,20 @@ def _same(a: str, b: str) -> bool:
     return bool(x and y) and len(x & y) / len(x | y) >= 0.7
 
 
+def relevant_to(rec: dict, m: dict, facts: dict) -> bool:
+    """Counts toward 'the store already has enough for this student': open, not ruled out, the student's own study
+    level confirmed, and naming the student's specific course or community when they have one (e.g. nursing, minority)."""
+    if m["status"] not in ("likely_eligible", "check") or "levels" not in m["passed"]:
+        return False
+    text = f"{rec.get('name', '')} {rec.get('eligibility_text', '')}".lower()
+    subjects = " ".join(str(x) for x in (facts.get("subjects") or [])).lower()
+    if "nursing" in subjects and "nursing" not in text:
+        return False
+    if facts.get("is_minority") and not (rec.get("eligibility") or {}).get("minority") and "minorit" not in text:
+        return False
+    return True
+
+
 def discover(facts: dict, allow_web: bool = True, limit: int = 30) -> dict:
     """Verified government schemes (fixed rules) first, then scholarships found on the web, matched for this student.
     The store is read first; the web is searched only when plan says so (see knowledge.need_web_search)."""
@@ -1005,7 +1034,7 @@ def discover(facts: dict, allow_web: bool = True, limit: int = 30) -> dict:
     pool = matched_from_store()
     searched, skipped = [], []
     for q, domains in plan_queries(facts):
-        relevant = sum(1 for _, m, _i in pool if m["status"] in ("likely_eligible", "check"))
+        relevant = sum(1 for rec, m, _i in pool if relevant_to(rec, m, facts))
         last = kb.last_search("scholarship", q)
         if not allow_web or not get_settings().tavily_api_key or not kb.need_web_search(kb.searched_at(last), relevant, MIN_ITEMS):
             skipped.append(q)

@@ -20,7 +20,10 @@ from __future__ import annotations
 import io
 import logging
 import os
-import resource
+try:  # Unix only; Windows has no resource module
+    import resource
+except ImportError:  # pragma: no cover
+    resource = None
 import statistics
 import threading
 import time
@@ -328,6 +331,8 @@ def loaded_scripts() -> list[str]:
 
 
 def _peak_rss_mb() -> float:
+    if resource is None:
+        return 0.0
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # Linux reports KB
 
 
