@@ -200,7 +200,8 @@
     "checkedOn": "Checked on {{date}}",
     "paySources": "Where the pay and path come from",
     "minorCareersNote": "Some of these are only possible after you turn 18. Until then, learn the skill safely.",
-    "answerBelow": "Type or speak your answer in the box below."
+    "answerBelow": "Type or speak your answer in the box below.",
+    "scholarships": "More scholarships"
   },
   "afterAge": "Possible after {{age}}",
   "paySeenOn": "Pay seen on {{sites}}",
@@ -238,6 +239,70 @@
     "seenOn": "Seen on {{date}}",
     "none": "No current openings found near {{place}} on these sites.",
     "tryNearby": "Try {{places}}, or the apprenticeships below.",
-    "moreOnSites": "See more on the sites"
+    "moreOnSites": "See more on the sites",
+    "belowMin": "May be below minimum wage",
+    "belowMinHint": "Pay shown is below the state minimum wage (Rs {{month}} a month). Ask the employer before you accept."
+  },
+  "rights": {
+    "title": "Your rights at work",
+    "forState": "Rules for {{state}}",
+    "minWage": "Minimum wage",
+    "minWageLine": "At least Rs {{month}} a month (about Rs {{day}} a day) for unskilled work, from {{from}}",
+    "minWageUnverified": "Reported figure, not yet checked against the official order. Ask the labour office.",
+    "minWagePerWork": "{{state}} sets the minimum wage for each kind of work and area. Ask the labour office or check the state notification for your work.",
+    "minWageNone": "Check your state's minimum wage with the labour office.",
+    "helplines": "Where to complain",
+    "call": "Call {{number}}",
+    "open": "Open",
+    "policy": "Saathi advice",
+    "unverified": "Not confirmed",
+    "minorNote": "These rights are for workers aged 18 and above. Under 18, see what the law says for your age.",
+    "disclaimer": "A simple summary of the Labour Codes in force from 21 Nov 2025, not legal advice. Rules can differ by state and workplace. Confirm with your district labour office.",
+    "sources": "From these official sources"
+  },
+  "scholarships": {
+    "counts": "{{likely}} likely for you · {{check}} to check",
+    "match": {
+      "likely_eligible": "Likely for you",
+      "check": "Check details",
+      "not_eligible": "Not for you"
+    },
+    "type": {
+      "government": "Government",
+      "private": "Private",
+      "csr": "Company (CSR)",
+      "ngo": "Trust / NGO"
+    },
+    "deadline_one": "Last date {{date}} · {{count}} day left",
+    "deadline_other": "Last date {{date}} · {{count}} days left",
+    "noDeadline": "Last date not stated: check on the official page",
+    "because": "Not for you: {{reason}}",
+    "toCheck": "Still to check: {{what}}",
+    "unknown": {
+      "levels": "your class / course",
+      "max_income": "income limit",
+      "min_marks": "marks needed",
+      "states": "which states",
+      "details": "full rules (only a summary could be read)",
+      "family_income_annual": "your family income",
+      "marks_percent": "your marks",
+      "gender": "girl or boy",
+      "social_category": "your category",
+      "is_minority": "minority community",
+      "is_disabled": "disability",
+      "state": "your state"
+    },
+    "open": "Open on {{site}}",
+    "applyLink": "Official apply link",
+    "optional": "Answer if you like: it lets us check more scholarships for you.",
+    "savedAskAgain": "Saved. Ask Saathi again or open the Money page to check more.",
+    "none": "No open scholarships found for you right now. We look again every day.",
+    "seeAll": "All money for you",
+    "foundOn": "Found on {{sites}} (checked {{date}}). Check every detail and the last date on the official page before you apply. Never pay anyone to apply.",
+    "foundOnShort": "Found on {{sites}}. Check every detail and the last date on the official page before you apply. Never pay anyone to apply.",
+    "moreTitle": "More scholarships for you",
+    "moreBody": "Private, company and government scholarships found on Buddy4Study and official portals, matched to your answers.",
+    "loading": "Looking for scholarships…",
+    "error": "Could not load more scholarships right now. Try again later."
   }
 }

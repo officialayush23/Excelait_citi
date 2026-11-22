@@ -1,0 +1,98 @@
+{
+  "_doc": "Latest minimum wage figures Saathi can show. Read by backend/app/services/work_rules.py minimum_wage(). RULES: a figure is only 'verified': true when it was read from an official government document; anything seen only in news or compliance sites is 'verified': false and the UI says 'may be'. Nothing is invented: where no usable figure was found, per_month is null. Minimum wages are set by the state (the Centre sets only a floor wage, s.9 Code on Wages, 2019) and revised for dearness twice a year (1 April and 1 October under the Code on Wages Central Rules, 2026; Maharashtra notifies for Jan-Jun and Jul-Dec). Re-check before every release.",
+  "checked_on": "2026-11-22",
+  "monthly_divisor": 26,
+  "central_floor_wage": {
+    "status": "not_found",
+    "note": "Code on Wages, 2019 s.9 lets the Centre fix a floor wage that no state minimum wage may go below. No notified national floor wage figure was found on official sites on the checked_on date (news in 2026 says the Centre is still working on it). Do not show one.",
+    "sources": [
+      {
+        "title": "Code on Wages, 2019, section 9 (floor wage) and section 5 (no wage below the minimum)",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf",
+        "publisher": "India Code, Legislative Department"
+      }
+    ]
+  },
+  "states": {
+    "uttar pradesh": {
+      "name": "Uttar Pradesh",
+      "verified": false,
+      "verification_note": "Figures come from news reports of the Labour Department (Shram Vibhag) order dated 21 Oct 2026; the order itself on uplabour.gov.in could not be opened from our network (connection reset), so these are NOT verified against the official order. Daily rate = monthly / 26 as the order is reported to say.",
+      "structure": "One rate per skill level, by area: (a) Gautam Buddh Nagar and Ghaziabad, (b) other municipal corporation districts, (c) all other districts. Saathi uses the lowest area so a warning is only shown when pay is below the lowest rate in the state.",
+      "effective_from": "2026-10-01",
+      "valid_until": "2027-03-31",
+      "notified_on": "2026-10-21",
+      "notification": "Uttar Pradesh Labour Department government order (shasanadesh), revision of minimum wage and variable dearness allowance for 1 Oct 2026 to 31 Mar 2027 (order number not seen)",
+      "zones": {
+        "gb_nagar_ghaziabad": {
+          "unskilled": 13883.59,
+          "semi_skilled": 15271.41,
+          "skilled": 17106.39
+        },
+        "other_municipal_corporation": {
+          "unskilled": 13189.68,
+          "semi_skilled": 14507.46,
+          "skilled": 16250.86
+        },
+        "other_districts": {
+          "unskilled": 12530.25,
+          "semi_skilled": 13782.3,
+          "skilled": 15438.42
+        }
+      },
+      "lowest_zone": "other_districts",
+      "sources": [
+        {
+          "title": "Uttar Pradesh Labour Department (Shram Vibhag), minimum wage and dearness allowance order",
+          "url": "https://uplabour.gov.in",
+          "publisher": "Labour Department, Government of Uttar Pradesh",
+          "official": true,
+          "opened": false
+        },
+        {
+          "title": "News report of the 21 Oct 2026 order with the new rates (28 Oct 2026)",
+          "url": "https://navbharatlive.com/uttar-pradesh/up-yogi-government-minimum-wages-revised-increases-workers-monthly",
+          "publisher": "Navbharat Live (news, not official)",
+          "official": false,
+          "opened": true
+        }
+      ],
+      "earlier": "Rates were also raised from 1 April 2026 after protests in Noida (All India Radio report, 15 Apr 2026: https://newsonair.gov.in/up-govt-raises-wages-for-unskilled-semi-skilled-skilled-workers/). The 1 Oct 2026 revision replaces them."
+    },
+    "maharashtra": {
+      "name": "Maharashtra",
+      "verified": false,
+      "verification_note": "Maharashtra has NO single unskilled/semi-skilled/skilled rate. The Commissioner of Labour notifies a separate monthly minimum wage (basic + special allowance) for each scheduled employment (for example motor repair workshops, bakeries, cotton ginning, textile dyeing and printing, shops, advocates' offices) and each of 3 circles (Parimandal 1, 2, 3), twice a year. The official notification for 1 Jan to 30 Jun 2026 (dated 4 Feb 2026) was opened but is a handwritten-digit scan we cannot transcribe reliably, and the Jul-Dec 2026 notification (dated 5 Aug 2026, ref. P.V./K.V.A./V.Bh. July-December/2026 (2)/Work-10/7997) was seen only through a compliance-site summary. So no state-wide figure is stored and minimum_wage('maharashtra') returns None.",
+      "structure": "per scheduled employment x circle (1, 2, 3) x skill (skilled, semi-skilled, unskilled)",
+      "effective_from": "2026-07-01",
+      "valid_until": "2026-12-31",
+      "notified_on": "2026-08-05",
+      "notification": "Office of the Commissioner of Labour, Maharashtra: revised minimum wages (variable dearness / special allowance) 1 Jul to 31 Dec 2026, under the Minimum Wages Act, 1948 as continued by Code on Wages, 2019 s.69(2)",
+      "zones": {},
+      "example_unverified": {
+        "employment": "Advocates and lawyers' offices (Circle I)",
+        "unskilled": 17527,
+        "semi_skilled": 18582,
+        "skilled": 20052,
+        "source": "https://teamleaseregtech.com/updates/article/58467/maharashtra-labour-commissioner-revised-minimum-wages-july-to-december-2026/",
+        "note": "Secondary summary of the 5 Aug 2026 notification; one example only, never use it as a general figure."
+      },
+      "sources": [
+        {
+          "title": "Commissioner of Labour, Maharashtra: dearness allowance / minimum wage notification, 1 Jan to 30 Jun 2026 (dated 4 Feb 2026), scan",
+          "url": "https://mahakamgar.maharashtra.gov.in/Upload/PDF/Dearness-Allowance-Jan-26-to-June-26.pdf",
+          "publisher": "Commissioner of Labour, Maharashtra",
+          "official": true,
+          "opened": true
+        },
+        {
+          "title": "Commissioner of Labour, Maharashtra: minimum wages page",
+          "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/Pdf/minimum-wages.pdf",
+          "publisher": "Commissioner of Labour, Maharashtra",
+          "official": true,
+          "opened": true
+        }
+      ]
+    }
+  }
+}

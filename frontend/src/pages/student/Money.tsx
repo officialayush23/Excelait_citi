@@ -1,10 +1,12 @@
-import { CircleCheck, CircleHelp, CircleX, ExternalLink, FileCheck2, Info, Wallet } from 'lucide-react'
+import { CircleCheck, CircleHelp, CircleX, ExternalLink, FileCheck2, GraduationCap, Info, Loader2, Wallet } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useSearchParams } from 'react-router-dom'
 
 import { useAuth } from '@/auth/AuthProvider'
+import { AskMore, FoundScholarshipList } from '@/components/cards/scholarships'
+import type { ScholarshipsData } from '@/components/cards/types'
 import { EmptyState } from '@/components/page/EmptyState'
 import { KpiCard, KpiRow } from '@/components/page/Kpi'
 import { PageHeader } from '@/components/page/PageHeader'
@@ -17,6 +19,7 @@ import { checkedOn, documentTypes } from '@/data/catalogue'
 import { getKv, setKv } from '@/data/db'
 import { useFacts } from '@/data/facts'
 import { sortByAsk, useEligibility, type SchemeCheck } from '@/data/insights'
+import { api } from '@/lib/api'
 import { formatInr } from '@/lib/format'
 import { cn } from '@/lib/utils'
 
@@ -82,7 +85,56 @@ export function Money() {
         detailKey={current.scheme.slug}
         detail={<SchemeDetail check={current} />}
       />
+      <MoreScholarships />
     </>
+  )
+}
+
+/** Second tier: scholarships found on Buddy4Study and official portals, matched by fixed code to the student's facts. */
+function MoreScholarships() {
+  const { t } = useTranslation()
+  const facts = useFacts((s) => s.facts)
+  const [data, setData] = useState<ScholarshipsData | null>(null)
+  const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading')
+  const key = JSON.stringify([facts.class_level, facts.course, facts.state, facts.district, facts.gender, facts.social_category,
+    facts.family_income_annual, facts.marks_percent, facts.is_minority, facts.is_disabled])
+  useEffect(() => {
+    let live = true
+    setState('loading')
+    api<ScholarshipsData>('/api/v1/scholarships/for-me')
+      .then((d) => live && (setData(d), setState('ready')))
+      .catch(() => live && setState('error'))
+    return () => {
+      live = false
+    }
+  }, [key])
+  return (
+    <section className="mt-8 flex flex-col gap-4 rounded-3xl border bg-card p-4 sm:p-6">
+      <div className="flex items-center gap-3">
+        <span className="grid size-11 place-items-center rounded-xl bg-tile-mint text-tile-foreground">
+          <GraduationCap className="size-5" />
+        </span>
+        <div>
+          <h2 className="text-lg font-semibold">{t('saathi.scholarships.moreTitle')}</h2>
+          <p className="text-sm text-muted-foreground">{t('saathi.scholarships.moreBody')}</p>
+        </div>
+      </div>
+      {state === 'loading' && (
+        <p className="flex items-center gap-2 text-muted-foreground">
+          <Loader2 className="size-4 animate-spin" />
+          {t('saathi.scholarships.loading')}
+        </p>
+      )}
+      {state === 'error' && <p className="text-muted-foreground">{t('saathi.scholarships.error')}</p>}
+      {state === 'ready' && data && (
+        <>
+          <p className="text-sm">{t('saathi.scholarships.counts', { likely: data.counts.likely_eligible, check: data.counts.check })}</p>
+          {data.found.length ? <FoundScholarshipList items={data.found} /> : <p className="text-muted-foreground">{t('saathi.scholarships.none')}</p>}
+          {data.ask.length > 0 && <AskMore fields={data.ask} />}
+          <p className="text-xs text-muted-foreground">{t('saathi.scholarships.foundOnShort', { sites: data.sites.join(', ') || 'Buddy4Study' })}</p>
+        </>
+      )}
+    </section>
   )
 }
 

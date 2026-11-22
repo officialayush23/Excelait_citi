@@ -1,7 +1,9 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import learn, passport, teacher
+from app.api.routes import learn, passport, scholarships, teacher
 from app.api.routes import assist, assistant, catalogue, community, explore, health, me, notifications, partners, plans, students
 from app.core.config import get_settings
 
@@ -22,8 +24,17 @@ def create_app() -> FastAPI:
     )
     app.include_router(health.router)
     for r in (me.router, catalogue.router, students.router, assist.router, explore.router, assistant.router, plans.router,
-              partners.router, community.router, notifications.router, learn.router, passport.router, teacher.router):
+              partners.router, community.router, notifications.router, learn.router, passport.router, teacher.router,
+              scholarships.router):
         app.include_router(r, prefix="/api/v1")
+
+    @app.on_event("startup")
+    def _daily_cleanup() -> None:
+        # Stored web finds are deleted only when their own time runs out; pg_cron does this daily too.
+        if settings.supabase_secret_key and os.environ.get("KNOWLEDGE_CLEANUP", "1") != "0":
+            from app.services.knowledge import start_daily_cleanup
+            start_daily_cleanup()
+
     return app
 
 

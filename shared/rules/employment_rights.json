@@ -1,0 +1,389 @@
+{
+  "_doc": "Rights of a worker aged 18 or more under Indian labour law, in plain words (en/hi/mr). Used by backend/app/services/work_rules.py employment_rights() for the 'rights' card. Each right lists its sources (ids in 'sources'); 'policy': true marks Saathi's own advice, not a legal rule; 'verified': false means a number or detail could not be confirmed on an official site and must not be shown as a fact. Rules under a Code can differ by state and establishment, so the card tells the worker to confirm with the labour office. Re-check before every release.",
+  "checked_on": "2026-11-22",
+  "min_age": 18,
+  "law_status": {
+    "summary": "The four Labour Codes are in force from 21 November 2025. They replaced 29 old Central labour laws. Central Rules for the Code on Wages and the Industrial Relations Code were notified on 8 May 2026 (Code on Wages (Central) Rules, 2026, G.S.R. 343(E)). Rules made under the old Acts keep working until the matching rules under the Codes are in place; the Ministry's FAQ confirms the new definition of 'wages' applies from 21.11.2025.",
+    "in_force_from": "2025-11-21",
+    "codes": [
+      {
+        "id": "wages",
+        "name": "Code on Wages, 2019",
+        "replaced": [
+          "Payment of Wages Act, 1936",
+          "Minimum Wages Act, 1948",
+          "Payment of Bonus Act, 1965",
+          "Equal Remuneration Act, 1976"
+        ],
+        "repeal_section": "s.69"
+      },
+      {
+        "id": "ss",
+        "name": "Code on Social Security, 2020",
+        "replaced": [
+          "Employee's Compensation Act, 1923",
+          "Employees' State Insurance Act, 1948",
+          "Employees' Provident Funds and Miscellaneous Provisions Act, 1952",
+          "Maternity Benefit Act, 1961",
+          "Payment of Gratuity Act, 1972",
+          "Unorganised Workers' Social Security Act, 2008",
+          "and others listed in s.164"
+        ],
+        "repeal_section": "s.164"
+      },
+      {
+        "id": "osh",
+        "name": "Occupational Safety, Health and Working Conditions Code, 2020",
+        "replaced": [
+          "Factories Act, 1948",
+          "Plantations Labour Act, 1951",
+          "Mines Act, 1952",
+          "Contract Labour (Regulation and Abolition) Act, 1970",
+          "Inter-State Migrant Workmen Act, 1979",
+          "and others listed in s.143"
+        ],
+        "repeal_section": "s.143"
+      },
+      {
+        "id": "ir",
+        "name": "Industrial Relations Code, 2020",
+        "replaced": [
+          "Industrial Disputes Act, 1947",
+          "Trade Unions Act, 1926",
+          "Industrial Employment (Standing Orders) Act, 1946"
+        ],
+        "repeal_section": null,
+        "note": "Repeal section and exact list not opened by us; these three are the main Acts it replaced."
+      }
+    ],
+    "not_covered": "Child and Adolescent Labour (Prohibition and Regulation) Act, 1986 and the Apprentices Act, 1961 are NOT repealed; the OSH Code itself points to the 1986 Act for adolescents (OSH Code s.2 and s.25(4)).",
+    "state_rules": "Wages work in a state is governed by that state's own rules once notified (Maharashtra notified Code on Wages rules in 2026, seen only in news; confirm with the state labour office). Central rules apply to central-sector establishments."
+  },
+  "sources": {
+    "pib_codes": {
+      "title": "Ministry of Labour and Employment: the four Labour Codes take effect from 21 November 2025 (release and rights summary)",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://labour.gov.in/sites/default/files/pib2192463.pdf",
+      "also": [
+        "https://pib.gov.in/PressReleasePage.aspx?PRID=2192900"
+      ]
+    },
+    "wages_code": {
+      "title": "The Code on Wages, 2019 (Act 29 of 2019) - full text",
+      "publisher": "India Code, Legislative Department",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf",
+      "sections": "s.3, s.5, s.6, s.9, s.13, s.14, s.17, s.18, s.45, s.69"
+    },
+    "wages_rules_2026": {
+      "title": "Code on Wages (Central) Rules, 2026, G.S.R. 343(E) dated 8 May 2026 (summary by PRS Legislative Research; gazette copy not opened)",
+      "publisher": "PRS Legislative Research (summary of the Gazette notification)",
+      "url": "https://prsindia.org/billtrack/code-on-wages-central-rules-2026"
+    },
+    "ss_code": {
+      "title": "The Code on Social Security, 2020 - Gazette of India text",
+      "publisher": "Ministry of Labour and Employment (copy on mahakamgar.maharashtra.gov.in)",
+      "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/PDF/ss_code_gazette.pdf",
+      "sections": "s.60 (maternity benefit), s.113 (registration of unorganised workers), s.164 (repeal)"
+    },
+    "osh_code": {
+      "title": "The Occupational Safety, Health and Working Conditions Code, 2020 - Gazette of India text",
+      "publisher": "Ministry of Labour and Employment (copy on mahakamgar.maharashtra.gov.in)",
+      "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/PDF/OccupationalSafetyHealthCodeAct2020.pdf",
+      "sections": "s.6(1) (employer duties), s.25 (8 hours a day), s.26 (weekly holiday), s.27 (overtime), s.43 (women), s.143 (repeal)"
+    },
+    "mole_faq": {
+      "title": "Additional FAQs on Labour Codes (as on 16.03.2026)",
+      "publisher": "Ministry of Labour and Employment (copy on mahakamgar.maharashtra.gov.in)",
+      "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/PDF/FAQs-on-LabourCodes-16032026.pdf"
+    },
+    "eshram_faq": {
+      "title": "e-Shram portal: frequently asked questions (age 16 to 59, helpline 14434)",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://beta.eshram.gov.in/faqs",
+      "also": [
+        "https://eshram.gov.in"
+      ]
+    },
+    "samadhan": {
+      "title": "SAMADHAN: workers' portal to raise grievances and claims under labour laws",
+      "publisher": "Ministry of Labour and Employment",
+      "url": "https://samadhan.labour.gov.in/faqs"
+    },
+    "apprentice_stipend": {
+      "title": "Apprenticeship Rules, 1992 as amended: revised minimum stipend (G.S.R. 610(E) of 3 Sep 2025; OM DGT-36/1/2021-AP of 15 Sep 2025)",
+      "publisher": "Directorate General of Training, Ministry of Skill Development and Entrepreneurship",
+      "url": "https://rdsdewestbengal.dgt.gov.in/sites/default/files/2026-01/20250915_Upward%20revision_15.09.25.PDF"
+    },
+    "apprentices_act": {
+      "title": "Apprentices Act, 1961, section 3 (minimum age 14; 18 for hazardous trades)",
+      "publisher": "Directorate General of Training",
+      "url": "https://dgt.gov.in/content/question-who-eligible-become-apprentice"
+    },
+    "minimum_wages": {
+      "title": "State minimum wage figures Saathi holds (shared/rules/minimum_wages.json)",
+      "publisher": "ExcelAIt, from state Labour Department notifications",
+      "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/Pdf/minimum-wages.pdf"
+    },
+    "saathi_policy": {
+      "title": "Saathi advice: never pay money to get a job",
+      "publisher": "ExcelAIt",
+      "url": "https://samadhan.labour.gov.in/faqs",
+      "policy": true
+    }
+  },
+  "helplines": [
+    {
+      "id": "eshram",
+      "name": "e-Shram helpline",
+      "number": "14434",
+      "alt_number": "18008896811",
+      "hours": "9 am to 6 pm, every day including Sunday",
+      "verified": true,
+      "source": "eshram_faq",
+      "grievance_url": "https://gms.eshram.gov.in"
+    },
+    {
+      "id": "samadhan",
+      "name": "SAMADHAN portal (also in the UMANG app and at Common Service Centres)",
+      "number": null,
+      "url": "https://samadhan.labour.gov.in",
+      "verified": true,
+      "source": "samadhan"
+    },
+    {
+      "id": "child_helpline",
+      "name": "Childline (for anyone under 18)",
+      "number": "1098",
+      "verified": true,
+      "source": "shared/rules/minor_work.json",
+      "note": "Already used in the law card for minors."
+    },
+    {
+      "id": "state_labour_helpline",
+      "name": "State labour department helpline",
+      "number": null,
+      "verified": false,
+      "note": "No official toll-free labour complaint number for Maharashtra or Uttar Pradesh was found on the official sites we could open. Do not show a number; send workers to the district Assistant Commissioner of Labour office and SAMADHAN."
+    },
+    {
+      "id": "epfo_esic_ncs",
+      "name": "EPFO, ESIC and National Career Service helplines",
+      "number": null,
+      "verified": false,
+      "note": "Numbers were not confirmed on official pages in this check. Do not show them until verified."
+    }
+  ],
+  "rights": [
+    {
+      "id": "min_wage",
+      "topic": "pay",
+      "min_age": 18,
+      "sources": ["wages_code", "mole_faq", "minimum_wages"],
+      "verified": true,
+      "numbers": {},
+      "text": {
+        "en": "Your employer must pay at least the minimum wage for your work. The state government sets it (for your kind of work, skill level and area), and no state may set it below the Centre's floor wage. Paying less is not allowed even if you agree to it.",
+        "hi": "आपके नियोक्ता को आपके काम का कम से कम न्यूनतम वेतन देना ही होगा। इसे राज्य सरकार तय करती है (काम, कौशल स्तर और इलाके के हिसाब से), और कोई राज्य इसे केंद्र के फ्लोर वेज से कम तय नहीं कर सकता। आप राज़ी हों तब भी इससे कम देना मना है।",
+        "mr": "तुमच्या मालकाने तुमच्या कामासाठी किमान वेतन तरी द्यावेच लागते. ते राज्य सरकार ठरवते (कामाचा प्रकार, कौशल्य पातळी आणि भागानुसार), आणि कोणतेही राज्य केंद्राच्या फ्लोअर वेजपेक्षा कमी वेतन ठरवू शकत नाही. तुम्ही मान्य केले तरी त्यापेक्षा कमी देणे बेकायदेशीर आहे."
+      }
+    },
+    {
+      "id": "timely_wages",
+      "topic": "pay",
+      "min_age": 18,
+      "sources": ["wages_code"],
+      "verified": true,
+      "numbers": {
+        "daily": "end of the shift",
+        "weekly": "last working day of the week",
+        "fortnightly": "before the end of the 2nd day after the fortnight",
+        "monthly": "before the 7th day of the next month",
+        "after_leaving": "within 2 working days"
+      },
+      "text": {
+        "en": "Wages must be paid on time: daily-wage workers at the end of the shift, weekly on the last working day, and monthly before the 7th of the next month. If you are removed, dismissed or resign, you must be paid within 2 working days. Money can be cut from your wages only for reasons the law allows, and anything you pay your employer counts as a cut.",
+        "hi": "वेतन समय पर मिलना चाहिए: दिहाड़ी वालों को शिफ़्ट ख़त्म होने पर, साप्ताहिक को हफ़्ते के आख़िरी कामकाजी दिन, और मासिक को अगले महीने की 7 तारीख़ से पहले। निकाले जाने या इस्तीफ़ा देने पर 2 कामकाजी दिन में पूरा भुगतान ज़रूरी है। वेतन से पैसे सिर्फ़ कानून की अनुमति वाले कारणों से कट सकते हैं, और जो पैसा आप नियोक्ता को देते हैं वह भी कटौती गिना जाता है।",
+        "mr": "वेतन वेळेवर मिळायला हवे: रोजंदारीवाल्यांना शिफ्ट संपल्यावर, साप्ताहिकाला आठवड्याच्या शेवटच्या कामाच्या दिवशी, आणि मासिकाला पुढील महिन्याच्या 7 तारखेपूर्वी. कामावरून काढल्यास किंवा राजीनामा दिल्यास 2 कामाच्या दिवसांत पूर्ण पैसे मिळायला हवेत. वेतनातून पैसे फक्त कायद्याने परवानगी असलेल्या कारणांसाठीच कापता येतात, आणि तुम्ही मालकाला दिलेले पैसेही कपात मानले जातात."
+      }
+    },
+    {
+      "id": "equal_pay",
+      "topic": "pay",
+      "min_age": 18,
+      "sources": ["wages_code", "pib_codes"],
+      "verified": true,
+      "numbers": {},
+      "text": {
+        "en": "Men and women doing the same or similar work for the same employer must get the same wages. An employer also cannot discriminate on gender when hiring for the same work (except where the law bars women from that work).",
+        "hi": "एक ही नियोक्ता के यहाँ समान या मिलते-जुलते काम पर पुरुष और महिला कर्मियों को समान वेतन मिलना चाहिए। एक जैसे काम की भर्ती में भी लिंग के आधार पर भेदभाव नहीं हो सकता (जहाँ कानून महिलाओं को उस काम से रोकता हो, वहाँ को छोड़कर)।",
+        "mr": "एकाच मालकाकडे समान किंवा तत्सम कामासाठी पुरुष आणि महिला कामगारांना समान वेतन मिळायला हवे. एकाच कामाच्या भरतीतही लिंगाच्या आधारावर भेदभाव करता येत नाही (कायद्याने महिलांना त्या कामापासून रोखले असेल तेथे वगळता)."
+      }
+    },
+    {
+      "id": "hours_overtime",
+      "topic": "hours",
+      "min_age": 18,
+      "sources": ["osh_code", "wages_code", "mole_faq", "wages_rules_2026"],
+      "verified": true,
+      "numbers": {
+        "max_hours_day": 8,
+        "max_hours_week": 48,
+        "max_days_week": 6,
+        "overtime_rate": "at least 2 times the normal wage rate",
+        "paid": "at the end of each wage period"
+      },
+      "text": {
+        "en": "Normal work is 8 hours a day and 48 hours a week, with at least one weekly day off (nobody can be made to work more than 6 days a week). Work beyond that is overtime and must be paid at least double your normal rate, and you must agree to do overtime. Work on your day off also needs a substitute day off and overtime pay.",
+        "hi": "सामान्य काम दिन में 8 घंटे और हफ़्ते में 48 घंटे है, और हफ़्ते में कम से कम एक छुट्टी ज़रूरी है (किसी से हफ़्ते में 6 दिन से ज़्यादा काम नहीं कराया जा सकता)। इससे ज़्यादा काम ओवरटाइम है और उसका भुगतान सामान्य दर से कम से कम दोगुना होना चाहिए, और ओवरटाइम के लिए आपकी सहमति ज़रूरी है। छुट्टी के दिन काम कराने पर बदले की छुट्टी और ओवरटाइम वेतन भी देना होता है।",
+        "mr": "सामान्य काम दिवसाला 8 तास आणि आठवड्याला 48 तास आहे, आणि आठवड्यात किमान एक सुट्टी हवी (कोणालाही आठवड्यात 6 दिवसांपेक्षा जास्त काम करायला लावता येत नाही). त्यापेक्षा जास्त काम म्हणजे ओव्हरटाइम, त्याचे पैसे सामान्य दराच्या किमान दुप्पट मिळायला हवेत, आणि ओव्हरटाइमला तुमची संमती हवी. सुट्टीच्या दिवशी काम केल्यास पर्यायी सुट्टी आणि ओव्हरटाइम वेतनही द्यावे लागते."
+      }
+    },
+    {
+      "id": "appointment_letter",
+      "topic": "job",
+      "min_age": 18,
+      "sources": ["osh_code", "pib_codes"],
+      "verified": true,
+      "numbers": {},
+      "text": {
+        "en": "Your employer must give you a written appointment letter when you join, with your pay and terms. If you are working without one, ask for it.",
+        "hi": "काम शुरू करते समय नियोक्ता को लिखित नियुक्ति पत्र देना ज़रूरी है, जिसमें आपका वेतन और शर्तें हों। अगर बिना पत्र के काम कर रहे हैं तो माँगिए।",
+        "mr": "कामावर रुजू होताना मालकाने तुम्हाला लेखी नियुक्तीपत्र द्यायला हवे, ज्यात तुमचे वेतन व अटी असतील. पत्राशिवाय काम करत असाल तर ते मागा."
+      }
+    },
+    {
+      "id": "safety_health",
+      "topic": "safety",
+      "min_age": 18,
+      "sources": ["osh_code", "pib_codes"],
+      "verified": true,
+      "numbers": {
+        "free_health_check_age": 40
+      },
+      "text": {
+        "en": "Your workplace must be safe and free of hazards, and your employer cannot charge you for safety or health measures. Workers above 40 are to get a free yearly health check-up, and workers in hazardous industries too. If a job needs protective gear, it must be provided.",
+        "hi": "आपका कार्यस्थल सुरक्षित और ख़तरों से मुक्त होना चाहिए, और सुरक्षा या स्वास्थ्य के इंतज़ाम के लिए नियोक्ता आपसे पैसे नहीं ले सकता। 40 साल से ऊपर के कर्मियों को और ख़तरनाक उद्योगों के कर्मियों को मुफ़्त सालाना स्वास्थ्य जाँच मिलनी है। जिस काम में सुरक्षा उपकरण चाहिए, वे दिए जाने चाहिए।",
+        "mr": "तुमचे कामाचे ठिकाण सुरक्षित आणि धोक्यांपासून मुक्त असायला हवे, आणि सुरक्षा किंवा आरोग्य उपायांसाठी मालक तुमच्याकडून पैसे घेऊ शकत नाही. 40 वर्षांवरील कामगारांना आणि धोकादायक उद्योगांतील कामगारांना मोफत वार्षिक आरोग्य तपासणी मिळायला हवी. ज्या कामाला सुरक्षा साधने लागतात ती द्यावी लागतात."
+      }
+    },
+    {
+      "id": "women_night_work",
+      "topic": "women",
+      "min_age": 18,
+      "sources": ["osh_code", "pib_codes"],
+      "verified": true,
+      "numbers": {
+        "night_window": "before 6 am and after 7 pm"
+      },
+      "text": {
+        "en": "Women may be employed in all kinds of work. Work before 6 am or after 7 pm is allowed only with the woman's own consent and with the safety, holiday and working-hours conditions the state sets. No one can force you to work at night.",
+        "hi": "महिलाओं को हर तरह के काम पर रखा जा सकता है। सुबह 6 बजे से पहले या शाम 7 बजे के बाद काम सिर्फ़ महिला की अपनी सहमति से और राज्य की तय सुरक्षा, छुट्टी और काम के घंटों की शर्तों के साथ हो सकता है। रात में काम के लिए आपको मजबूर नहीं किया जा सकता।",
+        "mr": "महिलांना सर्व प्रकारच्या कामावर ठेवता येते. सकाळी 6 पूर्वी किंवा संध्याकाळी 7 नंतरचे काम फक्त महिलेच्या स्वतःच्या संमतीने आणि राज्याने ठरवलेल्या सुरक्षा, सुट्टी व कामाच्या तासांच्या अटींसह करता येते. रात्री काम करण्याची तुमच्यावर जबरदस्ती करता येत नाही."
+      }
+    },
+    {
+      "id": "maternity",
+      "topic": "women",
+      "min_age": 18,
+      "sources": ["ss_code"],
+      "verified": true,
+      "numbers": {
+        "weeks": 26,
+        "weeks_two_or_more_children": 12,
+        "min_days_worked": 80,
+        "adoption_weeks": 12
+      },
+      "text": {
+        "en": "A woman who has worked at least 80 days in the 12 months before her delivery gets paid maternity leave: up to 26 weeks for the first two children (12 weeks from the third child), at her average daily wage. Adopting a child under 3 months gives 12 weeks.",
+        "hi": "जिस महिला ने प्रसव से पहले के 12 महीनों में कम से कम 80 दिन काम किया हो, उसे वेतन के साथ मातृत्व अवकाश मिलता है: पहले दो बच्चों के लिए 26 हफ़्ते तक (तीसरे बच्चे से 12 हफ़्ते), औसत दैनिक वेतन पर। 3 महीने से छोटे बच्चे को गोद लेने पर 12 हफ़्ते मिलते हैं।",
+        "mr": "प्रसूतीपूर्वीच्या 12 महिन्यांत किमान 80 दिवस काम केलेल्या महिलेला पगारी प्रसूती रजा मिळते: पहिल्या दोन अपत्यांसाठी 26 आठवड्यांपर्यंत (तिसऱ्या अपत्यापासून 12 आठवडे), सरासरी दैनिक वेतनाने. 3 महिन्यांखालील बाळ दत्तक घेतल्यास 12 आठवडे मिळतात."
+      }
+    },
+    {
+      "id": "social_security_eshram",
+      "topic": "social_security",
+      "min_age": 18,
+      "sources": ["ss_code", "eshram_faq"],
+      "verified": true,
+      "numbers": {
+        "eshram_age_min": 16,
+        "eshram_age_max": 59,
+        "eshram_helpline": "14434"
+      },
+      "text": {
+        "en": "If you work in the unorganised sector (daily wage, home-based, self-employed) and are 16 to 59, you can register free on e-Shram with your Aadhaar and Aadhaar-linked mobile. It is for workers who are not EPFO or ESIC members and do not pay income tax. Helpline 14434 (9 am to 6 pm, every day).",
+        "hi": "अगर आप असंगठित क्षेत्र में काम करते हैं (दिहाड़ी, घर से, स्वरोज़गार) और 16 से 59 साल के हैं, तो आधार और आधार से जुड़े मोबाइल से e-Shram पर मुफ़्त पंजीकरण कर सकते हैं। यह उन कर्मियों के लिए है जो EPFO या ESIC के सदस्य नहीं हैं और आयकर नहीं भरते। हेल्पलाइन 14434 (सुबह 9 से शाम 6, रोज़)।",
+        "mr": "तुम्ही असंघटित क्षेत्रात (रोजंदारी, घरून, स्वयंरोजगार) काम करत असाल आणि 16 ते 59 वयाचे असाल तर आधार व आधारशी जोडलेल्या मोबाइलने e-Shram वर मोफत नोंदणी करू शकता. हे EPFO किंवा ESIC चे सदस्य नसलेल्या आणि आयकर न भरणाऱ्या कामगारांसाठी आहे. हेल्पलाइन 14434 (सकाळी 9 ते संध्याकाळी 6, रोज)."
+      }
+    },
+    {
+      "id": "epf_esi",
+      "topic": "social_security",
+      "min_age": 18,
+      "sources": ["ss_code", "mole_faq", "pib_codes"],
+      "verified": true,
+      "numbers": {
+        "epf_establishment_size": 20,
+        "esi_establishment_size": 10,
+        "esi_wage_ceiling": 21000
+      },
+      "text": {
+        "en": "In an organised job, provident fund (EPF) applies to establishments with 20 or more employees, and ESI health insurance to those with 10 or more employees for workers earning up to Rs 21,000 a month (ESI is also compulsory where even one worker is in a hazardous process). Check your payslip for these deductions and ask for your UAN or ESI number.",
+        "hi": "संगठित नौकरी में प्रॉविडेंट फंड (EPF) 20 या अधिक कर्मचारियों वाले प्रतिष्ठान पर लागू होता है, और ESI स्वास्थ्य बीमा 10 या अधिक कर्मचारियों वाले प्रतिष्ठान में, उन कर्मियों के लिए जिनका वेतन महीने में 21,000 रुपये तक है (जहाँ एक भी कर्मी ख़तरनाक प्रक्रिया में हो, वहाँ ESI अनिवार्य है)। अपनी वेतन पर्ची में ये कटौतियाँ देखिए और UAN या ESI नंबर माँगिए।",
+        "mr": "संघटित नोकरीत भविष्य निर्वाह निधी (EPF) 20 किंवा अधिक कर्मचारी असलेल्या आस्थापनांना लागू आहे, आणि ESI आरोग्य विमा 10 किंवा अधिक कर्मचारी असलेल्या आस्थापनांत, महिना 21,000 रुपयांपर्यंत कमावणाऱ्या कामगारांसाठी (एकही कामगार धोकादायक प्रक्रियेत असेल तेथे ESI सक्तीचे आहे). तुमच्या पगारपत्रकात या कपाती पाहा आणि UAN किंवा ESI क्रमांक मागा."
+      }
+    },
+    {
+      "id": "no_fee_for_job",
+      "topic": "job",
+      "min_age": 18,
+      "sources": ["wages_code", "saathi_policy"],
+      "verified": true,
+      "policy": true,
+      "numbers": {},
+      "text": {
+        "en": "A genuine employer does not ask you to pay to get a job, a joining fee or a security deposit for the job offer. By law, anything you pay your employer counts as a cut from your wages, and cuts are allowed only for reasons the law lists. Saathi advice: do not pay anyone for a job; if asked, stop and report it on SAMADHAN or to the labour office.",
+        "hi": "असली नियोक्ता नौकरी देने के लिए आपसे पैसे, जॉइनिंग फ़ीस या सिक्योरिटी डिपॉज़िट नहीं माँगता। कानून में नियोक्ता को दिया गया कोई भी पैसा वेतन की कटौती गिना जाता है, और कटौती सिर्फ़ कानून में लिखे कारणों से हो सकती है। साथी की सलाह: नौकरी के लिए किसी को पैसे न दें; माँगे जाएँ तो रुक जाएँ और SAMADHAN पर या श्रम कार्यालय में शिकायत करें।",
+        "mr": "खरा मालक नोकरी देण्यासाठी पैसे, जॉइनिंग फी किंवा सिक्युरिटी डिपॉझिट मागत नाही. कायद्यानुसार मालकाला दिलेले कोणतेही पैसे वेतनातील कपात मानले जातात, आणि कपात फक्त कायद्यात सांगितलेल्या कारणांसाठीच करता येते. साथीचा सल्ला: नोकरीसाठी कोणालाही पैसे देऊ नका; मागितल्यास थांबा आणि SAMADHAN वर किंवा कामगार कार्यालयात तक्रार करा."
+      }
+    },
+    {
+      "id": "apprentice",
+      "topic": "training",
+      "min_age": 18,
+      "sources": ["apprentice_stipend", "apprentices_act"],
+      "verified": true,
+      "numbers": {
+        "min_age": 14,
+        "min_age_hazardous": 18,
+        "stipend_class_5_to_9": 6800,
+        "stipend_class_10": 8200,
+        "stipend_class_12_or_iti": 9600,
+        "stipend_diploma": 10900,
+        "stipend_graduate": 12300,
+        "effective_from": "2025-09-11"
+      },
+      "text": {
+        "en": "An apprentice must be paid a stipend. The minimum per month since 11 Sep 2025 is Rs 6,800 (Class 5 to 9), Rs 8,200 (Class 10), Rs 9,600 (Class 12 or ITI/certificate), Rs 10,900 (diploma) and Rs 12,300 (graduate). Apprentices can start at 14; trades in hazardous industries need 18.",
+        "hi": "अप्रेंटिस को स्टाइपेंड मिलना ही चाहिए। 11 सितंबर 2025 से न्यूनतम मासिक स्टाइपेंड: 6,800 रुपये (कक्षा 5 से 9), 8,200 (कक्षा 10), 9,600 (कक्षा 12 या ITI/प्रमाणपत्र), 10,900 (डिप्लोमा) और 12,300 (स्नातक)। अप्रेंटिसशिप 14 साल से शुरू हो सकती है; ख़तरनाक उद्योग के ट्रेड के लिए 18 साल चाहिए।",
+        "mr": "अप्रेंटिसला स्टायपेंड मिळायलाच हवा. 11 सप्टेंबर 2025 पासून किमान मासिक स्टायपेंड: 6,800 रुपये (इयत्ता 5 ते 9), 8,200 (इयत्ता 10), 9,600 (इयत्ता 12 किंवा ITI/प्रमाणपत्र), 10,900 (डिप्लोमा) आणि 12,300 (पदवीधर). अप्रेंटिसशिप 14 वर्षांपासून सुरू होऊ शकते; धोकादायक उद्योगातील ट्रेडसाठी 18 वर्षे हवीत."
+      }
+    },
+    {
+      "id": "how_to_complain",
+      "topic": "complain",
+      "min_age": 18,
+      "sources": ["samadhan", "wages_code", "eshram_faq"],
+      "verified": true,
+      "numbers": {
+        "claim_decided_within_months": 3,
+        "compensation_up_to_times_claim": 10
+      },
+      "text": {
+        "en": "If wages are unpaid, delayed or below the minimum, you can file a claim. The authority tries to decide within 3 months and can order extra compensation up to 10 times the claim. File on the SAMADHAN portal (samadhan.labour.gov.in, the UMANG app or a Common Service Centre) or go to your district labour office. For e-Shram problems call 14434.",
+        "hi": "वेतन न मिलने, देर से मिलने या न्यूनतम से कम मिलने पर आप दावा दायर कर सकते हैं। प्राधिकारी 3 महीने में फ़ैसला करने की कोशिश करता है और दावे की रकम का 10 गुना तक अतिरिक्त मुआवज़ा दिला सकता है। SAMADHAN पोर्टल (samadhan.labour.gov.in, UMANG ऐप या कॉमन सर्विस सेंटर) पर शिकायत करें या ज़िला श्रम कार्यालय जाएँ। e-Shram की दिक़्क़त के लिए 14434 पर फ़ोन करें।",
+        "mr": "वेतन न मिळणे, उशिरा मिळणे किंवा किमान वेतनापेक्षा कमी मिळणे यासाठी तुम्ही दावा दाखल करू शकता. प्राधिकारी 3 महिन्यांत निर्णय देण्याचा प्रयत्न करतो आणि दाव्याच्या रकमेच्या 10 पट पर्यंत अतिरिक्त भरपाई देऊ शकतो. SAMADHAN पोर्टलवर (samadhan.labour.gov.in, UMANG अॅप किंवा कॉमन सर्व्हिस सेंटर) तक्रार करा किंवा जिल्हा कामगार कार्यालयात जा. e-Shram च्या अडचणीसाठी 14434 वर फोन करा."
+      }
+    }
+  ]
+}

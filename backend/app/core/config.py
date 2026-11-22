@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     llm_base_url: str = "https://api.groq.com/openai/v1"
     llm_model: str = "openai/gpt-oss-120b"
     tavily_api_key: str = ""
+    # Off by default: one small LLM call per new scholarship page, only for eligibility fields plain code could not read.
+    scholarship_llm_parse: bool = False
     cors_origins: str = "http://localhost:5173"
 
     @property

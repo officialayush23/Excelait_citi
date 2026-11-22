@@ -1,11 +1,11 @@
-import { BriefcaseBusiness, CircleCheck, CircleX, ExternalLink, Info, MapPin, Scale, ShieldAlert, Wallet } from 'lucide-react'
+import { BriefcaseBusiness, CircleCheck, CircleX, ExternalLink, Gavel, Info, MapPin, Phone, Scale, ShieldAlert, TriangleAlert, Wallet } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { SpeakButton } from '@/components/shell/SpeakButton'
 
 import { CardShell, SectionLabel, domainOf, useDateText } from './kit'
-import type { CardOf, JobPost, LawRule, SourceRef } from './types'
+import type { CardOf, JobPost, LawRule, RightItem, SourceRef } from './types'
 
 /* ---------------- sources: every fact shows where it comes from ---------------- */
 
@@ -87,6 +87,106 @@ export function LawCard({ card }: { card: CardOf<'law'> }) {
   )
 }
 
+/* ---------------- your rights at work (18+) ---------------- */
+
+function RightRow({ r, text, policy, unverified }: { r: RightItem; text: (r: RightItem) => string; policy: string; unverified: string }) {
+  return (
+    <li className="flex items-start gap-2 rounded-2xl bg-tile-mint p-3 text-tile-foreground">
+      <CircleCheck aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+      <span>
+        {text(r)}
+        {r.policy && <span className="ml-1 text-xs opacity-75">({policy})</span>}
+        {!r.verified && <span className="ml-1 text-xs opacity-75">({unverified})</span>}
+      </span>
+    </li>
+  )
+}
+
+export function RightsCard({ card }: { card: CardOf<'rights'> }) {
+  const { t, i18n } = useTranslation()
+  const date = useDateText()
+  const text = (r: RightItem) => r.text[i18n.language] ?? r.text.en
+  const mw = card.minimum_wage
+  const spoken = [t('saathi.rights.title'), ...card.rights.map(text)].join('. ')
+  return (
+    <CardShell
+      icon={<Gavel />}
+      tone="peach"
+      title={t('saathi.rights.title')}
+      subtitle={card.state ? t('saathi.rights.forState', { state: card.state }) : undefined}
+      action={<SpeakButton text={spoken} />}
+    >
+      {card.minor ? (
+        <p className="rounded-2xl bg-tile-sky p-3 text-tile-foreground">{t('saathi.rights.minorNote')}</p>
+      ) : (
+        <>
+          <div>
+            <SectionLabel>{t('saathi.rights.minWage')}</SectionLabel>
+            <p className="flex items-start gap-2 rounded-2xl bg-tile-sky p-3 text-tile-foreground">
+              <Wallet aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+              <span>
+                {mw
+                  ? t('saathi.rights.minWageLine', { month: mw.per_month.toLocaleString('en-IN'), day: Math.round(mw.per_day), from: date(mw.effective_from) })
+                  : card.minimum_wage_note === 'state_sets_per_employment' && card.state
+                    ? t('saathi.rights.minWagePerWork', { state: card.state })
+                    : t('saathi.rights.minWageNone')}
+                {mw && !mw.verified && <span className="mt-1 block text-xs opacity-75">{t('saathi.rights.minWageUnverified')}</span>}
+              </span>
+            </p>
+          </div>
+          <ul className="flex flex-col gap-2">
+            {card.rights.map((r) => (
+              <RightRow key={r.id} r={r} text={text} policy={t('saathi.rights.policy')} unverified={t('saathi.rights.unverified')} />
+            ))}
+          </ul>
+          {card.helplines.length > 0 && (
+            <div>
+              <SectionLabel>{t('saathi.rights.helplines')}</SectionLabel>
+              <ul className="flex flex-col gap-2">
+                {card.helplines.map((h) => (
+                  <li key={h.id} className="flex flex-wrap items-center gap-2 rounded-2xl bg-surface p-3 text-sm">
+                    <span className="min-w-0 flex-1">{h.name}</span>
+                    {h.number && (
+                      <a href={`tel:${h.number}`} className="inline-flex min-h-10 items-center gap-1.5 rounded-full border bg-card px-4 font-medium hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                        <Phone aria-hidden="true" className="size-3.5" />
+                        {t('saathi.rights.call', { number: h.number })}
+                      </a>
+                    )}
+                    {h.url && (
+                      <a href={h.url} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-1.5 rounded-full border bg-card px-4 font-medium hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                        <ExternalLink aria-hidden="true" className="size-3.5" />
+                        {t('saathi.rights.open')}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <SourceList sources={card.sources.map((s) => ({ title: s.title, url: s.url, site: s.publisher }))} checkedOn={card.checked_on} label={t('saathi.rights.sources')} />
+          <p className="text-xs text-muted-foreground">{t('saathi.rights.disclaimer')}</p>
+        </>
+      )}
+    </CardShell>
+  )
+}
+
+/** Warning chip for a job listing whose pay is below the state minimum wage (render inside the job row). */
+export function BelowMinimumWageChip({ job }: { job: JobPost }) {
+  const { t } = useTranslation()
+  if (!job.below_minimum_wage) return null
+  const month = job.minimum_wage_ref?.per_month
+  return (
+    <span
+      className="mt-1 inline-flex items-center gap-1 rounded-full bg-tile-rose px-2.5 py-0.5 text-xs font-medium text-tile-foreground"
+      title={month ? t('saathi.jobs.belowMinHint', { month: month.toLocaleString('en-IN') }) : undefined}
+    >
+      <TriangleAlert aria-hidden="true" className="size-3.5" />
+      {t('saathi.jobs.belowMin')}
+    </span>
+  )
+}
+
 /* ---------------- current job openings ---------------- */
 
 function daysAgo(iso: string | null | undefined): number | null {
@@ -109,6 +209,7 @@ function JobRow({ job, seenOn }: { job: JobPost; seenOn: string }) {
     >
       <span className="min-w-0 flex-1">
         <span className="block font-medium">{job.title}</span>
+        <BelowMinimumWageChip job={job} />
         {job.employer && <span className="block text-sm">{job.employer}</span>}
         <span className="mt-0.5 flex flex-wrap gap-x-3 gap-y-0.5 text-sm text-muted-foreground">
           {job.place && <span className="inline-flex items-center gap-1"><MapPin aria-hidden="true" className="size-3.5" />{job.place}</span>}

@@ -50,7 +50,9 @@ def test_required_facts_in_order():
     assert a.missing_for("earn", f)[:2] == ["age", "district"]
     full = {"age": 15, "class_level": 10, "district": "Nashik", "state": "Maharashtra", "skills": ["phone repair"],
             "hours_per_week": 10, "can_travel_km": 5, "has_family_business": False}
-    assert a.missing_for("earn", full) == []
+    assert a.missing_for("earn", full) == ["gender"]  # scholarships for girls need it
+    assert a.missing_for("earn", {**full, "gender": "female"}) == []
+    assert a.missing_for("scholarship", {"class_level": 10, "state": "Maharashtra"}) == ["district", "gender"]
     assert a.missing_for("careers", {"class_level": 11}) == ["interests"]
     assert a.missing_for("careers", {"class_level": 11, "skills": ["sewing"]}) == []
 

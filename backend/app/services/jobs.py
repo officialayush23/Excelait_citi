@@ -1,21 +1,22 @@
 """Current job openings from reputed job sites, found with Tavily and read with plain code.
 
 The model never writes a listing: it only sees the compact lines this module returns, and the
-student sees each posting with its site, link and date. Results are cached for a few hours."""
+student sees each posting with its site, link and date. Every posting found is kept in the knowledge
+store (knowledge_items) until its own time runs out (apply-by date, or posted date + 30 days), so a
+posting found for one student is shown to the next student in the same district from the database."""
 
 from __future__ import annotations
 
 import re
 from concurrent.futures import ThreadPoolExecutor
-from datetime import date, datetime, timedelta, timezone
+from datetime import date
 
 import httpx
 
 from app.core.config import get_settings
-from app.core.db import get_db
-from app.services.web_search import _key
+from app.services import knowledge as kb
 
-CACHE_HOURS = 6
+MIN_STORED = 5            # fewer stored fresh postings than this for role + place -> search the web
 JOB_SITES = ["apna.co", "workindia.in", "in.indeed.com", "naukri.com", "ncs.gov.in"]
 APPRENTICE_SITES = ["apprenticeshipindia.gov.in"]
 SITE_NAMES = {"apna.co": "apna", "workindia.in": "WorkIndia", "in.indeed.com": "Indeed", "naukri.com": "Naukri",
@@ -30,24 +31,7 @@ def _site(url: str) -> str | None:
     return next((s for s in [*JOB_SITES, *APPRENTICE_SITES] if host == s or host.endswith("." + s)), None)
 
 
-def _cache_get(key: str):
-    rows = get_db().table("search_cache").select("results, created_at").eq("key", key).limit(1).execute().data
-    if not rows:
-        return None
-    made = datetime.fromisoformat(rows[0]["created_at"].replace("Z", "+00:00"))
-    return rows[0]["results"] if datetime.now(timezone.utc) - made < timedelta(hours=CACHE_HOURS) else None
-
-
-def _cache_put(key: str, query: str, results) -> None:
-    get_db().table("search_cache").upsert({"key": key, "provider": "tavily", "query": query[:300], "results": results,
-                                          "created_at": datetime.now(timezone.utc).isoformat()}).execute()
-
-
 def _tavily_search(query: str, domain: str) -> list[dict]:
-    key = _key(f"jobs2|{domain}|{query}")
-    hit = _cache_get(key)
-    if hit is not None:
-        return hit
     s = get_settings()
     raw = domain in ("workindia.in", "apna.co")
     r = httpx.post("https://api.tavily.com/search", timeout=40, headers={"Authorization": f"Bearer {s.tavily_api_key}"},
@@ -63,27 +47,20 @@ def _tavily_search(query: str, domain: str) -> list[dict]:
         elif domain == "apna.co" and text:
             row["parsed"] = _parse_apna_list(text)
         out.append(row)
-    _cache_put(key, f"{domain}: {query}", out)
     return out
 
 
 def _tavily_extract(urls: list[str]) -> dict[str, str]:
     if not urls:
         return {}
-    key = _key("extract|" + "|".join(sorted(urls)))
-    hit = _cache_get(key)
-    if hit is not None:
-        return hit
     s = get_settings()
     try:
         r = httpx.post("https://api.tavily.com/extract", timeout=60, headers={"Authorization": f"Bearer {s.tavily_api_key}"},
                        json={"urls": urls, "extract_depth": "basic", "format": "markdown"})
         r.raise_for_status()
-        out = {x["url"]: (x.get("raw_content") or "")[:40000] for x in r.json().get("results", [])}
+        return {x["url"]: (x.get("raw_content") or "")[:40000] for x in r.json().get("results", [])}
     except httpx.HTTPError:
-        out = {}
-    _cache_put(key, "extract", out)
-    return out
+        return {}
 
 
 # ---------------- page readers (plain code, one per site) ----------------
@@ -260,23 +237,101 @@ def _recent(posts: list[dict]) -> list[dict]:
     return [x for _, x in keep]
 
 
+def _query(role: str, place: str, apprenticeship_only: bool, part_time: bool) -> str:
+    return f"{role} {'apprenticeship' if apprenticeship_only else 'jobs'} {place}{' part time' if part_time else ''}"
+
+
+def _date(x) -> date | None:
+    try:
+        return date.fromisoformat(str(x)[:10]) if x else None
+    except ValueError:
+        return None
+
+
+def _store(items: list[dict], role: str, place: str, state: str | None) -> list[str]:
+    """Keep every posting until its own time runs out; returns the stored ids."""
+    stems = _stems(role)
+    rows = []
+    for it in items:
+        kind = "apprenticeship" if it["site"] in APPRENTICE_SITES else "job"
+        until = kb.expiry_for(kind, deadline=_date(it.get("apply_by")), posted=_date(it.get("posted")))
+        if until <= kb.now():
+            continue
+        rows.append({"kind": kind, "source_url": it["url"], "source_site": it["site"], "title": it["title"], "provider": it.get("employer"),
+                     "data": it, "state": state, "district": place, "valid_until": until,
+                     "tags": [*stems, it["site"], *(["part_time"] if it.get("part_time") else [])]})
+    return [r["id"] for r in kb.upsert_items(rows)]
+
+
+def _stored(role: str, place: str, apprenticeship_only: bool) -> list[dict]:
+    """Fresh postings already in the store for this role and place (found earlier for any student)."""
+    kinds = ["apprenticeship"] if apprenticeship_only else ["job", "apprenticeship"]
+    rows = kb.find(kinds, district=place.split(",")[0].strip(), tags_any=_stems(role), limit=60)
+    out = []
+    for r in rows:
+        it = dict(r["data"] or {})
+        if it.get("url") and _matches(it.get("title") or "", _stems(role)):
+            out.append({**it, "_id": r["id"]})
+    return out
+
+
+def _flag_low_pay(posts: list[dict], state: str | None, part_time: bool) -> None:
+    """Mark full-time postings whose whole stated monthly pay range is below the state's minimum wage
+    (work_rules.minimum_wage). Part-time posts, daily pay and states without a state-wide figure are never flagged."""
+    if part_time or not state:
+        return
+    try:
+        from app.services.work_rules import minimum_wage
+        mw = minimum_wage(state, "unskilled")
+    except Exception:  # noqa: BLE001 - helper missing or no rule for this state
+        return
+    if not isinstance(mw, dict) or not isinstance(mw.get("per_month"), (int, float)):
+        return
+    for it in posts:
+        pay = it.get("pay") or ""
+        if it.get("part_time") or "month" not in pay.lower():
+            continue
+        nums = [int(x.replace(",", "")) for x in re.findall(r"\d[\d,]{2,}", pay)]
+        if nums and max(nums) < mw["per_month"]:
+            it["below_minimum_wage"] = True
+            it["minimum_wage_ref"] = mw
+
+
 def find_jobs(role: str, place: str, state: str | None = None, apprenticeship_only: bool = False, part_time: bool = False) -> dict:
     role = (role or "").strip()[:60] or "jobs"
     place = (place or state or "").strip()[:60]
     sites = APPRENTICE_SITES if apprenticeship_only else [*JOB_SITES, *APPRENTICE_SITES]
-    posts, pages = _search_place(role, place, sites, part_time) if place else ([], [])
-    searched = place
+    kind = "apprenticeship" if apprenticeship_only else "job"
+    q = _query(role, place, apprenticeship_only, part_time)
     nearby = [c for c in NEARBY.get((state or "").lower(), []) if c.lower() not in place.lower()]
-    if not posts and nearby:
-        searched = nearby[0]
-        posts, pages2 = _search_place(role, searched, sites, part_time)
-        pages = pages or pages2
-    posts = _recent(posts)[:12]
+    last = kb.last_search(kind, q)
+    stored = _stored(role, place, apprenticeship_only) if place else []
+    searched, from_store = place, False
+    if place and not kb.need_web_search(kb.searched_at(last), len(stored), MIN_STORED):
+        # The database answers: postings found earlier (for this or another student) that have not expired.
+        meta = (last or {}).get("meta") or {}
+        searched = meta.get("searched_place") or place
+        posts = stored if searched == place else (_stored(role, searched, apprenticeship_only) or stored)
+        pages = meta.get("pages") or ([] if apprentice_only(sites) else search_links(role, place))
+        from_store = True
+        kb.hit([x["_id"] for x in posts if x.get("_id")])
+    else:
+        posts, pages = _search_place(role, place, sites, part_time) if place else ([], [])
+        if not posts and nearby:
+            searched = nearby[0]
+            posts, pages2 = _search_place(role, searched, sites, part_time)
+            pages = pages or pages2
+        ids = _store(posts, role, searched, state)
+        if place:
+            kb.log_search(kind, q, ids, "tavily", filters={"role": role, "place": place, "state": state, "part_time": part_time},
+                          meta={"pages": pages, "searched_place": searched})
+    posts = [{k: v for k, v in x.items() if k != "_id"} for x in _recent(posts)[:12]]
+    _flag_low_pay(posts, state, part_time)
     used = sorted({x["site"] for x in posts} | {x["site"] for x in pages})
     return {"role": role, "place": place, "searched_place": searched, "items": posts, "pages": pages,
             "sites": sites, "sites_used": used, "site_names": {s: SITE_NAMES[s] for s in sites},
             "apprenticeship_only": apprenticeship_only, "checked_on": date.today().isoformat(),
-            "nearby": nearby[:2]}
+            "nearby": nearby[:2], "from_store": from_store}
 
 
 def compact(res: dict) -> str:

@@ -1,6 +1,17 @@
 {
-  "_doc": "Indian rules for a student under 18 who wants to work or earn. Used by backend/app/services/work_rules.py to build the 'What the law says for your age' card and to keep hazardous careers away from minors. 'policy': true marks Saathi's own safety rule (stricter than the law), not a legal rule. Re-check every source before the pilot.",
-  "checked_on": "2026-11-21",
+  "_doc": "Indian rules for a student under 18 who wants to work or earn. Used by backend/app/services/work_rules.py to build the 'What the law says for your age' card and to keep hazardous careers away from minors. 'policy': true marks Saathi's own safety rule (stricter than the law), not a legal rule. Re-checked on 2026-11-22 against the Labour Codes (see law_status). Re-check every source before the pilot.",
+  "checked_on": "2026-11-22",
+  "law_status": {
+    "checked_on": "2026-11-22",
+    "summary": "The four Labour Codes took effect on 21 Nov 2025 (labour.gov.in release). They did NOT repeal the Child and Adolescent Labour (Prohibition and Regulation) Act, 1986 or the Apprentices Act, 1961. The OSH Code defines 'adolescent' by the 1986 Act (s.2) and says an adolescent worker's hours are governed by that Act (s.25(4)); it also bars anyone under 18 from working in a mine (s.70(1)). So every age limit below still stands. No 2026 amendment to the 1986 Act or its hazardous schedule was found on labour.gov.in; Maharashtra published draft Maharashtra Child Labour (Prohibition and Regulation) Rules, 2025 on 12 Aug 2025 (state rules, not a change to the age limits). The Apprenticeship Rules, 1992 were amended in Sep 2025 (G.S.R. 610(E)); this raised minimum stipends only, ages unchanged.",
+    "result": "no_change_to_age_limits",
+    "sources": [
+      "osh_code",
+      "calpra",
+      "apprentices_act",
+      "apprentice_stipend"
+    ]
+  },
   "jobs_min_age": 18,
   "apprentice_min_age": 14,
   "apprentice_hazardous_min_age": 18,
@@ -22,7 +33,8 @@
       "url": "https://www.legitquest.com/act/child-labour-prohibition-and-regulation-amendment-rules-2017/9015",
       "also": [
         "https://labour.gov.in/acts/intent-notification-child-labour-prohibition-and-regulation-amendment-rules20-april-2017"
-      ]
+      ],
+      "note": "Rule text as published in 2017; not found amended on labour.gov.in on 2026-11-22."
     },
     "calpra_schedule": {
       "title": "Schedule of hazardous occupations and processes, Part A and Part B (S.O. 1022(E), 31 March 2017)",
@@ -73,6 +85,16 @@
       "publisher": "ExcelAIt",
       "url": "https://labour.gov.in/sites/default/files/amendment_in_the_schedule_to_the_child_and_adolescent_labour_prohibition_regulation_act_1986_.pdf",
       "policy": true
+    },
+    "osh_code": {
+      "title": "Occupational Safety, Health and Working Conditions Code, 2020: s.2 (adolescent as in the 1986 Act), s.25(4) (adolescent hours under the 1986 Act), s.70(1) (no one under 18 in a mine)",
+      "publisher": "Ministry of Labour and Employment (copy on mahakamgar.maharashtra.gov.in)",
+      "url": "https://mahakamgar.maharashtra.gov.in/Site/Upload/PDF/OccupationalSafetyHealthCodeAct2020.pdf"
+    },
+    "apprentice_stipend": {
+      "title": "Apprenticeship Rules, 1992 as amended: minimum stipend from 11 Sep 2025 (G.S.R. 610(E); OM of 15 Sep 2025)",
+      "publisher": "Directorate General of Training, Ministry of Skill Development and Entrepreneurship",
+      "url": "https://rdsdewestbengal.dgt.gov.in/sites/default/files/2026-01/20250915_Upward%20revision_15.09.25.PDF"
     }
   },
   "rules": [
@@ -168,7 +190,8 @@
       "max_age": 17,
       "sources": [
         "calpra",
-        "calpra_schedule"
+        "calpra_schedule",
+        "osh_code"
       ],
       "text": {
         "en": "No hazardous work before 18: mines and quarries, brick kilns, explosives and fireworks, welding, factories with hazardous processes, chemicals, and hazardous construction work.",
@@ -212,12 +235,13 @@
       "max_age": 17,
       "sources": [
         "apprentices_act",
-        "naps"
+        "naps",
+        "apprentice_stipend"
       ],
       "text": {
-        "en": "From 14 you can be an apprentice in a safe (non-hazardous) trade and get a stipend; trades in hazardous industries need 18.",
-        "hi": "14 साल से आप सुरक्षित (गैर-खतरनाक) ट्रेड में अप्रेंटिस बनकर स्टाइपेंड पा सकते हैं; खतरनाक उद्योग वाले ट्रेड के लिए 18 साल चाहिए।",
-        "mr": "14 वर्षांपासून सुरक्षित (धोकादायक नसलेल्या) ट्रेडमध्ये अप्रेंटिस होऊन स्टायपेंड मिळवू शकता; धोकादायक उद्योगातील ट्रेडसाठी 18 वर्षे हवीत."
+        "en": "From 14 you can be an apprentice in a safe (non-hazardous) trade and get a stipend (at least Rs 6,800 a month for Class 5 to 9, Rs 8,200 for Class 10); trades in hazardous industries need 18.",
+        "hi": "14 साल से आप सुरक्षित (गैर-खतरनाक) ट्रेड में अप्रेंटिस बनकर स्टाइपेंड पा सकते हैं (कक्षा 5 से 9 के लिए महीने में कम से कम 6,800 रुपये, कक्षा 10 के लिए 8,200); खतरनाक उद्योग वाले ट्रेड के लिए 18 साल चाहिए।",
+        "mr": "14 वर्षांपासून सुरक्षित (धोकादायक नसलेल्या) ट्रेडमध्ये अप्रेंटिस होऊन स्टायपेंड मिळवू शकता (इयत्ता 5 ते 9 साठी महिन्याला किमान 6,800 रुपये, इयत्ता 10 साठी 8,200); धोकादायक उद्योगातील ट्रेडसाठी 18 वर्षे हवीत."
       }
     },
     {
@@ -255,7 +279,8 @@
       "min_age": 18,
       "max_age": 200,
       "sources": [
-        "calpra"
+        "calpra",
+        "osh_code"
       ],
       "text": {
         "en": "At 18 you are an adult under labour law: the child and adolescent limits no longer apply.",

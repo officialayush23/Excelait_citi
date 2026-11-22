@@ -25,6 +25,7 @@ from app.core.db import get_db
 from app.engine.matching import rank
 from app.services import colleges as col
 from app.services import community, jobs, partners, plans
+from app.services import scholarships as sch
 from app.services import work_rules as wr
 from app.services.ai import _fact_schema
 from app.services.catalogue import fields
@@ -127,17 +128,21 @@ def script_of(text: str) -> str:
 KEYWORDS = {
     "jobs": ["job", "jobs", "naukri", "nokri", "vacancy", "vacancies", "hiring", "openings", "नौकरी", "नोकरी", "रोजगार", "जॉब", "वैकेंसी"],
     "scholarship": ["scholarship", "scholarships", "shishyavrutti", "chhatravritti", "scheme", "schemes", "yojana", "छात्रवृत्ति",
-                    "शिष्यवृत्ती", "स्कॉलरशिप", "योजना", "fees help", "fee help"],
+                    "शिष्यवृत्ती", "स्कॉलरशिप", "योजना", "fees help", "fee help", "financial help", "financial support",
+                    "can't work", "cannot work", "can not work", "not allowed to work"],
     "earn": ["earn", "earning", "income", "kamana", "kamane", "kamai", "kamaun", "kamau", "paise", "paisa", "paison", "part time",
              "part-time", "कमाना", "कमाई", "कमाने", "पैसे", "पैसा", "कमवायचे", "कमावणे", "कमाई", "पैसे कमव"],
     "colleges": ["college", "colleges", "admission", "कॉलेज", "महाविद्यालय", "प्रवेश", "iti near", "polytechnic"],
     "plan": ["my plan", "plan bana", "roadmap", "मेरा प्लान", "माझा प्लॅन", "plan for"],
     "careers": ["career", "careers", "future", "kya banu", "kya ban", "करियर", "करिअर", "suit me", "what should i become", "बनना", "banna"],
 }
+# Money that needs no work (scholarships) is matched on class, place and gender; category and family income
+# are optional and asked gently on the scholarship card itself.
+WEAK_MONEY = ["money", "fees", "fee", "paisa chahiye", "paise chahiye", "पैसे चाहिए", "पैसे हवे", "आर्थिक मदद", "financial"]
 REQUIRED = {
-    "earn": ["age", "class_level", "district", "state", "skills", "hours_per_week", "can_travel_km", "has_family_business"],
+    "earn": ["age", "class_level", "district", "state", "gender", "skills", "hours_per_week", "can_travel_km", "has_family_business"],
     "jobs": ["age", "district"],
-    "scholarship": ["class_level", "state"],
+    "scholarship": ["class_level", "state", "district", "gender"],
     "colleges": ["district", "state"],
     "plan": ["class_level"],
     "careers": ["class_level", "interests"],
@@ -150,6 +155,7 @@ FIELD_HINT = {
     "interests": "what they enjoy doing or are good at", "hours_per_week": "how many hours a week they are free after school and on weekends",
     "can_travel_km": "how far from home they can travel for work or training (km)",
     "has_family_business": "whether the family has a shop, farm or small business they can help in",
+    "gender": "whether they are a girl or a boy (some scholarships are only for girls)",
 }
 EXTRA_ASK = ["district", "skills", "interests", "hours_per_week", "can_travel_km", "has_family_business", "needs_income_soon", "can_relocate"]
 STATES = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh",
@@ -185,7 +191,20 @@ def detect_intent(text: str) -> tuple[str | None, str | None]:
         return "career_named", named
     if any(k in t for k in KEYWORDS["careers"]):
         return "careers", None
+    if any(re.search(rf"(?<![a-z]){re.escape(k)}(?![a-z])", t) for k in WEAK_MONEY):
+        return "scholarship", None
     return None, None
+
+
+GIRL = {"girl", "ladki", "beti", "female", "daughter", "मुलगी", "लड़की", "लडकी", "बेटी", "मुलगी आहे"}
+BOY = {"boy", "ladka", "beta", "male", "son", "मुलगा", "लड़का", "लडका", "बेटा"}
+
+
+def gender_in(text: str) -> str | None:
+    """The student's own words: 'I am a Class 10 girl' -> 'female'. Nothing is inferred from grammar."""
+    words = set(re.findall(r"[a-z]+|[\u0900-\u097F]+", (text or "").lower()))
+    g, b = bool(words & GIRL), bool(words & BOY)
+    return "female" if g and not b else "male" if b and not g else None
 
 
 def known(facts: dict, f: str) -> bool:
@@ -233,6 +252,8 @@ def parse_answer(field: str, text: str):
             return False
         if words & YES and not words & NO:
             return True
+    if field == "gender":
+        return gender_in(t)
     if field in ("state", "district"):
         out: dict = {}
         rest = t
@@ -253,7 +274,7 @@ def parse_answer(field: str, text: str):
     return None
 
 
-PLACE_RE = re.compile(r"\b(?:near|in|around|at)\s+([A-Z][a-z]{2,}(?:\s[A-Z][a-z]{2,})?)|\b([A-Z][a-z]{2,})\s+(?:mein|ke paas|ke pass|ke aaspaas|madhe|javal)\b")
+PLACE_RE = re.compile(r"\b(?:near|in|around|at|from)\s+([A-Z][a-z]{2,}(?:\s[A-Z][a-z]{2,})?)|\b([A-Z][a-z]{2,})\s+(?:mein|ke paas|ke pass|ke aaspaas|madhe|javal)\b")
 NOT_PLACES = {"Class", "School", "College", "English", "Hindi", "Marathi", "India", "Iti", "The", "Standard", "Show", "Ghar", "Main", "Mujhe"}
 
 
@@ -347,6 +368,7 @@ TOOLS_SPEC = [
     ("course_details", "One course/training: entry, duration, exams, money, careers.", {"slug": {"type": "string"}}),
     ("exam_details", "One entrance or recruitment exam: when, who can sit.", {"slug": {"type": "string"}}),
     ("check_money", "Scholarships/schemes for this student, checked with fixed rules. Optionally one scheme.", {"slug": {"type": "string"}}),
+    ("find_scholarships", "More private, CSR and government scholarships found on Buddy4Study and official portals, matched to the student (shows the card).", {}),
     ("find_colleges", "Colleges/ITIs from the official directory.", {"kind": {"type": "string", "enum": ["iti", "polytechnic", "engineering", "nursing", "medical", "pharmacy", "paramedical", "agriculture", "veterinary", "teacher_training", "law", "hotel", "general"]}, "district": {"type": "string"}, "state": {"type": "string"}, "name": {"type": "string"}}),
     ("learning_resources", "Free learning resources for a career, course or exam.", {"career": {"type": "string"}, "course": {"type": "string"}, "exam": {"type": "string"}}),
     ("opportunities", "Internships, trainings and courses from verified partners.", {"kind": {"type": "string"}, "career": {"type": "string"}}),
@@ -529,6 +551,12 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
             return [f"{c['slug']} ({g.schemes[c['slug']]['kind']})" for c in checks if c["result"] == result and (g.schemes[c["slug"]]["kind"] == "scholarship") == scholarship]
         return (f"scholarships eligible {kinds('eligible', True)}; scholarships needing answers on the card {kinds('needs_info', True)[:4]}; "
                 f"training/apprenticeship/other schemes eligible {kinds('eligible', False)} (these are not free money: training or paid work-training)")
+    if name == "find_scholarships":
+        if ctx.seen("scholarships"):
+            return "already shown"
+        res = sch.discover(ctx.facts)
+        ctx.cards.append({"type": "scholarships", **{k: res[k] for k in ("found", "counts", "ask", "checked_on", "sites", "from_store")}})
+        return sch.compact(res)
     if name == "find_colleges":
         state = a.get("state") or ctx.facts.get("state")
         items = col.search(a.get("kind"), None if state == "Other" else state, a.get("district") or ctx.facts.get("district"), a.get("name"))
@@ -642,7 +670,24 @@ def _find_jobs(ctx: Ctx, a: dict) -> str:
         apprentice = True
     res = jobs.find_jobs(role, place, ctx.facts.get("state"), apprenticeship_only=apprentice, part_time=bool(a.get("part_time")))
     ctx.cards.append({"type": "jobs", **res, "minor": wr.is_minor(age)})
-    return jobs.compact(res)
+    out = jobs.compact(res)
+    if not wr.is_minor(age):
+        out += _rights_card(ctx)
+    return out
+
+
+def _rights_card(ctx: Ctx) -> str:
+    """An adult looking at jobs also sees their rights at work (wages, hours, no fee for a job, where to complain)."""
+    rights = getattr(wr, "employment_rights", None)
+    if rights is None or ctx.seen("rights"):
+        return ""
+    try:
+        card = rights(ctx.age, ctx.facts.get("state"), ctx.lang if ctx.lang in ("hi", "mr") else "en")
+    except Exception as e:  # noqa: BLE001 - the jobs card still stands without it
+        log.warning("employment_rights failed: %s", e)
+        return ""
+    ctx.cards.append({"type": "rights", **card})
+    return "; rights-at-work card shown (wages, hours, never pay a fee for a job)"
 
 
 # ---------------------------------------------------------------- model calls
@@ -720,7 +765,7 @@ def _step(ctx: Ctx, named: str | None, first: bool = False) -> str:
             return "Student is under 18: no job listings. The law card is shown. Call find_jobs(role, apprenticeship=true) only if age is 14+, and find_careers."
         return "Call find_jobs(role, place) for the work they asked about. Then one sentence: check each listing on the site, never pay to get a job."
     if ctx.intent == "scholarship":
-        return "Call check_money. Then one sentence on the next step."
+        return "Call check_money, then find_scholarships. Then one sentence on the next step."
     if ctx.intent == "colleges":
         return "Call find_colleges for the course they want near their district."
     if ctx.intent == "careers":
@@ -737,15 +782,16 @@ def _primary(ctx: Ctx, named: str | None) -> list[tuple[str, dict]] | None:
     None means the model should choose the tools itself."""
     minor, i = wr.is_minor(ctx.age), ctx.intent
     skill = next(iter(ctx.facts.get("skills") or []), None)
+    money = [("check_money", {}), ("find_scholarships", {})]   # money that needs no work always comes first
     if i == "earn":
         if minor:
-            return [("check_money", {}), ("find_careers", {"needs_income_soon": True})]
-        return [("check_money", {}), ("find_jobs", {"role": skill, "part_time": True}), ("find_careers", {"needs_income_soon": True})]
+            return [*money, ("find_careers", {"needs_income_soon": True})]
+        return [*money, ("find_jobs", {"role": skill, "part_time": True}), ("find_careers", {"needs_income_soon": True})]
     if i == "jobs" and minor:
-        out = [("find_careers", {"needs_income_soon": True})]
+        out = [*money, ("find_careers", {"needs_income_soon": True})]
         return out + ([("find_jobs", {"role": skill, "apprenticeship": True})] if skill and ctx.age >= 14 else [])
     if i == "scholarship":
-        return [("check_money", {})]
+        return money
     if i == "careers":
         return [("find_careers", {})]
     if i == "career_named" and named:
@@ -754,12 +800,15 @@ def _primary(ctx: Ctx, named: str | None) -> list[tuple[str, dict]] | None:
 
 
 WRITE = {
-    "earn": "Write 1-2 short sentences: first the scholarships card (money that needs no work), then the safe paths card{fam}. "
+    "earn": "Write 1-2 short sentences: first the scholarship cards (money that needs no work: verified schemes, then more found on "
+            "Buddy4Study and official sites, to check on each official page), then the safe paths card{fam}. "
             "If no scholarship is eligible yet, say answering the scholarship card's questions can unlock some. "
             "Say real work starts at 18 and free skill training helps now. Do not name any job or number not in the results.",
     "earn_adult": "Write 1-2 short sentences pointing to the scholarships, the job openings (check on the site, never pay to get a job) and careers.",
-    "jobs": "Write 1-2 short sentences: by law they cannot take a job before 18; point to the law card and the safe training paths.",
-    "scholarship": "Write 1-2 short sentences on the scholarships card and its next step (answer the card's questions to check more).",
+    "jobs": "Write 1-2 short sentences: scholarships first (money that needs no work), and by law they cannot take a job before 18; "
+            "point to the law card and the safe training paths.",
+    "scholarship": "Write 1-2 short sentences: the verified schemes card first, then the other scholarships found (check details and "
+                   "the deadline on each official page before applying), and the next step (answer the cards' questions to check more).",
     "careers": "Write 1-2 short sentences on how to pick from the careers card (tap one to see the path).",
     "career_named": "Write 1-2 short sentences on the first step on this path from the career card.",
 }
@@ -805,8 +854,10 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
             pre.update(got)
         elif got is not None:
             pre[pending] = got
-    if intent in ("jobs", "colleges", "earn") and not known(ctx.facts, "district") and (place := place_in(message)):
+    if intent in ("jobs", "colleges", "earn", "scholarship") and not known(ctx.facts, "district") and (place := place_in(message)):
         pre.update(place)
+    if intent in ("earn", "scholarship", "jobs") and not known(ctx.facts, "gender") and (g := gender_in(message)):
+        pre["gender"] = g
     if intent == "earn" and ctx.facts.get("needs_income_soon") is None:
         pre["needs_income_soon"] = True
     if pre:
@@ -849,7 +900,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
                 key = "earn_adult" if intent == "earn" and not wr.is_minor(ctx.age) else intent
                 fam = ", and that helping the family business after school (unpaid, safe work) is allowed" if ctx.facts.get("has_family_business") else ""
                 messages[0] = system()
-                messages.append({"role": "user", "content": "[app note, not from the student] Cards now shown to the student:\n" + "\n".join(lines) + "\n" + WRITE.get(key, WRITE["careers"]).format(fam=fam) + " Reply in the student's language as the LANGUAGE rule says."})
+                messages.append({"role": "user", "content": "[app note, not from the student] Cards now shown to the student:\n" + "\n".join(lines) + "\n" + WRITE.get(key, WRITE["careers"]).format(fam=fam) + " Never write tool or card code names (like check_money); say 'the scholarship card'. Never call training or apprenticeship schemes scholarships. Reply in the student's language as the LANGUAGE rule says."})
                 for _try in range(2):
                     resp = _llm(messages, None, max_tokens=700)
                     tokens += (resp.get("usage") or {}).get("total_tokens", 0)
@@ -900,6 +951,11 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
             used.append("work_rules")
         if before != ctx.missing:
             messages[0] = system()
+
+    # Money that needs no work comes before anything about work: verified schemes, then the scholarships found.
+    if intent in ("earn", "jobs", "scholarship") and (wr.is_minor(ctx.age) or intent == "scholarship"):
+        first = {"schemes": 0, "scholarships": 1}
+        ctx.cards.sort(key=lambda c: first.get(c["type"], 2))
 
     # Intake turn where the model gave text but no question card: show the card for the next fact.
     if ctx.missing and not ctx.asked:

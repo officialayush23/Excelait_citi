@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import sys
 import uuid
+from datetime import date
 
 import httpx
 
@@ -33,7 +34,8 @@ SCENARIOS = {
         "answers": {"age": ("type", "15 saal"), "district": ("type", "Nashik, Maharashtra"), "state": ("type", "Maharashtra"),
                     "skills": ("type", "Phone repair thoda thoda aata hai"), "interests": ("type", "Phone repair thoda thoda aata hai"),
                     "hours_per_week": ("tap", 10), "can_travel_km": ("type", "5 km tak ja sakta hoon"),
-                    "has_family_business": ("type", "Nahi, ghar mein koi dukan ya business nahi hai"), "class_level": ("type", "10th mein hoon")},
+                    "has_family_business": ("type", "Nahi, ghar mein koi dukan ya business nahi hai"), "class_level": ("type", "10th mein hoon"),
+                    "gender": ("type", "Main ladka hoon")},
         "expect_final": ["law", "schemes", "careers"], "no_cards": ["jobs"],
     },
     "hindi_child_earn": {
@@ -42,7 +44,7 @@ SCENARIOS = {
         "answers": {"age": ("type", "12 साल"), "class_level": ("type", "7वीं में हूँ"), "district": ("type", "नाशिक, महाराष्ट्र"),
                     "state": ("type", "महाराष्ट्र"), "skills": ("type", "मुझे थोड़ी सिलाई आती है"), "interests": ("type", "मुझे थोड़ी सिलाई आती है"),
                     "hours_per_week": ("type", "हफ़्ते में 6 घंटे"), "can_travel_km": ("type", "नहीं, घर के पास ही"),
-                    "has_family_business": ("type", "हाँ, हमारी किराने की दुकान है")},
+                    "has_family_business": ("type", "हाँ, हमारी किराने की दुकान है"), "gender": ("type", "मैं लड़का हूँ")},
         "expect_final": ["law", "schemes"], "no_cards": ["jobs"],
     },
     "hindi_nursing": {
@@ -55,14 +57,22 @@ SCENARIOS = {
     "marathi_scholarship": {
         "ui": "mr", "lang": "mr", "intent": "scholarship",
         "first": "मी आठवीत शिकते. मला शिष्यवृत्ती मिळेल का?",
-        "answers": {"state": ("type", "महाराष्ट्र"), "class_level": ("type", "आठवी"), "district": ("type", "नाशिक, महाराष्ट्र")},
-        "expect_final": ["schemes"],
+        "answers": {"state": ("type", "महाराष्ट्र"), "class_level": ("type", "आठवी"), "district": ("type", "नाशिक, महाराष्ट्र"),
+                    "gender": ("type", "मी मुलगी आहे")},
+        "expect_final": ["schemes", "scholarships"], "money_first": True,
     },
     "iti_jobs": {
         "ui": "en", "lang": "en", "intent": "jobs",
         "first": "I am 18 and doing ITI electrician. Show me electrician jobs near Pune.",
         "answers": {"age": ("type", "I am 18"), "district": ("type", "Pune, Maharashtra"), "state": ("type", "Maharashtra")},
         "expect_final": ["jobs"], "need_posts": True,
+    },
+    "money_girl_nashik": {
+        "ui": "en", "lang": "en", "intent": "scholarship",
+        "first": "I am a Class 10 girl from Nashik, Maharashtra. I am 15 and I can't work, but my family needs money for my studies. What help can I get?",
+        "answers": {"class_level": ("type", "Class 10"), "district": ("type", "Nashik, Maharashtra"), "state": ("type", "Maharashtra"),
+                    "gender": ("type", "I am a girl"), "age": ("type", "15")},
+        "expect_final": ["schemes", "scholarships"], "no_cards": ["jobs", "careers"], "money_first": True, "max_ask_turns": 1,
     },
     "english_explore": {
         "ui": "en", "lang": "en", "intent": "careers",
@@ -130,6 +140,24 @@ def check_turn(sc: dict, res: dict, facts: dict, state: dict) -> list[str]:
                     fails.append(f"job without a reputed source: {i}")
         if c["type"] == "law" and not c["sources"]:
             fails.append("law card without sources")
+        if c["type"] == "scholarships":
+            today = date.today().isoformat()
+            for i in c["found"]:
+                if not i.get("source_url", "").startswith("http"):
+                    fails.append(f"scholarship without a source link: {i['name']}")
+                if i["match"] not in ("likely_eligible", "check"):
+                    fails.append(f"scholarship shown with status {i['match']}: {i['name']}")
+                if i.get("deadline") and i["deadline"] < today:
+                    fails.append(f"expired scholarship shown: {i['name']} ({i['deadline']})")
+                if i["match"] == "likely_eligible" and (i["unknown"] or i.get("partial")):
+                    fails.append(f"marked likely eligible with unknowns: {i['name']}")
+    if sc.get("money_first") and kinds:
+        money = [n for n, k in enumerate(kinds) if k in ("schemes", "scholarships")]
+        other = [n for n, k in enumerate(kinds) if k in ("law", "careers", "jobs", "offers")]
+        if money and other and min(other) < max(money):
+            fails.append(f"work-related card before the money cards: {kinds}")
+        if "schemes" in kinds and "scholarships" in kinds and kinds.index("scholarships") < kinds.index("schemes"):
+            fails.append("found scholarships above the verified schemes")
     bad = assistant.number_issue(reply, " ".join([*state["evidence"], str(res["cards"])]))
     if bad:
         fails.append(f"numbers not from tools: {bad}")
@@ -169,6 +197,10 @@ def run(name: str, sc: dict) -> dict:
                     print("      careers: " + ", ".join(f"{i['slug']}({i['age_status']})" for i in c["items"]))
                 if c["type"] == "law":
                     print(f"      law: age {c['age']} {c['band']}, {len(c['rules'])} rules, sources {[s['id'] for s in c['sources']]}")
+                if c["type"] == "scholarships":
+                    print(f"      scholarships: {c['counts']} from_store {c.get('from_store')} sites {c['sites']}")
+                    for i in c["found"][:4]:
+                        print(f"        - {i['name'][:60]} | {i['match']} | {i.get('deadline') or 'no date'} | {i['source_url'][:80]}")
             for f in fails:
                 print(f"    FAIL {f}")
             if not qs:
@@ -180,6 +212,10 @@ def run(name: str, sc: dict) -> dict:
                 msg = qs[0]["answered"]
             else:
                 msg = val
+        if sc.get("max_ask_turns") is not None:
+            asks = sum(1 for k in seen if k == "question")
+            if asks > sc["max_ask_turns"]:
+                all_fails.append(f"asked {asks} questions; the first message already had the facts")
         final = set(seen)
         for k in sc.get("expect_final", []):
             if k not in final:

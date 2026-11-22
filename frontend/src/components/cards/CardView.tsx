@@ -5,7 +5,8 @@ import { CollegesCard, OffersCard, ResourcesCard, WebCard } from './places'
 import { MyPlanCard, PlanCard } from './plan'
 import { QuestionCard } from './QuestionCard'
 import type { Card } from './types'
-import { JobsCard, LawCard } from './work'
+import { ScholarshipsCard } from './scholarships'
+import { JobsCard, LawCard, RightsCard } from './work'
 
 /** Picks the right renderer for any card Saathi sends. Unknown types render nothing. */
 export function CardView({ card, active }: { card: Card; active?: boolean }) {
@@ -44,6 +45,10 @@ export function CardView({ card, active }: { card: Card; active?: boolean }) {
       return <LawCard card={card} />
     case 'jobs':
       return <JobsCard card={card} />
+    case 'rights':
+      return <RightsCard card={card} />
+    case 'scholarships':
+      return <ScholarshipsCard card={card} />
     default:
       return null
   }

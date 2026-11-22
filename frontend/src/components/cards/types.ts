@@ -182,6 +182,64 @@ export type LawData = {
   can_take_jobs?: boolean
 }
 
+export type RightItem = {
+  id: string
+  topic: string
+  text: Record<string, string>
+  text_lang?: string
+  numbers?: Record<string, string | number>
+  verified: boolean
+  policy: boolean
+  sources: string[]
+}
+export type RightsData = {
+  age: number | null
+  band: 'child' | 'adolescent' | 'adult' | 'unknown'
+  minor: boolean
+  state: string | null
+  lang: string
+  rights: RightItem[]
+  minimum_wage: { per_day: number; per_month: number; effective_from: string; valid_until?: string | null; source: string; verified: boolean; zone?: string; state: string; skill: string } | null
+  minimum_wage_note: 'state_sets_per_employment' | 'not_available' | null
+  helplines: { id: string; name: string; number?: string | null; alt_number?: string | null; hours?: string; url?: string; grievance_url?: string }[]
+  law_status: { in_force_from: string; summary: string }
+  sources: LawSource[]
+  checked_on: string
+}
+
+/** A scholarship found on Buddy4Study or an official portal (backend/app/services/scholarships.py), matched by fixed code. */
+export type ScholarshipMatch = 'likely_eligible' | 'check' | 'not_eligible'
+export type FoundScholarship = {
+  id?: string | null
+  name: string
+  provider?: string | null
+  provider_type?: 'government' | 'private' | 'csr' | 'ngo' | null
+  amount_text?: string | null
+  amount?: number | null
+  deadline?: string | null
+  days_left?: number | null
+  documents?: string[]
+  how_to_apply?: string | null
+  apply_url?: string | null
+  source_url: string
+  source_site?: string | null
+  site_name?: string | null
+  last_seen?: string | null
+  partial?: boolean
+  eligibility_text?: string | null
+  match: ScholarshipMatch
+  reasons: string[]
+  unknown: string[]
+}
+export type ScholarshipsData = {
+  found: FoundScholarship[]
+  counts: { verified: number; verified_eligible: number; likely_eligible: number; check: number; not_eligible: number }
+  ask: string[]
+  checked_on: string
+  sites: string[]
+  from_store?: boolean
+}
+
 export type JobPost = {
   title: string
   employer?: string | null
@@ -190,6 +248,9 @@ export type JobPost = {
   posted?: string | null
   site: string
   url: string
+  /** Set by the backend when the whole monthly pay range is below the state minimum wage. */
+  below_minimum_wage?: boolean
+  minimum_wage_ref?: { per_month: number; effective_from: string; valid_until?: string | null; source: string; verified: boolean; state: string }
 }
 export type JobsData = {
   role: string
@@ -223,6 +284,8 @@ export type Card =
   | { type: 'question'; field: string | null; question?: string | null; lang?: string; answered?: string }
   | ({ type: 'law' } & LawData)
   | ({ type: 'jobs' } & JobsData)
+  | ({ type: 'scholarships' } & ScholarshipsData)
+  | ({ type: 'rights' } & RightsData)
 
 export type CardType = Card['type']
 export type CardOf<T extends CardType> = Extract<Card, { type: T }>
