@@ -422,7 +422,9 @@ def _tools(phase: str = "answer", next_field: str | None = None, need: list[str]
     if phase == "intake":
         return [_save_tool(need), _ask_tool(next_field)]
     out = [{"type": "function", "function": {"name": n, "description": d, "parameters": {"type": "object", "properties": p}}} for n, d, p in TOOLS_SPEC]
-    return [*out, _save_tool()]
+    # ask_student stays available: models sometimes ask anyway (e.g. after "hi"), and Groq rejects a call to a
+    # tool that was not offered. The handler still enforces one question per turn and skips known facts.
+    return [*out, _save_tool(), _ask_tool(None)]
 
 
 def _slug(kind: str, value: str | None) -> str | None:
@@ -722,6 +724,10 @@ def _llm(messages: list[dict], tools: list[dict] | None, tool_choice=None, max_t
             time.sleep(min(float(r.headers.get("retry-after") or 3), 12))
         except ValueError:
             time.sleep(3)
+    if r is not None and r.status_code == 400 and "tool" in r.text and tools:
+        # Still an invalid tool call after retries: answer in plain words rather than failing the chat.
+        log.warning("llm 400 after retries; answering without tools")
+        return _llm(messages, None, None, max_tokens)
     r.raise_for_status()
     return r.json()
 
