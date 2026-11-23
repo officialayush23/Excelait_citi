@@ -1,0 +1,21 @@
+{
+  "moneyTitle": "छात्रवृत्ति जो आप ले सकते हैं",
+  "schemesChecked_one": "{{count}} योजना से जाँचा",
+  "schemesChecked_other": "{{count}} योजनाओं से जाँचा",
+  "openMoney": "छात्रवृत्ति खोलें",
+  "topCareers": "आपके लिए सही करियर",
+  "seeAll": "सब देखें",
+  "noCareers": "कुछ सवालों के जवाब दें और अपने लिए सही करियर देखें।",
+  "fit": "{{pct}}% मेल",
+  "perMonth": "₹{{min}}–{{max}} हज़ार महीना",
+  "profileTitle": "आपकी प्रोफ़ाइल",
+  "ofProfile": "प्रोफ़ाइल पूरी",
+  "answered": "जवाब दिए",
+  "private": "निजी जानकारी",
+  "missing": "अभी बाकी",
+  "fitTitle": "करियर आपसे कितना मेल खाते हैं",
+  "matched_one": "{{count}} करियर मिला",
+  "matched_other": "{{count}} करियर मिले",
+  "topFit": "सबसे ज़्यादा {{pct}}%",
+  "open": "खोलें"
+}

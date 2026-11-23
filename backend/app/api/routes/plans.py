@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 from app.core.auth import CurrentUser, require_role
 from app.services import plans as svc
+from app.services.roadmap import record_event
 
 router = APIRouter(tags=["plans"])
 student = require_role("student")
@@ -30,9 +31,12 @@ def saved(user: CurrentUser = Depends(student)) -> dict:
 @router.post("/me/saved")
 def save(body: SaveIn, user: CurrentUser = Depends(student)) -> dict:
     try:
-        return {"saved": svc.save_career(user.id, body.career, body.save)}
+        out = {"saved": svc.save_career(user.id, body.career, body.save)}
     except ValueError as e:
         raise HTTPException(404, str(e)) from e
+    if body.save:
+        record_event(user.id, "career_saved", body.career)
+    return out
 
 
 @router.post("/me/plans")

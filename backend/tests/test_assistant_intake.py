@@ -117,7 +117,7 @@ def test_one_question_then_stop(monkeypatch):
     monkeypatch.setattr(a, "get_db", lambda: db)
     monkeypatch.setattr(a, "graph", fake_graph)
     monkeypatch.setattr(a, "get_facts", lambda uid: {"class_level": 10})
-    monkeypatch.setattr(a, "merge_facts", lambda uid, f: {"class_level": 10, **f})
+    monkeypatch.setattr(a, "merge_facts", lambda uid, f, **kw: {"class_level": 10, **f})
     rounds = []
 
     def fake_llm(messages, tools, tool_choice=None, max_tokens=600):

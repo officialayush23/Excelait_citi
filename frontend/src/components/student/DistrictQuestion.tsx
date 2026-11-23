@@ -9,12 +9,12 @@ import { DISTRICTS } from '@/data/districts'
 import { useFacts } from '@/data/facts'
 
 /** District as typed text; tap a suggestion for the chosen state, or type any other district. */
-export function DistrictQuestion({ onAnswer, compact }: { onAnswer: (value: string) => void; compact?: boolean }) {
+export function DistrictQuestion({ onAnswer, compact, title, hint: hintText, why }: { onAnswer: (value: string) => void; compact?: boolean; title?: string; hint?: string | null; why?: string | null }) {
   const { t } = useTranslation()
   const state = useFacts((s) => s.facts.state)
   const [text, setText] = useState('')
-  const question = t('facts.district.q')
-  const hint = t('facts.district.hint', { defaultValue: '' })
+  const question = title ?? t('facts.district.q')
+  const hint = hintText ?? t('facts.district.hint', { defaultValue: '' })
   const all = typeof state === 'string' ? (DISTRICTS[state] ?? []) : []
   const typed = text.trim().toLowerCase()
   const shown = (typed ? all.filter((d) => d.toLowerCase().includes(typed)) : all).slice(0, 8)
@@ -30,6 +30,7 @@ export function DistrictQuestion({ onAnswer, compact }: { onAnswer: (value: stri
           <SpeakButton text={hint ? `${question}. ${hint}` : question} />
         </div>
         {hint && <p className="mt-1 text-muted-foreground">{hint}</p>}
+        {why && <p className="mt-1 text-sm text-muted-foreground/80">{why}</p>}
       </div>
       {shown.length > 0 && <ChipGroup options={shown.map((d) => ({ value: d, label: d }))} value={[]} onChange={([v]) => submit(v)} />}
       <form

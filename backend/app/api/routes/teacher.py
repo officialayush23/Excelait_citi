@@ -47,6 +47,11 @@ class NudgeIn(BaseModel):
     code: str = "general"
 
 
+class StudentFactsIn(BaseModel):
+    facts: dict
+    note: str | None = Field(default=None, max_length=200)
+
+
 # ----- student side -----
 @router.post("/classes/join")
 def join(body: JoinIn, user: CurrentUser = Depends(get_current_user)) -> dict:
@@ -99,3 +104,9 @@ def recommend(student_id: str, body: RecommendationIn, user: CurrentUser = Depen
 @router.post("/teacher/students/{student_id}/nudge")
 def nudge(student_id: str, body: NudgeIn, user: CurrentUser = Depends(teacher_only)) -> dict:
     return svc.nudge(student_id, user, body.code)
+
+
+@router.patch("/teacher/students/{student_id}/facts")
+def student_facts(student_id: str, body: StudentFactsIn, user: CurrentUser = Depends(teacher_only)) -> dict:
+    """Correct a student's school facts (class, school type, district...). Saved with source 'teacher'."""
+    return {"facts": svc.update_student_facts(student_id, user, body.facts, body.note)}

@@ -6,14 +6,14 @@ import { useEffect } from 'react'
 import { create } from 'zustand'
 
 import { api } from '@/lib/api'
-import { db, getKv, setKv, type Facts } from '@/data/db'
+import { db, getKv, setKv, type FactSource, type Facts } from '@/data/db'
 
 type FactsState = {
   loaded: boolean
   facts: Facts
   pending: number
   load: (userId: string) => Promise<void>
-  update: (patch: Facts, opts?: { replaceLists?: boolean }) => Promise<void>
+  update: (patch: Facts, opts?: { replaceLists?: boolean; source?: FactSource }) => Promise<void>
   sync: () => Promise<void>
 }
 
@@ -52,7 +52,7 @@ export const useFacts = create<FactsState>((set, get) => ({
     }
     set({ facts: next })
     await setKv(key(), next)
-    await db.outbox.add({ op_id: crypto.randomUUID(), kind: 'facts', payload: patch, replace_lists: Boolean(opts?.replaceLists), created_at: Date.now(), tries: 0 })
+    await db.outbox.add({ op_id: crypto.randomUUID(), kind: 'facts', payload: patch, replace_lists: Boolean(opts?.replaceLists), source: opts?.source, created_at: Date.now(), tries: 0 })
     set({ pending: await db.outbox.count() })
     void get().sync()
   },
@@ -71,7 +71,7 @@ export const useFacts = create<FactsState>((set, get) => ({
           try {
             await api('/api/v1/students/me/facts', {
               method: 'PATCH',
-              body: JSON.stringify({ facts: op.payload, replace_lists: op.replace_lists ?? false }),
+              body: JSON.stringify({ facts: op.payload, replace_lists: op.replace_lists ?? false, ...(op.source ? { source: op.source } : {}) }),
             })
             await db.outbox.delete(op.op_id)
           } catch {

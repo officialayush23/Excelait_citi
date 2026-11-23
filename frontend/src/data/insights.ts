@@ -15,6 +15,7 @@ export function toProfile(facts: Record<string, unknown>, whatIf: WhatIf = {}): 
     family_income_annual: (facts.family_income_annual as number) ?? null,
     needs_income_soon: (whatIf.needs_income_soon ?? facts.needs_income_soon ?? null) as boolean | null,
     can_relocate: (whatIf.can_relocate ?? facts.can_relocate ?? null) as boolean | null,
+    riasec: (facts.riasec as Record<string, number> | undefined) ?? null,
   }
 }
 

@@ -61,7 +61,7 @@ export function QuestionCard({ card, active }: { card: CardOf<'question'>; activ
   async function onAnswer(value: unknown) {
     if (!field) return
     setAnswered(true)
-    await update({ [field]: value })
+    await update({ [field]: value }, { source: 'saathi' })
     // The server reads facts when it answers, so make sure this one has arrived first.
     await sync().catch(() => undefined)
     if (inChat) ask(card.answered || t('saathi.answered'))
@@ -86,6 +86,7 @@ export function QuestionCard({ card, active }: { card: CardOf<'question'>; activ
             <h3 className="text-lg font-semibold">{question}</h3>
             <SpeakButton text={question} />
           </div>
+          {card.why && <p className="-mt-2 text-sm text-muted-foreground">{card.why}</p>}
           {typed ? (
             <p className="flex items-center gap-2 rounded-2xl bg-tile-sky p-3 text-sm font-medium text-tile-foreground">
               <CornerRightDown aria-hidden="true" className="size-4 shrink-0" />

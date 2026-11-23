@@ -33,7 +33,7 @@ export function KpiCard({ label, value, prefix, suffix, hint, icon, tone = 'plai
   return (
     <motion.div
       variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-      className={cn('flex min-h-36 flex-col justify-between gap-4 rounded-2xl border p-5', toneClass[tone], className)}
+      className={cn('flex min-h-36 flex-col justify-between gap-4 rounded-[1.75rem] p-5 ring-1 ring-black/[0.04] dark:ring-white/[0.05]', toneClass[tone], className)}
     >
       <div className="flex items-start justify-between gap-3">
         <p className={cn('text-sm font-medium', tone === 'plain' ? 'text-muted-foreground' : 'opacity-75')}>{label}</p>

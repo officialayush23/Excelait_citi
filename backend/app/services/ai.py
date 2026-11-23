@@ -95,7 +95,7 @@ def onboard_turn(user_id: str, history: list[dict], message: str, language: str)
                 args = {}
             if name == "save_facts":
                 facts = args.get("facts") or {}
-                merge_facts(user_id, facts)
+                merge_facts(user_id, facts, source="saathi", note=message)
                 saved.update(facts)
                 result = {"ok": True, "saved": list(facts)}
             elif name == "search_schemes":

@@ -227,6 +227,128 @@
           "score": 36
         }
       ]
+    },
+    {
+      "name": "Meena, 15, Class 10, took the quiz: Helper and Organiser, likes helping, needs to earn soon",
+      "profile": {
+        "interests": [
+          "helping",
+          "teaching"
+        ],
+        "subjects": [
+          "languages"
+        ],
+        "marks_percent": 64,
+        "family_income_annual": 120000,
+        "needs_income_soon": true,
+        "can_relocate": false,
+        "riasec": {
+          "R": 33,
+          "I": 50,
+          "A": 17,
+          "S": 100,
+          "E": 67,
+          "C": 83
+        }
+      },
+      "expect": [
+        {
+          "slug": "anganwadi-worker",
+          "score": 97
+        },
+        {
+          "slug": "beautician",
+          "score": 70
+        },
+        {
+          "slug": "primary-teacher",
+          "score": 68
+        },
+        {
+          "slug": "bank-mitra",
+          "score": 65
+        },
+        {
+          "slug": "csc-operator",
+          "score": 65
+        },
+        {
+          "slug": "fitness-trainer",
+          "score": 63
+        },
+        {
+          "slug": "social-worker",
+          "score": 62
+        },
+        {
+          "slug": "content-creator",
+          "score": 61
+        },
+        {
+          "slug": "mason",
+          "score": 60
+        },
+        {
+          "slug": "plumber",
+          "score": 60
+        }
+      ]
+    },
+    {
+      "name": "Vikas, 19, quiz only (no interests picked): Maker and Thinker",
+      "profile": {
+        "riasec": {
+          "R": 100,
+          "I": 83,
+          "A": 33,
+          "S": 17,
+          "E": 0,
+          "C": 50
+        },
+        "needs_income_soon": true
+      },
+      "expect": [
+        {
+          "slug": "driver",
+          "score": 59
+        },
+        {
+          "slug": "plumber",
+          "score": 59
+        },
+        {
+          "slug": "carpenter",
+          "score": 57
+        },
+        {
+          "slug": "mason",
+          "score": 57
+        },
+        {
+          "slug": "delivery-logistics",
+          "score": 55
+        },
+        {
+          "slug": "cook-chef",
+          "score": 54
+        },
+        {
+          "slug": "solar-technician",
+          "score": 49
+        },
+        {
+          "slug": "food-processing",
+          "score": 47
+        },
+        {
+          "slug": "army-soldier",
+          "score": 46
+        },
+        {
+          "slug": "ev-technician",
+          "score": 46
+        }
+      ]
     }
   ]
 }

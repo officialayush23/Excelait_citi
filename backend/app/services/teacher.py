@@ -596,3 +596,25 @@ def nudge(sid: str, user: CurrentUser, code: str) -> dict:
     link = {"profile_incomplete": "/app/start", "claim_not_started": "/app/money", "plan_overdue": "/app/plan", "no_career": "/app/careers"}.get(code, "/app")
     get_db().table("notifications").insert({"user_id": sid, "kind": "teacher_nudge", "title": title, "body": body, "link": link}).execute()
     return {"ok": True}
+
+
+# ---------- facts a teacher can correct ----------
+# School facts a Career Mitra knows first-hand. Sensitive facts (category, income, disability) stay the
+# student's own to give; every fact a teacher sets is recorded with source 'teacher'.
+TEACHER_FACTS = {"stage", "class_level", "course", "school_type", "district", "state", "marks_percent", "stream", "course_year"}
+
+
+def update_student_facts(sid: str, user: CurrentUser, facts: dict, note: str | None = None) -> dict:
+    from app.services.profile_questions import apply_answer
+    from app.services.students import get_facts, merge_facts
+
+    assert_student_access(sid, user)
+    bad = sorted(set(facts) - TEACHER_FACTS)
+    if bad:
+        raise HTTPException(400, f"A teacher cannot set: {', '.join(bad)}")
+    current = get_facts(sid)
+    patch: dict = {}
+    for k, v in facts.items():
+        patch.update(apply_answer(k, v, current) if v is not None else {k: None})
+    saved = merge_facts(sid, patch, replace_lists=True, source="teacher", note=note)
+    return {k: saved.get(k) for k in patch}

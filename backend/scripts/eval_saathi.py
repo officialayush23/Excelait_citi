@@ -19,6 +19,7 @@ import httpx
 from app.core.config import get_settings
 from app.core.db import get_db
 from app.services import assistant, jobs
+from app.services import roadmap as rm
 from app.services import work_rules as wr
 from app.services.students import get_facts, merge_facts
 
@@ -80,6 +81,14 @@ SCENARIOS = {
         "answers": {"class_level": ("type", "I am in Class 11"), "interests": ("type", "I like computers and drawing"),
                     "skills": ("type", "I like computers and drawing"), "state": ("type", "Maharashtra")},
         "expect_final": ["careers"], "first_ask": {"class_level", "interests"},
+    },
+    # The roadmap: a goal from conversation, and what the student says (worry, little time) shapes it.
+    "roadmap_worry": {
+        "ui": "en", "lang": "en", "intent": "plan",
+        "first": "Make my roadmap to become a nurse. The NEET exam scares me and I only have Sundays free.",
+        "answers": {"class_level": ("type", "I am in Class 12 with biology"), "age": ("type", "17"),
+                    "interests": ("type", "I like helping people"), "state": ("type", "Maharashtra")},
+        "expect_final": ["roadmap"], "expect_signals": {"worry", "time"}, "expect_tone": "reassure",
     },
 }
 MAX_TURNS = 10
@@ -223,6 +232,25 @@ def run(name: str, sc: dict) -> dict:
         for k in sc.get("no_cards", []):
             if k in final:
                 all_fails.append(f"showed a {k} card")
+        if sc.get("expect_signals") or sc.get("expect_tone"):
+            road = rm.get_roadmap(uid, evaluate_first=False)
+            card = next((c for m in get_db().table("assistant_messages").select("cards").eq("thread_id", tid).execute().data
+                         for c in (m["cards"] or []) if c["type"] == "roadmap"), None)
+            if not road["goals"]:
+                all_fails.append("no goal on the roadmap")
+            if card and not card.get("next"):
+                all_fails.append("roadmap card without a next step")
+            if rm.ready():  # signals, tone and micro-steps need migration 0018
+                got = {s["kind"] for s in get_db().table("roadmap_signals").select("kind").eq("user_id", uid).execute().data}
+                if missing := set(sc.get("expect_signals") or set()) - got:
+                    all_fails.append(f"signals not stored: {missing}")
+                if sc.get("expect_tone") and road["tone"] != sc["expect_tone"]:
+                    all_fails.append(f"tone {road['tone']} != {sc['expect_tone']}")
+                if not any(s["kind"] == "micro" for g in road["goals"] for s in g["steps"]):
+                    all_fails.append("worry did not make the next step smaller")
+            else:
+                print("    (migration 0018 not applied: signal, tone and micro-step checks skipped)")
+            print(f"    roadmap: {road['progress']}% pace {road['pace']} tone {road['tone']} next {(road['next'] or {}).get('title')}")
         if sc.get("need_posts"):
             got = [i for m in get_db().table("assistant_messages").select("cards").eq("thread_id", tid).execute().data
                    for c in (m["cards"] or []) if c["type"] == "jobs" for i in c["items"]]

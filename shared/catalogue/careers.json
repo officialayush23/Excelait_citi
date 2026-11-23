@@ -1,5 +1,5 @@
 {
-  "_doc": "Careers for matching. Pay is an indicative monthly range in INR for an entry-to-early-career worker and must be checked locally before the pilot; NCO-2015 codes are listed where known and need a second check. rural_demand (0-1) is a placeholder until district data (PLFS, NCS) is loaded.",
+  "_doc": "Careers for matching. Pay is an indicative monthly range in INR for an entry-to-early-career worker and must be checked locally before the pilot; NCO-2015 codes are listed where known and need a second check. rural_demand (0-1) is a placeholder until district data (PLFS, NCS) is loaded. riasec: Holland interest codes (strongest first), our own mapping made by reasoning about each job in the style of O*NET's interest codes; not taken from O*NET.",
   "interest_tags": [
     "hands_on",
     "machines",
@@ -134,7 +134,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "saathi_policy"
+      "minor_basis": "saathi_policy",
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "solar-technician",
@@ -214,7 +219,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "saathi_policy"
+      "minor_basis": "saathi_policy",
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "plumber",
@@ -308,7 +318,11 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "welder",
@@ -402,7 +416,11 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "motor-mechanic",
@@ -480,7 +498,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "ev-technician",
@@ -542,7 +565,12 @@
       "pay_status": "unverified",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "mobile-repair",
@@ -617,7 +645,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "cnc-operator",
@@ -706,7 +739,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C",
+        "I"
+      ]
     },
     {
       "slug": "carpenter",
@@ -794,7 +832,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "A",
+        "C"
+      ]
     },
     {
       "slug": "mason",
@@ -875,7 +918,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C",
+        "E"
+      ]
     },
     {
       "slug": "tailor",
@@ -939,7 +987,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "A",
+        "C"
+      ]
     },
     {
       "slug": "beautician",
@@ -1013,7 +1066,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "S",
+        "R"
+      ]
     },
     {
       "slug": "cook-chef",
@@ -1101,7 +1159,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "A",
+        "E"
+      ]
     },
     {
       "slug": "hotel-front-office",
@@ -1184,7 +1247,12 @@
       "pay_status": "matches",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "E",
+        "S",
+        "C"
+      ]
     },
     {
       "slug": "tour-guide",
@@ -1260,7 +1328,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "E",
+        "A"
+      ]
     },
     {
       "slug": "driver",
@@ -1339,7 +1412,11 @@
       "pay_status": "unverified",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "mv_act"
+      "minor_basis": "mv_act",
+      "riasec": [
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "delivery-logistics",
@@ -1412,7 +1489,11 @@
       "pay_status": "unverified",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "mv_act"
+      "minor_basis": "mv_act",
+      "riasec": [
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "data-entry",
@@ -1499,7 +1580,11 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "C",
+        "R"
+      ]
     },
     {
       "slug": "csc-operator",
@@ -1549,7 +1634,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
       "hazardous_for_minors": false,
-      "min_age": 18
+      "min_age": 18,
+      "riasec": [
+        "C",
+        "E",
+        "S"
+      ]
     },
     {
       "slug": "software-developer",
@@ -1630,7 +1720,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "C",
+        "R"
+      ]
     },
     {
       "slug": "web-designer",
@@ -1713,7 +1808,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "graphic-designer",
@@ -1788,7 +1888,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "E",
+        "R"
+      ]
     },
     {
       "slug": "photographer",
@@ -1863,7 +1968,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "R",
+        "E"
+      ]
     },
     {
       "slug": "content-creator",
@@ -1941,7 +2051,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "E",
+        "S"
+      ]
     },
     {
       "slug": "primary-teacher",
@@ -2014,7 +2129,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "A",
+        "E"
+      ]
     },
     {
       "slug": "anm-nurse",
@@ -2107,7 +2227,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "I",
+        "R"
+      ]
     },
     {
       "slug": "staff-nurse",
@@ -2189,7 +2314,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "lab-technician",
@@ -2264,7 +2394,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "pharmacist",
@@ -2358,7 +2493,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "C",
+        "S"
+      ]
     },
     {
       "slug": "physio-assistant",
@@ -2437,7 +2577,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "R",
+        "I"
+      ]
     },
     {
       "slug": "doctor",
@@ -2509,7 +2654,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "S",
+        "R"
+      ]
     },
     {
       "slug": "vet-assistant",
@@ -2578,7 +2728,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "I",
+        "S"
+      ]
     },
     {
       "slug": "dairy-entrepreneur",
@@ -2656,7 +2811,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "E",
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "organic-farmer",
@@ -2736,7 +2896,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "I",
+        "E"
+      ]
     },
     {
       "slug": "agri-drone-pilot",
@@ -2830,7 +2995,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
       "hazardous_for_minors": false,
-      "min_age": 18
+      "min_age": 18,
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "food-processing",
@@ -2908,7 +3078,12 @@
       "pay_status": "unverified",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C",
+        "I"
+      ]
     },
     {
       "slug": "agri-graduate",
@@ -2974,7 +3149,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "R",
+        "S"
+      ]
     },
     {
       "slug": "accountant",
@@ -3051,7 +3231,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "C",
+        "E",
+        "I"
+      ]
     },
     {
       "slug": "bank-clerk",
@@ -3122,7 +3307,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "matches",
       "hazardous_for_minors": false,
-      "min_age": 20
+      "min_age": 20,
+      "riasec": [
+        "C",
+        "E",
+        "S"
+      ]
     },
     {
       "slug": "bank-mitra",
@@ -3184,7 +3374,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
       "hazardous_for_minors": false,
-      "min_age": 18
+      "min_age": 18,
+      "riasec": [
+        "E",
+        "C",
+        "S"
+      ]
     },
     {
       "slug": "police-constable",
@@ -3246,7 +3441,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "matches",
       "hazardous_for_minors": false,
-      "min_age": 18
+      "min_age": 18,
+      "riasec": [
+        "R",
+        "S",
+        "E"
+      ]
     },
     {
       "slug": "army-soldier",
@@ -3313,7 +3513,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "S",
+        "C"
+      ]
     },
     {
       "slug": "railway-technician",
@@ -3387,7 +3592,12 @@
       "pay_status": "unverified",
       "hazardous_for_minors": true,
       "min_age": 18,
-      "minor_basis": "calpra_schedule"
+      "minor_basis": "calpra_schedule",
+      "riasec": [
+        "R",
+        "C",
+        "I"
+      ]
     },
     {
       "slug": "anganwadi-worker",
@@ -3464,7 +3674,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "C",
+        "A"
+      ]
     },
     {
       "slug": "social-worker",
@@ -3542,7 +3757,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "E",
+        "A"
+      ]
     },
     {
       "slug": "journalist",
@@ -3625,7 +3845,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "E",
+        "I"
+      ]
     },
     {
       "slug": "lawyer",
@@ -3721,7 +3946,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "E",
+        "I",
+        "S"
+      ]
     },
     {
       "slug": "civil-engineer",
@@ -3802,7 +4032,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "I",
+        "C"
+      ]
     },
     {
       "slug": "electrical-engineer",
@@ -3882,7 +4117,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "I",
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "draughtsman",
@@ -3975,7 +4215,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "R",
+        "C",
+        "A"
+      ]
     },
     {
       "slug": "ai-data-annotator",
@@ -4049,7 +4294,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "C",
+        "I",
+        "R"
+      ]
     },
     {
       "slug": "digital-marketer",
@@ -4144,7 +4394,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "E",
+        "A",
+        "C"
+      ]
     },
     {
       "slug": "retail-sales",
@@ -4216,7 +4471,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "matches",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "E",
+        "C",
+        "S"
+      ]
     },
     {
       "slug": "small-business",
@@ -4273,7 +4533,12 @@
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
       "hazardous_for_minors": false,
-      "min_age": 18
+      "min_age": 18,
+      "riasec": [
+        "E",
+        "C",
+        "S"
+      ]
     },
     {
       "slug": "handicraft-artisan",
@@ -4342,7 +4607,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "A",
+        "R",
+        "C"
+      ]
     },
     {
       "slug": "fitness-trainer",
@@ -4419,7 +4689,12 @@
       },
       "checked_on": "2026-11-21",
       "pay_status": "unverified",
-      "hazardous_for_minors": false
+      "hazardous_for_minors": false,
+      "riasec": [
+        "S",
+        "R",
+        "E"
+      ]
     }
   ]
 }

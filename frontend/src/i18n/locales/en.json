@@ -6,7 +6,7 @@
   "nav": {
     "home": "Home",
     "careers": "Careers",
-    "money": "Money",
+    "money": "Scholarships",
     "learn": "Learn",
     "opportunities": "Opportunities",
     "community": "Community",
@@ -87,7 +87,8 @@
     "yes": "Yes",
     "no": "No",
     "save": "Save",
-    "next": "Next"
+    "next": "Next",
+    "myProfile": "My profile"
   },
   "auth": {
     "welcomeTitle": "Your guide from learning to earning",
@@ -356,7 +357,13 @@
     "english": "English",
     "languages": "Hindi / Marathi",
     "social": "History and civics",
-    "commerce": "Commerce"
+    "commerce": "Commerce",
+    "R": "Maker",
+    "I": "Thinker",
+    "A": "Creator",
+    "S": "Helper",
+    "E": "Leader",
+    "C": "Organiser"
   },
   "guide": {
     "opening": "Namaste! Tell me a little about yourself. Which class are you in, and what do you like doing?",
@@ -385,7 +392,7 @@
     "why": "Why this fits you",
     "toWorkOn": "Things to work on",
     "path": "How to get there",
-    "money": "Money that can help",
+    "money": "Scholarships and schemes for you",
     "exams": "Exams on this path",
     "minorBanner": "Some of these are for after 18",
     "afterAge": "From age {{age}}",
@@ -415,7 +422,8 @@
     "local_demand": "Many jobs near villages and small towns",
     "marks": "Your marks meet the usual {{n}}% bar",
     "affordable": "Low cost to train",
-    "earn_soon": "You can start earning soon"
+    "earn_soon": "You can start earning soon",
+    "riasec": "Fits your interest type: {{items}}"
   },
   "gaps": {
     "subjects": "Usually needs {{items}}",

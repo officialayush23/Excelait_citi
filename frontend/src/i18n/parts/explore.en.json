@@ -23,7 +23,7 @@
     "courses": "Courses",
     "exams": "Exams",
     "colleges": "Colleges",
-    "money": "Money",
+    "money": "Scholarships",
     "learn": "Learn",
     "community": "Community",
     "opportunities": "Opportunities"
@@ -48,7 +48,7 @@
   "whoCanTake": "Who can take it",
   "coursesUsingExam": "Courses that use this exam",
   "careersUsingExam": "Careers this exam leads to",
-  "moneyForThis": "Money for this",
+  "moneyForThis": "Scholarships for this",
   "moneyHint": "Scholarships and schemes for this path. Tap one to see if you qualify.",
   "noMoney": "No scholarship or scheme is linked yet.",
   "findColleges": "Find colleges",

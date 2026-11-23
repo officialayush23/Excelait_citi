@@ -30,6 +30,8 @@ export type Career = {
   /** Set when the catalogue says a job is closed to minors. */
   min_age?: number | null
   hazardous_for_minors?: boolean
+  /** Holland interest codes, strongest first (our own mapping). */
+  riasec?: string[]
 }
 
 export type CareerSource = { title: string; url: string; site: string; note: string }
@@ -41,6 +43,8 @@ export type MatchProfile = {
   family_income_annual?: number | null
   needs_income_soon?: boolean | null
   can_relocate?: boolean | null
+  /** "Know yourself" quiz scores, 0-100 per Holland type; absent when the quiz was skipped. */
+  riasec?: Record<string, number> | null
 }
 
 export type Reason = { code: string; points: number; detail: (string | number)[] }
@@ -51,6 +55,9 @@ const W = { interest: 35, subjects: 20, demand: 15, marks: 10, affordability: 10
 const MARKS_BAR: Record<string, number> = { ug_degree: 50, ug_technical: 50, diploma: 40, class_12: 40 }
 const COST_POINTS = { low: 10, medium: 6, high: 2 }
 export const MAX_PER_CATEGORY = 3
+const RIASEC = ['R', 'I', 'A', 'S', 'E', 'C']
+const RIASEC_SHARE = 14 // of the 35 interest points, when the quiz was taken
+const CODE_WEIGHTS = [3, 2, 1] // a career's first code counts most
 
 // Python's round() rounds halves to even; match it so both engines agree to the point.
 function roundHalfEven(x: number, digits = 0): number {
@@ -65,14 +72,44 @@ function roundHalfEven(x: number, digits = 0): number {
 }
 const r2 = (x: number) => roundHalfEven(x, 2)
 
+export function quizScores(p: MatchProfile): Record<string, number> | null {
+  const r = p.riasec
+  if (!r || typeof r !== 'object' || !RIASEC.some((k) => typeof r[k] === 'number')) return null
+  return Object.fromEntries(RIASEC.map((k) => [k, typeof r[k] === 'number' ? r[k] : 0]))
+}
+
+/** The student's strongest types: those at 50 or more (at most 3), else the best two above 0. */
+export function riasecTop(scores: Record<string, number> | null | undefined): string[] {
+  if (!scores) return []
+  const order = [...RIASEC].sort((a, b) => (scores[b] ?? 0) - (scores[a] ?? 0) || RIASEC.indexOf(a) - RIASEC.indexOf(b))
+  const top = order.filter((k) => (scores[k] ?? 0) >= 50).slice(0, 3)
+  return top.length ? top : order.slice(0, 2).filter((k) => (scores[k] ?? 0) > 0)
+}
+
 export function scoreCareer(c: Career, p: MatchProfile): Match {
   const reasons: Reason[] = []
   const gaps: Gap[] = []
 
+  const scores = quizScores(p)
+  const codes = c.riasec ?? []
+  const fitQuiz = Boolean(scores && codes.length)
+  const tagWeight = fitQuiz ? W.interest - RIASEC_SHARE : W.interest
   const interests = new Set(p.interests ?? [])
   const hits = c.interest_tags.filter((t) => interests.has(t)).sort()
-  const pts = r2(W.interest * Math.min(1, hits.length / 2))
+  let pts = r2(tagWeight * Math.min(1, hits.length / 2))
   if (hits.length) reasons.push({ code: 'interest', points: pts, detail: hits })
+  if (scores && fitQuiz) {
+    const ws = CODE_WEIGHTS.slice(0, codes.length)
+    let got = 0
+    codes.slice(0, ws.length).forEach((code, i) => {
+      got += ws[i] * (scores[code] ?? 0)
+    })
+    const ptsQ = r2((RIASEC_SHARE * got) / (ws.reduce((a, b) => a + b, 0) * 100))
+    const top = riasecTop(scores)
+    const matched = codes.filter((code) => top.includes(code))
+    if (matched.length && ptsQ > 0) reasons.push({ code: 'riasec', points: ptsQ, detail: matched })
+    pts += ptsQ
+  }
 
   const subjects = new Set(p.subjects ?? [])
   let ptsS: number

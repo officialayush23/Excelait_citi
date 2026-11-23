@@ -117,7 +117,10 @@ def build_steps(career_slug: str, facts: dict, program_slug: str | None = None, 
     return steps
 
 
-def create_plan(user_id: str, career_slug: str, program_slug: str | None = None) -> dict:
+def create_plan(user_id: str, career_slug: str, program_slug: str | None = None, source: str = "student") -> dict:
+    """A career goal on the student's roadmap (one active plan per career)."""
+    from app.services import roadmap  # local: roadmap imports this module
+
     g = graph()
     if career_slug not in g.careers:
         raise ValueError("unknown career")
@@ -125,10 +128,24 @@ def create_plan(user_id: str, career_slug: str, program_slug: str | None = None)
     existing = db.table("pathways").select("id").eq("user_id", user_id).eq("career_slug", career_slug).eq("status", "active").execute().data
     if existing:
         return get_plan(user_id, existing[0]["id"])
-    steps = build_steps(career_slug, get_facts(user_id), program_slug)
-    pid = db.table("pathways").insert({"user_id": user_id, "career_slug": career_slug, "title": g.careers[career_slug]["name"]}).execute().data[0]["id"]
-    db.table("pathway_steps").insert([{**s, "pathway_id": pid} for s in steps]).execute()
+    facts = get_facts(user_id)
+    steps = build_steps(career_slug, facts, program_slug)
+    full = roadmap.ready()
+    goal = {"user_id": user_id, "career_slug": career_slug, "title": g.careers[career_slug]["name"]}
+    if full:
+        steps.insert(len(steps) - 1, roadmap.community_step(career_slug))
+        goal.update(kind="career", program_slug=program_slug, source=source if source in ("student", "saathi") else "student")
+    pid = db.table("pathways").insert(goal).execute().data[0]["id"]
+    db.table("pathway_steps").insert([{**s, "pathway_id": pid} for s in roadmap.prepare_steps(steps, facts, "career")]).execute()
     save_career(user_id, career_slug)
+    if full:
+        roadmap._log(user_id, pid, "goal_added", "goal_added_saathi" if source == "saathi" else "goal_added",
+                     f"Added the goal \"{goal['title']}\"" + (" from your chat with Saathi." if source == "saathi" else "."),
+                     {"goal_id": pid, "title": goal["title"]}, auto=source == "saathi")
+        try:
+            roadmap.evaluate(user_id)
+        except Exception:  # noqa: BLE001 - the plan exists either way
+            pass
     return get_plan(user_id, pid)
 
 
@@ -148,7 +165,11 @@ def get_plan(user_id: str, plan_id: str) -> dict:
 
 def set_step(user_id: str, plan_id: str, step_id: str, done: bool) -> dict:
     get_plan(user_id, plan_id)  # ownership check
-    get_db().table("pathway_steps").update({"done_at": "now()" if done else None}).eq("id", step_id).eq("pathway_id", plan_id).execute()
+    from app.services import roadmap
+    if roadmap.ready():
+        roadmap.update_step(user_id, step_id, status="done" if done else "todo")
+    else:
+        get_db().table("pathway_steps").update({"done_at": "now()" if done else None}).eq("id", step_id).eq("pathway_id", plan_id).execute()
     return get_plan(user_id, plan_id)
 
 

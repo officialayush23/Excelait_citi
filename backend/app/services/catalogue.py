@@ -32,7 +32,23 @@ def schemes_with_rules(active_only: bool = True) -> list[dict]:
     return out
 
 
+@lru_cache
+def career_riasec() -> dict[str, list[str]]:
+    """Holland codes per career from the bundled catalogue (not a database column), so matching on the
+    server and on the phone read the same codes."""
+    doc = json.loads((SHARED / "catalogue" / "careers.json").read_text(encoding="utf-8"))
+    return {c["slug"]: c.get("riasec") or [] for c in doc["careers"]}
+
+
 def careers() -> list[dict]:
+    rows = _career_rows()
+    codes = career_riasec()
+    for r in rows:
+        r.setdefault("riasec", codes.get(r["slug"], []))
+    return rows
+
+
+def _career_rows() -> list[dict]:
     return get_db().table("careers").select(
         "slug, name, name_i18n, category, nco_code, nsqf_level, pay_min, pay_max, min_education, earning_speed, "
         "cost_band, interest_tags, subject_tags, rural_demand, needs_city, path, scheme_slugs, exam_slugs, program_slugs, "

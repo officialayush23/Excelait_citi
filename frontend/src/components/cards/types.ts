@@ -281,7 +281,7 @@ export type Card =
   | { type: 'my_plan'; saved: string[]; plans: PlanSummary[] }
   | ({ type: 'plan' } & PlanData)
   | { type: 'web'; query: string; results: WebResult[]; cached?: boolean }
-  | { type: 'question'; field: string | null; question?: string | null; lang?: string; answered?: string }
+  | { type: 'question'; field: string | null; question?: string | null; lang?: string; answered?: string; why?: string | null }
   | ({ type: 'law' } & LawData)
   | ({ type: 'jobs' } & JobsData)
   | ({ type: 'scholarships' } & ScholarshipsData)

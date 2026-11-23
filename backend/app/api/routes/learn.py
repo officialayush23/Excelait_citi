@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from app.core.auth import CurrentUser, get_current_user
 from app.services import lessons as svc
+from app.services.roadmap import record_event
 
 router = APIRouter(tags=["learn"])
 MAX_ACTIVE = 2
@@ -68,9 +69,11 @@ def get_lesson(lesson_id: UUID, user: CurrentUser = Depends(get_current_user)) -
 @router.post("/learn/lessons/{lesson_id}/quiz")
 def submit_quiz(lesson_id: UUID, body: QuizIn, user: CurrentUser = Depends(get_current_user)) -> dict:
     try:
-        return svc.submit_quiz(user.id, str(lesson_id), body.answers)
+        out = svc.submit_quiz(user.id, str(lesson_id), body.answers)
     except LookupError as e:
         raise HTTPException(404, "Quiz not found.") from e
+    record_event(user.id, "lesson_completed", str(lesson_id), {"score": out.get("score")})
+    return out
 
 
 class CheckIn(BaseModel):

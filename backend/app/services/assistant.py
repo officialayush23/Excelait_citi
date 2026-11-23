@@ -24,7 +24,9 @@ from app.core.config import get_settings
 from app.core.db import get_db
 from app.engine.matching import rank
 from app.services import colleges as col
+from app.services import profile_questions as pq
 from app.services import community, jobs, partners, plans
+from app.services import roadmap as rm
 from app.services import scholarships as sch
 from app.services import work_rules as wr
 from app.services.ai import _fact_schema
@@ -217,11 +219,31 @@ def known(facts: dict, f: str) -> bool:
 
 
 def missing_for(intent: str | None, facts: dict) -> list[str]:
+    """Facts still needed before advice, in the intent's own order. The shared question planner
+    (profile_questions) drops facts that do not fit this student: no travel distance under 14, no
+    free hours for a full-time job seeker, nothing already known from onboarding or the chat."""
     need = list(REQUIRED.get(intent or "", []))
-    # Facts that only matter for minors or adults
-    if intent == "earn" and facts.get("age") is not None and facts["age"] < 14:
-        need = [f for f in need if f not in ("can_travel_km",)]
-    return [f for f in need if not known(facts, f)]
+    return [f for f in need if not known(facts, f) and pq.fits(f, facts, intent)]
+
+
+YOUNG_SKILLS_HINT = ("what they are already good at or enjoy (e.g. helping at a home shop, drawing, explaining lessons to friends, "
+                     "fixing simple things at home); never ask a young student about job skills")
+
+
+def field_hint(f: str, facts: dict, intent: str | None) -> str:
+    """How to put the question, fitted to the student (a 15-year-old is not asked about job skills)."""
+    if f == "skills" and pq.variant(pq.by_field()["skills"], pq.view(facts, intent)).get("variant") == "young":
+        return YOUNG_SKILLS_HINT
+    return FIELD_HINT.get(f, f)
+
+
+def why_text(f: str, facts: dict, intent: str | None, lang: str) -> str | None:
+    """The planner's 'we ask this to ...' line in the student's language (English for Latin-script chats)."""
+    q = pq.by_field().get(f)
+    if not q:
+        return None
+    why = pq.variant(q, pq.view(facts, intent)).get("why") or {}
+    return why.get(lang if lang in ("hi", "mr") else "en") or why.get("en")
 
 
 DEV_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
@@ -359,7 +381,7 @@ The app shows cards from your tool calls. Your own text: at most 2 short sentenc
 Use tools for every fact. Never decide eligibility yourself (check_money does). Never invent or describe job openings; only find_jobs lists jobs.
 Never write a number, amount, date, company or website that is not in a tool result or the student's own words.
 {age_rule}
-Today is {today}. Student facts: {facts}.
+Today is {today}. Student facts: {facts}.{care}
 NOW: {step}"""
 
 TOOLS_SPEC = [
@@ -376,6 +398,15 @@ TOOLS_SPEC = [
     ("work_rules", "What the law allows for this student's age (shows the law card).", {}),
     ("community", "Community questions and stories, or seniors on a path.", {"query": {"type": "string"}, "career": {"type": "string"}, "seniors": {"type": "boolean"}}),
     ("my_plan", "The student's saved careers and plans.", {}),
+    ("my_roadmap", "The student's roadmap: next step, % done, fixed dates close, what changed for them (shows the card).", {}),
+    ("update_roadmap", "Change the roadmap from what the student said: add a goal (career, exam, scheme, own goal with a date), "
+                       "watch a job search / exam / scheme for alerts, or make the next steps smaller.",
+     {"action": {"type": "string", "enum": ["add_goal", "watch", "easier"]},
+      "goal": {"type": "string", "enum": ["career", "exam", "scheme", "custom"]},
+      "career": {"type": "string"}, "exam": {"type": "string"}, "scheme": {"type": "string"},
+      "title": {"type": "string", "description": "own goal in the student's words, e.g. 'earn 8000 a month'"},
+      "target_date": {"type": "string", "description": "YYYY-MM-DD, only a date the student said"},
+      "watch": {"type": "string", "enum": ["job", "exam", "scheme"]}, "role": {"type": "string"}, "place": {"type": "string"}}),
     ("make_plan", "Create a dated step-by-step plan for a career (saves it).", {"career": {"type": "string"}, "course": {"type": "string"}}),
     ("save_career", "Save or unsave a career.", {"career": {"type": "string"}, "save": {"type": "boolean"}}),
     ("web_search", "Live web search for fresh facts (dates, notices). Returns sources.", {"query": {"type": "string"}}),
@@ -459,6 +490,9 @@ class Ctx:
         self.missing: list[str] = []
         self.shown: set[str] = set()   # card types already shown in this thread
         self.asked = False
+        self.message = ""              # the student's words this turn: kept as the note on facts saved from it
+        self.saved_facts = False
+        self.care = ""                 # how to speak this turn, from the roadmap's tone
 
     @property
     def age(self):
@@ -467,8 +501,11 @@ class Ctx:
     def seen(self, kind: str) -> bool:
         return kind in self.shown or any(c["type"] == kind for c in self.cards)
 
+    def seen_now(self, kind: str) -> bool:
+        return any(c["type"] == kind for c in self.cards)
 
-GATED = {"find_careers", "find_jobs", "opportunities", "make_plan"}
+
+GATED = {"find_careers", "find_jobs", "opportunities", "make_plan", "update_roadmap"}
 
 
 def _sources(slug: str) -> dict:
@@ -597,9 +634,17 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
         s = _slug("career", a.get("career"))
         if not s:
             return "unknown career"
-        plan = plans.create_plan(ctx.user_id, s, _slug("program", a.get("course")))
+        plan = plans.create_plan(ctx.user_id, s, _slug("program", a.get("course")), source="saathi")
         ctx.cards.append({"type": "plan", **plan})
-        return f"plan with {len(plan['steps'])} steps"
+        return f"plan with {len(plan['steps'])} steps (added to the roadmap)"
+    if name == "my_roadmap":
+        if ctx.seen_now("roadmap"):
+            return "already shown"
+        card, line = rm.card(ctx.user_id)
+        ctx.cards.append(card)
+        return line
+    if name == "update_roadmap":
+        return _update_roadmap(ctx, a)
     if name == "save_career":
         s = _slug("career", a.get("career"))
         if not s:
@@ -621,11 +666,51 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
             return f"already known; ask about {ctx.missing[0]}" if ctx.missing else "all needed facts known; answer with tools now"
         ctx.asked = True
         ctx.cards.append({"type": "question", "field": f, "question": (a.get("question") or "").strip()[:200] or None,
-                          "lang": ctx.lang, "answered": ANSWERED.get(ctx.lang, ANSWERED["en"])})
+                          "lang": ctx.lang, "answered": ANSWERED.get(ctx.lang, ANSWERED["en"]),
+                          "why": why_text(f, ctx.facts, ctx.intent, ctx.lang)})
         return "question shown; stop now"
     if name == "save_facts":
         return _save(ctx, a.get("facts") or {})
     return "unknown tool"
+
+
+def _update_roadmap(ctx: Ctx, a: dict) -> str:
+    """Saathi's changes to the roadmap. Fixed rules still decide dates and what a minor may be alerted about."""
+    act = a.get("action")
+    try:
+        if act == "easier":
+            rm.ease(ctx.user_id)
+        elif act == "watch":
+            kind = a.get("watch") or ("job" if a.get("role") else "exam" if a.get("exam") else "scheme")
+            ref = _slug(kind, a.get(kind)) if kind in ("exam", "scheme") else None
+            if kind in ("exam", "scheme") and not ref:
+                return f"unknown {kind}"
+            res = rm.add_watch(ctx.user_id, kind, ref, {"role": a.get("role"), "place": a.get("place")} if kind == "job" else None)
+            if res["converted"] == "skill":
+                return "student is under 18: no job alerts by law; watching scholarships and free skill training instead"
+            if res["converted"] == "apprenticeship":
+                return "student is under 18: watching safe apprenticeships only"
+        elif act == "add_goal":
+            kind = a.get("goal") or ("career" if a.get("career") else "exam" if a.get("exam") else "scheme" if a.get("scheme") else "custom")
+            if kind == "career":
+                s = _slug("career", a.get("career"))
+                if not s:
+                    return "unknown career"
+                rm.add_goal(ctx.user_id, "career", career=s, source="saathi")
+            elif kind in ("exam", "scheme"):
+                s = _slug(kind, a.get(kind))
+                if not s:
+                    return f"unknown {kind}"
+                rm.add_goal(ctx.user_id, kind, **{kind: s}, target_date=a.get("target_date"), source="saathi")
+            else:
+                rm.add_goal(ctx.user_id, "custom", title=a.get("title"), target_date=a.get("target_date"), source="saathi")
+        else:
+            return "unknown action"
+    except (ValueError, LookupError) as e:
+        return f"not changed: {e}"
+    card, line = rm.card(ctx.user_id)
+    ctx.cards = [c for c in ctx.cards if c["type"] != "roadmap"] + [card]
+    return "done; " + line
 
 
 NUMERIC = {"age", "class_level", "hours_per_week", "can_travel_km", "marks_percent", "family_income_annual"}
@@ -646,7 +731,8 @@ def _save(ctx: Ctx, facts: dict) -> str:
             clean[k] = v
     if not clean:
         return "nothing to save"
-    ctx.facts = merge_facts(ctx.user_id, clean)
+    ctx.facts = merge_facts(ctx.user_id, clean, source="saathi", note=ctx.message)
+    ctx.saved_facts = True
     ctx.missing = missing_for(ctx.intent, ctx.facts)
     return "saved " + ", ".join(clean) + (f"; still need {ctx.missing[0]}" if ctx.missing else "; all needed facts known")
 
@@ -756,7 +842,7 @@ def _step(ctx: Ctx, named: str | None, first: bool = False) -> str:
         known_now = [k for k in REQUIRED.get(ctx.intent or "", []) if k not in ctx.missing]
         return (f"Intent: {ctx.intent}. Before any advice you need: {', '.join(ctx.missing)}. First save any fact the student just "
                 f"stated with save_facts (known: {', '.join(known_now) or 'none'}). Then call ask_student once, field '{f}' "
-                f"({FIELD_HINT.get(f, f)}), with a short friendly question in the student's language"
+                f"({field_hint(f, ctx.facts, ctx.intent)}), with a short friendly question in the student's language"
                 + (" that starts with one warm line saying you will help, then the question" if first else "") + ". No advice, lists or other questions yet.")
     minor, age = wr.is_minor(ctx.age), ctx.age
     if ctx.intent == "earn":
@@ -779,7 +865,7 @@ def _step(ctx: Ctx, named: str | None, first: bool = False) -> str:
     if ctx.intent == "career_named":
         return f"Call career_details(slug='{named}'), and check_money if they need money. Then one sentence on the first step."
     if ctx.intent == "plan":
-        return "Call my_plan, or make_plan if they named a career."
+        return "Call my_roadmap, or make_plan if they named a career; update_roadmap for a new goal, a watch or smaller steps."
     return "Answer with the right tools. If a fact you need is missing, call ask_student once."
 
 
@@ -802,6 +888,8 @@ def _primary(ctx: Ctx, named: str | None) -> list[tuple[str, dict]] | None:
         return [("find_careers", {})]
     if i == "career_named" and named:
         return [("career_details", {"slug": named})]
+    if i == "plan":
+        return ([("make_plan", {"career": named})] if named else []) + [("my_roadmap", {})]
     return None
 
 
@@ -817,6 +905,8 @@ WRITE = {
                    "the deadline on each official page before applying), and the next step (answer the cards' questions to check more).",
     "careers": "Write 1-2 short sentences on how to pick from the careers card (tap one to see the path).",
     "career_named": "Write 1-2 short sentences on the first step on this path from the career card.",
+    "plan": "Write 1-2 short sentences: point to the roadmap card and its one next small step. Say the plan changes by itself "
+            "to fit how they are doing, and they can undo any change.",
 }
 
 
@@ -838,6 +928,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
     past = db.table("assistant_messages").select("role, content, cards").eq("thread_id", tid).order("id", desc=True).limit(LOOKBACK).execute().data[::-1]
     past_user = [m["content"] or "" for m in past if m["role"] == "user"]
     ctx = Ctx(user_id, roles)
+    ctx.message = message
     ctx.lang = pick_lang(message, past_user, language)
     ctx.shown = {c.get("type") for m in past if m["role"] == "assistant" for c in (m.get("cards") or [])}
 
@@ -849,6 +940,15 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
             if intent:
                 break
     ctx.intent = intent
+    if intent == "plan" and not named:
+        named = next((n for t in [message, *reversed(past_user)] if (n := _career_named(t))), None)
+    # What the student says about worries, time and money is kept as roadmap signals: it changes the plan's
+    # pace and how Saathi speaks (fixed keyword rules, see roadmap_engine.extract_signals).
+    try:
+        ctx.care = " " + rm.saathi_hint(user_id, rm.capture_signals(user_id, message, _career_named))
+    except Exception as e:  # noqa: BLE001 - the chat works without it
+        log.warning("roadmap signals skipped: %s", e)
+    ctx.care = ctx.care.rstrip()
 
     # The open question from the last turn, answered in plain words: save it without the model.
     last = next((m for m in reversed(past) if m["role"] == "assistant"), None)
@@ -880,7 +980,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
         facts_short = {k: v for k, v in ctx.facts.items() if k != "date_of_birth"}
         return {"role": "system", "content": SYSTEM.format(
             lang_rule=LANG_RULE[ctx.lang], age_rule=_age_rule(ctx), today=date.today().isoformat(),
-            facts=json.dumps(facts_short, ensure_ascii=False), step=_step(ctx, named, not past))}
+            facts=json.dumps(facts_short, ensure_ascii=False), care=ctx.care, step=_step(ctx, named, not past))}
 
     # Intake turns only need the last exchange; answers get a little more history.
     messages = [system(), *_history(past[-2:] if ctx.missing else past), {"role": "user", "content": message}]
@@ -967,7 +1067,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
     if ctx.missing and not ctx.asked:
         ctx.asked = True
         ctx.cards.append({"type": "question", "field": ctx.missing[0], "question": None, "lang": ctx.lang,
-                          "answered": ANSWERED.get(ctx.lang, ANSWERED["en"])})
+                          "answered": ANSWERED.get(ctx.lang, ANSWERED["en"]), "why": why_text(ctx.missing[0], ctx.facts, intent, ctx.lang)})
     if ctx.asked and not reply.strip():
         reply = ""
     # Fixed checks on the model's own words: safe for minors, no numbers without a source, right script.
@@ -991,6 +1091,9 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
         {"thread_id": tid, "role": "assistant", "content": reply, "cards": ctx.cards, "tools": used, "tokens": tokens},
     ]).execute()
     db.table("assistant_threads").update({"updated_at": "now()"}).eq("id", tid).execute()
+    rm.record_event(user_id, "saathi_turn", tid, {"intent": intent or ""})
+    if ctx.saved_facts:
+        rm.record_event(user_id, "fact_answered", "saathi")
     return {"thread_id": tid, "reply": reply, "cards": ctx.cards, "tools": used, "tokens": tokens,
             "lang": ctx.lang, "intent": intent, "missing": ctx.missing}
 

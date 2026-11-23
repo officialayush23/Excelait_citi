@@ -50,6 +50,11 @@
   --color-nav-active-foreground: var(--nav-active-foreground);
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
+  --color-hero: var(--hero);
+  --color-hero-2: var(--hero-2);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
   --color-tile-rose: var(--tile-rose);
   --color-tile-peach: var(--tile-peach);
   --color-tile-lilac: var(--tile-lilac);
@@ -69,93 +74,105 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 1.25rem;
 
-  --background: oklch(0.955 0.006 75);      /* warm off-white page */
-  --surface: oklch(0.975 0.004 75);         /* inset panels */
-  --foreground: oklch(0.18 0.005 60);
+  /* Light: soft grey page, white bento cards, deep green accent, black active pill. */
+  --background: oklch(0.948 0.002 150);
+  --surface: oklch(0.975 0.002 150);
+  --foreground: oklch(0.17 0.006 150);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.005 60);
+  --card-foreground: oklch(0.17 0.006 150);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.005 60);
-  --primary: oklch(0.18 0.005 60);          /* black pill / primary button */
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.94 0.006 75);
-  --secondary-foreground: oklch(0.22 0.005 60);
-  --muted: oklch(0.935 0.006 75);
-  --muted-foreground: oklch(0.5 0.01 60);
-  --accent: oklch(0.93 0.008 75);
-  --accent-foreground: oklch(0.2 0.005 60);
-  --destructive: oklch(0.58 0.21 27);
-  --border: oklch(0.9 0.008 75);
-  --input: oklch(0.9 0.008 75);
-  --ring: oklch(0.18 0.005 60);
+  --popover-foreground: oklch(0.17 0.006 150);
+  --primary: oklch(0.56 0.155 150);         /* green, AA with white text */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.004 150);
+  --secondary-foreground: oklch(0.2 0.006 150);
+  --muted: oklch(0.94 0.004 150);
+  --muted-foreground: oklch(0.48 0.01 150);
+  --accent: oklch(0.935 0.01 150);
+  --accent-foreground: oklch(0.18 0.006 150);
+  --destructive: oklch(0.56 0.21 27);
+  --border: oklch(0.9 0.006 150);
+  --input: oklch(0.89 0.006 150);
+  --ring: oklch(0.56 0.155 150);
 
   --nav: oklch(1 0 0);
-  --nav-active: oklch(0.18 0.005 60);
-  --nav-active-foreground: oklch(0.985 0 0);
-  --highlight: oklch(0.18 0.005 60);
-  --highlight-foreground: oklch(0.985 0 0);
+  --nav-active: oklch(0.17 0.006 150);       /* black circle, white icon */
+  --nav-active-foreground: oklch(0.99 0 0);
+  --highlight: oklch(0.56 0.155 150);
+  --highlight-foreground: oklch(0.99 0 0);
+  --hero: oklch(0.6 0.16 150);               /* the green money card */
+  --hero-2: oklch(0.46 0.13 152);
+  --hero-foreground: oklch(0.99 0 0);
+  --cta: oklch(0.17 0.006 150);              /* the "Upgrade"-style pill */
+  --cta-foreground: oklch(0.99 0 0);
 
-  --tile-rose: oklch(0.88 0.06 15);
-  --tile-peach: oklch(0.9 0.07 60);
-  --tile-lilac: oklch(0.87 0.06 290);
-  --tile-mint: oklch(0.9 0.07 160);
-  --tile-sky: oklch(0.9 0.05 230);
-  --tile-foreground: oklch(0.2 0.01 60);
+  --tile-rose: oklch(0.92 0.045 15);
+  --tile-peach: oklch(0.93 0.06 85);
+  --tile-lilac: oklch(0.92 0.04 290);
+  --tile-mint: oklch(0.92 0.07 150);
+  --tile-sky: oklch(0.92 0.04 230);
+  --tile-foreground: oklch(0.2 0.01 150);
 
-  --success: oklch(0.62 0.15 150);
-  --warning: oklch(0.72 0.15 70);
+  --success: oklch(0.56 0.155 150);
+  --warning: oklch(0.7 0.15 75);
 
-  --chart-1: oklch(0.82 0.08 15);
-  --chart-2: oklch(0.85 0.09 60);
-  --chart-3: oklch(0.8 0.08 290);
-  --chart-4: oklch(0.84 0.09 160);
-  --chart-5: oklch(0.18 0.005 60);
+  --chart-1: oklch(0.6 0.16 150);            /* green */
+  --chart-2: oklch(0.82 0.16 92);            /* yellow */
+  --chart-3: oklch(0.3 0.006 150);           /* ink */
+  --chart-4: oklch(0.78 0.1 150);
+  --chart-5: oklch(0.88 0.005 150);          /* track */
 }
 
 .dark {
-  --background: oklch(0.13 0 0);            /* near-black page */
-  --surface: oklch(0.17 0 0);
+  /* Dark: near-black page, graphite bento cards, bright green, white active pill. */
+  --background: oklch(0.105 0 0);
+  --surface: oklch(0.145 0 0);
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.195 0 0);                 /* graphite panels */
+  --card: oklch(0.185 0 0);
   --card-foreground: oklch(0.97 0 0);
   --popover: oklch(0.21 0 0);
   --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.91 0.19 120);          /* lime */
-  --primary-foreground: oklch(0.15 0.02 120);
-  --secondary: oklch(0.25 0 0);
+  --primary: oklch(0.79 0.2 148);
+  --primary-foreground: oklch(0.15 0.03 150);
+  --secondary: oklch(0.245 0 0);
   --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.24 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.26 0 0);
+  --muted: oklch(0.235 0 0);
+  --muted-foreground: oklch(0.69 0 0);
+  --accent: oklch(0.255 0 0);
   --accent-foreground: oklch(0.97 0 0);
   --destructive: oklch(0.68 0.19 25);
-  --border: oklch(1 0 0 / 9%);
-  --input: oklch(1 0 0 / 13%);
-  --ring: oklch(0.91 0.19 120);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.79 0.2 148);
 
-  --nav: oklch(0.2 0 0);
-  --nav-active: oklch(0.91 0.19 120);
-  --nav-active-foreground: oklch(0.15 0.02 120);
-  --highlight: oklch(0.91 0.19 120);
-  --highlight-foreground: oklch(0.15 0.02 120);
+  --nav: oklch(0.165 0 0);
+  --nav-active: oklch(0.98 0 0);
+  --nav-active-foreground: oklch(0.13 0 0);
+  --highlight: oklch(0.79 0.2 148);
+  --highlight-foreground: oklch(0.15 0.03 150);
+  --hero: oklch(0.74 0.19 148);
+  --hero-2: oklch(0.5 0.14 150);
+  --hero-foreground: oklch(0.99 0 0);
+  --cta: oklch(0.98 0 0);
+  --cta-foreground: oklch(0.13 0 0);
 
   --tile-rose: oklch(0.25 0.03 15);
-  --tile-peach: oklch(0.25 0.03 60);
+  --tile-peach: oklch(0.26 0.035 85);
   --tile-lilac: oklch(0.25 0.03 290);
-  --tile-mint: oklch(0.25 0.035 140);
+  --tile-mint: oklch(0.27 0.05 150);
   --tile-sky: oklch(0.25 0.03 230);
   --tile-foreground: oklch(0.96 0 0);
 
-  --success: oklch(0.78 0.17 150);
-  --warning: oklch(0.82 0.15 80);
+  --success: oklch(0.79 0.2 148);
+  --warning: oklch(0.86 0.16 92);
 
-  --chart-1: oklch(0.91 0.19 120);
-  --chart-2: oklch(0.6 0 0);
-  --chart-3: oklch(0.45 0 0);
-  --chart-4: oklch(0.75 0.12 120);
-  --chart-5: oklch(0.35 0 0);
+  --chart-1: oklch(0.79 0.2 148);
+  --chart-2: oklch(0.88 0.17 95);
+  --chart-3: oklch(0.97 0 0);
+  --chart-4: oklch(0.6 0.14 148);
+  --chart-5: oklch(0.28 0 0);
 }
 
 @layer base {

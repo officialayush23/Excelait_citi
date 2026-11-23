@@ -1,0 +1,21 @@
+{
+  "moneyTitle": "तुम्हाला मिळू शकणारी शिष्यवृत्ती",
+  "schemesChecked_one": "{{count}} योजनेशी तपासले",
+  "schemesChecked_other": "{{count}} योजनांशी तपासले",
+  "openMoney": "शिष्यवृत्ती उघडा",
+  "topCareers": "तुम्हाला जुळणारे करिअर",
+  "seeAll": "सर्व पहा",
+  "noCareers": "काही प्रश्नांची उत्तरे द्या आणि तुम्हाला जुळणारे करिअर पहा.",
+  "fit": "{{pct}}% जुळते",
+  "perMonth": "₹{{min}}–{{max}} हजार महिना",
+  "profileTitle": "तुमची प्रोफाइल",
+  "ofProfile": "प्रोफाइल पूर्ण",
+  "answered": "उत्तरे दिली",
+  "private": "खाजगी माहिती",
+  "missing": "अजून बाकी",
+  "fitTitle": "करिअर तुमच्याशी किती जुळतात",
+  "matched_one": "{{count}} करिअर जुळले",
+  "matched_other": "{{count}} करिअर जुळले",
+  "topFit": "सर्वाधिक {{pct}}%",
+  "open": "उघडा"
+}

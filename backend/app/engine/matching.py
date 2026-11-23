@@ -3,6 +3,10 @@
 Six weighted factors (from the Round 2 design): interest 35, subjects 20, local demand 15,
 marks 10, affordability 10, earning speed 10. Every point carries a reason code so a
 student and teacher can see why a career was suggested, and every gap is spelled out.
+
+When the student has taken the "Know yourself" quiz (facts.riasec, 0-100 per Holland type), the
+interest factor is split: 21 for the interests they picked and 14 for how well the career's
+RIASEC codes fit their quiz scores. Without the quiz the interest factor is exactly as before.
 """
 
 from __future__ import annotations
@@ -13,6 +17,9 @@ WEIGHTS = {"interest": 35, "subjects": 20, "demand": 15, "marks": 10, "affordabi
 MARKS_BAR = {"ug_degree": 50, "ug_technical": 50, "diploma": 40, "class_12": 40}
 COST_POINTS = {"low": 10, "medium": 6, "high": 2}
 MAX_PER_CATEGORY = 3
+RIASEC = "RIASEC"
+RIASEC_SHARE = 14  # of the 35 interest points, when the quiz was taken
+CODE_WEIGHTS = [3, 2, 1]  # a career's first code counts most
 
 
 @dataclass
@@ -30,15 +37,46 @@ def _r(x: float) -> float:
     return round(x, 2)
 
 
+def quiz_scores(p: dict) -> dict | None:
+    r = p.get("riasec")
+    if not isinstance(r, dict) or not any(isinstance(r.get(k), (int, float)) for k in RIASEC):
+        return None
+    return {k: (r.get(k) if isinstance(r.get(k), (int, float)) else 0) for k in RIASEC}
+
+
+def riasec_top(scores: dict | None) -> list[str]:
+    """The student's strongest types: those at 50 or more (at most 3), else the best two above 0."""
+    if not scores:
+        return []
+    order = sorted(RIASEC, key=lambda k: (-scores.get(k, 0), RIASEC.index(k)))
+    top = [k for k in order if scores.get(k, 0) >= 50][:3]
+    return top or [k for k in order[:2] if scores.get(k, 0) > 0]
+
+
 def score_career(career: dict, p: dict) -> Match:
     reasons: list[dict] = []
     gaps: list[dict] = []
 
+    scores = quiz_scores(p)
+    codes = career.get("riasec") or []
+    fit_quiz = bool(scores and codes)
+    tag_weight = WEIGHTS["interest"] - RIASEC_SHARE if fit_quiz else WEIGHTS["interest"]
     interests = set(p.get("interests") or [])
     hits = sorted(interests & set(career["interest_tags"]))
-    pts = _r(WEIGHTS["interest"] * min(1.0, len(hits) / 2))
+    pts = _r(tag_weight * min(1.0, len(hits) / 2))
     if hits:
         reasons.append({"code": "interest", "points": pts, "detail": hits})
+    if fit_quiz:
+        ws = CODE_WEIGHTS[:len(codes)]
+        got = 0.0
+        for w, c in zip(ws, codes):
+            got += w * scores.get(c, 0)
+        pts_q = _r(RIASEC_SHARE * got / (sum(ws) * 100))
+        top = riasec_top(scores)
+        matched = [c for c in codes if c in top]
+        if matched and pts_q > 0:
+            reasons.append({"code": "riasec", "points": pts_q, "detail": matched})
+        pts += pts_q
 
     subjects = set(p.get("subjects") or [])
     need = career["subject_tags"]

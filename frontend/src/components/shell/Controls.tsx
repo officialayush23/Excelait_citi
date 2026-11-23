@@ -1,4 +1,5 @@
 import { Check, Languages, LogOut, Moon, Sun, UserRound } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { useAuth } from '@/auth/AuthProvider'
@@ -18,8 +19,8 @@ import { supabase } from '@/lib/supabase'
 import { cn } from '@/lib/utils'
 import { useUi } from '@/stores/ui'
 
-const iconBtn =
-  'grid size-10 place-items-center rounded-full border bg-nav text-foreground/80 transition-colors hover:text-foreground hover:bg-accent focus-visible:outline-2'
+export const iconBtn =
+  'grid size-10 place-items-center rounded-full bg-nav text-foreground/80 ring-1 ring-border transition-colors hover:text-foreground hover:bg-accent focus-visible:outline-2'
 
 export function ThemeToggle() {
   const { t } = useTranslation()
@@ -77,6 +78,7 @@ export function NotificationsButton() {
 export function UserMenu() {
   const { t } = useTranslation()
   const { profile, role, signOut } = useAuth()
+  const navigate = useNavigate()
   const name = profile?.full_name || profile?.email || ''
   const initials = name
     .split(/[\s@.]+/)
@@ -89,7 +91,7 @@ export function UserMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button type="button" className="rounded-full focus-visible:outline-2" aria-label={t('common.profile')}>
-          <Avatar className="size-10 border">
+          <Avatar className="size-10 ring-1 ring-border">
             <AvatarFallback className="bg-highlight text-sm font-semibold text-highlight-foreground">
               {initials || <UserRound className="size-4" />}
             </AvatarFallback>
@@ -103,11 +105,33 @@ export function UserMenu() {
           <span className="mt-1 text-xs font-normal text-muted-foreground">{t(`roles.${role}.name`)}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        {role === 'student' && (
+          <DropdownMenuItem onSelect={() => navigate('/app/profile')}>
+            <UserRound className="size-4" />
+            {t('common.myProfile')}
+          </DropdownMenuItem>
+        )}
         <DropdownMenuItem onSelect={() => void signOut()}>
           <LogOut className="size-4" />
           {t('common.signOut')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  )
+}
+
+/** The rail's bottom button, as in the reference: a plain sign-out circle. */
+export function SignOutButton() {
+  const { t } = useTranslation()
+  const { signOut } = useAuth()
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button type="button" className={iconBtn} onClick={() => void signOut()} aria-label={t('common.signOut')}>
+          <LogOut className="size-[18px]" />
+        </button>
+      </TooltipTrigger>
+      <TooltipContent side="right">{t('common.signOut')}</TooltipContent>
+    </Tooltip>
   )
 }

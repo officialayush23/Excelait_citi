@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from app.core.auth import CurrentUser, get_current_user
 from app.services import colleges as col
 from app.services.graph import career_card, exam_card, graph, program_card, resources_for, scheme_card
+from app.services.roadmap import record_event
 from app.services.students import get_facts
 
 router = APIRouter(prefix="/explore", tags=["explore"])
@@ -38,7 +39,9 @@ def exam(slug: str) -> dict:
 
 @router.get("/schemes/{slug}")
 def scheme(slug: str, user: CurrentUser = Depends(get_current_user)) -> dict:
-    return _404(scheme_card(slug, get_facts(user.id)))
+    card = _404(scheme_card(slug, get_facts(user.id)))
+    record_event(user.id, "scheme_viewed", slug)
+    return card
 
 
 @router.get("/resources")

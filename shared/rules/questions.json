@@ -1,0 +1,2727 @@
+{
+  "_doc": "Adaptive profile questions shared by onboarding and Saathi (backend/app/services/profile_questions.py, frontend/src/engine/questions.ts). A question is asked only when its applies_if holds and its field is unknown; core questions come first, then by priority. Conditions read facts plus derived values: stage, school, college, job_seeker, earning, intent. Ops: eq, ne, lt, lte, gt, gte, in, not_in, known, unknown, is_true, is_false; any/all/not combine. An option's 'sets' are saved with the answer. Variants: the first whose applies_if holds is used. Sensitive questions are optional and explained.",
+  "questions": [
+    {
+      "field": "stage",
+      "type": "single",
+      "tier": "core",
+      "priority": 100,
+      "label": {
+        "en": "What I do now",
+        "hi": "अभी क्या कर रहे हैं",
+        "mr": "सध्या काय करतो/करते"
+      },
+      "group": "basics",
+      "text": {
+        "en": "What are you doing now?",
+        "hi": "अभी आप क्या कर रहे हैं?",
+        "mr": "सध्या तुम्ही काय करत आहात?"
+      },
+      "why": {
+        "en": "We ask this to show careers, courses and scholarships for your level.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि आपके स्तर के करियर, कोर्स और छात्रवृत्तियाँ दिखा सकें।",
+        "mr": "तुमच्या टप्प्यानुसार करिअर, कोर्स आणि शिष्यवृत्ती दाखवण्यासाठी आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "c8",
+          "label": {
+            "en": "Class 8",
+            "hi": "कक्षा 8",
+            "mr": "इयत्ता 8"
+          },
+          "sets": {
+            "class_level": 8,
+            "course": "school"
+          }
+        },
+        {
+          "value": "c9",
+          "label": {
+            "en": "Class 9",
+            "hi": "कक्षा 9",
+            "mr": "इयत्ता 9"
+          },
+          "sets": {
+            "class_level": 9,
+            "course": "school"
+          }
+        },
+        {
+          "value": "c10",
+          "label": {
+            "en": "Class 10",
+            "hi": "कक्षा 10",
+            "mr": "इयत्ता 10"
+          },
+          "sets": {
+            "class_level": 10,
+            "course": "school"
+          }
+        },
+        {
+          "value": "c11",
+          "label": {
+            "en": "Class 11",
+            "hi": "कक्षा 11",
+            "mr": "इयत्ता 11"
+          },
+          "sets": {
+            "class_level": 11,
+            "course": "school"
+          }
+        },
+        {
+          "value": "c12",
+          "label": {
+            "en": "Class 12",
+            "hi": "कक्षा 12",
+            "mr": "इयत्ता 12"
+          },
+          "sets": {
+            "class_level": 12,
+            "course": "school"
+          }
+        },
+        {
+          "value": "iti",
+          "label": {
+            "en": "ITI",
+            "hi": "आईटीआई",
+            "mr": "आयटीआय"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "iti"
+          }
+        },
+        {
+          "value": "diploma",
+          "label": {
+            "en": "Diploma / polytechnic",
+            "hi": "डिप्लोमा / पॉलिटेक्निक",
+            "mr": "डिप्लोमा / पॉलिटेक्निक"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "diploma"
+          }
+        },
+        {
+          "value": "ug_degree",
+          "label": {
+            "en": "College degree (BA, BSc, BCom…)",
+            "hi": "कॉलेज डिग्री (BA, BSc, BCom…)",
+            "mr": "पदवी (BA, BSc, BCom…)"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "ug_degree"
+          }
+        },
+        {
+          "value": "ug_technical",
+          "label": {
+            "en": "Engineering / technical degree",
+            "hi": "इंजीनियरिंग / तकनीकी डिग्री",
+            "mr": "इंजिनिअरिंग / तांत्रिक पदवी"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "ug_technical"
+          }
+        },
+        {
+          "value": "pg",
+          "label": {
+            "en": "Postgraduate",
+            "hi": "स्नातकोत्तर",
+            "mr": "पदव्युत्तर"
+          },
+          "sets": {
+            "class_level": 16,
+            "course": "pg"
+          }
+        },
+        {
+          "value": "job_seeker",
+          "label": {
+            "en": "Finished studying, looking for work",
+            "hi": "पढ़ाई पूरी, काम ढूँढ रहे हैं",
+            "mr": "शिक्षण पूर्ण, काम शोधत आहे"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "none",
+            "needs_income_soon": true
+          }
+        },
+        {
+          "value": "not_studying",
+          "label": {
+            "en": "Not studying right now",
+            "hi": "अभी पढ़ाई नहीं कर रहे",
+            "mr": "सध्या शिकत नाही"
+          },
+          "sets": {
+            "class_level": 13,
+            "course": "none"
+          }
+        }
+      ]
+    },
+    {
+      "field": "age",
+      "type": "number",
+      "tier": "core",
+      "priority": 95,
+      "min": 10,
+      "max": 60,
+      "group": "basics",
+      "label": {
+        "en": "Age",
+        "hi": "उम्र",
+        "mr": "वय"
+      },
+      "text": {
+        "en": "How old are you?",
+        "hi": "आपकी उम्र कितनी है?",
+        "mr": "तुमचे वय किती आहे?"
+      },
+      "hint": {
+        "en": "Type your age in years.",
+        "hi": "अपनी उम्र सालों में लिखें।",
+        "mr": "वय वर्षांत लिहा."
+      },
+      "why": {
+        "en": "We ask this because courses, schemes and work have age rules, and we keep suggestions safe for your age.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कोर्स, योजनाओं और काम के उम्र के नियम होते हैं, और सुझाव आपकी उम्र के लिए सुरक्षित रहें।",
+        "mr": "कोर्स, योजना आणि कामाचे वयाचे नियम असतात, आणि सूचना तुमच्या वयासाठी सुरक्षित राहाव्यात म्हणून आम्ही हे विचारतो."
+      }
+    },
+    {
+      "field": "state",
+      "type": "single",
+      "tier": "core",
+      "priority": 90,
+      "group": "basics",
+      "label": {
+        "en": "State",
+        "hi": "राज्य",
+        "mr": "राज्य"
+      },
+      "text": {
+        "en": "Which state do you live in?",
+        "hi": "आप किस राज्य में रहते हैं?",
+        "mr": "तुम्ही कोणत्या राज्यात राहता?"
+      },
+      "why": {
+        "en": "We ask this because scholarships and colleges are different in each state.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि हर राज्य की छात्रवृत्तियाँ और कॉलेज अलग होते हैं।",
+        "mr": "प्रत्येक राज्याच्या शिष्यवृत्ती आणि कॉलेज वेगळे असतात, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "Maharashtra",
+          "label": {
+            "en": "Maharashtra",
+            "hi": "महाराष्ट्र",
+            "mr": "महाराष्ट्र"
+          }
+        },
+        {
+          "value": "Uttar Pradesh",
+          "label": {
+            "en": "Uttar Pradesh",
+            "hi": "उत्तर प्रदेश",
+            "mr": "उत्तर प्रदेश"
+          }
+        },
+        {
+          "value": "Other",
+          "label": {
+            "en": "Another state",
+            "hi": "कोई और राज्य",
+            "mr": "दुसरे राज्य"
+          }
+        }
+      ]
+    },
+    {
+      "field": "plan_after_10",
+      "type": "single",
+      "tier": "core",
+      "priority": 86,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "c9",
+            "c10"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Plan after Class 10",
+        "hi": "10वीं के बाद की योजना",
+        "mr": "दहावीनंतरची योजना"
+      },
+      "text": {
+        "en": "What would you like to do after Class 10?",
+        "hi": "10वीं के बाद आप क्या करना चाहेंगे?",
+        "mr": "दहावीनंतर तुम्हाला काय करायला आवडेल?"
+      },
+      "why": {
+        "en": "We ask this to show where each choice after Class 10 can lead.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि 10वीं के बाद हर रास्ता कहाँ ले जाता है, यह दिखा सकें।",
+        "mr": "दहावीनंतरचा प्रत्येक मार्ग कुठे नेतो हे दाखवण्यासाठी आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "science",
+          "label": {
+            "en": "Class 11 Science",
+            "hi": "11वीं साइंस",
+            "mr": "अकरावी विज्ञान"
+          }
+        },
+        {
+          "value": "commerce",
+          "label": {
+            "en": "Class 11 Commerce",
+            "hi": "11वीं कॉमर्स",
+            "mr": "अकरावी वाणिज्य"
+          }
+        },
+        {
+          "value": "arts",
+          "label": {
+            "en": "Class 11 Arts",
+            "hi": "11वीं आर्ट्स",
+            "mr": "अकरावी कला"
+          }
+        },
+        {
+          "value": "iti",
+          "label": {
+            "en": "ITI (trade training)",
+            "hi": "आईटीआई (ट्रेड ट्रेनिंग)",
+            "mr": "आयटीआय (व्यवसाय प्रशिक्षण)"
+          }
+        },
+        {
+          "value": "diploma",
+          "label": {
+            "en": "Diploma / polytechnic",
+            "hi": "डिप्लोमा / पॉलिटेक्निक",
+            "mr": "डिप्लोमा / पॉलिटेक्निक"
+          }
+        },
+        {
+          "value": "not_sure",
+          "label": {
+            "en": "Not sure yet",
+            "hi": "अभी पक्का नहीं",
+            "mr": "अजून ठरले नाही"
+          }
+        }
+      ]
+    },
+    {
+      "field": "stream",
+      "type": "single",
+      "tier": "core",
+      "priority": 86,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "c11",
+            "c12"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Stream",
+        "hi": "स्ट्रीम",
+        "mr": "शाखा"
+      },
+      "text": {
+        "en": "Which stream are you in?",
+        "hi": "आप किस स्ट्रीम में हैं?",
+        "mr": "तुम्ही कोणत्या शाखेत आहात?"
+      },
+      "why": {
+        "en": "We ask this because your stream decides which courses and entrance exams are open to you.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि आपकी स्ट्रीम तय करती है कि कौन-से कोर्स और प्रवेश परीक्षाएँ आपके लिए खुली हैं।",
+        "mr": "तुमची शाखा कोणते कोर्स आणि प्रवेश परीक्षा तुमच्यासाठी खुल्या आहेत हे ठरवते, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "science_pcm",
+          "label": {
+            "en": "Science (Maths)",
+            "hi": "साइंस (गणित)",
+            "mr": "विज्ञान (गणित)"
+          },
+          "sets": {
+            "subjects": [
+              "maths",
+              "science"
+            ]
+          }
+        },
+        {
+          "value": "science_pcb",
+          "label": {
+            "en": "Science (Biology)",
+            "hi": "साइंस (बायोलॉजी)",
+            "mr": "विज्ञान (जीवशास्त्र)"
+          },
+          "sets": {
+            "subjects": [
+              "biology",
+              "science"
+            ]
+          }
+        },
+        {
+          "value": "science_pcmb",
+          "label": {
+            "en": "Science (Maths and Biology)",
+            "hi": "साइंस (गणित और बायोलॉजी)",
+            "mr": "विज्ञान (गणित आणि जीवशास्त्र)"
+          },
+          "sets": {
+            "subjects": [
+              "maths",
+              "biology",
+              "science"
+            ]
+          }
+        },
+        {
+          "value": "commerce",
+          "label": {
+            "en": "Commerce",
+            "hi": "कॉमर्स",
+            "mr": "वाणिज्य"
+          },
+          "sets": {
+            "subjects": [
+              "commerce",
+              "maths"
+            ]
+          }
+        },
+        {
+          "value": "arts",
+          "label": {
+            "en": "Arts",
+            "hi": "आर्ट्स",
+            "mr": "कला"
+          },
+          "sets": {
+            "subjects": [
+              "social",
+              "languages"
+            ]
+          }
+        },
+        {
+          "value": "vocational",
+          "label": {
+            "en": "Vocational / MCVC",
+            "hi": "व्यावसायिक (वोकेशनल)",
+            "mr": "व्यावसायिक (MCVC)"
+          }
+        }
+      ]
+    },
+    {
+      "field": "exam_interest",
+      "type": "multi",
+      "tier": "core",
+      "priority": 84,
+      "max_select": 3,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "c11",
+            "c12"
+          ]
+        },
+        {
+          "fact": "stream",
+          "op": "known"
+        }
+      ],
+      "label": {
+        "en": "Entrance exams I am thinking of",
+        "hi": "जिन प्रवेश परीक्षाओं के बारे में सोच रहे हैं",
+        "mr": "ज्या प्रवेश परीक्षांचा विचार करत आहे"
+      },
+      "text": {
+        "en": "Which entrance exams are you thinking of?",
+        "hi": "आप किन प्रवेश परीक्षाओं के बारे में सोच रहे हैं?",
+        "mr": "तुम्ही कोणत्या प्रवेश परीक्षांचा विचार करत आहात?"
+      },
+      "hint": {
+        "en": "Pick up to 3, or 'Not sure yet'.",
+        "hi": "3 तक चुनें, या 'अभी पक्का नहीं'।",
+        "mr": "3 पर्यंत निवडा, किंवा 'अजून ठरले नाही'."
+      },
+      "why": {
+        "en": "We ask this to show exam dates and how to prepare, for free.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि परीक्षा की तारीखें और मुफ़्त तैयारी दिखा सकें।",
+        "mr": "परीक्षांच्या तारखा आणि मोफत तयारी दाखवण्यासाठी आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "neet-ug",
+          "label": {
+            "en": "NEET-UG",
+            "hi": "NEET-UG",
+            "mr": "NEET-UG"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcb",
+                "science_pcmb"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "jee-main",
+          "label": {
+            "en": "JEE Main",
+            "hi": "JEE Main",
+            "mr": "JEE Main"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcmb"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "mht-cet",
+          "label": {
+            "en": "MHT-CET (Maharashtra)",
+            "hi": "MHT-CET (Maharashtra)",
+            "mr": "MHT-CET (Maharashtra)"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcb",
+                "science_pcmb"
+              ]
+            },
+            {
+              "fact": "state",
+              "op": "eq",
+              "value": "Maharashtra"
+            }
+          ]
+        },
+        {
+          "value": "icar-aieea",
+          "label": {
+            "en": "ICAR AIEEA (agriculture admissions)",
+            "hi": "ICAR AIEEA (agriculture admissions)",
+            "mr": "ICAR AIEEA (agriculture admissions)"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcb",
+                "science_pcmb"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "cuet-ug",
+          "label": {
+            "en": "CUET-UG",
+            "hi": "CUET-UG",
+            "mr": "CUET-UG"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcb",
+                "science_pcmb",
+                "commerce",
+                "arts",
+                "vocational"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "clat",
+          "label": {
+            "en": "CLAT (law)",
+            "hi": "CLAT (law)",
+            "mr": "CLAT (law)"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "commerce",
+                "arts"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "nchm-jee",
+          "label": {
+            "en": "NCHM JEE (Hotel Management)",
+            "hi": "NCHM JEE (Hotel Management)",
+            "mr": "NCHM JEE (Hotel Management)"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcb",
+                "science_pcmb",
+                "commerce",
+                "arts",
+                "vocational"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "agniveer",
+          "label": {
+            "en": "Agniveer (Army)",
+            "hi": "Agniveer (Army)",
+            "mr": "Agniveer (Army)"
+          },
+          "applies_if": [
+            {
+              "fact": "stream",
+              "op": "in",
+              "value": [
+                "science_pcm",
+                "science_pcb",
+                "science_pcmb",
+                "commerce",
+                "arts",
+                "vocational"
+              ]
+            }
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": {
+            "en": "Not sure yet",
+            "hi": "अभी पक्का नहीं",
+            "mr": "अजून ठरले नाही"
+          }
+        }
+      ]
+    },
+    {
+      "field": "course_year",
+      "type": "single",
+      "tier": "core",
+      "priority": 86,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "iti",
+            "diploma",
+            "ug_degree",
+            "ug_technical"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Year of course",
+        "hi": "कोर्स का साल",
+        "mr": "कोर्सचे वर्ष"
+      },
+      "text": {
+        "en": "Which year of your course are you in?",
+        "hi": "आप अपने कोर्स के किस साल में हैं?",
+        "mr": "तुम्ही कोर्सच्या कोणत्या वर्षात आहात?"
+      },
+      "why": {
+        "en": "We ask this so your plan starts from where you are now.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि आपकी योजना वहीं से शुरू हो जहाँ आप अभी हैं।",
+        "mr": "तुमची योजना तुम्ही आत्ता जिथे आहात तिथून सुरू व्हावी म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": 1,
+          "label": {
+            "en": "1st year",
+            "hi": "पहला साल",
+            "mr": "पहिले वर्ष"
+          },
+          "sets": {
+            "class_level": 13
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2nd year",
+            "hi": "दूसरा साल",
+            "mr": "दुसरे वर्ष"
+          },
+          "sets": {
+            "class_level": 14
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3rd year",
+            "hi": "तीसरा साल",
+            "mr": "तिसरे वर्ष"
+          },
+          "applies_if": [
+            {
+              "fact": "stage",
+              "op": "in",
+              "value": [
+                "diploma",
+                "ug_degree",
+                "ug_technical"
+              ]
+            }
+          ],
+          "sets": {
+            "class_level": 15
+          }
+        },
+        {
+          "value": 4,
+          "label": {
+            "en": "4th year",
+            "hi": "चौथा साल",
+            "mr": "चौथे वर्ष"
+          },
+          "applies_if": [
+            {
+              "fact": "stage",
+              "op": "in",
+              "value": [
+                "ug_degree",
+                "ug_technical"
+              ]
+            }
+          ],
+          "sets": {
+            "class_level": 16
+          }
+        }
+      ]
+    },
+    {
+      "field": "qualification",
+      "type": "single",
+      "tier": "core",
+      "priority": 86,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "job_seeker",
+            "not_studying"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Highest qualification",
+        "hi": "सबसे ऊँची पढ़ाई",
+        "mr": "सर्वोच्च शिक्षण"
+      },
+      "text": {
+        "en": "What is the highest you have studied?",
+        "hi": "आपने सबसे ज़्यादा कहाँ तक पढ़ाई की है?",
+        "mr": "तुम्ही जास्तीत जास्त किती शिकला आहात?"
+      },
+      "why": {
+        "en": "We ask this because jobs and training ask for a minimum qualification.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि नौकरी और ट्रेनिंग के लिए न्यूनतम पढ़ाई चाहिए होती है।",
+        "mr": "नोकरी आणि प्रशिक्षणासाठी किमान शिक्षण लागते, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "class_8",
+          "label": {
+            "en": "Class 8 or less",
+            "hi": "8वीं या कम",
+            "mr": "आठवी किंवा कमी"
+          }
+        },
+        {
+          "value": "class_10",
+          "label": {
+            "en": "Class 10",
+            "hi": "10वीं",
+            "mr": "दहावी"
+          }
+        },
+        {
+          "value": "class_12",
+          "label": {
+            "en": "Class 12",
+            "hi": "12वीं",
+            "mr": "बारावी"
+          }
+        },
+        {
+          "value": "iti",
+          "label": {
+            "en": "ITI",
+            "hi": "आईटीआई",
+            "mr": "आयटीआय"
+          }
+        },
+        {
+          "value": "diploma",
+          "label": {
+            "en": "Diploma",
+            "hi": "डिप्लोमा",
+            "mr": "डिप्लोमा"
+          }
+        },
+        {
+          "value": "graduate",
+          "label": {
+            "en": "Graduate or more",
+            "hi": "ग्रेजुएट या ज़्यादा",
+            "mr": "पदवीधर किंवा अधिक"
+          }
+        }
+      ]
+    },
+    {
+      "field": "work_experience",
+      "type": "single",
+      "tier": "core",
+      "priority": 82,
+      "group": "work",
+      "applies_if": [
+        {
+          "fact": "job_seeker",
+          "op": "is_true"
+        }
+      ],
+      "label": {
+        "en": "Work experience",
+        "hi": "काम का अनुभव",
+        "mr": "कामाचा अनुभव"
+      },
+      "text": {
+        "en": "How much work experience do you have?",
+        "hi": "आपके पास कितना काम का अनुभव है?",
+        "mr": "तुमच्याकडे कामाचा किती अनुभव आहे?"
+      },
+      "why": {
+        "en": "We ask this because some jobs and apprenticeships are for freshers and some want experience.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ नौकरियाँ और अप्रेंटिसशिप नए लोगों के लिए होती हैं और कुछ में अनुभव चाहिए।",
+        "mr": "काही नोकऱ्या आणि शिकाऊ उमेदवारी नवख्यांसाठी असतात तर काहींना अनुभव लागतो, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "none",
+          "label": {
+            "en": "None yet (fresher)",
+            "hi": "अभी नहीं (फ्रेशर)",
+            "mr": "अजून नाही (फ्रेशर)"
+          }
+        },
+        {
+          "value": "apprentice",
+          "label": {
+            "en": "Apprenticeship or internship",
+            "hi": "अप्रेंटिसशिप या इंटर्नशिप",
+            "mr": "शिकाऊ उमेदवारी किंवा इंटर्नशिप"
+          }
+        },
+        {
+          "value": "under_1",
+          "label": {
+            "en": "Less than 1 year",
+            "hi": "1 साल से कम",
+            "mr": "1 वर्षापेक्षा कमी"
+          }
+        },
+        {
+          "value": "1_to_3",
+          "label": {
+            "en": "1 to 3 years",
+            "hi": "1 से 3 साल",
+            "mr": "1 ते 3 वर्षे"
+          }
+        },
+        {
+          "value": "over_3",
+          "label": {
+            "en": "More than 3 years",
+            "hi": "3 साल से ज़्यादा",
+            "mr": "3 वर्षांपेक्षा जास्त"
+          }
+        }
+      ]
+    },
+    {
+      "field": "interests",
+      "type": "multi",
+      "tier": "core",
+      "priority": 80,
+      "max_select": 5,
+      "group": "interests",
+      "label": {
+        "en": "Things I enjoy",
+        "hi": "मुझे क्या पसंद है",
+        "mr": "मला काय आवडते"
+      },
+      "text": {
+        "en": "What do you enjoy doing?",
+        "hi": "आपको क्या करना अच्छा लगता है?",
+        "mr": "तुम्हाला काय करायला आवडते?"
+      },
+      "hint": {
+        "en": "Pick up to 5.",
+        "hi": "5 तक चुनें।",
+        "mr": "5 पर्यंत निवडा."
+      },
+      "why": {
+        "en": "We ask this because careers are matched to what you enjoy.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि करियर आपकी पसंद से मिलाए जाते हैं।",
+        "mr": "करिअर तुमच्या आवडीनुसार जुळवले जातात, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "hands_on",
+          "label": {
+            "en": "Working with my hands",
+            "hi": "हाथ से काम करना",
+            "mr": "हाताने काम करणे"
+          }
+        },
+        {
+          "value": "machines",
+          "label": {
+            "en": "Machines",
+            "hi": "मशीनें",
+            "mr": "यंत्रे"
+          }
+        },
+        {
+          "value": "electricity",
+          "label": {
+            "en": "Electrical work",
+            "hi": "बिजली का काम",
+            "mr": "वीज काम"
+          }
+        },
+        {
+          "value": "vehicles",
+          "label": {
+            "en": "Bikes and vehicles",
+            "hi": "बाइक और गाड़ियाँ",
+            "mr": "गाड्या आणि बाइक"
+          }
+        },
+        {
+          "value": "construction",
+          "label": {
+            "en": "Building things",
+            "hi": "चीज़ें बनाना",
+            "mr": "बांधकाम"
+          }
+        },
+        {
+          "value": "computers",
+          "label": {
+            "en": "Computers",
+            "hi": "कंप्यूटर",
+            "mr": "संगणक"
+          }
+        },
+        {
+          "value": "numbers",
+          "label": {
+            "en": "Numbers and accounts",
+            "hi": "हिसाब-किताब",
+            "mr": "हिशोब"
+          }
+        },
+        {
+          "value": "problem_solving",
+          "label": {
+            "en": "Solving puzzles",
+            "hi": "पहेलियाँ सुलझाना",
+            "mr": "कोडी सोडवणे"
+          }
+        },
+        {
+          "value": "creative",
+          "label": {
+            "en": "Making new things",
+            "hi": "नई चीज़ें बनाना",
+            "mr": "नवीन गोष्टी बनवणे"
+          }
+        },
+        {
+          "value": "art",
+          "label": {
+            "en": "Drawing and art",
+            "hi": "चित्रकारी और कला",
+            "mr": "चित्रकला"
+          }
+        },
+        {
+          "value": "fashion",
+          "label": {
+            "en": "Clothes and fashion",
+            "hi": "कपड़े और फ़ैशन",
+            "mr": "कपडे आणि फॅशन"
+          }
+        },
+        {
+          "value": "food",
+          "label": {
+            "en": "Cooking",
+            "hi": "खाना बनाना",
+            "mr": "स्वयंपाक"
+          }
+        },
+        {
+          "value": "talking",
+          "label": {
+            "en": "Talking to people",
+            "hi": "लोगों से बात करना",
+            "mr": "लोकांशी बोलणे"
+          }
+        },
+        {
+          "value": "helping",
+          "label": {
+            "en": "Helping people",
+            "hi": "लोगों की मदद करना",
+            "mr": "लोकांना मदत करणे"
+          }
+        },
+        {
+          "value": "teaching",
+          "label": {
+            "en": "Teaching others",
+            "hi": "दूसरों को पढ़ाना",
+            "mr": "इतरांना शिकवणे"
+          }
+        },
+        {
+          "value": "health",
+          "label": {
+            "en": "Health and care",
+            "hi": "सेहत और देखभाल",
+            "mr": "आरोग्य आणि सेवा"
+          }
+        },
+        {
+          "value": "science_lab",
+          "label": {
+            "en": "Science experiments",
+            "hi": "विज्ञान के प्रयोग",
+            "mr": "विज्ञानाचे प्रयोग"
+          }
+        },
+        {
+          "value": "animals",
+          "label": {
+            "en": "Animals",
+            "hi": "जानवर",
+            "mr": "प्राणी"
+          }
+        },
+        {
+          "value": "nature",
+          "label": {
+            "en": "Plants and nature",
+            "hi": "पेड़-पौधे और प्रकृति",
+            "mr": "झाडे आणि निसर्ग"
+          }
+        },
+        {
+          "value": "outdoors",
+          "label": {
+            "en": "Being outdoors",
+            "hi": "बाहर काम करना",
+            "mr": "बाहेर काम करणे"
+          }
+        },
+        {
+          "value": "business",
+          "label": {
+            "en": "Business and selling",
+            "hi": "व्यापार और बिक्री",
+            "mr": "व्यवसाय आणि विक्री"
+          }
+        },
+        {
+          "value": "public_service",
+          "label": {
+            "en": "Serving the public",
+            "hi": "जनता की सेवा",
+            "mr": "लोकसेवा"
+          }
+        },
+        {
+          "value": "sports",
+          "label": {
+            "en": "Sports",
+            "hi": "खेल",
+            "mr": "खेळ"
+          }
+        },
+        {
+          "value": "languages_love",
+          "label": {
+            "en": "Languages and writing",
+            "hi": "भाषाएँ और लेखन",
+            "mr": "भाषा आणि लेखन"
+          }
+        }
+      ]
+    },
+    {
+      "field": "needs_income_soon",
+      "type": "single",
+      "tier": "core",
+      "priority": 76,
+      "group": "money",
+      "applies_if": [
+        {
+          "fact": "job_seeker",
+          "op": "is_false"
+        },
+        {
+          "any": [
+            {
+              "fact": "age",
+              "op": "unknown"
+            },
+            {
+              "fact": "age",
+              "op": "gte",
+              "value": 13
+            }
+          ]
+        }
+      ],
+      "label": {
+        "en": "Need to earn soon",
+        "hi": "जल्दी कमाना ज़रूरी",
+        "mr": "लवकर कमावणे गरजेचे"
+      },
+      "text": {
+        "en": "Does your family need you to start earning soon?",
+        "hi": "क्या परिवार के लिए आपको जल्दी कमाना शुरू करना है?",
+        "mr": "कुटुंबासाठी तुम्हाला लवकर कमवायला सुरुवात करायची आहे का?"
+      },
+      "hint": {
+        "en": "For example, to help your family in the next year or two.",
+        "hi": "जैसे, अगले एक-दो साल में परिवार की मदद के लिए।",
+        "mr": "उदा. पुढच्या एक-दोन वर्षांत कुटुंबाला मदत करण्यासाठी."
+      },
+      "why": {
+        "en": "We ask this so we can show money help first, and paths that start earning sooner.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि पहले पैसों की मदद और जल्दी कमाई वाले रास्ते दिखा सकें।",
+        "mr": "आधी पैशांची मदत आणि लवकर कमाई देणारे मार्ग दाखवण्यासाठी आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": true,
+          "label": {
+            "en": "Yes",
+            "hi": "हाँ",
+            "mr": "होय"
+          }
+        },
+        {
+          "value": false,
+          "label": {
+            "en": "No",
+            "hi": "नहीं",
+            "mr": "नाही"
+          }
+        }
+      ]
+    },
+    {
+      "field": "hours_per_week",
+      "type": "single",
+      "tier": "core",
+      "priority": 72,
+      "group": "work",
+      "applies_if": [
+        {
+          "fact": "earning",
+          "op": "is_true"
+        },
+        {
+          "fact": "job_seeker",
+          "op": "is_false"
+        }
+      ],
+      "label": {
+        "en": "Free hours a week",
+        "hi": "हफ़्ते में खाली घंटे",
+        "mr": "आठवड्यातील मोकळे तास"
+      },
+      "text": {
+        "en": "How many hours a week can you give to learning or work?",
+        "hi": "आप हफ़्ते में कितने घंटे सीखने या काम को दे सकते हैं?",
+        "mr": "आठवड्यात किती तास शिकण्यासाठी किंवा कामासाठी देऊ शकता?"
+      },
+      "hint": {
+        "en": "A rough answer is fine.",
+        "hi": "मोटा अंदाज़ा चलेगा।",
+        "mr": "साधारण अंदाज चालेल."
+      },
+      "why": {
+        "en": "We ask this so we only suggest training or part-time options that fit your time.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि सिर्फ़ वही ट्रेनिंग या पार्ट-टाइम विकल्प सुझाएँ जो आपके समय में फिट हों।",
+        "mr": "तुमच्या वेळेत बसणारे प्रशिक्षण किंवा अर्धवेळ पर्याय सुचवण्यासाठी आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": 0,
+          "label": {
+            "en": "None right now",
+            "hi": "अभी नहीं",
+            "mr": "सध्या नाही"
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "Up to 5 hours",
+            "hi": "5 घंटे तक",
+            "mr": "5 तासांपर्यंत"
+          }
+        },
+        {
+          "value": 8,
+          "label": {
+            "en": "5 to 10 hours",
+            "hi": "5 से 10 घंटे",
+            "mr": "5 ते 10 तास"
+          }
+        },
+        {
+          "value": 15,
+          "label": {
+            "en": "10 to 20 hours",
+            "hi": "10 से 20 घंटे",
+            "mr": "10 ते 20 तास"
+          }
+        },
+        {
+          "value": 25,
+          "label": {
+            "en": "More than 20 hours",
+            "hi": "20 घंटे से ज़्यादा",
+            "mr": "20 तासांपेक्षा जास्त"
+          }
+        }
+      ]
+    },
+    {
+      "field": "has_family_business",
+      "type": "single",
+      "tier": "core",
+      "priority": 70,
+      "group": "work",
+      "applies_if": [
+        {
+          "fact": "earning",
+          "op": "is_true"
+        }
+      ],
+      "label": {
+        "en": "Family shop, farm or business",
+        "hi": "परिवार की दुकान, खेत या व्यापार",
+        "mr": "कुटुंबाचे दुकान, शेत किंवा व्यवसाय"
+      },
+      "text": {
+        "en": "Does your family have a shop, farm or small business?",
+        "hi": "क्या आपके परिवार की कोई दुकान, खेत या छोटा व्यापार है?",
+        "mr": "तुमच्या कुटुंबाचे दुकान, शेत किंवा छोटा व्यवसाय आहे का?"
+      },
+      "why": {
+        "en": "We ask this because helping in a family shop or farm can be a safe way to learn and earn.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि परिवार की दुकान या खेत में मदद करना सीखने और कमाने का सुरक्षित तरीका हो सकता है।",
+        "mr": "कुटुंबाच्या दुकानात किंवा शेतात मदत करणे हा शिकण्याचा आणि कमावण्याचा सुरक्षित मार्ग असू शकतो, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": true,
+          "label": {
+            "en": "Yes",
+            "hi": "हाँ",
+            "mr": "होय"
+          }
+        },
+        {
+          "value": false,
+          "label": {
+            "en": "No",
+            "hi": "नहीं",
+            "mr": "नाही"
+          }
+        }
+      ]
+    },
+    {
+      "field": "skills",
+      "type": "multi",
+      "tier": "more",
+      "priority": 66,
+      "group": "skills",
+      "core_if": [
+        {
+          "any": [
+            {
+              "fact": "job_seeker",
+              "op": "is_true"
+            },
+            {
+              "all": [
+                {
+                  "fact": "age",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "earning",
+                  "op": "is_true"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "label": {
+        "en": "What I can do",
+        "hi": "मैं क्या कर सकता/सकती हूँ",
+        "mr": "मला काय येते"
+      },
+      "variants": [
+        {
+          "id": "work",
+          "applies_if": [
+            {
+              "fact": "age",
+              "op": "gte",
+              "value": 16
+            },
+            {
+              "any": [
+                {
+                  "fact": "earning",
+                  "op": "is_true"
+                },
+                {
+                  "fact": "college",
+                  "op": "is_true"
+                }
+              ]
+            }
+          ],
+          "text": {
+            "en": "What work can you already do?",
+            "hi": "आप कौन-सा काम पहले से कर सकते हैं?",
+            "mr": "तुम्हाला आधीपासून कोणते काम येते?"
+          },
+          "hint": {
+            "en": "Pick all that fit. Skip if none yet.",
+            "hi": "जितने सही हों चुनें। कुछ नहीं आता तो छोड़ दें।",
+            "mr": "जे लागू असेल ते निवडा. काही नसेल तर वगळा."
+          },
+          "why": {
+            "en": "We ask this to match training and work to what you can already do.",
+            "hi": "हम यह इसलिए पूछते हैं ताकि ट्रेनिंग और काम आपकी आती चीज़ों से मिला सकें।",
+            "mr": "तुम्हाला जे येते त्यानुसार प्रशिक्षण आणि काम जुळवण्यासाठी आम्ही हे विचारतो."
+          },
+          "options": [
+            {
+              "value": "phone_repair",
+              "label": {
+                "en": "Phone repair",
+                "hi": "फ़ोन रिपेयर",
+                "mr": "फोन दुरुस्ती"
+              }
+            },
+            {
+              "value": "computer_basics",
+              "label": {
+                "en": "Using a computer",
+                "hi": "कंप्यूटर चलाना",
+                "mr": "संगणक वापरणे"
+              }
+            },
+            {
+              "value": "typing_office",
+              "label": {
+                "en": "Typing / MS Office",
+                "hi": "टाइपिंग / MS Office",
+                "mr": "टायपिंग / MS Office"
+              }
+            },
+            {
+              "value": "accounts_tally",
+              "label": {
+                "en": "Accounts / Tally",
+                "hi": "हिसाब-किताब / Tally",
+                "mr": "हिशोब / Tally"
+              }
+            },
+            {
+              "value": "stitching",
+              "label": {
+                "en": "Stitching / tailoring",
+                "hi": "सिलाई",
+                "mr": "शिवणकाम"
+              }
+            },
+            {
+              "value": "cooking",
+              "label": {
+                "en": "Cooking",
+                "hi": "खाना बनाना",
+                "mr": "स्वयंपाक"
+              }
+            },
+            {
+              "value": "farming",
+              "label": {
+                "en": "Farming",
+                "hi": "खेती",
+                "mr": "शेती"
+              }
+            },
+            {
+              "value": "dairy_animals",
+              "label": {
+                "en": "Dairy and animal care",
+                "hi": "डेयरी और पशुपालन",
+                "mr": "दुग्धव्यवसाय आणि पशुपालन"
+              }
+            },
+            {
+              "value": "electrical_basics",
+              "label": {
+                "en": "Basic electrical work",
+                "hi": "बिजली का बुनियादी काम",
+                "mr": "विजेचे प्राथमिक काम"
+              },
+              "applies_if": [
+                {
+                  "fact": "age",
+                  "op": "gte",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "value": "two_wheeler_repair",
+              "label": {
+                "en": "Two-wheeler repair",
+                "hi": "दोपहिया रिपेयर",
+                "mr": "दुचाकी दुरुस्ती"
+              },
+              "applies_if": [
+                {
+                  "fact": "age",
+                  "op": "gte",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "value": "driving",
+              "label": {
+                "en": "Driving (with licence)",
+                "hi": "गाड़ी चलाना (लाइसेंस के साथ)",
+                "mr": "वाहन चालवणे (परवान्यासह)"
+              },
+              "applies_if": [
+                {
+                  "fact": "age",
+                  "op": "gte",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "value": "carpentry_masonry",
+              "label": {
+                "en": "Carpentry or masonry",
+                "hi": "बढ़ईगिरी या राजमिस्त्री",
+                "mr": "सुतारकाम किंवा गवंडीकाम"
+              },
+              "applies_if": [
+                {
+                  "fact": "age",
+                  "op": "gte",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "value": "selling",
+              "label": {
+                "en": "Selling / shop work",
+                "hi": "बेचना / दुकान का काम",
+                "mr": "विक्री / दुकानातील काम"
+              }
+            },
+            {
+              "value": "teaching_tuition",
+              "label": {
+                "en": "Teaching / tuition",
+                "hi": "पढ़ाना / ट्यूशन",
+                "mr": "शिकवणे / शिकवणी"
+              }
+            },
+            {
+              "value": "beauty_mehndi",
+              "label": {
+                "en": "Beauty work, mehndi",
+                "hi": "ब्यूटी का काम, मेहंदी",
+                "mr": "ब्युटी काम, मेहंदी"
+              }
+            },
+            {
+              "value": "social_media",
+              "label": {
+                "en": "Social media / making videos",
+                "hi": "सोशल मीडिया / वीडियो बनाना",
+                "mr": "सोशल मीडिया / व्हिडिओ बनवणे"
+              }
+            }
+          ]
+        },
+        {
+          "id": "young",
+          "text": {
+            "en": "What are you good at?",
+            "hi": "आप किसमें अच्छे हैं?",
+            "mr": "तुम्ही कशात चांगले आहात?"
+          },
+          "hint": {
+            "en": "Pick all that fit. It is fine to pick none.",
+            "hi": "जितने सही हों चुनें। कुछ न चुनें तो भी ठीक है।",
+            "mr": "जे लागू असेल ते निवडा. काहीही न निवडले तरी चालेल."
+          },
+          "why": {
+            "en": "We ask this because what you are already good at tells us what you may enjoy later.",
+            "hi": "हम यह इसलिए पूछते हैं क्योंकि आप जिसमें अच्छे हैं उससे पता चलता है कि आगे आपको क्या पसंद आ सकता है।",
+            "mr": "तुम्ही ज्यात चांगले आहात त्यावरून पुढे तुम्हाला काय आवडेल हे कळते, म्हणून आम्ही हे विचारतो."
+          },
+          "options": [
+            {
+              "value": "helping_home_shop",
+              "label": {
+                "en": "Helping at a home shop",
+                "hi": "घर की दुकान में मदद",
+                "mr": "घरच्या दुकानात मदत"
+              }
+            },
+            {
+              "value": "drawing",
+              "label": {
+                "en": "Drawing, rangoli or mehndi",
+                "hi": "चित्र, रंगोली या मेहंदी",
+                "mr": "चित्र, रांगोळी किंवा मेहंदी"
+              }
+            },
+            {
+              "value": "explaining_to_friends",
+              "label": {
+                "en": "Explaining lessons to friends",
+                "hi": "दोस्तों को पाठ समझाना",
+                "mr": "मित्रांना धडा समजावून सांगणे"
+              }
+            },
+            {
+              "value": "fixing_simple_things",
+              "label": {
+                "en": "Fixing simple things at home",
+                "hi": "घर की छोटी चीज़ें ठीक करना",
+                "mr": "घरातील छोट्या वस्तू दुरुस्त करणे"
+              }
+            },
+            {
+              "value": "cooking_at_home",
+              "label": {
+                "en": "Cooking at home",
+                "hi": "घर पर खाना बनाना",
+                "mr": "घरी स्वयंपाक करणे"
+              }
+            },
+            {
+              "value": "growing_plants",
+              "label": {
+                "en": "Growing plants",
+                "hi": "पौधे उगाना",
+                "mr": "झाडे लावणे, वाढवणे"
+              }
+            },
+            {
+              "value": "caring_animals",
+              "label": {
+                "en": "Looking after animals",
+                "hi": "जानवरों की देखभाल",
+                "mr": "जनावरांची काळजी घेणे"
+              }
+            },
+            {
+              "value": "sports_games",
+              "label": {
+                "en": "Sports and games",
+                "hi": "खेल-कूद",
+                "mr": "खेळ"
+              }
+            },
+            {
+              "value": "singing_dancing",
+              "label": {
+                "en": "Singing, dancing or acting",
+                "hi": "गाना, नाचना या अभिनय",
+                "mr": "गाणे, नाच किंवा अभिनय"
+              }
+            },
+            {
+              "value": "using_phone_computer",
+              "label": {
+                "en": "Using a phone or computer",
+                "hi": "फ़ोन या कंप्यूटर चलाना",
+                "mr": "फोन किंवा संगणक वापरणे"
+              }
+            },
+            {
+              "value": "craft_stitching",
+              "label": {
+                "en": "Craft or stitching",
+                "hi": "हस्तकला या सिलाई",
+                "mr": "हस्तकला किंवा शिवणकाम"
+              }
+            },
+            {
+              "value": "organising",
+              "label": {
+                "en": "Organising class or school events",
+                "hi": "कक्षा या स्कूल के कार्यक्रम सँभालना",
+                "mr": "वर्ग किंवा शाळेचे कार्यक्रम सांभाळणे"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": "district",
+      "type": "district",
+      "tier": "more",
+      "priority": 64,
+      "group": "basics",
+      "label": {
+        "en": "District",
+        "hi": "ज़िला",
+        "mr": "जिल्हा"
+      },
+      "text": {
+        "en": "Which district do you live in?",
+        "hi": "आप किस ज़िले में रहते हैं?",
+        "mr": "तुम्ही कोणत्या जिल्ह्यात राहता?"
+      },
+      "hint": {
+        "en": "Tap one, or type yours.",
+        "hi": "एक चुनें या अपना ज़िला लिखें।",
+        "mr": "एक निवडा किंवा तुमचा जिल्हा लिहा."
+      },
+      "why": {
+        "en": "We ask this to find colleges, training and work near your home.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि आपके घर के पास कॉलेज, ट्रेनिंग और काम ढूँढ सकें।",
+        "mr": "तुमच्या घराजवळ कॉलेज, प्रशिक्षण आणि काम शोधण्यासाठी आम्ही हे विचारतो."
+      }
+    },
+    {
+      "field": "marks_percent",
+      "type": "number",
+      "tier": "more",
+      "priority": 62,
+      "min": 0,
+      "max": 100,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "known"
+        },
+        {
+          "fact": "stage",
+          "op": "not_in",
+          "value": [
+            "c8",
+            "job_seeker",
+            "not_studying"
+          ]
+        }
+      ],
+      "core_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "c11",
+            "c12",
+            "diploma",
+            "ug_degree",
+            "ug_technical"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Marks in last exam (%)",
+        "hi": "पिछली परीक्षा के अंक (%)",
+        "mr": "मागील परीक्षेचे गुण (%)"
+      },
+      "text": {
+        "en": "What percentage did you get in your last exam?",
+        "hi": "पिछली परीक्षा में आपके कितने प्रतिशत आए?",
+        "mr": "मागच्या परीक्षेत तुम्हाला किती टक्के मिळाले?"
+      },
+      "hint": {
+        "en": "Type a number from 0 to 100.",
+        "hi": "0 से 100 के बीच संख्या लिखें।",
+        "mr": "0 ते 100 मधील आकडा लिहा."
+      },
+      "why": {
+        "en": "We ask this because some courses and scholarships have a marks bar; we show which ones you meet.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ कोर्स और छात्रवृत्तियों में अंकों की शर्त होती है; हम दिखाते हैं कि आप कौन-सी पूरी करते हैं।",
+        "mr": "काही कोर्स आणि शिष्यवृत्तींना गुणांची अट असते; तुम्ही कोणत्या पूर्ण करता ते आम्ही दाखवतो."
+      }
+    },
+    {
+      "field": "can_travel_km",
+      "type": "single",
+      "tier": "more",
+      "priority": 60,
+      "group": "work",
+      "applies_if": [
+        {
+          "fact": "earning",
+          "op": "is_true"
+        },
+        {
+          "any": [
+            {
+              "fact": "age",
+              "op": "unknown"
+            },
+            {
+              "fact": "age",
+              "op": "gte",
+              "value": 14
+            }
+          ]
+        }
+      ],
+      "label": {
+        "en": "How far I can travel",
+        "hi": "कितनी दूर जा सकते हैं",
+        "mr": "किती दूर जाऊ शकतो/शकते"
+      },
+      "text": {
+        "en": "How far from home can you go for training or work?",
+        "hi": "ट्रेनिंग या काम के लिए आप घर से कितनी दूर जा सकते हैं?",
+        "mr": "प्रशिक्षण किंवा कामासाठी तुम्ही घरापासून किती दूर जाऊ शकता?"
+      },
+      "why": {
+        "en": "We ask this so the training and work we show is within your reach.",
+        "hi": "हम यह इसलिए पूछते हैं ताकि दिखाई गई ट्रेनिंग और काम आपकी पहुँच में हों।",
+        "mr": "दाखवलेले प्रशिक्षण आणि काम तुमच्या आवाक्यात असावे म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": 0,
+          "label": {
+            "en": "Only near home",
+            "hi": "सिर्फ़ घर के पास",
+            "mr": "फक्त घराजवळ"
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "Up to 2 km",
+            "hi": "2 किमी तक",
+            "mr": "2 किमीपर्यंत"
+          }
+        },
+        {
+          "value": 5,
+          "label": {
+            "en": "Up to 5 km",
+            "hi": "5 किमी तक",
+            "mr": "5 किमीपर्यंत"
+          }
+        },
+        {
+          "value": 10,
+          "label": {
+            "en": "Up to 10 km",
+            "hi": "10 किमी तक",
+            "mr": "10 किमीपर्यंत"
+          }
+        },
+        {
+          "value": 25,
+          "label": {
+            "en": "25 km or more",
+            "hi": "25 किमी या ज़्यादा",
+            "mr": "25 किमी किंवा जास्त"
+          }
+        }
+      ]
+    },
+    {
+      "field": "subjects",
+      "type": "multi",
+      "tier": "more",
+      "priority": 58,
+      "max_select": 4,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "stage",
+          "op": "in",
+          "value": [
+            "c8",
+            "c9",
+            "c10",
+            "diploma",
+            "ug_degree",
+            "ug_technical",
+            "pg"
+          ]
+        }
+      ],
+      "label": {
+        "en": "Subjects I like",
+        "hi": "पसंद के विषय",
+        "mr": "आवडते विषय"
+      },
+      "text": {
+        "en": "Which subjects do you like most?",
+        "hi": "आपको कौन-से विषय सबसे अच्छे लगते हैं?",
+        "mr": "तुम्हाला कोणते विषय सर्वात जास्त आवडतात?"
+      },
+      "hint": {
+        "en": "Pick up to 4.",
+        "hi": "4 तक चुनें।",
+        "mr": "4 पर्यंत निवडा."
+      },
+      "why": {
+        "en": "We ask this because some careers need certain subjects.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ करियर के लिए ख़ास विषय चाहिए।",
+        "mr": "काही करिअरसाठी ठराविक विषय लागतात, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "maths",
+          "label": {
+            "en": "Maths",
+            "hi": "गणित",
+            "mr": "गणित"
+          }
+        },
+        {
+          "value": "science",
+          "label": {
+            "en": "Science",
+            "hi": "विज्ञान",
+            "mr": "विज्ञान"
+          }
+        },
+        {
+          "value": "biology",
+          "label": {
+            "en": "Biology",
+            "hi": "जीव विज्ञान",
+            "mr": "जीवशास्त्र"
+          }
+        },
+        {
+          "value": "english",
+          "label": {
+            "en": "English",
+            "hi": "अंग्रेज़ी",
+            "mr": "इंग्रजी"
+          }
+        },
+        {
+          "value": "languages",
+          "label": {
+            "en": "Hindi / Marathi",
+            "hi": "हिंदी / मराठी",
+            "mr": "मराठी / हिंदी"
+          }
+        },
+        {
+          "value": "social",
+          "label": {
+            "en": "History and civics",
+            "hi": "इतिहास और नागरिक शास्त्र",
+            "mr": "इतिहास आणि नागरिकशास्त्र"
+          }
+        },
+        {
+          "value": "computers",
+          "label": {
+            "en": "Computers",
+            "hi": "कंप्यूटर",
+            "mr": "संगणक"
+          }
+        },
+        {
+          "value": "art",
+          "label": {
+            "en": "Drawing and art",
+            "hi": "चित्रकारी और कला",
+            "mr": "चित्रकला"
+          }
+        },
+        {
+          "value": "commerce",
+          "label": {
+            "en": "Commerce",
+            "hi": "वाणिज्य",
+            "mr": "वाणिज्य"
+          }
+        }
+      ]
+    },
+    {
+      "field": "gender",
+      "type": "single",
+      "tier": "more",
+      "priority": 57,
+      "group": "personal",
+      "label": {
+        "en": "Gender",
+        "hi": "लिंग",
+        "mr": "लिंग"
+      },
+      "text": {
+        "en": "Are you a girl or a boy?",
+        "hi": "आप लड़की हैं या लड़का?",
+        "mr": "तुम्ही मुलगी आहात की मुलगा?"
+      },
+      "why": {
+        "en": "We ask this because some scholarships are only for girls.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ छात्रवृत्तियाँ सिर्फ़ लड़कियों के लिए हैं।",
+        "mr": "काही शिष्यवृत्ती फक्त मुलींसाठी असतात, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "female",
+          "label": {
+            "en": "Girl / woman",
+            "hi": "लड़की / महिला",
+            "mr": "मुलगी / स्त्री"
+          }
+        },
+        {
+          "value": "male",
+          "label": {
+            "en": "Boy / man",
+            "hi": "लड़का / पुरुष",
+            "mr": "मुलगा / पुरुष"
+          }
+        },
+        {
+          "value": "other",
+          "label": {
+            "en": "Other",
+            "hi": "अन्य",
+            "mr": "इतर"
+          }
+        }
+      ]
+    },
+    {
+      "field": "can_relocate",
+      "type": "single",
+      "tier": "more",
+      "priority": 55,
+      "group": "work",
+      "applies_if": [
+        {
+          "any": [
+            {
+              "fact": "age",
+              "op": "unknown"
+            },
+            {
+              "fact": "age",
+              "op": "gte",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "label": {
+        "en": "Can move to a city",
+        "hi": "शहर जा सकते हैं",
+        "mr": "शहरात जाऊ शकतो/शकते"
+      },
+      "text": {
+        "en": "Could you move to a city for study or work?",
+        "hi": "क्या आप पढ़ाई या काम के लिए शहर जा सकते हैं?",
+        "mr": "शिक्षण किंवा कामासाठी तुम्ही शहरात जाऊ शकता का?"
+      },
+      "why": {
+        "en": "We ask this because some careers need you to move to a town or city.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ करियर के लिए शहर जाना पड़ता है।",
+        "mr": "काही करिअरसाठी शहरात जावे लागते, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": true,
+          "label": {
+            "en": "Yes",
+            "hi": "हाँ",
+            "mr": "होय"
+          }
+        },
+        {
+          "value": false,
+          "label": {
+            "en": "No",
+            "hi": "नहीं",
+            "mr": "नाही"
+          }
+        }
+      ]
+    },
+    {
+      "field": "school_type",
+      "type": "single",
+      "tier": "more",
+      "priority": 50,
+      "group": "study",
+      "applies_if": [
+        {
+          "fact": "school",
+          "op": "is_true"
+        }
+      ],
+      "label": {
+        "en": "Type of school",
+        "hi": "स्कूल का प्रकार",
+        "mr": "शाळेचा प्रकार"
+      },
+      "text": {
+        "en": "What kind of school do you go to?",
+        "hi": "आप किस तरह के स्कूल में पढ़ते हैं?",
+        "mr": "तुम्ही कोणत्या प्रकारच्या शाळेत शिकता?"
+      },
+      "why": {
+        "en": "We ask this because some scholarships are only for government or aided school students.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कुछ छात्रवृत्तियाँ सिर्फ़ सरकारी या सहायता प्राप्त स्कूल के बच्चों के लिए हैं।",
+        "mr": "काही शिष्यवृत्ती फक्त सरकारी किंवा अनुदानित शाळेतील विद्यार्थ्यांसाठी असतात, म्हणून आम्ही हे विचारतो."
+      },
+      "options": [
+        {
+          "value": "government",
+          "label": {
+            "en": "Government school",
+            "hi": "सरकारी स्कूल",
+            "mr": "सरकारी शाळा"
+          }
+        },
+        {
+          "value": "aided",
+          "label": {
+            "en": "Government-aided school",
+            "hi": "सरकारी सहायता प्राप्त स्कूल",
+            "mr": "अनुदानित शाळा"
+          }
+        },
+        {
+          "value": "local_body",
+          "label": {
+            "en": "Zilla Parishad / municipal school",
+            "hi": "ज़िला परिषद / नगरपालिका स्कूल",
+            "mr": "जिल्हा परिषद / नगरपालिका शाळा"
+          }
+        },
+        {
+          "value": "private",
+          "label": {
+            "en": "Private school",
+            "hi": "प्राइवेट स्कूल",
+            "mr": "खाजगी शाळा"
+          }
+        },
+        {
+          "value": "kendriya_navodaya",
+          "label": {
+            "en": "Kendriya / Navodaya Vidyalaya",
+            "hi": "केंद्रीय / नवोदय विद्यालय",
+            "mr": "केंद्रीय / नवोदय विद्यालय"
+          }
+        },
+        {
+          "value": "residential_govt",
+          "label": {
+            "en": "Government residential school",
+            "hi": "सरकारी आवासीय स्कूल",
+            "mr": "सरकारी निवासी शाळा"
+          }
+        }
+      ]
+    },
+    {
+      "field": "family_income_annual",
+      "type": "single",
+      "tier": "more",
+      "priority": 45,
+      "sensitive": true,
+      "group": "money",
+      "label": {
+        "en": "Family income a year",
+        "hi": "परिवार की सालाना कमाई",
+        "mr": "कुटुंबाचे वार्षिक उत्पन्न"
+      },
+      "text": {
+        "en": "About how much does your family earn in a year?",
+        "hi": "आपके परिवार की साल भर की कमाई लगभग कितनी है?",
+        "mr": "तुमच्या कुटुंबाचे वर्षाचे उत्पन्न साधारण किती आहे?"
+      },
+      "hint": {
+        "en": "All family income together. A rough answer is fine; you can change it later.",
+        "hi": "पूरे परिवार की कुल कमाई। अंदाज़ा भी चलेगा; बाद में बदल सकते हैं।",
+        "mr": "संपूर्ण कुटुंबाचे एकूण उत्पन्न. अंदाज चालेल; नंतर बदलता येईल."
+      },
+      "why": {
+        "en": "We ask this because many scholarships have an income limit. Optional: skip it if you prefer. It is used only to check money help.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कई छात्रवृत्तियों में आय की सीमा होती है। यह ज़रूरी नहीं है, चाहें तो छोड़ दें। इसका उपयोग सिर्फ़ पैसों की मदद जाँचने में होता है।",
+        "mr": "अनेक शिष्यवृत्तींना उत्पन्नाची मर्यादा असते, म्हणून आम्ही हे विचारतो. हे ऐच्छिक आहे, हवे तर वगळा. याचा वापर फक्त पैशांची मदत तपासण्यासाठी होतो."
+      },
+      "options": [
+        {
+          "value": 100000,
+          "label": {
+            "en": "Up to ₹1 lakh",
+            "hi": "₹1 लाख तक",
+            "mr": "₹1 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 250000,
+          "label": {
+            "en": "Up to ₹2.5 lakh",
+            "hi": "₹2.5 लाख तक",
+            "mr": "₹2.5 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 350000,
+          "label": {
+            "en": "Up to ₹3.5 lakh",
+            "hi": "₹3.5 लाख तक",
+            "mr": "₹3.5 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 450000,
+          "label": {
+            "en": "Up to ₹4.5 lakh",
+            "hi": "₹4.5 लाख तक",
+            "mr": "₹4.5 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 800000,
+          "label": {
+            "en": "Up to ₹8 lakh",
+            "hi": "₹8 लाख तक",
+            "mr": "₹8 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 1000000,
+          "label": {
+            "en": "Up to ₹10 lakh",
+            "hi": "₹10 लाख तक",
+            "mr": "₹10 लाखांपर्यंत"
+          }
+        },
+        {
+          "value": 1000001,
+          "label": {
+            "en": "More than ₹10 lakh",
+            "hi": "₹10 लाख से ज़्यादा",
+            "mr": "₹10 लाखांपेक्षा जास्त"
+          }
+        }
+      ]
+    },
+    {
+      "field": "social_category",
+      "type": "single",
+      "tier": "more",
+      "priority": 44,
+      "sensitive": true,
+      "group": "personal",
+      "label": {
+        "en": "Category",
+        "hi": "वर्ग",
+        "mr": "प्रवर्ग"
+      },
+      "text": {
+        "en": "Which category are you in?",
+        "hi": "आप किस वर्ग से हैं?",
+        "mr": "तुम्ही कोणत्या प्रवर्गातील आहात?"
+      },
+      "why": {
+        "en": "We ask this because many scholarships are for SC, ST, OBC and other groups. Optional: skip it if you prefer. It is used only to check money help.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि कई छात्रवृत्तियाँ एससी, एसटी, ओबीसी और दूसरे वर्गों के लिए हैं। यह ज़रूरी नहीं है, चाहें तो छोड़ दें। इसका उपयोग सिर्फ़ पैसों की मदद जाँचने में होता है।",
+        "mr": "अनेक शिष्यवृत्ती SC, ST, OBC आणि इतर प्रवर्गांसाठी असतात, म्हणून आम्ही हे विचारतो. हे ऐच्छिक आहे, हवे तर वगळा. याचा वापर फक्त पैशांची मदत तपासण्यासाठी होतो."
+      },
+      "options": [
+        {
+          "value": "SC",
+          "label": {
+            "en": "SC",
+            "hi": "एससी",
+            "mr": "अनुसूचित जाती (SC)"
+          }
+        },
+        {
+          "value": "ST",
+          "label": {
+            "en": "ST",
+            "hi": "एसटी",
+            "mr": "अनुसूचित जमाती (ST)"
+          }
+        },
+        {
+          "value": "OBC",
+          "label": {
+            "en": "OBC",
+            "hi": "ओबीसी",
+            "mr": "इतर मागास (OBC)"
+          }
+        },
+        {
+          "value": "EBC",
+          "label": {
+            "en": "EBC",
+            "hi": "ईबीसी",
+            "mr": "आर्थिक मागास (EBC)"
+          }
+        },
+        {
+          "value": "DNT",
+          "label": {
+            "en": "DNT / VJNT",
+            "hi": "डीएनटी / वीजेएनटी",
+            "mr": "विजाभज (VJNT)"
+          }
+        },
+        {
+          "value": "SEBC",
+          "label": {
+            "en": "SEBC",
+            "hi": "एसईबीसी",
+            "mr": "SEBC"
+          }
+        },
+        {
+          "value": "EWS",
+          "label": {
+            "en": "EWS",
+            "hi": "ईडब्ल्यूएस",
+            "mr": "EWS"
+          }
+        },
+        {
+          "value": "General",
+          "label": {
+            "en": "General",
+            "hi": "सामान्य",
+            "mr": "खुला"
+          }
+        }
+      ]
+    },
+    {
+      "field": "is_disabled",
+      "type": "single",
+      "tier": "more",
+      "priority": 40,
+      "sensitive": true,
+      "group": "personal",
+      "label": {
+        "en": "Certified disability (40%+)",
+        "hi": "प्रमाणित दिव्यांगता (40%+)",
+        "mr": "प्रमाणित दिव्यांगत्व (40%+)"
+      },
+      "text": {
+        "en": "Do you have a certified disability of 40% or more?",
+        "hi": "क्या आपके पास 40% या उससे ज़्यादा दिव्यांगता का प्रमाणपत्र है?",
+        "mr": "तुमच्याकडे 40% किंवा जास्त दिव्यांगत्वाचे प्रमाणपत्र आहे का?"
+      },
+      "why": {
+        "en": "We ask this because there are extra scholarships for students with a disability. Optional: skip it if you prefer. It is used only to check money help.",
+        "hi": "हम यह इसलिए पूछते हैं क्योंकि दिव्यांग छात्रों के लिए अलग छात्रवृत्तियाँ हैं। यह ज़रूरी नहीं है, चाहें तो छोड़ दें। इसका उपयोग सिर्फ़ पैसों की मदद जाँचने में होता है।",
+        "mr": "दिव्यांग विद्यार्थ्यांसाठी वेगळ्या शिष्यवृत्ती आहेत, म्हणून आम्ही हे विचारतो. हे ऐच्छिक आहे, हवे तर वगळा. याचा वापर फक्त पैशांची मदत तपासण्यासाठी होतो."
+      },
+      "options": [
+        {
+          "value": true,
+          "label": {
+            "en": "Yes",
+            "hi": "हाँ",
+            "mr": "होय"
+          }
+        },
+        {
+          "value": false,
+          "label": {
+            "en": "No",
+            "hi": "नहीं",
+            "mr": "नाही"
+          }
+        }
+      ]
+    }
+  ],
+  "fact_labels": {
+    "class_level": {
+      "label": {
+        "en": "Class / year",
+        "hi": "कक्षा / साल",
+        "mr": "इयत्ता / वर्ष"
+      },
+      "group": "study"
+    },
+    "course": {
+      "label": {
+        "en": "Course",
+        "hi": "कोर्स",
+        "mr": "कोर्स"
+      },
+      "group": "study"
+    },
+    "date_of_birth": {
+      "label": {
+        "en": "Date of birth",
+        "hi": "जन्म तिथि",
+        "mr": "जन्मतारीख"
+      },
+      "group": "basics"
+    },
+    "riasec": {
+      "label": {
+        "en": "Interest type (quiz)",
+        "hi": "रुचि का प्रकार (क्विज़)",
+        "mr": "आवडीचा प्रकार (प्रश्नमंजुषा)"
+      },
+      "group": "interests"
+    },
+    "is_minority": {
+      "label": {
+        "en": "Minority community",
+        "hi": "अल्पसंख्यक समुदाय",
+        "mr": "अल्पसंख्याक समुदाय"
+      },
+      "group": "personal"
+    },
+    "is_orphan_or_covid_affected": {
+      "label": {
+        "en": "Lost a parent",
+        "hi": "माता या पिता को खोया",
+        "mr": "आई किंवा वडील गमावले"
+      },
+      "group": "personal"
+    },
+    "institution_aicte": {
+      "label": {
+        "en": "AICTE-approved college",
+        "hi": "एआईसीटीई मान्य कॉलेज",
+        "mr": "AICTE मान्य कॉलेज"
+      },
+      "group": "study"
+    },
+    "in_full_time_job": {
+      "label": {
+        "en": "In a full-time job",
+        "hi": "पूरे समय की नौकरी में",
+        "mr": "पूर्णवेळ नोकरीत"
+      },
+      "group": "work"
+    },
+    "in_top_class_school": {
+      "label": {
+        "en": "Top Class School",
+        "hi": "टॉप क्लास स्कूल",
+        "mr": "टॉप क्लास स्कूल"
+      },
+      "group": "study"
+    },
+    "above_80_percentile_class12": {
+      "label": {
+        "en": "Above 80th percentile in Class 12",
+        "hi": "12वीं में 80 पर्सेंटाइल से ऊपर",
+        "mr": "बारावीत 80 पर्सेंटाइलपेक्षा जास्त"
+      },
+      "group": "study"
+    },
+    "family_govt_employee": {
+      "label": {
+        "en": "Family member in government job",
+        "hi": "परिवार में सरकारी नौकरी",
+        "mr": "कुटुंबात सरकारी नोकरी"
+      },
+      "group": "money"
+    },
+    "cap_admission": {
+      "label": {
+        "en": "Admission through CAP",
+        "hi": "CAP से प्रवेश",
+        "mr": "CAP द्वारे प्रवेश"
+      },
+      "group": "study"
+    }
+  },
+  "sensitive_facts": [
+    "family_income_annual",
+    "social_category",
+    "is_disabled",
+    "is_minority",
+    "is_orphan_or_covid_affected",
+    "date_of_birth"
+  ],
+  "interest_quiz": {
+    "_doc": "Original activity statements written for ExcelAIt, three per Holland RIASEC type. They are not taken or adapted from the O*NET Interest Profiler (its licence requires a validation study before any adapted or partial use). Scored like=2, not sure=1, dislike=0; a type's score is its total as a percent of the maximum (0-100).",
+    "scale": [
+      {
+        "value": 2,
+        "label": {
+          "en": "Like",
+          "hi": "पसंद है",
+          "mr": "आवडते"
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "Not sure",
+          "hi": "पता नहीं",
+          "mr": "माहीत नाही"
+        }
+      },
+      {
+        "value": 0,
+        "label": {
+          "en": "Dislike",
+          "hi": "पसंद नहीं",
+          "mr": "आवडत नाही"
+        }
+      }
+    ],
+    "types": {
+      "R": {
+        "label": {
+          "en": "Maker",
+          "hi": "कारीगर",
+          "mr": "कारागीर"
+        },
+        "desc": {
+          "en": "likes working with hands, tools, machines, plants or animals",
+          "hi": "हाथों, औज़ारों, मशीनों, पौधों या जानवरों के साथ काम पसंद",
+          "mr": "हात, साधने, यंत्रे, झाडे किंवा प्राण्यांसोबत काम आवडते"
+        }
+      },
+      "I": {
+        "label": {
+          "en": "Thinker",
+          "hi": "खोजी",
+          "mr": "शोधक"
+        },
+        "desc": {
+          "en": "likes finding out how and why things work",
+          "hi": "चीज़ें कैसे और क्यों काम करती हैं, यह जानना पसंद",
+          "mr": "गोष्टी कशा आणि का चालतात हे शोधायला आवडते"
+        }
+      },
+      "A": {
+        "label": {
+          "en": "Creator",
+          "hi": "रचनाकार",
+          "mr": "सर्जक"
+        },
+        "desc": {
+          "en": "likes drawing, writing, music and new ideas",
+          "hi": "चित्र, लेखन, संगीत और नए विचार पसंद",
+          "mr": "चित्र, लेखन, संगीत आणि नवीन कल्पना आवडतात"
+        }
+      },
+      "S": {
+        "label": {
+          "en": "Helper",
+          "hi": "मददगार",
+          "mr": "मदतनीस"
+        },
+        "desc": {
+          "en": "likes teaching, caring for and helping people",
+          "hi": "पढ़ाना, देखभाल और लोगों की मदद पसंद",
+          "mr": "शिकवणे, काळजी घेणे आणि लोकांना मदत करणे आवडते"
+        }
+      },
+      "E": {
+        "label": {
+          "en": "Leader",
+          "hi": "अगुआ",
+          "mr": "नेतृत्वशील"
+        },
+        "desc": {
+          "en": "likes leading, selling and convincing people",
+          "hi": "आगे रहकर काम, बेचना और लोगों को मनाना पसंद",
+          "mr": "नेतृत्व, विक्री आणि लोकांना पटवून देणे आवडते"
+        }
+      },
+      "C": {
+        "label": {
+          "en": "Organiser",
+          "hi": "व्यवस्थापक",
+          "mr": "व्यवस्थापक"
+        },
+        "desc": {
+          "en": "likes order, records, numbers and careful work",
+          "hi": "व्यवस्था, रिकॉर्ड, हिसाब और ध्यान से काम पसंद",
+          "mr": "व्यवस्था, नोंदी, हिशोब आणि काळजीपूर्वक काम आवडते"
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "q1",
+        "code": "R",
+        "text": {
+          "en": "Repair a bicycle, fan or water pump",
+          "hi": "साइकिल, पंखा या पानी का पंप ठीक करना",
+          "mr": "सायकल, पंखा किंवा पाण्याचा पंप दुरुस्त करणे"
+        }
+      },
+      {
+        "id": "q2",
+        "code": "I",
+        "text": {
+          "en": "Find out why a crop or plant is getting sick",
+          "hi": "पता लगाना कि फ़सल या पौधा बीमार क्यों हो रहा है",
+          "mr": "पीक किंवा झाड आजारी का पडते ते शोधणे"
+        }
+      },
+      {
+        "id": "q3",
+        "code": "A",
+        "text": {
+          "en": "Draw, paint or make rangoli designs",
+          "hi": "चित्र बनाना, रंग भरना या रंगोली बनाना",
+          "mr": "चित्र काढणे, रंगवणे किंवा रांगोळी काढणे"
+        }
+      },
+      {
+        "id": "q4",
+        "code": "S",
+        "text": {
+          "en": "Teach a younger child to read or do sums",
+          "hi": "छोटे बच्चे को पढ़ना या जोड़-घटाना सिखाना",
+          "mr": "लहान मुलाला वाचायला किंवा गणित करायला शिकवणे"
+        }
+      },
+      {
+        "id": "q5",
+        "code": "E",
+        "text": {
+          "en": "Run a stall at a village fair and sell things",
+          "hi": "गाँव के मेले में स्टॉल लगाकर सामान बेचना",
+          "mr": "गावच्या जत्रेत स्टॉल लावून वस्तू विकणे"
+        }
+      },
+      {
+        "id": "q6",
+        "code": "C",
+        "text": {
+          "en": "Keep a neat notebook of money spent at a shop",
+          "hi": "दुकान के ख़र्च का साफ़ हिसाब कॉपी में रखना",
+          "mr": "दुकानाच्या खर्चाचा व्यवस्थित हिशोब वहीत ठेवणे"
+        }
+      },
+      {
+        "id": "q7",
+        "code": "R",
+        "text": {
+          "en": "Build something with wood, bricks or tools",
+          "hi": "लकड़ी, ईंट या औज़ारों से कुछ बनाना",
+          "mr": "लाकूड, विटा किंवा साधनांनी काहीतरी बनवणे"
+        }
+      },
+      {
+        "id": "q8",
+        "code": "I",
+        "text": {
+          "en": "Do a science experiment and note what happens",
+          "hi": "विज्ञान का प्रयोग करके देखना कि क्या होता है",
+          "mr": "विज्ञानाचा प्रयोग करून काय होते ते नोंदवणे"
+        }
+      },
+      {
+        "id": "q9",
+        "code": "A",
+        "text": {
+          "en": "Write a story, poem or song",
+          "hi": "कहानी, कविता या गीत लिखना",
+          "mr": "गोष्ट, कविता किंवा गाणे लिहिणे"
+        }
+      },
+      {
+        "id": "q10",
+        "code": "S",
+        "text": {
+          "en": "Look after someone who is sick or old",
+          "hi": "किसी बीमार या बुज़ुर्ग की देखभाल करना",
+          "mr": "आजारी किंवा वृद्ध व्यक्तीची काळजी घेणे"
+        }
+      },
+      {
+        "id": "q11",
+        "code": "E",
+        "text": {
+          "en": "Lead a team, or be the class monitor",
+          "hi": "टीम का नेतृत्व करना या कक्षा का मॉनिटर बनना",
+          "mr": "संघाचे नेतृत्व करणे किंवा वर्गाचा मॉनिटर होणे"
+        }
+      },
+      {
+        "id": "q12",
+        "code": "C",
+        "text": {
+          "en": "Fill a form carefully with no mistakes",
+          "hi": "फ़ॉर्म ध्यान से, बिना ग़लती के भरना",
+          "mr": "फॉर्म काळजीपूर्वक, चूक न करता भरणे"
+        }
+      },
+      {
+        "id": "q13",
+        "code": "R",
+        "text": {
+          "en": "Work outdoors on a farm or with animals",
+          "hi": "खेत में या जानवरों के साथ बाहर काम करना",
+          "mr": "शेतात किंवा प्राण्यांसोबत बाहेर काम करणे"
+        }
+      },
+      {
+        "id": "q14",
+        "code": "I",
+        "text": {
+          "en": "Solve a maths puzzle or find out how a phone works",
+          "hi": "गणित की पहेली सुलझाना या जानना कि फ़ोन कैसे चलता है",
+          "mr": "गणिताचे कोडे सोडवणे किंवा फोन कसा चालतो ते शोधणे"
+        }
+      },
+      {
+        "id": "q15",
+        "code": "A",
+        "text": {
+          "en": "Act in a school play, sing or dance",
+          "hi": "स्कूल के नाटक में अभिनय, गाना या नाचना",
+          "mr": "शाळेच्या नाटकात अभिनय, गाणे किंवा नाच"
+        }
+      },
+      {
+        "id": "q16",
+        "code": "S",
+        "text": {
+          "en": "Help people in your village solve a problem",
+          "hi": "गाँव के लोगों की किसी समस्या को हल करने में मदद करना",
+          "mr": "गावातील लोकांना एखादी अडचण सोडवायला मदत करणे"
+        }
+      },
+      {
+        "id": "q17",
+        "code": "E",
+        "text": {
+          "en": "Convince people to join a plan or a campaign",
+          "hi": "लोगों को किसी योजना या अभियान में जुड़ने के लिए मनाना",
+          "mr": "लोकांना एखाद्या योजनेत किंवा मोहिमेत सामील व्हायला पटवणे"
+        }
+      },
+      {
+        "id": "q18",
+        "code": "C",
+        "text": {
+          "en": "Type or enter details on a computer, in order",
+          "hi": "कंप्यूटर पर जानकारी क्रम से टाइप करना",
+          "mr": "संगणकावर माहिती क्रमाने टाइप करणे"
+        }
+      }
+    ]
+  }
+}

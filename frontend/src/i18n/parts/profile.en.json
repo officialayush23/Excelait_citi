@@ -1,0 +1,113 @@
+{
+  "title": "My profile",
+  "subtitle": "Everything Saathi knows about you. You can change or remove any of it.",
+  "you": "You",
+  "completeness": "{{pct}}% complete",
+  "allDone": "Your profile is complete. Well done!",
+  "complete": "Complete your profile",
+  "cancel": "Cancel",
+  "saved": "Saved",
+  "saveFailed": "Could not save. Try again.",
+  "editFact": "Change {{label}}",
+  "deleteFact": "Remove {{label}}",
+  "listHint": "Write each item with a comma between them.",
+  "privateLabel": "Only you and your teacher can see this",
+  "source": {
+    "onboarding": "Onboarding",
+    "saathi": "You told Saathi",
+    "teacher": "Teacher",
+    "quiz": "Quiz",
+    "system": "ExcelAIt"
+  },
+  "deleteTitle": "Remove {{label}}?",
+  "deleteBody": "Saathi will forget this. You can tell it again any time.",
+  "delete": "Remove",
+  "deleted": "Removed",
+  "deleteFailed": "Could not remove. Try again.",
+  "factsTitle": "What Saathi knows about you",
+  "factsHint": "Tap the pen to change something. Tap the bin to remove it.",
+  "showPrivate": "Show private details ({{count}})",
+  "factsEmpty": "Saathi does not know anything about you yet. Tell it about yourself.",
+  "talkToSaathi": "Talk to Saathi",
+  "group": {
+    "basics": "About you",
+    "study": "Study",
+    "interests": "Interests",
+    "skills": "Skills",
+    "money": "Scholarships",
+    "personal": "Personal",
+    "work": "Work and time"
+  },
+  "interestTitle": "Your interests",
+  "interestHint": "What kind of work you like, from the quiz.",
+  "quizHint": "Find out what kind of work suits you. It takes 3 minutes.",
+  "quizCta": "Know yourself: 3 minute quiz",
+  "topLine": "You are most like: {{names}}",
+  "retakeQuiz": "Take the quiz again",
+  "riasec": {
+    "R": {
+      "name": "Maker",
+      "meaning": "You like working with your hands, tools and machines."
+    },
+    "I": {
+      "name": "Thinker",
+      "meaning": "You like finding out how things work and solving puzzles."
+    },
+    "A": {
+      "name": "Creator",
+      "meaning": "You like making new things: art, music, stories, designs."
+    },
+    "S": {
+      "name": "Helper",
+      "meaning": "You like helping, teaching and caring for people."
+    },
+    "E": {
+      "name": "Leader",
+      "meaning": "You like leading, selling and getting things started."
+    },
+    "C": {
+      "name": "Organiser",
+      "meaning": "You like keeping things neat, correct and on time."
+    }
+  },
+  "mapTitle": "Your map",
+  "mapHint": "How what you told us connects to careers, courses and scholarships. Tap a box to open it.",
+  "mapEmpty": "Your map will grow as you tell Saathi about yourself.",
+  "mapCol": {
+    "me": "You",
+    "told": "What you told us",
+    "careers": "Careers",
+    "courses": "Courses",
+    "money": "Scholarships"
+  },
+  "mapMore": "{{count}} more not shown",
+  "chainBecause": "Because of",
+  "chainNext": "What comes next",
+  "chainLoose": "Other things we know",
+  "savedTitle": "Saved careers",
+  "savedEmpty": "You have not saved any career yet.",
+  "exploreCareers": "See careers",
+  "plansTitle": "Your plans",
+  "plansEmpty": "You have no plan yet.",
+  "makePlan": "Make a plan",
+  "moneyTitle": "Scholarships you may get",
+  "moneyEmpty": "We need a few answers to check schemes for you.",
+  "openMoney": "Open scholarships",
+  "moneyLine": "You may get {{count}} schemes",
+  "moneyNeeds": "{{count}} more schemes need one more answer.",
+  "credTitle": "Credentials",
+  "credEmpty": "No credentials yet. Prove a skill and your teacher will check it.",
+  "openPassport": "Open Skill Passport",
+  "privacyTitle": "Privacy and your data",
+  "privacyHint": "Your information belongs to you.",
+  "download": "Download my data",
+  "deleteAll": "Delete everything Saathi learned",
+  "deleteAllNote": "This does not delete your account. You can start again any time.",
+  "deleteAllTitle": "Delete everything Saathi learned?",
+  "deleteAllBody": "Saathi will forget all {{count}} things it knows about you. This cannot be undone.",
+  "deletedAll": "Saathi has forgotten everything",
+  "deleteSomeFailed": "{{count}} items could not be removed. Try again.",
+  "errorTitle": "Could not load your profile",
+  "errorBody": "Check your network and try again.",
+  "retry": "Try again"
+}

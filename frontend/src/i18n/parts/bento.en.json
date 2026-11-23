@@ -1,0 +1,21 @@
+{
+  "moneyTitle": "Scholarships you can claim",
+  "schemesChecked_one": "Checked against {{count}} scheme",
+  "schemesChecked_other": "Checked against {{count}} schemes",
+  "openMoney": "Open scholarships",
+  "topCareers": "Careers that fit you",
+  "seeAll": "See all",
+  "noCareers": "Answer a few questions to see careers that fit you.",
+  "fit": "{{pct}}% fit",
+  "perMonth": "₹{{min}}–{{max}}k a month",
+  "profileTitle": "Your profile",
+  "ofProfile": "of your profile",
+  "answered": "Answered",
+  "private": "Private details",
+  "missing": "Still to answer",
+  "fitTitle": "How well careers fit you",
+  "matched_one": "{{count}} career matched",
+  "matched_other": "{{count}} careers matched",
+  "topFit": "Top {{pct}}%",
+  "open": "Open"
+}

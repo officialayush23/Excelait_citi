@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import learn, passport, scholarships, teacher
+from app.api.routes import learn, passport, roadmap, scholarships, teacher
 from app.api.routes import assist, assistant, catalogue, community, explore, health, me, notifications, partners, plans, students
 from app.core.config import get_settings
 
@@ -25,7 +25,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router)
     for r in (me.router, catalogue.router, students.router, assist.router, explore.router, assistant.router, plans.router,
               partners.router, community.router, notifications.router, learn.router, passport.router, teacher.router,
-              scholarships.router):
+              scholarships.router, roadmap.router):
         app.include_router(r, prefix="/api/v1")
 
     @app.on_event("startup")
@@ -34,6 +34,10 @@ def create_app() -> FastAPI:
         if settings.supabase_secret_key and os.environ.get("KNOWLEDGE_CLEANUP", "1") != "0":
             from app.services.knowledge import start_daily_cleanup
             start_daily_cleanup()
+        # The same daily thread pattern re-evaluates every roadmap and sends deadline / watch alerts.
+        if settings.supabase_secret_key and os.environ.get("ROADMAP_DAILY", "1") != "0":
+            from app.services.roadmap import start_daily
+            start_daily()
 
     return app
 

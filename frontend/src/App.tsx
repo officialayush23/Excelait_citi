@@ -17,6 +17,7 @@ import { Careers } from '@/pages/student/Careers'
 import { Money } from '@/pages/student/Money'
 import { Start } from '@/pages/student/Start'
 import { Saathi } from '@/pages/student/Saathi'
+import { Profile } from '@/pages/student/Profile'
 import { CareerPage } from '@/pages/explore/CareerPage'
 import { CoursePage } from '@/pages/explore/CoursePage'
 import { ExamPage } from '@/pages/explore/ExamPage'
@@ -112,6 +113,7 @@ const router = createBrowserRouter([
       { path: 'careers', element: <StudentOnly><Careers /></StudentOnly> },
       { path: 'money', element: <StudentOnly><Money /></StudentOnly> },
       { path: 'saathi', element: <StudentOnly><Saathi /></StudentOnly> },
+      { path: 'profile', element: <StudentOnly><Profile /></StudentOnly> },
       { path: 'careers/:slug', element: <StudentOnly><CareerPage /></StudentOnly> },
       { path: 'courses/:slug', element: <StudentOnly><CoursePage /></StudentOnly> },
       { path: 'exams/:slug', element: <StudentOnly><ExamPage /></StudentOnly> },

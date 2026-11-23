@@ -398,10 +398,12 @@ def review_submission(reviewer_id: str, roles: set[str], submission_id: str, dec
     db.table("task_submissions").update({"status": status, "reviewer_id": reviewer_id, "reviewed_at": now,
                                          "review": {"decision": decision, "criteria": cleaned, "comment": comment.strip()}}).eq("id", submission_id).execute()
     result: dict[str, Any] = {"id": submission_id, "status": status, "credential_public_id": None}
-    skill = _one(db, "skills", "id, name, nsqf_level", "id", task.get("skill_id")) or {}
+    skill = _one(db, "skills", "id, slug, name, nsqf_level", "id", task.get("skill_id")) or {}
     if decision == "approve":
         cred = issue_credential(db, sub, task, skill, reviewer_id)
         result["credential_public_id"] = cred["public_id"]
+        from app.services.roadmap import record_event  # local: keeps passport importable on its own
+        record_event(sub["student_id"], "credential_issued", skill.get("slug") or task.get("skill_slug"), {"credential": cred["public_id"]})
         title, body, link = f"Skill proved: {skill.get('name', task.get('title'))}", "Your teacher approved your work. Your credential is in your Skill Passport.", "/app/passport"
         kind = "credential"
     else:

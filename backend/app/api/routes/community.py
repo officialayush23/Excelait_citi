@@ -7,6 +7,7 @@ from app.core.auth import CurrentUser, get_current_user, require_role
 from app.core.db import get_db
 from app.services import community as svc
 from app.services.plans import saved
+from app.services.roadmap import record_event
 from app.services.students import get_facts
 
 router = APIRouter(prefix="/community", tags=["community"])
@@ -52,7 +53,9 @@ class PostIn(BaseModel):
 def create(body: PostIn, user: CurrentUser = Depends(get_current_user)) -> dict:
     if body.group_id:
         _run(svc.feed, get_facts(user.id), group_id=body.group_id, limit=1)  # checks access
-    return svc.create_post(user.id, user.roles, body.model_dump())
+    out = svc.create_post(user.id, user.roles, body.model_dump())
+    record_event(user.id, "community_post", str((out or {}).get("id") or ""), {"kind": body.kind})
+    return out
 
 
 @router.get("/posts/{post_id}")
@@ -67,7 +70,9 @@ class CommentIn(BaseModel):
 @router.post("/posts/{post_id}/comments")
 def comment(post_id: str, body: CommentIn, user: CurrentUser = Depends(get_current_user)) -> dict:
     _run(svc.get_post, post_id, get_facts(user.id))
-    return svc.comment(user.id, user.roles, post_id, body.body)
+    out = svc.comment(user.id, user.roles, post_id, body.body)
+    record_event(user.id, "community_answer", post_id)
+    return out
 
 
 @router.post("/posts/{post_id}/comments/{comment_id}/accept")

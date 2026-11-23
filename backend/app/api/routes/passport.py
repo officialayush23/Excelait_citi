@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 from app.core.auth import CurrentUser, require_role
 from app.services import passport as svc
+from app.services.roadmap import record_event
 
 router = APIRouter(tags=["passport"])
 student = require_role("student")
@@ -55,7 +56,9 @@ async def submit(task_id: str, files: list[UploadFile] = File(default=[]), note:
     for f in files:
         blob = await f.read(svc.MAX_BYTES + 1)
         data.append((blob, f.content_type or ""))
-    return _run(svc.submit, task_id, user.id, data, note)
+    out = _run(svc.submit, task_id, user.id, data, note)
+    record_event(user.id, "task_submitted", task_id)
+    return out
 
 
 class AttachIn(BaseModel):
