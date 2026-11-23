@@ -1,0 +1,67 @@
+{
+  "_doc": "Scholarships to study abroad after a first degree. Each entry links to the official page; eligibility is summarised from that page or the official announcement and must be checked there before applying. checked_on is the date the link was opened.",
+  "checked_on": "2026-11-23",
+  "items": [
+    {
+      "slug": "nos-sc",
+      "name": "National Overseas Scholarship (NOS) for SC and other eligible students",
+      "provider": "Ministry of Social Justice and Empowerment, Government of India",
+      "country": "Any country",
+      "level": "masters_phd",
+      "for": {"en": "Low-income students from Scheduled Castes, Denotified and Nomadic Tribes, landless farm-worker and traditional artisan families, for a Master's or PhD abroad.", "hi": "अनुसूचित जाति, विमुक्त और घुमंतू जनजाति, भूमिहीन खेतिहर मज़दूर और पारंपरिक कारीगर परिवारों के कम आय वाले विद्यार्थियों के लिए, विदेश में मास्टर्स या पीएचडी हेतु।", "mr": "अनुसूचित जाती, विमुक्त आणि भटक्या जमाती, भूमिहीन शेतमजूर आणि पारंपरिक कारागीर कुटुंबांतील कमी उत्पन्नाच्या विद्यार्थ्यांसाठी, परदेशात मास्टर्स किंवा पीएचडीसाठी."},
+      "categories": ["sc"],
+      "apply_url": "https://nosmsje.gov.in/",
+      "source_url": "https://www.myscheme.gov.in/schemes/nos-sc"
+    },
+    {
+      "slug": "fulbright-nehru-masters",
+      "name": "Fulbright-Nehru Master's Fellowships",
+      "provider": "United States-India Educational Foundation (USIEF)",
+      "country": "United States",
+      "level": "masters",
+      "for": {"en": "Indians with a four-year bachelor's degree (or a master's) and at least three years of work experience, for a master's in the US. Applications usually close in May.", "hi": "चार साल की स्नातक डिग्री (या मास्टर्स) और कम से कम तीन साल के काम के अनुभव वाले भारतीयों के लिए, अमेरिका में मास्टर्स हेतु। आवेदन आमतौर पर मई में बंद होते हैं।", "mr": "चार वर्षांची पदवी (किंवा मास्टर्स) आणि किमान तीन वर्षांचा कामाचा अनुभव असलेल्या भारतीयांसाठी, अमेरिकेत मास्टर्ससाठी. अर्ज साधारणपणे मे महिन्यात बंद होतात."},
+      "apply_url": "https://www.usief.org.in/?p=176",
+      "source_url": "https://www.usief.org.in/?p=176"
+    },
+    {
+      "slug": "chevening",
+      "name": "Chevening Scholarships",
+      "provider": "UK Government",
+      "country": "United Kingdom",
+      "level": "masters",
+      "for": {"en": "Indian citizens with at least two years of work experience after their undergraduate degree, for a one-year master's in the UK. The 2027-28 round was open from 4 August to 6 October 2026.", "hi": "स्नातक के बाद कम से कम दो साल के काम के अनुभव वाले भारतीय नागरिकों के लिए, यूके में एक साल के मास्टर्स हेतु। 2027-28 का आवेदन 4 अगस्त से 6 अक्टूबर 2026 तक खुला था।", "mr": "पदवीनंतर किमान दोन वर्षांचा कामाचा अनुभव असलेल्या भारतीय नागरिकांसाठी, यूकेमध्ये एक वर्षाच्या मास्टर्ससाठी. 2027-28 साठी अर्ज 4 ऑगस्ट ते 6 ऑक्टोबर 2026 दरम्यान खुले होते."},
+      "apply_url": "https://www.chevening.org/scholarships/",
+      "source_url": "https://www.gov.uk/government/news/applications-open-for-2027-to-2028-chevening-scholarships-to-study-in-the-uk"
+    },
+    {
+      "slug": "commonwealth-masters",
+      "name": "Commonwealth Master's Scholarships",
+      "provider": "Commonwealth Scholarship Commission in the UK",
+      "country": "United Kingdom",
+      "level": "masters",
+      "for": {"en": "For a master's in the UK for students from eligible Commonwealth countries, including India. Check the conditions on the official page.", "hi": "भारत सहित पात्र राष्ट्रमंडल देशों के विद्यार्थियों के लिए यूके में मास्टर्स हेतु। शर्तें आधिकारिक पेज पर देखें।", "mr": "भारतासह पात्र राष्ट्रकुल देशांतील विद्यार्थ्यांसाठी यूकेमध्ये मास्टर्ससाठी. अटी अधिकृत पानावर पहा."},
+      "apply_url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+      "source_url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/"
+    },
+    {
+      "slug": "daad",
+      "name": "DAAD scholarships",
+      "provider": "German Academic Exchange Service (DAAD) India",
+      "country": "Germany",
+      "level": "masters_phd",
+      "for": {"en": "Funding for Indian students to study or do research in Germany. Use the official search to find a programme for your subject.", "hi": "जर्मनी में पढ़ाई या शोध के लिए भारतीय विद्यार्थियों को सहायता। अपने विषय का कार्यक्रम आधिकारिक खोज में ढूँढें।", "mr": "जर्मनीत शिक्षण किंवा संशोधनासाठी भारतीय विद्यार्थ्यांना मदत. तुमच्या विषयाचा कार्यक्रम अधिकृत शोधात शोधा."},
+      "apply_url": "https://www.daad.in/en/find-funding/",
+      "source_url": "https://www.daad.in/en/find-funding/"
+    },
+    {
+      "slug": "erasmus-mundus",
+      "name": "Erasmus Mundus Joint Master's scholarships",
+      "provider": "European Union (EACEA)",
+      "country": "Europe",
+      "level": "masters",
+      "for": {"en": "Joint master's programmes across European universities, open to students worldwide. The catalogue lists each programme and its deadline.", "hi": "यूरोप के कई विश्वविद्यालयों के संयुक्त मास्टर्स कार्यक्रम, दुनिया भर के विद्यार्थियों के लिए। सूची में हर कार्यक्रम और उसकी अंतिम तिथि है।", "mr": "युरोपातील अनेक विद्यापीठांचे संयुक्त मास्टर्स कार्यक्रम, जगभरातील विद्यार्थ्यांसाठी. यादीत प्रत्येक कार्यक्रम आणि त्याची अंतिम तारीख आहे."},
+      "apply_url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+      "source_url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en"
+    }
+  ]
+}

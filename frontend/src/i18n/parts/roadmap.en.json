@@ -1,0 +1,175 @@
+{
+  "title": "My roadmap",
+  "overall": "{{pct}}% of your roadmap done",
+  "nothingNow": "Nothing due right now",
+  "previewEmptyTitle": "Make your roadmap",
+  "previewEmptyBody": "Pick a goal and get one small step at a time.",
+  "atRiskCount_one": "{{count}} fixed date is close",
+  "atRiskCount_other": "{{count}} fixed dates are close",
+  "today": "today",
+  "inDays_one": "in {{count}} day",
+  "inDays_other": "in {{count}} days",
+  "daysAgo_one": "{{count}} day ago",
+  "daysAgo_other": "{{count}} days ago",
+  "ref": {
+    "career": "Career",
+    "exam": "Exam",
+    "scheme": "Scholarship",
+    "program": "Course",
+    "document": "Document",
+    "community": "Community",
+    "job": "Jobs",
+    "activity": "Open"
+  },
+  "markDone": "Mark done: {{step}}",
+  "markNotDone": "Mark not done: {{step}}",
+  "stepPct": "{{pct}}% done",
+  "kind": {
+    "exam": "Exam",
+    "program": "Course",
+    "scheme": "Scholarship",
+    "document": "Document",
+    "course": "Learning",
+    "lesson": "Lesson",
+    "milestone": "Milestone",
+    "task": "Step",
+    "community": "Community",
+    "job": "Work",
+    "micro": "10 minutes",
+    "stretch": "Extra",
+    "custom": "My goal",
+    "skill": "Skill"
+  },
+  "small": "Small start",
+  "optional": "Optional",
+  "atRisk": "Fixed date, close",
+  "fixedDate": "Fixed date",
+  "noticed": "Saathi noticed you did this",
+  "youMarked": "You marked it",
+  "doNow": "What to do now",
+  "openCourse": "Open the course",
+  "copy": {
+    "exam": {
+      "why": "This exam is a door on your path. Its date is fixed, so we plan around it.",
+      "now": "Open last year's paper and try 10 questions."
+    },
+    "program": {
+      "why": "This course is the main route to the work you want.",
+      "now": "List 3 colleges near you that offer it."
+    },
+    "scheme": {
+      "why": "Money that needs no work. It helps pay for your studies.",
+      "now": "Open the scheme and see what it asks for."
+    },
+    "document": {
+      "why": "A scheme or admission will ask for this.",
+      "now": "Ask at home if you already have it."
+    },
+    "course": {
+      "why": "Free learning that builds the skill step by step.",
+      "now": "Open it and finish the first lesson."
+    },
+    "milestone": {
+      "why": "A point on your path. Its date is set by school, law or your goal.",
+      "now": "Keep going with the step before it."
+    },
+    "milestone_gate": {
+      "why": "The law sets this age. We keep this date as it is and use the time to build skills.",
+      "now": "Use this time for studies and free skill training."
+    },
+    "task": {
+      "why": "A small step that moves you forward.",
+      "now": "Spend 10 minutes on it today."
+    },
+    "community": {
+      "why": "People who walked this path can save you months.",
+      "now": "Ask one question in the community."
+    },
+    "job": {
+      "why": "Earning while you learn, safely and fairly paid.",
+      "now": "Look at 3 openings near you."
+    },
+    "micro": {
+      "why": "A small start is still a start.",
+      "now": "Set a 10-minute timer and begin."
+    },
+    "stretch": {
+      "why": "You are moving fast. This is extra, only if you want.",
+      "now": "Try it when you have energy."
+    }
+  },
+  "error": "That did not work. Please try again.",
+  "offlineTitle": "You are offline",
+  "offlineBody": "Your roadmap will load when you are back online.",
+  "emptyTitle": "Your roadmap starts here",
+  "emptyBody": "Pick a career, exam or scholarship. We turn it into small dated steps that change with you.",
+  "pickCareer": "Pick a career",
+  "askSaathi": "Ask Saathi",
+  "askSaathiMsg": "Help me make my roadmap",
+  "hero": {
+    "reassure": "One small step at a time. We made your next steps smaller.",
+    "welcome_back": "Welcome back. A fresh start: nothing is lost.",
+    "money": "Money that needs no work comes first on your plan.",
+    "busy": "Your plan fits the time you have.",
+    "gentle": "Small steps this week. You can do this.",
+    "cheer": "You're ahead of your plan. Great going!",
+    "neutral": "Your plan changes by itself to fit how you are doing."
+  },
+  "pace": {
+    "new": "Your plan is ready.",
+    "on_track": "You're on track.",
+    "ahead": "You're ahead.",
+    "behind": "Small steps this week.",
+    "inactive": "Welcome back.",
+    "done": "All done!"
+  },
+  "sample": "Sample roadmap (the server is not connected)",
+  "nextUp": "Next:",
+  "easier": "Make it easier",
+  "atRiskTitle_one": "{{count}} fixed date is close",
+  "atRiskTitle_other": "{{count}} fixed dates are close",
+  "goals": "Goals",
+  "allGoals": "All goals",
+  "bucket": {
+    "now": "Now",
+    "next": "Next",
+    "later": "Later"
+  },
+  "hideDone": "Hide finished steps",
+  "showDone_one": "Show {{count}} finished step",
+  "showDone_other": "Show {{count}} finished steps",
+  "changedTitle": "Changed for you",
+  "notReady": "Automatic changes start after the next update.",
+  "noChanges": "Nothing changed yet. We'll tell you here when we adjust your plan.",
+  "reason": {
+    "at_risk": "\"{{step}}\" has a fixed date in {{days}} days. We kept it and moved other steps around it.",
+    "fresh_start": "Welcome back. We gave your plan a fresh start from Monday and made the next step small. Nothing is lost.",
+    "respace_busy": "You've been busy, so we spaced out the next steps. Fixed dates did not move.",
+    "split_busy": "We split \"{{step}}\" into a smaller first step because you've been busy.",
+    "split_worry": "You said this feels like a lot, so we made \"{{step}}\" smaller.",
+    "stretch": "You are ahead. We added an optional extra step. Skip it if you like.",
+    "pull_in": "You're moving fast, so \"{{step}}\" is now a week sooner.",
+    "money_first": "Money is tight right now, so scholarships come first.",
+    "earn_while_learning": "Money is tight right now, so scholarships and earning while you learn come first.",
+    "goal_added": "Added the goal \"{{title}}\".",
+    "goal_added_saathi": "Added the goal \"{{title}}\" from your chat with Saathi.",
+    "evidence_lesson_completed": "Saathi noticed you finished a lesson.",
+    "evidence_scheme_viewed": "Saathi noticed you opened a scholarship.",
+    "evidence_scheme_applied": "Saathi noticed you applied.",
+    "evidence_community_post": "Saathi noticed you asked in the community.",
+    "evidence_credential_issued": "Saathi noticed your teacher approved your skill.",
+    "evidence_job_viewed": "Saathi noticed you looked at openings."
+  },
+  "undo": "Undo",
+  "alertsTitle": "Alerts and watchlist",
+  "minorAlerts": "Under 18: we alert you about scholarships, skills and safe training, not jobs.",
+  "watch": {
+    "job": "Jobs",
+    "exam": "Exam",
+    "scheme": "Scholarship",
+    "skill": "Skills & scholarships"
+  },
+  "stopWatching": "Stop watching {{name}}",
+  "noAlerts": "Ask Saathi to watch an exam, scholarship or job for you.",
+  "open": "Open my roadmap"
+}

@@ -23,3 +23,4 @@ export {
   useSaveCareer,
 } from './kit'
 export { Composer, SaathiAvatar, SuggestionChips, useOnline, useSaathiSuggestions } from './SaathiKit'
+export { RoadmapCard } from './roadmap'

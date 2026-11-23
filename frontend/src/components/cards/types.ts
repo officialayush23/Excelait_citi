@@ -286,6 +286,19 @@ export type Card =
   | ({ type: 'jobs' } & JobsData)
   | ({ type: 'scholarships' } & ScholarshipsData)
   | ({ type: 'rights' } & RightsData)
+  | ({ type: 'roadmap' } & RoadmapCardData)
+
+export type RoadmapCardData = {
+  ready: boolean
+  progress: number
+  pace: string
+  tone: string
+  fresh_start?: boolean
+  at_risk: { step_id: string; goal_id: string; title: string; days_left: number }[]
+  next: { id: string; goal_id: string; title: string; kind: string; due_date?: string | null; days_left?: number | null; now_text?: string | null; copy_key?: string | null; goal_title?: string; hard_deadline?: boolean } | null
+  goals: { id: string; title: string; kind: string; progress: number; career_slug?: string | null }[]
+  changes: { id: string; kind: string; reason_code: string; reason: string; params?: Record<string, unknown>; created_at: string }[]
+}
 
 export type CardType = Card['type']
 export type CardOf<T extends CardType> = Extract<Card, { type: T }>

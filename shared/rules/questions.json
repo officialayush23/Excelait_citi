@@ -2349,6 +2349,185 @@
           }
         }
       ]
+    },
+    {
+      "field": "go_where",
+      "type": "single",
+      "tier": "more",
+      "priority": 56,
+      "group": "work",
+      "applies_if": [
+        {
+          "any": [
+            {
+              "fact": "age",
+              "op": "unknown"
+            },
+            {
+              "fact": "age",
+              "op": "gte",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "label": {
+        "en": "How far you'd go",
+        "hi": "आप कहाँ तक जा सकते हैं",
+        "mr": "तुम्ही कुठपर्यंत जाऊ शकता"
+      },
+      "text": {
+        "en": "Where would you go for study or work, now or later?",
+        "hi": "पढ़ाई या काम के लिए आप कहाँ जा सकते हैं, अभी या बाद में?",
+        "mr": "शिक्षण किंवा कामासाठी तुम्ही कुठे जाऊ शकता, आता किंवा नंतर?"
+      },
+      "why": {
+        "en": "So we show chances near home, in a city, in another state or abroad, including scholarships to study abroad later.",
+        "hi": "ताकि हम घर के पास, शहर में, दूसरे राज्य में या विदेश के मौके दिखा सकें, विदेश में पढ़ने की छात्रवृत्ति भी।",
+        "mr": "म्हणजे आम्ही घराजवळ, शहरात, दुसऱ्या राज्यात किंवा परदेशातील संधी दाखवू शकू, परदेशात शिकण्याच्या शिष्यवृत्तीसह."
+      },
+      "options": [
+        {
+          "value": "near_home",
+          "label": {
+            "en": "Only near home",
+            "hi": "सिर्फ़ घर के पास",
+            "mr": "फक्त घराजवळ"
+          },
+          "sets": {
+            "can_relocate": false
+          }
+        },
+        {
+          "value": "city",
+          "label": {
+            "en": "A city in my state",
+            "hi": "अपने राज्य का कोई शहर",
+            "mr": "माझ्या राज्यातील शहर"
+          },
+          "sets": {
+            "can_relocate": true
+          }
+        },
+        {
+          "value": "other_state",
+          "label": {
+            "en": "Anywhere in India",
+            "hi": "भारत में कहीं भी",
+            "mr": "भारतात कुठेही"
+          },
+          "sets": {
+            "can_relocate": true
+          }
+        },
+        {
+          "value": "abroad",
+          "label": {
+            "en": "Abroad, after my degree",
+            "hi": "डिग्री के बाद विदेश",
+            "mr": "पदवीनंतर परदेशात"
+          },
+          "sets": {
+            "can_relocate": true
+          }
+        }
+      ]
+    },
+    {
+      "field": "phone_access",
+      "type": "single",
+      "tier": "more",
+      "priority": 62,
+      "group": "basics",
+      "label": {
+        "en": "Phone",
+        "hi": "फ़ोन",
+        "mr": "फोन"
+      },
+      "text": {
+        "en": "Whose phone do you use for ExcelAIt?",
+        "hi": "ExcelAIt के लिए आप किसका फ़ोन इस्तेमाल करते हैं?",
+        "mr": "ExcelAIt साठी तुम्ही कोणाचा फोन वापरता?"
+      },
+      "why": {
+        "en": "If you share a phone, we keep lessons short and save them to use without internet.",
+        "hi": "अगर फ़ोन साझा है, तो हम पाठ छोटे रखेंगे और बिना इंटरनेट के चलने के लिए सेव करेंगे।",
+        "mr": "फोन शेअर असेल तर आम्ही धडे छोटे ठेवू आणि इंटरनेटशिवाय वापरता यावेत म्हणून सेव्ह करू."
+      },
+      "options": [
+        {
+          "value": "own",
+          "label": {
+            "en": "My own phone",
+            "hi": "मेरा अपना फ़ोन",
+            "mr": "माझा स्वतःचा फोन"
+          }
+        },
+        {
+          "value": "shared",
+          "label": {
+            "en": "Shared with family",
+            "hi": "परिवार के साथ साझा",
+            "mr": "कुटुंबासोबत शेअर"
+          }
+        },
+        {
+          "value": "school",
+          "label": {
+            "en": "Only at school or a centre",
+            "hi": "सिर्फ़ स्कूल या केंद्र पर",
+            "mr": "फक्त शाळेत किंवा केंद्रात"
+          }
+        }
+      ]
+    },
+    {
+      "field": "internet",
+      "type": "single",
+      "tier": "more",
+      "priority": 63,
+      "group": "basics",
+      "label": {
+        "en": "Internet",
+        "hi": "इंटरनेट",
+        "mr": "इंटरनेट"
+      },
+      "text": {
+        "en": "How is the internet where you live?",
+        "hi": "आपके यहाँ इंटरनेट कैसा चलता है?",
+        "mr": "तुमच्याकडे इंटरनेट कसे चालते?"
+      },
+      "why": {
+        "en": "With weak internet we send lighter pages and let you download lessons when you have signal.",
+        "hi": "कमज़ोर इंटरनेट पर हम हल्के पेज भेजेंगे और सिग्नल मिलने पर पाठ डाउनलोड करने देंगे।",
+        "mr": "इंटरनेट कमकुवत असेल तर आम्ही हलकी पाने पाठवू आणि सिग्नल असताना धडे डाउनलोड करू देऊ."
+      },
+      "options": [
+        {
+          "value": "good",
+          "label": {
+            "en": "Works well",
+            "hi": "ठीक चलता है",
+            "mr": "नीट चालते"
+          }
+        },
+        {
+          "value": "patchy",
+          "label": {
+            "en": "Comes and goes",
+            "hi": "कभी आता है, कभी नहीं",
+            "mr": "कधी येते, कधी नाही"
+          }
+        },
+        {
+          "value": "none",
+          "label": {
+            "en": "Not at home",
+            "hi": "घर पर नहीं है",
+            "mr": "घरी नाही"
+          }
+        }
+      ]
     }
   ],
   "fact_labels": {
@@ -2447,6 +2626,30 @@
         "mr": "CAP द्वारे प्रवेश"
       },
       "group": "study"
+    },
+    "go_where": {
+      "label": {
+        "en": "How far you'd go",
+        "hi": "आप कहाँ तक जा सकते हैं",
+        "mr": "तुम्ही कुठपर्यंत जाऊ शकता"
+      },
+      "group": "work"
+    },
+    "phone_access": {
+      "label": {
+        "en": "Phone",
+        "hi": "फ़ोन",
+        "mr": "फोन"
+      },
+      "group": "basics"
+    },
+    "internet": {
+      "label": {
+        "en": "Internet",
+        "hi": "इंटरनेट",
+        "mr": "इंटरनेट"
+      },
+      "group": "basics"
     }
   },
   "sensitive_facts": [

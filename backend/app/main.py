@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import learn, passport, roadmap, scholarships, teacher
-from app.api.routes import assist, assistant, catalogue, community, explore, health, me, notifications, partners, plans, students
+from app.api.routes import assist, assistant, catalogue, community, explore, health, insights, me, notifications, partners, plans, students
 from app.core.config import get_settings
 
 
@@ -25,7 +25,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router)
     for r in (me.router, catalogue.router, students.router, assist.router, explore.router, assistant.router, plans.router,
               partners.router, community.router, notifications.router, learn.router, passport.router, teacher.router,
-              scholarships.router, roadmap.router):
+              scholarships.router, roadmap.router, insights.router):
         app.include_router(r, prefix="/api/v1")
 
     @app.on_event("startup")

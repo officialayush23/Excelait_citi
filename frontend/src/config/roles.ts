@@ -55,11 +55,13 @@ export const NAV: Record<Role, NavItem[]> = {
     { key: 'verify', icon: ClipboardCheck, phase: 4 },
     { key: 'modules', icon: Library, phase: 6 },
     { key: 'community', icon: MessagesSquare, phase: 5 },
+    { key: 'trends', icon: TrendingUp, phase: 6 },
   ],
   partner: [
     { key: 'postings', icon: Megaphone, phase: 5 },
     { key: 'applicants', icon: UserSearch, phase: 5 },
     { key: 'organisation', icon: Building2, phase: 5 },
+    { key: 'trends', icon: TrendingUp, phase: 6 },
   ],
   mentor: [
     { key: 'inbox', icon: Inbox, phase: 5 },
@@ -70,12 +72,16 @@ export const NAV: Record<Role, NavItem[]> = {
     { key: 'home', icon: Home, phase: 6 },
     { key: 'consent', icon: ShieldCheck, phase: 6 },
   ],
-  funder: [{ key: 'outcomes', icon: TrendingUp, phase: 6 }],
+  funder: [
+    { key: 'outcomes', icon: TrendingUp, phase: 6 },
+    { key: 'trends', icon: TrendingUp, phase: 6 },
+  ],
   admin: [
     { key: 'partners', icon: BadgeCheck, phase: 5 },
     { key: 'schemes', icon: Scale, phase: 2 },
     { key: 'careers', icon: Compass, phase: 2 },
     { key: 'moderation', icon: ShieldCheck, phase: 5 },
+    { key: 'trends', icon: TrendingUp, phase: 6 },
   ],
 }
 

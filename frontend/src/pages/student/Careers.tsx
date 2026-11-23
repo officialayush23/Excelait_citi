@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Compass, ExternalLink, MapPin, TriangleAlert, Wallet } from 'lucide-react'
+import { ArrowRight, Check, Compass, ExternalLink, MapPin, TrendingUp, TriangleAlert, Wallet } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -93,6 +93,19 @@ export function Careers() {
           </Button>
         )}
       </div>
+      <Link
+        to="/app/trends"
+        className="mb-4 flex items-center gap-4 rounded-[1.75rem] bg-card p-5 ring-1 ring-black/[0.04] transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring dark:ring-white/[0.05]"
+      >
+        <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+          <TrendingUp className="size-5" aria-hidden="true" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-base font-semibold">{t('trends.card.title')}</span>
+          <span className="block text-sm text-muted-foreground">{t('trends.card.body')}</span>
+        </span>
+        <ArrowRight className="size-5 shrink-0" aria-hidden="true" />
+      </Link>
       {minor && (
         <p role="note" className="mb-4 rounded-2xl border bg-tile-peach px-5 py-3 text-sm font-medium text-tile-foreground">
           {t('careers.minorBanner')}

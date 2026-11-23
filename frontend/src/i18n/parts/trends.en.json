@@ -1,0 +1,48 @@
+{
+  "subtitle": "Where work is growing in India, from official labour surveys, and what we hold for students.",
+  "pickIndustry": "Sector",
+  "pickArea": "Area",
+  "chartSub": "Share of all working people who work in this sector.",
+  "unit": "% of workers",
+  "chartAria": "{{name}}: {{a}}% in {{from}}, {{b}}% in {{to}}, then a dashed trend line with a shaded band.",
+  "legendHistory": "Survey result",
+  "legendProjection": "Past trend continued",
+  "legendBand": "Range (±1.96 × residual error)",
+  "projectionLabel": "Projection from past trend, not a forecast",
+  "summary": "The share moved {{slope}} points a year. If that trend simply continued, it would be about {{value}}% in {{year}} (range {{low}}% to {{high}}%).",
+  "thin": "Based on only {{n}} yearly survey results, so treat the range as rough.",
+  "source": "Source",
+  "checkedOn": "checked {{date}}",
+  "growingTitle": "Where the share is rising",
+  "growingSub": "Change a year in each sector's share of workers ({{area}}), from the survey years shown.",
+  "latest": "Latest {{value}}% of workers",
+  "perYear": "pts/yr",
+  "area": {
+    "all": "All India",
+    "rural": "Rural",
+    "urban": "Urban"
+  },
+  "industry": {
+    "agriculture": "Agriculture",
+    "manufacturing": "Manufacturing",
+    "construction": "Construction",
+    "trade": "Trade, hotels, restaurants",
+    "transport": "Transport and communication",
+    "services": "Other services"
+  },
+  "supply": {
+    "title": "Students and openings on ExcelAIt",
+    "subtitle": "For each career area: students who picked it as an interest or saved a career in it, against jobs, scholarships and partner offers we hold.",
+    "students": "Students",
+    "opportunities": "Openings we hold",
+    "error": "Could not load our own numbers right now.",
+    "empty": "No students or openings counted yet.",
+    "unmapped": "{{count}} openings are not tied to a career area and are not shown.",
+    "note": "Counts only. Nobody is identified."
+  },
+  "card": {
+    "title": "Where are jobs growing?",
+    "body": "See which sectors are taking a bigger share of work, and what ExcelAIt holds for each.",
+    "cta": "Open job trends"
+  }
+}

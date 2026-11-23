@@ -434,10 +434,13 @@ def _askable() -> list[str]:
 
 
 def _ask_tool(only: str | None = None) -> dict:
+    # The enum always lists every askable field: Groq rejects the whole request (400) when the model picks a
+    # field outside the enum, so the preferred field is a hint in the description, not a hard limit.
+    hint = f" Ask about '{only}' now." if only else ""
     return {"type": "function", "function": {
-        "name": "ask_student", "description": "Ask the student ONE question about one missing fact. Ends your turn.",
+        "name": "ask_student", "description": "Ask the student ONE question about one missing fact. Ends your turn." + hint,
         "parameters": {"type": "object", "properties": {
-            "field": {"type": "string", "enum": [only] if only else _askable()},
+            "field": {"type": "string", "enum": _askable() if not only or only in _askable() else [only, *_askable()]},
             "question": {"type": "string", "description": "the question, short, in the student's language and script"}},
             "required": ["field", "question"]}}}
 
@@ -485,6 +488,7 @@ class Ctx:
         self.user_id, self.roles = user_id, roles
         self.facts = get_facts(user_id)
         self.cards: list[dict] = []
+        self.asked_before: set[str] = set()
         self.lang = "en"
         self.intent: str | None = None
         self.missing: list[str] = []
@@ -528,6 +532,11 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
         return _law_card(ctx) if ctx.age is not None else "need: age"
     if name == "find_careers":
         interests = list(dict.fromkeys([*(ctx.facts.get("interests") or []), *skill_tags(ctx.facts.get("skills"))]))
+        if not interests:  # fall back to what the student said in this chat ("phone repair aata hai")
+            said = next((t for t in [getattr(ctx, "message", ""), *reversed(getattr(ctx, "past_user", []))] if skill_tags([t])), None)
+            if said:
+                _save(ctx, {"skills": [said.strip()[:80]]})  # kept in their own words, shown on the profile
+                interests = skill_tags([said])
         if not interests:
             return "need: interests (ask what they enjoy or can do); no ranking without them"
         minor = wr.is_minor(ctx.age)
@@ -733,7 +742,7 @@ def _save(ctx: Ctx, facts: dict) -> str:
         return "nothing to save"
     ctx.facts = merge_facts(ctx.user_id, clean, source="saathi", note=ctx.message)
     ctx.saved_facts = True
-    ctx.missing = missing_for(ctx.intent, ctx.facts)
+    ctx.missing = [f for f in missing_for(ctx.intent, ctx.facts) if f not in getattr(ctx, "asked_before", set())]
     return "saved " + ", ".join(clean) + (f"; still need {ctx.missing[0]}" if ctx.missing else "; all needed facts known")
 
 
@@ -929,6 +938,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
     past_user = [m["content"] or "" for m in past if m["role"] == "user"]
     ctx = Ctx(user_id, roles)
     ctx.message = message
+    ctx.past_user = past_user
     ctx.lang = pick_lang(message, past_user, language)
     ctx.shown = {c.get("type") for m in past if m["role"] == "assistant" for c in (m.get("cards") or [])}
 
@@ -968,7 +978,16 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
         pre["needs_income_soon"] = True
     if pre:
         _save(ctx, pre)
-    ctx.missing = missing_for(intent, ctx.facts)
+    # The student's reply to a skills question is kept in their own words when the model doesn't save it,
+    # so careers can still be ranked (skill_tags reads the words) and the question is never asked again.
+    last_q = next((c.get("field") for m in reversed(past) if m["role"] == "assistant"
+                   for c in (m.get("cards") or []) if c.get("type") == "question"), None) if past else None
+    if last_q == "skills" and not ctx.facts.get("skills") and message.strip() and skill_tags([message]):
+        _save(ctx, {"skills": [message.strip()[:80]]})
+    # Never ask the same fact twice in one chat: if the answer didn't stick, move on rather than loop.
+    ctx.asked_before = {c.get("field") for m in past if m["role"] == "assistant" for c in (m.get("cards") or [])
+                        if c.get("type") == "question" and c.get("field")}
+    ctx.missing = [f for f in missing_for(intent, ctx.facts) if f not in ctx.asked_before]
 
     used, tokens, reply = [], 0, ""
     # A minor asking about work sees what the law says for their age before anything else.
@@ -1022,7 +1041,13 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
             choice = {"type": "function", "function": {"name": "find_jobs"}}
         if phase == "intake":
             choice = "required" if rnd == 0 else {"type": "function", "function": {"name": "ask_student"}}
-        resp = _llm(messages, tools, choice)
+        try:
+            resp = _llm(messages, tools, choice)
+        except Exception as e:  # noqa: BLE001 - a rejected model call must never end the chat
+            log.warning("llm failed in %s: %s", phase, str(e)[:200])
+            if phase == "answer" and not reply:
+                reply = FALLBACK_REPLY.get(ctx.lang, FALLBACK_REPLY["en"])
+            break  # in intake, the planner's own question card is added below
         tokens += (resp.get("usage") or {}).get("total_tokens", 0)
         msg = resp["choices"][0]["message"]
         calls = msg.get("tool_calls") or []
@@ -1051,7 +1076,7 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
             messages.append({"role": "tool", "tool_call_id": call["id"], "content": out[:1200]})
         if ctx.asked:
             break  # one question per turn: wait for the answer
-        ctx.missing = missing_for(intent, ctx.facts)
+        ctx.missing = [f for f in missing_for(intent, ctx.facts) if f not in ctx.asked_before]
         if intent in ("earn", "jobs") and wr.is_minor(ctx.age) and not ctx.seen("law"):
             _law_card(ctx)
             used.append("work_rules")

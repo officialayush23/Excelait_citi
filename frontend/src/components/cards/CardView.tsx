@@ -4,6 +4,7 @@ import { SchemeCard, SchemesCard } from './money'
 import { CollegesCard, OffersCard, ResourcesCard, WebCard } from './places'
 import { MyPlanCard, PlanCard } from './plan'
 import { QuestionCard } from './QuestionCard'
+import { RoadmapCard } from './roadmap'
 import type { Card } from './types'
 import { ScholarshipsCard } from './scholarships'
 import { JobsCard, LawCard, RightsCard } from './work'
@@ -49,6 +50,8 @@ export function CardView({ card, active }: { card: Card; active?: boolean }) {
       return <RightsCard card={card} />
     case 'scholarships':
       return <ScholarshipsCard card={card} />
+    case 'roadmap':
+      return <RoadmapCard card={card} />
     default:
       return null
   }

@@ -1,0 +1,598 @@
+{
+ "series": [
+  {
+   "id": "plfs-agriculture-all",
+   "industry": "agriculture",
+   "area": "all",
+   "label": {
+    "en": "Agriculture (all India)",
+    "hi": "कृषि (पूरा भारत)",
+    "mr": "शेती (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 45.5
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 45.8
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 46.1
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-agriculture-rural",
+   "industry": "agriculture",
+   "area": "rural",
+   "label": {
+    "en": "Agriculture (rural)",
+    "hi": "कृषि (ग्रामीण)",
+    "mr": "शेती (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 59.0
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 58.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 59.8
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-agriculture-urban",
+   "industry": "agriculture",
+   "area": "urban",
+   "label": {
+    "en": "Agriculture (urban)",
+    "hi": "कृषि (शहरी)",
+    "mr": "शेती (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 6.7
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 6.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 6.7
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-manufacturing-all",
+   "industry": "manufacturing",
+   "area": "all",
+   "label": {
+    "en": "Manufacturing (all India)",
+    "hi": "विनिर्माण (पूरा भारत)",
+    "mr": "उत्पादन (कारखानदारी) (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 11.6
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 11.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 11.4
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-manufacturing-rural",
+   "industry": "manufacturing",
+   "area": "rural",
+   "label": {
+    "en": "Manufacturing (rural)",
+    "hi": "विनिर्माण (ग्रामीण)",
+    "mr": "उत्पादन (कारखानदारी) (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 7.9
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 8.2
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 8.3
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-manufacturing-urban",
+   "industry": "manufacturing",
+   "area": "urban",
+   "label": {
+    "en": "Manufacturing (urban)",
+    "hi": "विनिर्माण (शहरी)",
+    "mr": "उत्पादन (कारखानदारी) (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 22.2
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 21.3
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 20.5
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-construction-all",
+   "industry": "construction",
+   "area": "all",
+   "label": {
+    "en": "Construction (all India)",
+    "hi": "निर्माण कार्य (पूरा भारत)",
+    "mr": "बांधकाम (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 12.4
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 13.0
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 12.0
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-construction-rural",
+   "industry": "construction",
+   "area": "rural",
+   "label": {
+    "en": "Construction (rural)",
+    "hi": "निर्माण कार्य (ग्रामीण)",
+    "mr": "बांधकाम (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 13.0
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 13.9
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 12.5
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-construction-urban",
+   "industry": "construction",
+   "area": "urban",
+   "label": {
+    "en": "Construction (urban)",
+    "hi": "निर्माण कार्य (शहरी)",
+    "mr": "बांधकाम (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 10.8
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 10.3
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 10.5
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-trade-all",
+   "industry": "trade",
+   "area": "all",
+   "label": {
+    "en": "Trade, hotels and restaurants (all India)",
+    "hi": "व्यापार, होटल और रेस्तरां (पूरा भारत)",
+    "mr": "व्यापार, हॉटेल आणि उपाहारगृहे (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 12.1
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 12.1
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 12.2
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-trade-rural",
+   "industry": "trade",
+   "area": "rural",
+   "label": {
+    "en": "Trade, hotels and restaurants (rural)",
+    "hi": "व्यापार, होटल और रेस्तरां (ग्रामीण)",
+    "mr": "व्यापार, हॉटेल आणि उपाहारगृहे (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 8.4
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 8.3
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 8.3
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-trade-urban",
+   "industry": "trade",
+   "area": "urban",
+   "label": {
+    "en": "Trade, hotels and restaurants (urban)",
+    "hi": "व्यापार, होटल और रेस्तरां (शहरी)",
+    "mr": "व्यापार, हॉटेल आणि उपाहारगृहे (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 22.8
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 23.8
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 23.6
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-transport-all",
+   "industry": "transport",
+   "area": "all",
+   "label": {
+    "en": "Transport, storage and communication (all India)",
+    "hi": "परिवहन, भंडारण और संचार (पूरा भारत)",
+    "mr": "वाहतूक, साठवणूक आणि दळणवळण (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 5.6
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 5.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 5.6
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-transport-rural",
+   "industry": "transport",
+   "area": "rural",
+   "label": {
+    "en": "Transport, storage and communication (rural)",
+    "hi": "परिवहन, भंडारण और संचार (ग्रामीण)",
+    "mr": "वाहतूक, साठवणूक आणि दळणवळण (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 3.9
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 3.5
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 3.7
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-transport-urban",
+   "industry": "transport",
+   "area": "urban",
+   "label": {
+    "en": "Transport, storage and communication (urban)",
+    "hi": "परिवहन, भंडारण और संचार (शहरी)",
+    "mr": "वाहतूक, साठवणूक आणि दळणवळण (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 10.7
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 11.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 11.0
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-services-all",
+   "industry": "services",
+   "area": "all",
+   "label": {
+    "en": "Other services (all India)",
+    "hi": "अन्य सेवाएँ (पूरा भारत)",
+    "mr": "इतर सेवा (संपूर्ण भारत)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 11.9
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 11.4
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 11.9
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-services-rural",
+   "industry": "services",
+   "area": "rural",
+   "label": {
+    "en": "Other services (rural)",
+    "hi": "अन्य सेवाएँ (ग्रामीण)",
+    "mr": "इतर सेवा (ग्रामीण)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 7.2
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 7.0
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 6.9
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  },
+  {
+   "id": "plfs-services-urban",
+   "industry": "services",
+   "area": "urban",
+   "label": {
+    "en": "Other services (urban)",
+    "hi": "अन्य सेवाएँ (शहरी)",
+    "mr": "इतर सेवा (शहरी)"
+   },
+   "unit": "% of workers",
+   "points": [
+    {
+     "year": 2021,
+     "period": "2021-22",
+     "value": 25.3
+    },
+    {
+     "year": 2022,
+     "period": "2022-23",
+     "value": 25.3
+    },
+    {
+     "year": 2023,
+     "period": "2023-24",
+     "value": 26.2
+    }
+   ],
+   "source": {
+    "name": "Annual Report, PLFS 2023-24 (NSSO, MoSPI, 23 Sep 2024), Statement 7, p. 15: workers in usual status (ps+ss) by broad industry division, persons",
+    "url": "https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf",
+    "checked_on": "2026-11-23"
+   }
+  }
+ ]
+}

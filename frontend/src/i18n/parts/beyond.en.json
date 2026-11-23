@@ -1,0 +1,47 @@
+{
+ "title": "We look at more than marks",
+ "lead": "Your plan takes your whole situation into account. Here is what we know and what it changes.",
+ "count": "{{known}} of {{total}} known",
+ "known": "Known",
+ "unknown": "Not told yet",
+ "tellUs": "Tell us",
+ "yourArea": "your area",
+ "private": "Kept private. Used only to add disability scholarships and accessible courses.",
+ "place": {
+  "title": "Where you live",
+  "known": "Colleges, jobs and schemes near {{place}} come first.",
+  "near_home": "Only options you can reach from {{place}}.",
+  "city": "Options near {{place}} and in cities in your state.",
+  "other_state": "Options across India, starting near {{place}}.",
+  "abroad": "Options in India now, and scholarships to study abroad after your degree."
+ },
+ "money": {
+  "title": "Money at home",
+  "earn": "Earn-while-you-learn paths and scholarships come first.",
+  "study": "Full-time study paths, with every scholarship you qualify for."
+ },
+ "age": {
+  "title": "Your age",
+  "minor": "Under 18: only work the law allows at your age. Scholarships and skills before jobs.",
+  "adult": "18 or over: jobs and apprenticeships are included."
+ },
+ "access": {
+  "title": "Phone and internet",
+  "limited": "Short lessons you can save and use without internet.",
+  "good": "Videos and live features are included."
+ },
+ "family": {
+  "title": "Family and time",
+  "business": "Paths that build on your family's work.",
+  "time": "Steps sized to the time you have each week."
+ },
+ "disability": {
+  "title": "Disability or health needs",
+  "yes": "Disability scholarships and accessible courses are added.",
+  "no": "Nothing extra needed."
+ },
+ "interests": {
+  "title": "Interests and skills",
+  "effect": "Careers are ranked by what you enjoy and can already do."
+ }
+}

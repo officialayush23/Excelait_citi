@@ -18,12 +18,12 @@ type Props = {
  */
 export function SplitView({ list, detail, detailKey, listTitle, className }: Props) {
   return (
-    <div className={cn('grid gap-4 lg:grid-cols-[minmax(320px,0.9fr)_1.4fr]', className)}>
-      <section className="flex min-h-80 flex-col rounded-3xl border bg-card p-3 sm:p-4">
+    <div className={cn('grid grid-cols-1 gap-4 lg:grid-cols-[minmax(320px,0.9fr)_1.4fr]', className)}>
+      <section className="flex min-h-80 min-w-0 flex-col rounded-[1.75rem] bg-card p-3 ring-1 ring-black/[0.04] sm:p-4 dark:ring-white/[0.05]">
         {listTitle && <div className="px-2 pt-1 pb-3">{listTitle}</div>}
         <div className="flex flex-col gap-1">{list}</div>
       </section>
-      <section className="relative min-h-80 overflow-hidden rounded-3xl border bg-surface p-4 sm:p-6">
+      <section className="relative min-h-80 min-w-0 overflow-hidden rounded-[1.75rem] bg-surface p-4 ring-1 ring-black/[0.04] sm:p-6 dark:ring-white/[0.05]">
         <AnimatePresence mode="wait">
           {detail && (
             <motion.div

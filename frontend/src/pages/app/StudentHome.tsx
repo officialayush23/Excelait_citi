@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '@/auth/AuthProvider'
+import { RoadmapPreview } from '@/components/roadmap'
 import { Bars, BentoCard, BentoHead, Donut, Legend } from '@/components/bento/Bento'
 import { Composer, SaathiAvatar, SuggestionChips, useOnline } from '@/components/cards/SaathiKit'
 import { AnimatedNumber } from '@/components/motion-primitives/animated-number'
@@ -70,6 +71,8 @@ export function StudentHome() {
       </div>
 
       {pending > 0 && <p className="text-sm text-muted-foreground">{t('home.pendingSync', { count: pending })}</p>}
+
+      {done && <RoadmapPreview />}
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-5">
         {/* Money card + careers list, like the wallet column in the reference */}

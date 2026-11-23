@@ -44,6 +44,7 @@ import { Students } from '@/pages/teacher/Students'
 import { StudentDetail } from '@/pages/teacher/StudentDetail'
 import { Verify } from '@/pages/teacher/Verify'
 import { Modules } from '@/pages/teacher/Modules'
+import { Trends } from '@/pages/trends/Trends'
 
 import { useFacts, useOnlineSync } from '@/data/facts'
 
@@ -130,6 +131,7 @@ const router = createBrowserRouter([
       { path: 'applicants', element: <PartnerOnly><Applicants /></PartnerOnly> },
       { path: 'partners', element: <AdminOnly><Partners /></AdminOnly> },
       { path: 'moderation', element: <AdminOnly><Moderation /></AdminOnly> },
+      { path: 'trends', element: <Trends /> },
       { path: 'lessons', element: <Lessons /> },
       { path: 'lessons/:id', element: <LessonPage /> },
       { path: 'passport', element: <StudentOnly><Passport /></StudentOnly> },

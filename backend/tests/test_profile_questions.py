@@ -94,7 +94,8 @@ def test_payload_is_localised_and_explains_why():
 def test_saathi_context_never_offers_sensitive_questions():
     facts = {k: 1 for k in ("age",)} | {"stage": "c10", "state": "Maharashtra", "interests": ["art"], "plan_after_10": "arts",
                                          "needs_income_soon": False, "skills": ["drawing"], "district": "Pune", "marks_percent": 60,
-                                         "subjects": ["art"], "gender": "female", "can_relocate": False, "school_type": "government"}
+                                         "subjects": ["art"], "gender": "female", "can_relocate": False, "school_type": "government",
+                                         "go_where": "near_home", "phone_access": "shared", "internet": "patchy"}
     facts["age"] = 15
     assert pq.next_questions(facts, "saathi", 5)["questions"] == []
     assert [q["field"] for q in pq.next_questions(facts, "onboarding", 5)["questions"]] == ["family_income_annual", "social_category", "is_disabled"]

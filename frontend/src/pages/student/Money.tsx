@@ -9,6 +9,7 @@ import { AskMore, FoundScholarshipList } from '@/components/cards/scholarships'
 import type { ScholarshipsData } from '@/components/cards/types'
 import { EmptyState } from '@/components/page/EmptyState'
 import { KpiCard, KpiRow } from '@/components/page/Kpi'
+import { AbroadScholarships } from '@/components/money/AbroadScholarships'
 import { PageHeader } from '@/components/page/PageHeader'
 import { ListRow, SplitView } from '@/components/page/SplitView'
 import { SpeakButton } from '@/components/shell/SpeakButton'
@@ -86,6 +87,7 @@ export function Money() {
         detail={<SchemeDetail check={current} />}
       />
       <MoreScholarships />
+      <AbroadScholarships />
     </>
   )
 }

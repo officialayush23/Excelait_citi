@@ -8,6 +8,7 @@ and events, signals, changes and watches are skipped."""
 from __future__ import annotations
 
 import logging
+from concurrent.futures import ThreadPoolExecutor
 import os
 import re
 import threading
@@ -300,14 +301,30 @@ def get_roadmap(user_id: str, evaluate_first: bool = True, today: date | None = 
                 evaluate(user_id, today)
             except Exception as e:  # noqa: BLE001 - showing the roadmap matters more
                 log.warning("evaluate failed: %s", e)
-    goals, steps, full = _load(user_id)
-    facts = get_facts(user_id)
+    full = ready()
+    # Independent reads run side by side: each is one round trip to the database.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        f_goals = pool.submit(_goals, user_id, full)
+        f_facts = pool.submit(get_facts, user_id)
+        f_events = pool.submit(_rows, "activity_events", user_id, "kind, ref, created_at", 30, "created_at", 300) if full else None
+        f_signals = pool.submit(_signals, user_id) if full else None
+        f_state = pool.submit(_state, user_id) if full else None
+        f_changes = pool.submit(_rows, "roadmap_changes", user_id,
+                                "id, goal_id, step_id, kind, reason_code, reason, params, auto, created_at, undone_at", 45, "created_at", 30) if full else None
+        f_watches = pool.submit(_rows, "watches", user_id, "id, kind, ref, query, label, active, last_checked_at, created_at", active=True) if full else None
+        f_alerts = pool.submit(_rows, "notifications", user_id, "id, kind, title, body, link, read_at, created_at", None, "created_at", 40)
+        goals = f_goals.result()
+        steps = _steps([g["id"] for g in goals], full)
+        facts = f_facts.result()
+        events = f_events.result() if f_events else []
+        signals = f_signals.result() if f_signals else []
+        st = f_state.result() if f_state else {}
+        changes = f_changes.result() if f_changes else []
+        watches = f_watches.result() if f_watches else []
+        alerts = f_alerts.result()
     by_goal: dict[str, list[dict]] = defaultdict(list)
     for s in steps:
         by_goal[s["goal_id"]].append(s)
-    events = _rows("activity_events", user_id, "kind, ref, created_at", since_days=30, limit=300) if full else []
-    signals = _signals(user_id) if full else []
-    st = _state(user_id) if full else {}
     out_goals, paces, at_risk = [], [], []
     for g in goals:
         gs = by_goal.get(g["id"], [])
@@ -332,10 +349,6 @@ def get_roadmap(user_id: str, evaluate_first: bool = True, today: date | None = 
         cand.sort(key=lambda s: (s["kind"] != "micro", s["due_date"] or "9999"))
         if cand and (nxt is None or (cand[0]["due_date"] or "9999") < (nxt["due_date"] or "9999")):
             nxt = {**cand[0], "goal_title": g["title"], "goal_kind": g["kind"]}
-    changes = _rows("roadmap_changes", user_id, "id, goal_id, step_id, kind, reason_code, reason, params, auto, created_at, undone_at",
-                    since_days=45, limit=30) if full else []
-    watches = _rows("watches", user_id, "id, kind, ref, query, label, active, last_checked_at, created_at", active=True) if full else []
-    alerts = _rows("notifications", user_id, "id, kind, title, body, link, read_at, created_at", limit=40)
     alerts = [a for a in alerts if str(a.get("kind", "")).startswith("roadmap_")][:15]
     fresh = eng.to_dt(st.get("fresh_start_at"))
     return {

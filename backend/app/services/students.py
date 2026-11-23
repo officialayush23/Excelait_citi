@@ -16,7 +16,8 @@ log = logging.getLogger("students")
 # Facts the matcher and the question planner use that are not scheme-rule fields.
 EXTRA_FACTS = {"interests", "subjects", "needs_income_soon", "can_relocate", "district", "stage", "date_of_birth",
                "skills", "hours_per_week", "has_family_business", "can_travel_km",
-               "plan_after_10", "stream", "exam_interest", "course_year", "qualification", "work_experience", "riasec"}
+               "plan_after_10", "stream", "exam_interest", "course_year", "qualification", "work_experience", "riasec",
+               "go_where", "phone_access", "internet"}
 SOURCES = ("onboarding", "saathi", "teacher", "quiz", "system")
 NOTE_MAX = 200
 

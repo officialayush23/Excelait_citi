@@ -5,6 +5,7 @@ me -> what I do / like / can do -> my top careers -> each career's first course 
 from __future__ import annotations
 
 import logging
+from concurrent.futures import ThreadPoolExecutor
 
 from app.core.db import get_db
 from app.engine.matching import quiz_scores, rank, riasec_top
@@ -171,15 +172,23 @@ def knowledge_graph(facts: dict, saved: list[str], matches: list[str], lang: str
 
 
 def build(user_id: str, lang: str = "en") -> dict:
-    facts, meta, updated_at = get_profile_row(user_id)
+    def safe_plans() -> list:
+        try:
+            return plans.list_plans(user_id)
+        except Exception as e:  # noqa: BLE001
+            log.warning("plans failed: %s", e)
+            return []
+
+    # Independent database reads run side by side.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        f_row = pool.submit(get_profile_row, user_id)
+        f_saved = pool.submit(plans.saved, user_id)
+        f_plans = pool.submit(safe_plans)
+        f_creds = pool.submit(credentials, user_id, lang)
+        facts, meta, updated_at = f_row.result()
+        saved, my_plans, creds = f_saved.result(), f_plans.result(), f_creds.result()
     g = graph()
     scores = quiz_scores(facts)
-    saved = plans.saved(user_id)
-    try:
-        my_plans = plans.list_plans(user_id)
-    except Exception as e:  # noqa: BLE001
-        log.warning("plans failed: %s", e)
-        my_plans = []
     matches = [m.slug for m in rank(list(g.careers.values()), facts, 10)] if (facts.get("interests") or scores) else []
     types = pq.type_labels()
     return {
@@ -191,7 +200,7 @@ def build(user_id: str, lang: str = "en") -> dict:
         "saved_careers": [{"slug": s, "name": g.careers[s]["name"], "name_i18n": g.careers[s].get("name_i18n") or {}} for s in saved if s in g.careers],
         "plans": [{"id": p["id"], "career_slug": p["career_slug"], "title": p["title"], "done": p["done"], "total": p["total"]} for p in my_plans],
         "money": money(facts),
-        "credentials": credentials(user_id, lang),
+        "credentials": creds,
         "graph": knowledge_graph(facts, saved, matches, lang),
         "completeness": pq.completeness(facts, lang),
     }

@@ -146,9 +146,27 @@
           "options": []
         },
         {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
           "id": "marks_percent",
           "tier": "more",
           "options": []
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
         },
         {
           "id": "can_travel_km",
@@ -183,6 +201,16 @@
             "female",
             "male",
             "other"
+          ]
+        },
+        {
+          "id": "go_where",
+          "tier": "more",
+          "options": [
+            "near_home",
+            "city",
+            "other_state",
+            "abroad"
           ]
         },
         {
@@ -384,12 +412,40 @@
           "options": []
         },
         {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
+        },
+        {
           "id": "gender",
           "tier": "more",
           "options": [
             "female",
             "male",
             "other"
+          ]
+        },
+        {
+          "id": "go_where",
+          "tier": "more",
+          "options": [
+            "near_home",
+            "city",
+            "other_state",
+            "abroad"
           ]
         },
         {
@@ -590,6 +646,24 @@
           "options": []
         },
         {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
+        },
+        {
           "id": "can_travel_km",
           "tier": "more",
           "options": [
@@ -607,6 +681,16 @@
             "female",
             "male",
             "other"
+          ]
+        },
+        {
+          "id": "go_where",
+          "tier": "more",
+          "options": [
+            "near_home",
+            "city",
+            "other_state",
+            "abroad"
           ]
         },
         {
@@ -751,6 +835,24 @@
           "id": "district",
           "tier": "more",
           "options": []
+        },
+        {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
         },
         {
           "id": "subjects",
@@ -972,6 +1074,24 @@
           "options": []
         },
         {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
+        },
+        {
           "id": "can_travel_km",
           "tier": "more",
           "options": [
@@ -1004,6 +1124,16 @@
             "female",
             "male",
             "other"
+          ]
+        },
+        {
+          "id": "go_where",
+          "tier": "more",
+          "options": [
+            "near_home",
+            "city",
+            "other_state",
+            "abroad"
           ]
         },
         {
@@ -1117,9 +1247,27 @@
           "options": []
         },
         {
+          "id": "internet",
+          "tier": "more",
+          "options": [
+            "good",
+            "patchy",
+            "none"
+          ]
+        },
+        {
           "id": "marks_percent",
           "tier": "more",
           "options": []
+        },
+        {
+          "id": "phone_access",
+          "tier": "more",
+          "options": [
+            "own",
+            "shared",
+            "school"
+          ]
         },
         {
           "id": "subjects",
@@ -1143,6 +1291,16 @@
             "female",
             "male",
             "other"
+          ]
+        },
+        {
+          "id": "go_where",
+          "tier": "more",
+          "options": [
+            "near_home",
+            "city",
+            "other_state",
+            "abroad"
           ]
         },
         {

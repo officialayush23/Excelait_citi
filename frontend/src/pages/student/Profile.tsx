@@ -1,6 +1,7 @@
 import { UserRound } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+import { BeyondMarks } from '@/components/profile/BeyondMarks'
 import { ConnectedSections } from '@/components/profile/ConnectedSections'
 import { FactsSection } from '@/components/profile/FactsSection'
 import { InterestSection } from '@/components/profile/InterestSection'
@@ -46,6 +47,7 @@ export function Profile() {
         <div className="flex flex-col gap-4 sm:gap-6">
           {result.mock && <p className="rounded-2xl bg-tile-peach px-4 py-2 text-sm text-tile-foreground">Dev preview: sample data (profile endpoint not found).</p>}
           <ProfileHeader data={result.data} />
+          <BeyondMarks facts={Object.fromEntries(result.data.facts.map((f) => [f.key, f.value]))} showPrivate={false} />
           <FactsSection facts={result.data.facts} onSave={saveFact} onDelete={(k) => removeFact(k)} />
           <InterestSection interests={result.data.interests} />
           <KnowledgeMap graph={result.data.graph} />
