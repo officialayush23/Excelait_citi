@@ -91,6 +91,14 @@ def prepare_steps(steps: list[dict], facts: dict, goal_kind: str = "career", tod
         s.setdefault("status", "todo")
         s.setdefault("progress", 0)
         s.setdefault("origin", "plan")
+        # A bulk insert sends every column for every row, so a missing key would become NULL on a NOT NULL column.
+        if not s.get("refs"):
+            s["refs"] = []
+        if not s.get("subtasks"):
+            s["subtasks"] = []
+        s["hard_deadline"] = bool(s.get("hard_deadline"))
+        s["at_risk"] = bool(s.get("at_risk"))
+        s["optional"] = bool(s.get("optional"))
         s["original_due_date"] = s.get("due_date")
     if not ready():
         return [{k: s.get(k) for k in ("position", "kind", "ref_id", "title", "detail", "due_date") if k in s or k == "detail"} for s in out]
