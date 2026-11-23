@@ -67,7 +67,12 @@ function SvgMap({ graph }: { graph: ProfileData['graph'] }) {
         ))}
         {layout.nodes.map((n) => {
           const href = nodeHref(n)
-          const go = () => (href?.startsWith('#') ? document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }) : href && navigate(href))
+          const go = () => {
+            if (!href) return
+            const el = href.startsWith('#') ? document.querySelector(href) : null
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+            else navigate(href.startsWith('#') ? `/app/profile${href}` : href)
+          }
           return (
             <g
               key={n.id}

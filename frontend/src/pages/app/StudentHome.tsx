@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '@/auth/AuthProvider'
+import { KnowledgeMap } from '@/components/profile/KnowledgeMap'
+import { useProfile } from '@/components/profile/useProfile'
 import { RoadmapPreview } from '@/components/roadmap'
 import { Bars, BentoCard, BentoHead, Donut, Legend } from '@/components/bento/Bento'
 import { Composer, SaathiAvatar, SuggestionChips, useOnline } from '@/components/cards/SaathiKit'
@@ -35,6 +37,9 @@ export function StudentHome() {
   const matches = useMatches()
   const { rupees, eligible, oneAway } = useEligibility()
   const lang = i18n.language
+
+  const { result: profileResult } = useProfile()
+  const profileData = profileResult?.data
 
   const ask = (message: string) => navigate('/app/saathi', { state: { message } })
 
@@ -71,8 +76,6 @@ export function StudentHome() {
       </div>
 
       {pending > 0 && <p className="text-sm text-muted-foreground">{t('home.pendingSync', { count: pending })}</p>}
-
-      {done && <RoadmapPreview />}
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-5">
         {/* Money card + careers list, like the wallet column in the reference */}
@@ -201,8 +204,22 @@ export function StudentHome() {
           </Button>
         </BentoCard>
 
+        {/* The roadmap: right next to the money and profile, where the eye lands */}
+        {done && (
+          <div className="min-w-0 lg:col-span-8">
+            <RoadmapPreview className="h-full min-h-36" />
+          </div>
+        )}
+
+        {/* Knowledge graph: what the student told us and where it leads; tap a node to change it */}
+        {profileData && (
+          <div className="min-w-0 lg:col-span-12">
+            <KnowledgeMap graph={profileData.graph} />
+          </div>
+        )}
+
         {/* Career fit bars */}
-        <BentoCard className="lg:col-span-8" delay={0.15}>
+        <BentoCard className="lg:col-span-12" delay={0.15}>
           <BentoHead icon={<BarChart3 />} title={t('bento.fitTitle')} to="/app/careers" label={t('bento.seeAll')} />
           <div className="mb-4 flex flex-wrap items-baseline gap-2">
             <p className="text-3xl font-semibold tracking-tight tabular-nums">{t('bento.matched', { count: shown.length })}</p>

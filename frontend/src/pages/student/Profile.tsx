@@ -1,5 +1,7 @@
 import { UserRound } from 'lucide-react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
 import { BeyondMarks } from '@/components/profile/BeyondMarks'
 import { ConnectedSections } from '@/components/profile/ConnectedSections'
@@ -17,6 +19,11 @@ import { Skeleton } from '@/components/ui/skeleton'
 export function Profile() {
   const { t } = useTranslation()
   const { result, isLoading, isError, refetch, saveFact, removeFact } = useProfile()
+  const { hash } = useLocation()
+  const ready = Boolean(result)
+  useEffect(() => {
+    if (ready && hash) document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+  }, [ready, hash])
 
   async function deleteAll(keys: string[]) {
     const done = await Promise.allSettled(keys.map((k) => removeFact(k, { refresh: false })))

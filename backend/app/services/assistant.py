@@ -183,6 +183,10 @@ def _career_named(text: str) -> str | None:
     return None
 
 
+DONE_RE = re.compile(r"\b(i (have )?(finished|completed|done|submitted|applied|passed|watched)|ho gaya|ho gayi|kar liya|kar li|bhar diya|"
+                     r"pura kiya|poora kiya)\b|पूरा कर|पूर्ण केल|कर लिया|कर ली|भर दिया|भरला|हो गया|झाले|सबमिट", re.I)
+
+
 def detect_intent(text: str) -> tuple[str | None, str | None]:
     t = f" {text.lower()} "
     for intent in ("jobs", "scholarship", "earn", "colleges", "plan"):
@@ -380,6 +384,8 @@ LANGUAGE: {lang_rule}
 The app shows cards from your tool calls. Your own text: at most 2 short sentences that connect the cards or say the next step. Never repeat a card.
 Use tools for every fact. Never decide eligibility yourself (check_money does). Never invent or describe job openings; only find_jobs lists jobs.
 Never write a number, amount, date, company or website that is not in a tool result or the student's own words.
+Education comes first: for a student still in school or college, their studies, next class and exams come before career or work talk.
+When the student says they finished something on their plan, call update_roadmap with action done. Don't start a new career roadmap unless they ask for one.
 {age_rule}
 Today is {today}. Student facts: {facts}.{care}
 NOW: {step}"""
@@ -399,9 +405,10 @@ TOOLS_SPEC = [
     ("community", "Community questions and stories, or seniors on a path.", {"query": {"type": "string"}, "career": {"type": "string"}, "seniors": {"type": "boolean"}}),
     ("my_plan", "The student's saved careers and plans.", {}),
     ("my_roadmap", "The student's roadmap: next step, % done, fixed dates close, what changed for them (shows the card).", {}),
-    ("update_roadmap", "Change the roadmap from what the student said: add a goal (career, exam, scheme, own goal with a date), "
+    ("update_roadmap", "Change the roadmap from what the student said: mark a step done when they say they finished it, add a goal (career, exam, scheme, own goal with a date), "
                        "watch a job search / exam / scheme for alerts, or make the next steps smaller.",
-     {"action": {"type": "string", "enum": ["add_goal", "watch", "easier"]},
+     {"action": {"type": "string", "enum": ["add_goal", "watch", "easier", "done"]},
+      "step": {"type": "string", "description": "for done: what the student says they finished, in their words"},
       "goal": {"type": "string", "enum": ["career", "exam", "scheme", "custom"]},
       "career": {"type": "string"}, "exam": {"type": "string"}, "scheme": {"type": "string"},
       "title": {"type": "string", "description": "own goal in the student's words, e.g. 'earn 8000 a month'"},
@@ -643,6 +650,8 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
         s = _slug("career", a.get("career"))
         if not s:
             return "unknown career"
+        if _has_career_goal(ctx, other_than=s) and not _asks_new_plan(ctx.message):
+            return "the student already has a career roadmap; show it with my_roadmap instead of starting another"
         plan = plans.create_plan(ctx.user_id, s, _slug("program", a.get("course")), source="saathi")
         ctx.cards.append({"type": "plan", **plan})
         return f"plan with {len(plan['steps'])} steps (added to the roadmap)"
@@ -683,6 +692,24 @@ def run_tool(ctx: Ctx, name: str, a: dict) -> str:
     return "unknown tool"
 
 
+NEW_PLAN_WORDS = ("plan", "roadmap", "another", "new", "instead", "switch", "change", "different", "योजना", "प्लान",
+                  "रोडमैप", "बदल", "दूसरा", "दूसरी", "नया", "नवीन", "दुसरा", "बदला")
+
+
+def _asks_new_plan(message: str) -> bool:
+    m = (message or "").lower()
+    return any(w in m for w in NEW_PLAN_WORDS)
+
+
+def _has_career_goal(ctx: Ctx, other_than: str | None = None) -> bool:
+    """One career roadmap at a time: Saathi doesn't start more unless the student asks."""
+    try:
+        r = rm.get_roadmap(ctx.user_id, evaluate_first=False)
+    except Exception:  # noqa: BLE001
+        return False
+    return any(g["status"] == "active" and g["kind"] == "career" and g.get("career_slug") != other_than for g in r["goals"])
+
+
 def _update_roadmap(ctx: Ctx, a: dict) -> str:
     """Saathi's changes to the roadmap. Fixed rules still decide dates and what a minor may be alerted about."""
     act = a.get("action")
@@ -699,8 +726,15 @@ def _update_roadmap(ctx: Ctx, a: dict) -> str:
                 return "student is under 18: no job alerts by law; watching scholarships and free skill training instead"
             if res["converted"] == "apprenticeship":
                 return "student is under 18: watching safe apprenticeships only"
+        elif act == "done":
+            st = rm.match_step(ctx.user_id, a.get("step") or ctx.message)
+            if not st:
+                return "no open step matches; ask which step they finished"
+            rm.update_step(ctx.user_id, st["id"], status="done")
         elif act == "add_goal":
             kind = a.get("goal") or ("career" if a.get("career") else "exam" if a.get("exam") else "scheme" if a.get("scheme") else "custom")
+            if kind == "career" and _has_career_goal(ctx) and not _asks_new_plan(ctx.message):
+                return "the student already has a career roadmap; don't add another unless they ask for a new or different plan"
             if kind == "career":
                 s = _slug("career", a.get("career"))
                 if not s:
@@ -952,10 +986,24 @@ def chat(user_id: str, roles: set[str], message: str, language: str, thread_id: 
     ctx.intent = intent
     if intent == "plan" and not named:
         named = next((n for t in [message, *reversed(past_user)] if (n := _career_named(t))), None)
+    # "I finished the form" / "form bhar diya" / "फॉर्म भर दिया": tick the matching step on the roadmap now,
+    # so the plan moves in step with what the student says, not only with what they click.
+    if DONE_RE.search(message):
+        try:
+            st = rm.match_step(user_id, message)
+            if st:
+                rm.update_step(user_id, st["id"], status="done")
+                card, line = rm.card(user_id)
+                ctx.cards.append(card)
+                ctx.care = f" The student just finished '{st['title']}'; it is ticked on their roadmap. Say well done in one short line."
+                intent = intent or "plan"
+                ctx.intent = intent
+        except Exception as e:  # noqa: BLE001
+            log.warning("done-from-chat skipped: %s", e)
     # What the student says about worries, time and money is kept as roadmap signals: it changes the plan's
     # pace and how Saathi speaks (fixed keyword rules, see roadmap_engine.extract_signals).
     try:
-        ctx.care = " " + rm.saathi_hint(user_id, rm.capture_signals(user_id, message, _career_named))
+        ctx.care = (getattr(ctx, "care", "") or "") + " " + rm.saathi_hint(user_id, rm.capture_signals(user_id, message, _career_named))
     except Exception as e:  # noqa: BLE001 - the chat works without it
         log.warning("roadmap signals skipped: %s", e)
     ctx.care = ctx.care.rstrip()

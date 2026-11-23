@@ -32,7 +32,13 @@ def read_facts(user: CurrentUser = Depends(student)) -> dict:
 
 @router.patch("/students/me/facts")
 def update_facts(body: FactsPatch, user: CurrentUser = Depends(student)) -> dict:
-    return {"facts": merge_facts(user.id, body.facts, body.replace_lists, source=body.source, note=body.note)}
+    facts = merge_facts(user.id, body.facts, body.replace_lists, source=body.source, note=body.note)
+    try:  # answers move the roadmap too (quiz done, a fact a step was waiting on)
+        from app.services.roadmap import record_event
+        record_event(user.id, "riasec_done" if "riasec" in body.facts else "fact_answered", ",".join(sorted(body.facts))[:120])
+    except Exception:  # noqa: BLE001 - saving facts must never fail because of the roadmap
+        pass
+    return {"facts": facts}
 
 
 @router.delete("/students/me/facts/{key}")

@@ -213,6 +213,10 @@ def _norm_step(r: dict) -> dict:
     return eng.with_copy(s)
 
 
+EDU_GOALS = {"program", "exam"}
+EDU_STEPS = {"lesson", "course", "exam", "program", "college", "document", "micro"}
+
+
 def _goals(user_id: str, full: bool) -> list[dict]:
     rows = get_db().table("pathways").select(GOAL_COLS if full else GOAL_LEGACY).eq("user_id", user_id) \
         .order("created_at").execute().data or []
@@ -343,12 +347,12 @@ def get_roadmap(user_id: str, evaluate_first: bool = True, today: date | None = 
                           "progress": eng.goal_progress(gs), "pace": p["pace"], "steps": steps_out})
     active = [g for g in out_goals if g["status"] == "active"]
     pace = eng.combine_pace(paces) if paces else "new"
-    nxt = None
-    for g in sorted(active, key=lambda g: (-(g.get("priority") or 0), g["created_at"] or "")):
-        cand = [s for s in g["steps"] if s["bucket"] == "now"]
-        cand.sort(key=lambda s: (s["kind"] != "micro", s["due_date"] or "9999"))
-        if cand and (nxt is None or (cand[0]["due_date"] or "9999") < (nxt["due_date"] or "9999")):
-            nxt = {**cand[0], "goal_title": g["title"], "goal_kind": g["kind"]}
+    # Education comes first: study steps (lessons, courses, exams, admissions, documents) lead, then work.
+    out_goals.sort(key=lambda g: (g["status"] != "active", g["kind"] not in EDU_GOALS, -(g.get("priority") or 0)))
+    active = [g for g in out_goals if g["status"] == "active"]
+    cands = [{**s, "goal_title": g["title"], "goal_kind": g["kind"]} for g in active for s in g["steps"] if s["bucket"] == "now"]
+    cands.sort(key=lambda s: (s["kind"] not in EDU_STEPS, s["kind"] != "micro", s["due_date"] or "9999"))
+    nxt = cands[0] if cands else None
     alerts = [a for a in alerts if str(a.get("kind", "")).startswith("roadmap_")][:15]
     fresh = eng.to_dt(st.get("fresh_start_at"))
     return {
@@ -908,3 +912,24 @@ def saathi_hint(user_id: str, signals: list[dict] | None = None) -> str:
     st = _state(user_id)
     t = eng.tone(st.get("pace") or "new", signals if signals is not None else _signals(user_id))
     return TONE_HINT.get(t, "")
+
+
+def match_step(user_id: str, said: str) -> dict | None:
+    """The open step the student is talking about ("I submitted the form"), matched on its words."""
+    import re as _re
+    words = {w for w in _re.findall(r"[\w\u0900-\u097F]+", (said or "").lower()) if len(w) > 2}
+    if not words:
+        return None
+    r = get_roadmap(user_id, evaluate_first=False)
+    best, score = None, 0
+    for g in r["goals"]:
+        if g["status"] != "active":
+            continue
+        for st in g["steps"]:
+            if st["status"] == "done":
+                continue
+            text = " ".join(str(x) for x in (st.get("title"), st.get("detail"), *(ref.get("name") or "" for ref in st.get("refs") or []))).lower()
+            hit = sum(1 for w in words if w in text)
+            if hit > score:
+                best, score = st, hit
+    return best if score >= 1 else None
